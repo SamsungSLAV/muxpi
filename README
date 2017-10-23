@@ -1,0 +1,21 @@
+Directory structure:
+
+.
+│
+└── doc - overall documentation for all of the components of MuxPi
+│
+└── hw - MuxPi board design and fabrication files
+│
+└── sw - MuxPi's software
+    │
+    └── attiny - firmware for ATtiny10 microcontroller (watchdog)
+    │
+    └── cortex - firmware for STM32F030 (controller)
+    │
+    └── nanopi - configs, scripts, tools, OS recipes, etc. for NanoPi NEO
+        │
+        └── config - ansible files for configuring NanoPi NEO
+        │
+        └── os - recipes and files needed to create or download operating system for NanoPi NEO
+        │
+        └── stm - tools/libs for communicating with STM32F030 microntroller
