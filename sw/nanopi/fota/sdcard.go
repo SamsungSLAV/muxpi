@@ -21,7 +21,7 @@ import (
 	"os"
 	"time"
 
-	"git.tizen.org/tools/muxpi/stm"
+	"git.tizen.org/tools/muxpi/sw/nanopi/stm"
 	fsnotify "gopkg.in/fsnotify.v1"
 )
 

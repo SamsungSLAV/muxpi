@@ -22,7 +22,7 @@ import (
 	"log"
 	"os"
 
-	"git.tizen.org/tools/muxpi/fota"
+	"git.tizen.org/tools/muxpi/sw/nanopi/fota"
 )
 
 var (

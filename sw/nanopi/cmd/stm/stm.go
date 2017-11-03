@@ -21,7 +21,7 @@ import (
 	"log"
 	"time"
 
-	"git.tizen.org/tools/muxpi/stm"
+	"git.tizen.org/tools/muxpi/sw/nanopi/stm"
 )
 
 var (
