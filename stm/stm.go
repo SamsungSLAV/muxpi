@@ -65,6 +65,12 @@ type STM struct {
 	mux    *sync.Mutex
 }
 
+var muxPi *STM
+
+func init() {
+	muxPi = NewSTM("/dev/ttyS2", 115200)
+}
+
 // NewSTM prepares STM structure with serial configuration.
 func NewSTM(ttyPath string, baudrate int) *STM {
 	return &STM{
@@ -189,4 +195,44 @@ func (stm *STM) DUT() error {
 // and disconnect power source from a DUT.
 func (stm *STM) TS() error {
 	return stm.executeCommand("ts")
+}
+
+// Open is a convenience function for default MuxPi settings.
+func Open() error {
+	return muxPi.Open()
+}
+
+// Close is a convenience function for default MuxPi settings.
+func Close() error {
+	return muxPi.Close()
+}
+
+// PowerTick is a convenience function for default MuxPi settings.
+func PowerTick(d time.Duration) error {
+	return muxPi.PowerTick(d)
+}
+
+// SetLED is a convenience function for default MuxPi settings.
+func SetLED(led LED, r, g, b uint8) error {
+	return muxPi.SetLED(led, r, g, b)
+}
+
+// ClearDisplay is a convenience function for default MuxPi settings.
+func ClearDisplay() error {
+	return muxPi.ClearDisplay()
+}
+
+// PrintText is a convenience function for default MuxPi settings.
+func PrintText(x, y uint, color Color, text string) error {
+	return muxPi.PrintText(x, y, color, text)
+}
+
+// DUT is a convenience function for default MuxPi settings.
+func DUT() error {
+	return muxPi.DUT()
+}
+
+// TS is a convenience function for default MuxPi settings.
+func TS() error {
+	return muxPi.TS()
 }
