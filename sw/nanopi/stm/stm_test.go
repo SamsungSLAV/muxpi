@@ -1,5 +1,5 @@
 /*
- *  Copyright (c) 2017 Samsung Electronics Co., Ltd All Rights Reserved
+ *  Copyright (c) 2017-2018 Samsung Electronics Co., Ltd All Rights Reserved
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -26,57 +26,60 @@ import (
 )
 
 var _ = Describe("Stm", func() {
+	var dev InterfaceCloser
+
 	BeforeEach(func() {
-		err := Open()
+		var err error
+		dev, err = GetDefaultSTM()
 		Expect(err).ToNot(HaveOccurred())
 	})
 
 	AfterEach(func() {
-		err := Close()
+		err := dev.Close()
 		Expect(err).ToNot(HaveOccurred())
 	})
 
 	It("should switch to DUT", func() {
-		err := DUT()
+		err := dev.DUT()
 		Expect(err).ToNot(HaveOccurred())
 	})
 
 	It("should do power tick", func() {
-		err := PowerTick(time.Second)
+		err := dev.PowerTick(time.Second)
 		Expect(err).ToNot(HaveOccurred())
 	})
 
 	It("should switch to TS", func() {
-		err := TS()
+		err := dev.TS()
 		Expect(err).ToNot(HaveOccurred())
 	})
 
 	It("should clear the display", func() {
-		err := ClearDisplay()
+		err := dev.ClearDisplay()
 		Expect(err).ToNot(HaveOccurred())
 	})
 
 	It("should print text on the display", func() {
-		err := PrintText(0, 0, Foreground, "test text")
+		err := dev.PrintText(0, 0, Foreground, "test text")
 		Expect(err).ToNot(HaveOccurred())
 		time.Sleep(2 * time.Second)
-		err = PrintText(0, 0, Background, "test text")
+		err = dev.PrintText(0, 0, Background, "test text")
 		Expect(err).ToNot(HaveOccurred())
 	})
 
 	It("should blink the left LED", func() {
-		err := SetLED(LED1, 255, 255, 255)
+		err := dev.SetLED(LED1, 255, 255, 255)
 		Expect(err).ToNot(HaveOccurred())
 		time.Sleep(2 * time.Second)
-		err = SetLED(LED1, 0, 0, 0)
+		err = dev.SetLED(LED1, 0, 0, 0)
 		Expect(err).ToNot(HaveOccurred())
 	})
 
 	It("should blink the right LED", func() {
-		err := SetLED(LED2, 255, 255, 255)
+		err := dev.SetLED(LED2, 255, 255, 255)
 		Expect(err).ToNot(HaveOccurred())
 		time.Sleep(2 * time.Second)
-		err = SetLED(LED2, 0, 0, 0)
+		err = dev.SetLED(LED2, 0, 0, 0)
 		Expect(err).ToNot(HaveOccurred())
 	})
 })

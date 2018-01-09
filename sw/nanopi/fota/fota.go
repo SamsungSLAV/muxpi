@@ -1,5 +1,5 @@
 /*
- *  Copyright (c) 2017 Samsung Electronics Co., Ltd All Rights Reserved
+ *  Copyright (c) 2017-2018 Samsung Electronics Co., Ltd All Rights Reserved
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -50,22 +50,20 @@ type FOTA struct {
 	PartMapping map[string]string
 	// verbose allows logging to default log.Logger instance or prevents it if false.
 	verbose bool
+	// dev is interface to STM.
+	dev stm.Interface
 }
 
 // NewFOTA returns new instance of FOTA. It also opens connection to STM.
-func NewFOTA(URLs []string, md5sums string, sdcard string, partMapping map[string]string) (*FOTA, error) {
+func NewFOTA(dev stm.Interface, URLs []string, md5sums string, sdcard string, partMapping map[string]string) *FOTA {
 	return &FOTA{
 		URLs:        URLs,
 		md5sums:     md5sums,
 		checksums:   make(map[string]string),
 		SDcard:      sdcard,
 		PartMapping: partMapping,
-	}, stm.Open()
-}
-
-// Close releases FOTA resources.
-func (fota *FOTA) Close() error {
-	return stm.Close()
+		dev:         dev,
+	}
 }
 
 // SetVerbose increases logging of FOTA actions.

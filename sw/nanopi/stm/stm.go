@@ -65,10 +65,32 @@ type STM struct {
 	mux    *sync.Mutex
 }
 
-var muxPi *STM
+// UserInterface contains methods of STM that are intended to
+// be used by a regular user and admin.
+type UserInterface interface {
+	PowerTick(d time.Duration) (err error)
+	DUT() (err error)
+	TS() (err error)
+}
 
-func init() {
-	muxPi = NewSTM("/dev/ttyS2", 115200)
+// AdminInterface contains methods of STM that are intended to
+// be used by administrators only.
+type AdminInterface interface {
+	SetLED(led LED, r, g, b uint8) (err error)
+	ClearDisplay() (err error)
+	PrintText(x, y uint, color Color, text string) (err error)
+}
+
+// Interface contains all methods of STM.
+type Interface interface {
+	UserInterface
+	AdminInterface
+}
+
+// InterfaceCloser is Interface expanded by Close method.
+type InterfaceCloser interface {
+	Interface
+	Close() error
 }
 
 // NewSTM prepares STM structure with serial configuration.
@@ -83,6 +105,18 @@ func NewSTM(ttyPath string, baudrate int) *STM {
 		},
 		mux: new(sync.Mutex),
 	}
+}
+
+// GetDefaultSTM provides InterfaceCloser to STM with default values. The caller should call Close()
+// to free the underlying serial connection. The returned instance is different for each call. Care
+// should be taken to not use two such objects concurrently as they use the same device.
+func GetDefaultSTM() (InterfaceCloser, error) {
+	stm := NewSTM("/dev/ttyS2", 115200)
+	err := stm.Open()
+	if err != nil {
+		return nil, err
+	}
+	return stm, err
 }
 
 // Open starts a serial connection.
@@ -195,44 +229,4 @@ func (stm *STM) DUT() error {
 // and disconnect power source from a DUT.
 func (stm *STM) TS() error {
 	return stm.executeCommand("ts")
-}
-
-// Open is a convenience function for default MuxPi settings.
-func Open() error {
-	return muxPi.Open()
-}
-
-// Close is a convenience function for default MuxPi settings.
-func Close() error {
-	return muxPi.Close()
-}
-
-// PowerTick is a convenience function for default MuxPi settings.
-func PowerTick(d time.Duration) error {
-	return muxPi.PowerTick(d)
-}
-
-// SetLED is a convenience function for default MuxPi settings.
-func SetLED(led LED, r, g, b uint8) error {
-	return muxPi.SetLED(led, r, g, b)
-}
-
-// ClearDisplay is a convenience function for default MuxPi settings.
-func ClearDisplay() error {
-	return muxPi.ClearDisplay()
-}
-
-// PrintText is a convenience function for default MuxPi settings.
-func PrintText(x, y uint, color Color, text string) error {
-	return muxPi.PrintText(x, y, color, text)
-}
-
-// DUT is a convenience function for default MuxPi settings.
-func DUT() error {
-	return muxPi.DUT()
-}
-
-// TS is a convenience function for default MuxPi settings.
-func TS() error {
-	return muxPi.TS()
 }

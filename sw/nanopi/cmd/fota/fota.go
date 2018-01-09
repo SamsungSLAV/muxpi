@@ -1,5 +1,5 @@
 /*
- *  Copyright (c) 2017 Samsung Electronics Co., Ltd All Rights Reserved
+ *  Copyright (c) 2017-2018 Samsung Electronics Co., Ltd All Rights Reserved
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -23,6 +23,7 @@ import (
 	"os"
 
 	"git.tizen.org/tools/muxpi/sw/nanopi/fota"
+	"git.tizen.org/tools/muxpi/sw/nanopi/stm"
 )
 
 var (
@@ -71,15 +72,17 @@ func main() {
 	decoder := json.NewDecoder(f)
 	checkErr("failed to decode the mapping: ", decoder.Decode(&partMapping))
 
-	flasher, err := fota.NewFOTA(flag.Args(), md5sums, sdcard, partMapping)
-	checkErr("failed to initialize FOTA: ", err)
-	defer flasher.Close()
+	dev, err := stm.GetDefaultSTM()
+	checkErr("failed to connect to STM: ", err)
+	defer dev.Close()
+
+	flasher := fota.NewFOTA(dev, flag.Args(), md5sums, sdcard, partMapping)
 	if !quiet {
 		flasher.SetVerbose()
 	}
 	verbose("FOTA initialized")
 
-	checkErr("SDcard not found: ", fota.WaitForSDcard(sdcard, 10))
+	checkErr("SDcard not found: ", fota.WaitForSDcard(dev, sdcard, 10))
 	verbose("SDcard detected")
 	checkErr("failed to flash images: ", flasher.DownloadAndFlash())
 }

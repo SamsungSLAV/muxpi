@@ -1,5 +1,5 @@
 /*
- *  Copyright (c) 2017 Samsung Electronics Co., Ltd All Rights Reserved
+ *  Copyright (c) 2017-2018 Samsung Electronics Co., Ltd All Rights Reserved
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -46,8 +46,9 @@ func main() {
 	setFlags()
 	flag.Parse()
 
-	checkErr("failed to open connection to STM:", stm.Open())
-	defer stm.Close()
+	dev, err := stm.GetDefaultSTM()
+	checkErr("failed to open connection to dev:", err)
+	defer dev.Close()
 
 	// SD card multiplexer related actions.
 	switch {
@@ -55,11 +56,11 @@ func main() {
 	case ts && dut:
 		log.Fatal("conflicting flags: DUT and TS")
 	case ts:
-		checkErr("failed to switch to the test server: ", stm.TS())
+		checkErr("failed to switch to the test server: ", dev.TS())
 	case dut:
-		checkErr("failed to switch to the DUT: ", stm.DUT())
+		checkErr("failed to switch to the DUT: ", dev.DUT())
 	}
 	if tick {
-		checkErr("failed to tick the power supply: ", stm.PowerTick(tickDuration))
+		checkErr("failed to tick the power supply: ", dev.PowerTick(tickDuration))
 	}
 }

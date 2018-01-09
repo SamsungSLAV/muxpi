@@ -1,5 +1,5 @@
 /*
- *  Copyright (c) 2017 Samsung Electronics Co., Ltd All Rights Reserved
+ *  Copyright (c) 2017-2018 Samsung Electronics Co., Ltd All Rights Reserved
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -51,7 +51,7 @@ func checkFile(filename string) (bool, error) {
 // WaitForSDcard checks if an SDcard is present in the system and returns.
 // If card is not found it restarts it by DUT -> TS switch and tries again until
 // number of retryCount is exceeded (then it returns an error).
-func WaitForSDcard(sdcard string, retryCount int) error {
+func WaitForSDcard(dev stm.Interface, sdcard string, retryCount int) error {
 	watcher, err := fsnotify.NewWatcher()
 	if err != nil {
 		return fmt.Errorf("starting watcher failed: %s", err)
@@ -76,13 +76,13 @@ func WaitForSDcard(sdcard string, retryCount int) error {
 			return nil
 		}
 
-		err = stm.DUT()
+		err = dev.DUT()
 		if err != nil {
 			return fmt.Errorf("failed to DUT: %s", err)
 		}
 		// It is good to make sure that it is completely disconnected from the reader.
 		time.Sleep(2 * time.Second)
-		err = stm.TS()
+		err = dev.TS()
 		if err != nil {
 			return fmt.Errorf("failed to TS: %s", err)
 		}
