@@ -1,0 +1,11 @@
+[Unit]
+Description=STM RPC
+Requires=stm-user.socket
+Requires=stm.socket
+
+[Service]
+ExecStart=/usr/bin/stm -serve
+KillSignal=SIGINT
+
+[Install]
+WantedBy=multi-user.target
