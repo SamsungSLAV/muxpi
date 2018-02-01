@@ -1,5 +1,5 @@
 /*
- *  Copyright (c) 2017 Samsung Electronics Co., Ltd All Rights Reserved
+ *  Copyright (c) 2017-2018 Samsung Electronics Co., Ltd All Rights Reserved
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -42,7 +42,7 @@ const (
 	// Foreground is displayed as orange, usually (255, 128, 0) in RGB notation.
 	Foreground Color = "on"
 	// Background is black, no pixels are lighted.
-	Background = "off"
+	Background Color = "off"
 )
 
 // LED represents all LEDs available via STM.
@@ -52,7 +52,7 @@ const (
 	// LED1 is an RGB LED located in the bottom-left corner of MuxPi.
 	LED1 LED = "1"
 	// LED2 is an RGB LED located on the right of the OLED display.
-	LED2 = "2"
+	LED2 LED = "2"
 )
 
 // STM provides methods to execute commands via serial interface.
