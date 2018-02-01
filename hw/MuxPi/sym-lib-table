@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name MuxPi)(type Legacy)(uri ${KIPRJMOD}/MuxPi.lib)(options "")(descr ""))
+)
