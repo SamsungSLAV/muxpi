@@ -18,6 +18,7 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"log"
 	"time"
 
@@ -27,6 +28,7 @@ import (
 var (
 	ts, dut, tick bool
 	tickDuration  time.Duration
+	cur           bool
 )
 
 func setFlags() {
@@ -34,6 +36,7 @@ func setFlags() {
 	flag.BoolVar(&ts, "ts", false, "connect SD card to test server")
 	flag.BoolVar(&dut, "dut", false, "connect SD card to DUT")
 	flag.BoolVar(&tick, "tick", false, "power off the DUT, wait 'm' seconds and switch it on again")
+	flag.BoolVar(&cur, "cur", false, "get reading of the current drawn by DUT")
 }
 
 func checkErr(ctx string, err error) {
@@ -62,5 +65,10 @@ func main() {
 	}
 	if tick {
 		checkErr("failed to tick the power supply: ", dev.PowerTick(tickDuration))
+	}
+	if cur {
+		i, err := dev.GetCurrent()
+		checkErr("failed to read the power consumption: ", err)
+		fmt.Println(i)
 	}
 }

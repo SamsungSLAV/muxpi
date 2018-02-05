@@ -21,6 +21,7 @@ import (
 	"bufio"
 	"fmt"
 	"io"
+	"strconv"
 	"strings"
 	"sync"
 	"time"
@@ -71,6 +72,7 @@ type UserInterface interface {
 	PowerTick(d time.Duration) (err error)
 	DUT() (err error)
 	TS() (err error)
+	GetCurrent() (value int, err error)
 }
 
 // AdminInterface contains methods of STM that are intended to
@@ -150,6 +152,28 @@ func (stm *STM) readResponse() (string, error) {
 	return string(response), nil
 }
 
+// sendAndReceive writes cmd, optionally reads a response if withResponse is set to true,
+// and checks for confirmation of successful execution.
+func (stm *STM) sendAndReceive(cmd string, withResponse bool) (response string, err error) {
+	stm.mux.Lock()
+	defer stm.mux.Unlock()
+	_, err = io.WriteString(stm.port, cmd+"\n")
+	if err != nil {
+		return "", fmt.Errorf("failed to write a command: %s", err)
+	}
+	if withResponse {
+		response, err = stm.readResponse()
+		if err != nil {
+			return "", err
+		}
+	}
+	err = stm.checkOK()
+	if err != nil {
+		return "", err
+	}
+	return response, nil
+}
+
 // checkOK reads a line from the buffer and rises an error
 // if it is not an expected confirmation response.
 //
@@ -165,15 +189,10 @@ func (stm *STM) checkOK() error {
 	return nil
 }
 
-// executeCommand sends a prepared cmd string and checks the response.
+// executeCommand sends a prepared cmd string and checks for OK response.
 func (stm *STM) executeCommand(cmd string) (err error) {
-	stm.mux.Lock()
-	defer stm.mux.Unlock()
-	_, err = io.WriteString(stm.port, cmd+"\n")
-	if err != nil {
-		return fmt.Errorf("failed to write a command: %s", err)
-	}
-	return stm.checkOK()
+	_, err = stm.sendAndReceive(cmd, false)
+	return
 }
 
 // noEcho requires special handling as there are more possible responses.
@@ -229,4 +248,18 @@ func (stm *STM) DUT() error {
 // and disconnect power source from a DUT.
 func (stm *STM) TS() error {
 	return stm.executeCommand("ts")
+}
+
+// GetCurrent reads value of current drawn by DUT.
+// The value is in milliamperes [mA].
+func (stm *STM) GetCurrent() (int, error) {
+	str, err := stm.sendAndReceive("current", true)
+	if err != nil {
+		return 0, err
+	}
+	i, err := strconv.Atoi(str)
+	if err != nil {
+		return 0, err
+	}
+	return i, nil
 }
