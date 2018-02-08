@@ -1,0 +1,73 @@
+/*
+ *  Copyright (c) 2018 Samsung Electronics Co., Ltd All Rights Reserved
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License
+ */
+
+package main
+
+import (
+	"log"
+	"net"
+	"net/rpc"
+	"os"
+	"os/signal"
+
+	"git.tizen.org/tools/muxpi/sw/nanopi/stm"
+)
+
+func registerUserServiceOnListener(impl stm.UserInterface, l net.Listener) {
+	srv := rpc.NewServer()
+	checkErr("failed to register user service: ", stm.RegisterUserInterfaceService(srv, impl))
+	go srv.Accept(l)
+}
+
+func registerServiceOnListener(impl stm.Interface, l net.Listener) {
+	srv := rpc.NewServer()
+	checkErr("failed to register admin service: ", stm.RegisterInterfaceService(srv, impl))
+	go srv.Accept(l)
+}
+
+func registerUserService(i stm.UserInterface, path string) net.Listener {
+	l, err := net.Listen("unix", path)
+	if err != nil {
+		log.Fatal("failed to bind a socket: ", err)
+	}
+	registerUserServiceOnListener(i, l)
+	return l
+}
+
+func registerService(i stm.Interface, path string) net.Listener {
+	l, err := net.Listen("unix", path)
+	if err != nil {
+		log.Fatal("failed to bind a socket: ", err)
+	}
+	registerServiceOnListener(i, l)
+	return l
+}
+
+func serveRemoteSTM(dev stm.Interface) {
+	if userServiceSocket != "" {
+		l := registerUserService(dev.(stm.UserInterface), userServiceSocket)
+		defer l.Close()
+	}
+	if serviceSocket != "" {
+		l := registerService(dev, serviceSocket)
+		defer l.Close()
+	}
+
+	// Wait for interrupt.
+	c := make(chan os.Signal, 1)
+	signal.Notify(c)
+	<-c
+}

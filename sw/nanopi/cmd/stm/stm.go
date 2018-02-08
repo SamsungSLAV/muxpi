@@ -18,25 +18,24 @@ package main
 
 import (
 	"flag"
-	"fmt"
 	"log"
-	"time"
+	"net/rpc"
 
 	"git.tizen.org/tools/muxpi/sw/nanopi/stm"
 )
 
 var (
-	ts, dut, tick bool
-	tickDuration  time.Duration
-	cur           bool
+	userServiceSocket string
+	serviceSocket     string
+	serve             bool
+	remote            string
 )
 
-func setFlags() {
-	flag.DurationVar(&tickDuration, "m", time.Second, "time delay for tick command")
-	flag.BoolVar(&ts, "ts", false, "connect SD card to test server")
-	flag.BoolVar(&dut, "dut", false, "connect SD card to DUT")
-	flag.BoolVar(&tick, "tick", false, "power off the DUT, wait 'm' seconds and switch it on again")
-	flag.BoolVar(&cur, "cur", false, "get reading of the current drawn by DUT")
+func setGlobalFlags() {
+	flag.StringVar(&userServiceSocket, "user-listen", "/run/stm-user.socket", "path to socket on which user RPC interface will be served")
+	flag.StringVar(&serviceSocket, "listen", "/run/stm.socket", "path to socket on which user and admin RPC interface will be served")
+	flag.BoolVar(&serve, "serve", false, "start RPC service")
+	flag.StringVar(&remote, "remote", "", "path to socket to use as a RPC service instead of local connection")
 }
 
 func checkErr(ctx string, err error) {
@@ -46,29 +45,40 @@ func checkErr(ctx string, err error) {
 }
 
 func main() {
-	setFlags()
+	allCommands := []command{
+		new(multiplexer),
+		new(cutter),
+		new(current),
+	}
+	for _, cmd := range allCommands {
+		cmd.setFlags()
+	}
+	setGlobalFlags()
 	flag.Parse()
 
-	dev, err := stm.GetDefaultSTM()
-	checkErr("failed to open connection to dev:", err)
+	if (remote != "") && serve {
+		log.Fatal("conflicting flags: serve and remote")
+	}
+
+	var dev stm.InterfaceCloser
+	if remote != "" {
+		cl, err := rpc.Dial("unix", remote)
+		checkErr("failed to connect to RPC service: ", err)
+
+		dev = stm.NewInterfaceClient(cl)
+	} else {
+		var err error
+		dev, err = stm.GetDefaultSTM()
+		checkErr("failed to connect to STM: ", err)
+	}
 	defer dev.Close()
 
-	// SD card multiplexer related actions.
-	switch {
-	// Only one is allowed at a time.
-	case ts && dut:
-		log.Fatal("conflicting flags: DUT and TS")
-	case ts:
-		checkErr("failed to switch to the test server: ", dev.TS())
-	case dut:
-		checkErr("failed to switch to the DUT: ", dev.DUT())
+	if serve {
+		serveRemoteSTM(dev)
+		return
 	}
-	if tick {
-		checkErr("failed to tick the power supply: ", dev.PowerTick(tickDuration))
-	}
-	if cur {
-		i, err := dev.GetCurrent()
-		checkErr("failed to read the power consumption: ", err)
-		fmt.Println(i)
+
+	for _, cmd := range allCommands {
+		cmd.run(dev)
 	}
 }
