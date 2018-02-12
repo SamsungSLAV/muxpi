@@ -16,7 +16,7 @@ whole platform for specific target devices.
    :caption: Resources:
 
    project-overview.txt
-
+   hw-overview.txt
 
 Indices and tables
 ==================
