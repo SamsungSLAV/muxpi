@@ -1,0 +1,9 @@
+Files in this directory were created using KiCad nightly build. The reason for
+usage of nightly build is availability of more extensive libraries and better
+tools.
+
+On Debian-based Linux distributions you can do the following::
+
+  sudo add-apt-repository ppa:js-reynaud/ppa-kicad
+  sudo apt-get update
+  sudo apt-get install kicad kicad-library
