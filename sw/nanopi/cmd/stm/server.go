@@ -24,6 +24,7 @@ import (
 	"os/signal"
 
 	"git.tizen.org/tools/muxpi/sw/nanopi/stm"
+	"github.com/coreos/go-systemd/activation"
 )
 
 func registerUserServiceOnListener(impl stm.UserInterface, l net.Listener) {
@@ -57,13 +58,31 @@ func registerService(i stm.Interface, path string) net.Listener {
 }
 
 func serveRemoteSTM(dev stm.Interface) {
-	if userServiceSocket != "" {
-		l := registerUserService(dev.(stm.UserInterface), userServiceSocket)
-		defer l.Close()
-	}
-	if serviceSocket != "" {
-		l := registerService(dev, serviceSocket)
-		defer l.Close()
+	listeners, err := activation.Listeners()
+	if err != nil {
+		if userServiceSocket != "" {
+			l := registerUserService(dev.(stm.UserInterface), userServiceSocket)
+			defer l.Close()
+		}
+		if serviceSocket != "" {
+			l := registerService(dev, serviceSocket)
+			defer l.Close()
+		}
+	} else if len(listeners) == 2 {
+		for _, l := range listeners {
+			name := l.Addr().String()
+			switch {
+			case serviceSocket != "" && name == serviceSocket:
+				registerServiceOnListener(dev, l)
+			case userServiceSocket != "" && name == userServiceSocket:
+				registerUserServiceOnListener(dev.(stm.UserInterface), l)
+			default:
+				log.Fatal("unknown fd name: ", name)
+			}
+			defer l.Close()
+		}
+	} else {
+		log.Fatal("unexpected number of file descriptors passed: ", len(listeners))
 	}
 
 	// Wait for interrupt.
