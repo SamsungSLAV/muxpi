@@ -20,6 +20,7 @@ import (
 	"encoding/json"
 	"flag"
 	"log"
+	"net/rpc"
 	"os"
 
 	"git.tizen.org/tools/muxpi/sw/nanopi/fota"
@@ -31,6 +32,8 @@ var (
 	mapping string
 	md5sums string
 	quiet   bool
+
+	remote string
 )
 
 func setFlags() {
@@ -39,6 +42,8 @@ func setFlags() {
 	flag.StringVar(&mapping, "map", "", "path to JSON formatted mapping")
 	flag.StringVar(&md5sums, "md5", "", "URL to MD5SUMS file")
 	flag.BoolVar(&quiet, "q", false, "suppress logging")
+
+	flag.StringVar(&remote, "remote", "", "path to remote service socket")
 }
 
 func checkErr(ctx string, err error) {
@@ -72,8 +77,15 @@ func main() {
 	decoder := json.NewDecoder(f)
 	checkErr("failed to decode the mapping: ", decoder.Decode(&partMapping))
 
-	dev, err := stm.GetDefaultSTM()
-	checkErr("failed to connect to STM: ", err)
+	var dev stm.InterfaceCloser
+	if remote != "" {
+		cl, err := rpc.Dial("unix", remote)
+		checkErr("failed to connect to RPC service: ", err)
+		dev = stm.NewInterfaceClient(cl)
+	} else {
+		dev, err = stm.GetDefaultSTM()
+		checkErr("failed to connect to STM: ", err)
+	}
 	defer dev.Close()
 
 	flasher := fota.NewFOTA(dev, flag.Args(), md5sums, sdcard, partMapping)
