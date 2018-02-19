@@ -80,6 +80,51 @@ func (s *InterfaceService) GetCurrent(request *InterfaceGetCurrentRequest, respo
 	return
 }
 
+// InterfaceStartCurrentRecordRequest is a helper structure for StartCurrentRecord method.
+type InterfaceStartCurrentRecordRequest struct {
+	Samples  int
+	Interval time.Duration
+}
+
+// InterfaceStartCurrentRecordResponse is a helper structure for StartCurrentRecord method.
+type InterfaceStartCurrentRecordResponse struct {
+}
+
+// StartCurrentRecord is RPC implementation of StartCurrentRecord calling it.
+func (s *InterfaceService) StartCurrentRecord(request *InterfaceStartCurrentRecordRequest, response *InterfaceStartCurrentRecordResponse) (err error) {
+	err = s.impl.StartCurrentRecord(request.Samples, request.Interval)
+	return
+}
+
+// InterfaceStopCurrentRecordRequest is a helper structure for StopCurrentRecord method.
+type InterfaceStopCurrentRecordRequest struct {
+}
+
+// InterfaceStopCurrentRecordResponse is a helper structure for StopCurrentRecord method.
+type InterfaceStopCurrentRecordResponse struct {
+}
+
+// StopCurrentRecord is RPC implementation of StopCurrentRecord calling it.
+func (s *InterfaceService) StopCurrentRecord(request *InterfaceStopCurrentRecordRequest, response *InterfaceStopCurrentRecordResponse) (err error) {
+	err = s.impl.StopCurrentRecord()
+	return
+}
+
+// InterfaceGetCurrentRecordRequest is a helper structure for GetCurrentRecord method.
+type InterfaceGetCurrentRecordRequest struct {
+}
+
+// InterfaceGetCurrentRecordResponse is a helper structure for GetCurrentRecord method.
+type InterfaceGetCurrentRecordResponse struct {
+	Samples []int
+}
+
+// GetCurrentRecord is RPC implementation of GetCurrentRecord calling it.
+func (s *InterfaceService) GetCurrentRecord(request *InterfaceGetCurrentRecordRequest, response *InterfaceGetCurrentRecordResponse) (err error) {
+	response.Samples, err = s.impl.GetCurrentRecord()
+	return
+}
+
 // InterfaceSetLEDRequest is a helper structure for SetLED method.
 type InterfaceSetLEDRequest struct {
 	Led     LED
@@ -178,6 +223,30 @@ func (_c *InterfaceClient) GetCurrent() (value int, err error) {
 	_response := &InterfaceGetCurrentResponse{}
 	err = _c.client.Call("Interface.GetCurrent", _request, _response)
 	return _response.Value, err
+}
+
+// StartCurrentRecord is part of implementation of Interface calling corresponding method on RPC server.
+func (_c *InterfaceClient) StartCurrentRecord(samples int, interval time.Duration) (err error) {
+	_request := &InterfaceStartCurrentRecordRequest{samples, interval}
+	_response := &InterfaceStartCurrentRecordResponse{}
+	err = _c.client.Call("Interface.StartCurrentRecord", _request, _response)
+	return err
+}
+
+// StopCurrentRecord is part of implementation of Interface calling corresponding method on RPC server.
+func (_c *InterfaceClient) StopCurrentRecord() (err error) {
+	_request := &InterfaceStopCurrentRecordRequest{}
+	_response := &InterfaceStopCurrentRecordResponse{}
+	err = _c.client.Call("Interface.StopCurrentRecord", _request, _response)
+	return err
+}
+
+// GetCurrentRecord is part of implementation of Interface calling corresponding method on RPC server.
+func (_c *InterfaceClient) GetCurrentRecord() (samples []int, err error) {
+	_request := &InterfaceGetCurrentRecordRequest{}
+	_response := &InterfaceGetCurrentRecordResponse{}
+	err = _c.client.Call("Interface.GetCurrentRecord", _request, _response)
+	return _response.Samples, err
 }
 
 // SetLED is part of implementation of Interface calling corresponding method on RPC server.

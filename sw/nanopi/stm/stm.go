@@ -35,6 +35,9 @@ import (
 const (
 	respOK     = "OK"
 	retryLimit = 8
+
+	sampleSizeLimit   = 120960000            // 100 samples/s over 2 weeks
+	samplePeriodLimit = 3 * time.Millisecond // 333 Hz (444 Hz is achievable)
 )
 
 // Color denotes a string representation of a color accepted by STM.
@@ -67,6 +70,12 @@ type STM struct {
 	port   *serial.Port
 	reader *bufio.Reader
 	mux    *sync.Mutex
+
+	// sample recording related fields
+	sample       []int
+	sampleTicker *time.Ticker
+	sampleStop   chan struct{}
+	sampleMux    *sync.Mutex
 }
 
 // UserInterface contains methods of STM that are intended to
@@ -76,6 +85,9 @@ type UserInterface interface {
 	DUT() (err error)
 	TS() (err error)
 	GetCurrent() (value int, err error)
+	StartCurrentRecord(samples int, interval time.Duration) (err error)
+	StopCurrentRecord() (err error)
+	GetCurrentRecord() (samples []int, err error)
 }
 
 // AdminInterface contains methods of STM that are intended to
@@ -108,7 +120,8 @@ func NewSTM(ttyPath string, baudrate int) *STM {
 			Parity:   serial.ParityNone,
 			StopBits: serial.Stop1,
 		},
-		mux: new(sync.Mutex),
+		mux:       new(sync.Mutex),
+		sampleMux: new(sync.Mutex),
 	}
 }
 
@@ -265,4 +278,102 @@ func (stm *STM) GetCurrent() (int, error) {
 		return 0, err
 	}
 	return i, nil
+}
+
+// sampleGetCurrent is a helper function of sampleGetCurrentLoop.
+func (stm *STM) sampleGetCurrent(stop <-chan struct{}) bool {
+	stm.sampleMux.Lock()
+	defer stm.sampleMux.Unlock()
+	select {
+	case <-stop:
+		// A tick from ticker has been read before entering
+		// the critical section, but the goroutine was requested
+		// to stop (when waiting on mutex).
+		//
+		// It prevents from appending to the new sample when
+		// the sample recorder is replaced.
+		return false
+	default:
+	}
+
+	v, err := stm.GetCurrent()
+	if err != nil {
+		// replace failed reads with -1 so that successful reads will be spaced properly.
+		v = -1
+		// The error is ignored.
+	}
+	stm.sample = append(stm.sample, v)
+	return len(stm.sample) < cap(stm.sample)
+}
+
+// sampleGetCurrentLoop reads from ticker and stop channels.
+// It is stopped by closing a stop channel.
+func (stm *STM) sampleGetCurrentLoop(stop <-chan struct{}, ticker *time.Ticker) {
+	for process := true; process; process = stm.sampleGetCurrent(stop) {
+		select {
+		case <-stop:
+			// sampleTicker has been stopped (before a tick occurred)
+			// and this goroutine should terminate.
+			return
+		case <-ticker.C:
+		}
+	}
+}
+
+// stopCurrentRecord stops the sampleGetCurrentLoop. The caller should own sampleMux.
+// It is a helper function of StartCurrentRecord and StopCurrentRecord.
+func (stm *STM) stopCurrentRecord() {
+	if stm.sampleTicker == nil {
+		return
+	}
+	stm.sampleTicker.Stop()
+	close(stm.sampleStop)
+	stm.sampleTicker = nil
+}
+
+// StartCurrentRecord starts a goroutine that periodically calls GetCurrent and saves the returned
+// value. User who wants more samples should periodically call GetCurrent() instead.
+func (stm *STM) StartCurrentRecord(samples int, interval time.Duration) (err error) {
+	if samples > sampleSizeLimit {
+		return fmt.Errorf("requested sample size is too big")
+	}
+	period := interval / time.Duration(samples) // integer or floating point operations?
+	if period < samplePeriodLimit {
+		return fmt.Errorf("requested period time is too small: %v", period)
+	}
+
+	stm.sampleMux.Lock()
+	defer stm.sampleMux.Unlock()
+
+	// Check if there is already sample recording in progress.
+	stm.stopCurrentRecord()
+
+	stm.sample = make([]int, 0, samples)
+	stm.sampleTicker = time.NewTicker(period)
+	stm.sampleStop = make(chan struct{}, 1)
+
+	go stm.sampleGetCurrentLoop(stm.sampleStop, stm.sampleTicker)
+
+	return nil
+}
+
+// StopCurrentRecord stops the goroutine that records the sample.
+func (stm *STM) StopCurrentRecord() (err error) {
+	stm.sampleMux.Lock()
+	defer stm.sampleMux.Unlock()
+
+	stm.stopCurrentRecord()
+	return nil
+}
+
+// GetCurrentRecord returns all samples of GetCurrent made.
+// It may be called before StopCurrentRecord.
+func (stm *STM) GetCurrentRecord() (samples []int, err error) {
+	stm.sampleMux.Lock()
+	defer stm.sampleMux.Unlock()
+
+	if stm.sample == nil {
+		return nil, fmt.Errorf("no sample was recorded")
+	}
+	return stm.sample, nil
 }
