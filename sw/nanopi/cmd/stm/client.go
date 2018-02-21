@@ -20,6 +20,7 @@ import (
 	"flag"
 	"fmt"
 	"log"
+	"strings"
 	"time"
 
 	"git.tizen.org/tools/muxpi/sw/nanopi/stm"
@@ -69,17 +70,64 @@ func (c *cutter) run(dev stm.Interface) {
 }
 
 type current struct {
-	cur bool
+	cur                                bool
+	sampleStart, sampleStop, sampleGet bool
+	sampleSize                         int
+	sampleDuration                     time.Duration
 }
 
 func (c *current) setFlags() {
 	flag.BoolVar(&c.cur, "cur", false, "get reading of the current drawn by DUT")
+	flag.BoolVar(&c.sampleStart, "cur-start", false, "start sampling DUT current")
+	flag.BoolVar(&c.sampleStop, "cur-stop", false, "stop sampling DUT current")
+	flag.BoolVar(&c.sampleGet, "cur-get", false, "get CSV of sample recorded")
+	flag.IntVar(&c.sampleSize, "cur-size", 120, "sample size")
+	flag.DurationVar(&c.sampleDuration, "cur-duration", time.Minute, "duration the sample should be recorded for")
 }
+
 func (c *current) run(dev stm.Interface) {
 	if c.cur {
 		i, err := dev.GetCurrent()
 		checkErr("failed to read the power consumption: ", err)
 		fmt.Println(i)
+	}
+
+	// Nothing to do.
+	if !(c.sampleStart || c.sampleStop || c.sampleGet) {
+		return
+	}
+	// Impose restriction: remote flag must be used.
+	if remote == "" {
+		log.Fatal("sample recording functions can be used only with \"-remote\" flag set")
+	}
+
+	switch {
+	// Only one is allowed at a time.
+	case c.sampleStart && c.sampleStop:
+		log.Fatal("conflicting flags: cur-start and cur-stop")
+	case c.sampleStart:
+		checkErr("failed to start sampling: ", dev.StartCurrentRecord(c.sampleSize, c.sampleDuration))
+	case c.sampleStop:
+		checkErr("failed to stop sampling: ", dev.StopCurrentRecord())
+	}
+	if c.sampleGet {
+		sample, err := dev.GetCurrentRecord()
+		checkErr("failed to get a sample: ", err)
+
+		switch len(sample) {
+		case 0:
+		case 1:
+			fmt.Printf("%d\n", sample[0])
+		default:
+			b := new(strings.Builder)
+			// 3 to 4 digits and a comma are expected for each element of the sample.
+			b.Grow(len(sample) * 4)
+			fmt.Fprintf(b, "%d", sample[0])
+			for _, s := range sample[1:] {
+				fmt.Fprintf(b, ",%d", s)
+			}
+			fmt.Println(b)
+		}
 	}
 }
 
