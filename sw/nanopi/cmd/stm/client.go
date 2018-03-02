@@ -179,3 +179,56 @@ func (l *leds) run(dev stm.Interface) {
 		l.setLED(dev, l.led2, stm.LED2)
 	}
 }
+
+func getBoolState(name, state string) (bool, error) {
+	switch state {
+	case "on":
+		return true, nil
+	case "off":
+		return false, nil
+	}
+	return false, fmt.Errorf("unexpected value provided to %s: %s", name, state)
+}
+
+type switches struct {
+	dyper1State string
+	dyper2State string
+	hdmiState   string
+}
+
+func (s *switches) setFlags() {
+	flag.StringVar(&s.dyper1State, "dyper1", "", "switch dyper1 to the given state (on|off)")
+	flag.StringVar(&s.dyper2State, "dyper2", "", "switch dyper2 to the given state (on|off)")
+	flag.StringVar(&s.hdmiState, "hdmi", "", "switch HDMI HOTPLUG pin (on|off)")
+}
+
+func (s *switches) setDyper(dev stm.Interface, dyper stm.Dyper, state string) {
+	if state == "" {
+		return
+	}
+	b, err := getBoolState("dyper", state)
+	if err != nil {
+		log.Println(err)
+		return
+	}
+	dev.SetDyper(dyper, b)
+}
+
+func (s *switches) setHDMI(dev stm.Interface, state string) {
+	if state == "" {
+		return
+	}
+	b, err := getBoolState("hdmi", state)
+	if err != nil {
+		log.Println(err)
+		return
+	}
+	dev.HDMI(b)
+}
+
+func (s *switches) run(dev stm.Interface) {
+	s.setDyper(dev, stm.DYPER1, s.dyper1State)
+	s.setDyper(dev, stm.DYPER2, s.dyper2State)
+
+	s.setHDMI(dev, s.hdmiState)
+}

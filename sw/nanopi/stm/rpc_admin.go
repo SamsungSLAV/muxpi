@@ -125,6 +125,37 @@ func (s *InterfaceService) GetCurrentRecord(request *InterfaceGetCurrentRecordRe
 	return
 }
 
+// InterfaceHDMIRequest is a helper structure for HDMI method.
+type InterfaceHDMIRequest struct {
+	On bool
+}
+
+// InterfaceHDMIResponse is a helper structure for HDMI method.
+type InterfaceHDMIResponse struct {
+}
+
+// HDMI is RPC implementation of HDMI calling it.
+func (s *InterfaceService) HDMI(request *InterfaceHDMIRequest, response *InterfaceHDMIResponse) (err error) {
+	err = s.impl.HDMI(request.On)
+	return
+}
+
+// InterfaceSetDyperRequest is a helper structure for SetDyper method.
+type InterfaceSetDyperRequest struct {
+	Dyper Dyper
+	On    bool
+}
+
+// InterfaceSetDyperResponse is a helper structure for SetDyper method.
+type InterfaceSetDyperResponse struct {
+}
+
+// SetDyper is RPC implementation of SetDyper calling it.
+func (s *InterfaceService) SetDyper(request *InterfaceSetDyperRequest, response *InterfaceSetDyperResponse) (err error) {
+	err = s.impl.SetDyper(request.Dyper, request.On)
+	return
+}
+
 // InterfaceSetLEDRequest is a helper structure for SetLED method.
 type InterfaceSetLEDRequest struct {
 	Led     LED
@@ -247,6 +278,22 @@ func (_c *InterfaceClient) GetCurrentRecord() (samples []int, err error) {
 	_response := &InterfaceGetCurrentRecordResponse{}
 	err = _c.client.Call("Interface.GetCurrentRecord", _request, _response)
 	return _response.Samples, err
+}
+
+// HDMI is part of implementation of Interface calling corresponding method on RPC server.
+func (_c *InterfaceClient) HDMI(on bool) (err error) {
+	_request := &InterfaceHDMIRequest{on}
+	_response := &InterfaceHDMIResponse{}
+	err = _c.client.Call("Interface.HDMI", _request, _response)
+	return err
+}
+
+// SetDyper is part of implementation of Interface calling corresponding method on RPC server.
+func (_c *InterfaceClient) SetDyper(dyper Dyper, on bool) (err error) {
+	_request := &InterfaceSetDyperRequest{dyper, on}
+	_response := &InterfaceSetDyperResponse{}
+	err = _c.client.Call("Interface.SetDyper", _request, _response)
+	return err
 }
 
 // SetLED is part of implementation of Interface calling corresponding method on RPC server.

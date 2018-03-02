@@ -125,6 +125,37 @@ func (s *UserInterfaceService) GetCurrentRecord(request *UserInterfaceGetCurrent
 	return
 }
 
+// UserInterfaceHDMIRequest is a helper structure for HDMI method.
+type UserInterfaceHDMIRequest struct {
+	On bool
+}
+
+// UserInterfaceHDMIResponse is a helper structure for HDMI method.
+type UserInterfaceHDMIResponse struct {
+}
+
+// HDMI is RPC implementation of HDMI calling it.
+func (s *UserInterfaceService) HDMI(request *UserInterfaceHDMIRequest, response *UserInterfaceHDMIResponse) (err error) {
+	err = s.impl.HDMI(request.On)
+	return
+}
+
+// UserInterfaceSetDyperRequest is a helper structure for SetDyper method.
+type UserInterfaceSetDyperRequest struct {
+	Dyper Dyper
+	On    bool
+}
+
+// UserInterfaceSetDyperResponse is a helper structure for SetDyper method.
+type UserInterfaceSetDyperResponse struct {
+}
+
+// SetDyper is RPC implementation of SetDyper calling it.
+func (s *UserInterfaceService) SetDyper(request *UserInterfaceSetDyperRequest, response *UserInterfaceSetDyperResponse) (err error) {
+	err = s.impl.SetDyper(request.Dyper, request.On)
+	return
+}
+
 // UserInterfaceClient is generated client for UserInterface interface.
 type UserInterfaceClient struct {
 	client *rpc.Client
@@ -200,4 +231,20 @@ func (_c *UserInterfaceClient) GetCurrentRecord() (samples []int, err error) {
 	_response := &UserInterfaceGetCurrentRecordResponse{}
 	err = _c.client.Call("Interface.GetCurrentRecord", _request, _response)
 	return _response.Samples, err
+}
+
+// HDMI is part of implementation of UserInterface calling corresponding method on RPC server.
+func (_c *UserInterfaceClient) HDMI(on bool) (err error) {
+	_request := &UserInterfaceHDMIRequest{on}
+	_response := &UserInterfaceHDMIResponse{}
+	err = _c.client.Call("Interface.HDMI", _request, _response)
+	return err
+}
+
+// SetDyper is part of implementation of UserInterface calling corresponding method on RPC server.
+func (_c *UserInterfaceClient) SetDyper(dyper Dyper, on bool) (err error) {
+	_request := &UserInterfaceSetDyperRequest{dyper, on}
+	_response := &UserInterfaceSetDyperResponse{}
+	err = _c.client.Call("Interface.SetDyper", _request, _response)
+	return err
 }

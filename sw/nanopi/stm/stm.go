@@ -62,6 +62,16 @@ const (
 	LED2 LED = "2"
 )
 
+// Dyper represents all DYPERs available via STM.
+type Dyper string
+
+const (
+	// DYPER1 is Dyper controlling the left column of pins.
+	DYPER1 Dyper = "dyper 1"
+	// DYPER2 is Dyper controlling the right column of pins.
+	DYPER2 Dyper = "dyper 2"
+)
+
 // STM provides methods to execute commands via serial interface.
 //
 // It is safe for concurrent use.
@@ -88,6 +98,8 @@ type UserInterface interface {
 	StartCurrentRecord(samples int, interval time.Duration) (err error)
 	StopCurrentRecord() (err error)
 	GetCurrentRecord() (samples []int, err error)
+	HDMI(on bool) (err error)
+	SetDyper(dyper Dyper, on bool) (err error)
 }
 
 // AdminInterface contains methods of STM that are intended to
@@ -376,4 +388,25 @@ func (stm *STM) GetCurrentRecord() (samples []int, err error) {
 		return nil, fmt.Errorf("no sample was recorded")
 	}
 	return stm.sample, nil
+}
+
+func appendSwitch(org string, on bool) string {
+	if on {
+		return org + " on"
+	}
+	return org + " off"
+}
+
+// HDMI sets (or unsets) HDMI HOTPLUG pin.
+func (stm *STM) HDMI(on bool) (err error) {
+	return stm.executeCommand(appendSwitch("hdmi", on))
+}
+
+// SetDyper switches dyper, specified by 1st argument, on or off depending on 2nd argument.
+func (stm *STM) SetDyper(dyper Dyper, on bool) (err error) {
+	switch dyper {
+	case DYPER1, DYPER2:
+		return stm.executeCommand(appendSwitch(string(dyper), on))
+	}
+	return fmt.Errorf("invalid dyper value: %v", dyper)
 }
