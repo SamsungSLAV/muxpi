@@ -82,3 +82,25 @@ func (c *current) run(dev stm.Interface) {
 		fmt.Println(i)
 	}
 }
+
+type display struct {
+	clr  bool
+	text string
+	x, y uint
+}
+
+func (d *display) setFlags() {
+	flag.BoolVar(&d.clr, "clr", false, "clear the display")
+	flag.StringVar(&d.text, "print", "", "print text on the display")
+	flag.UintVar(&d.x, "print-x", 0, "x coordinate for print command")
+	flag.UintVar(&d.y, "print-y", 0, "y coordinate for print command")
+}
+
+func (d *display) run(dev stm.Interface) {
+	if d.clr {
+		checkErr("failed to clear the display: ", dev.ClearDisplay())
+	}
+	if d.text != "" {
+		checkErr("failed to print on the display: ", dev.PrintText(d.x, d.y, stm.Foreground, d.text))
+	}
+}

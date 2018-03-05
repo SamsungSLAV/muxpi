@@ -49,6 +49,7 @@ func main() {
 		new(multiplexer),
 		new(cutter),
 		new(current),
+		new(display),
 	}
 	for _, cmd := range allCommands {
 		cmd.setFlags()
