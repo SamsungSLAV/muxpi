@@ -50,6 +50,7 @@ func main() {
 		new(cutter),
 		new(current),
 		new(display),
+		new(leds),
 	}
 	for _, cmd := range allCommands {
 		cmd.setFlags()

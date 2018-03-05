@@ -104,3 +104,30 @@ func (d *display) run(dev stm.Interface) {
 		checkErr("failed to print on the display: ", dev.PrintText(d.x, d.y, stm.Foreground, d.text))
 	}
 }
+
+type leds struct {
+	led1, led2 string
+}
+
+func (l *leds) setFlags() {
+	flag.StringVar(&l.led1, "led1", "",
+		"set the color of led1; accepted format 'r,g,b' where each is value in 0-255 range")
+	flag.StringVar(&l.led2, "led2", "",
+		"set the color of led2; accepted format 'r,g,b' where each is value in 0-255 range")
+}
+
+func (l *leds) setLED(dev stm.Interface, led string, stmLED stm.LED) {
+	var r, g, b uint8
+	_, err := fmt.Sscanf(led, "%d,%d,%d", &r, &g, &b)
+	checkErr("failed to parse the led argument: ", err)
+	checkErr("failed to update value for led: ", dev.SetLED(stmLED, r, g, b))
+}
+
+func (l *leds) run(dev stm.Interface) {
+	if l.led1 != "" {
+		l.setLED(dev, l.led1, stm.LED1)
+	}
+	if l.led2 != "" {
+		l.setLED(dev, l.led2, stm.LED2)
+	}
+}
