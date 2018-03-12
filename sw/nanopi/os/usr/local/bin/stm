@@ -1,0 +1,6 @@
+#!/bin/sh
+if [ "$(id -u)" -eq 0 ]; then
+    /usr/bin/stm -remote /run/stm.socket $@
+else
+    /usr/bin/stm -remote /run/stm-user.socket $@
+fi
