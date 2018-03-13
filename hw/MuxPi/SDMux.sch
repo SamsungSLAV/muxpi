@@ -23,6 +23,8 @@ F 1 "TS3A27518EPWR" H 5050 3800 60  0000 C CNN
 F 2 "mux-footprints:TSSOP-24" H 5350 4650 60  0001 C CNN
 F 3 "http://www.ti.com/lit/ds/symlink/ts3a27518e.pdf" H 5350 4650 60  0001 C CNN
 F 4 "http://pl.farnell.com/texas-instruments/ts3a27518epwr/ic-6bit-1-of-2-mux-demux-24tssop/dp/1735605" H 5050 4950 60  0001 C CNN "Shop link"
+F 5 "TEXAS INSTRUMENTS" H 5050 4950 50  0001 C CNN "Manufacturer"
+F 6 "TS3A27518EPWR" H 5050 4950 50  0001 C CNN "Symbol"
 	1    5050 4950
 	1    0    0    -1  
 $EndComp
@@ -59,6 +61,8 @@ F 1 "MC74HC1G04DTT1G" H 4250 3100 40  0000 C CNN
 F 2 "TO_SOT_Packages_SMD:SOT-23-5" H 4045 3115 30  0001 C CNN
 F 3 "http://www.tme.eu/pl/Document/0bd9f377abd5f258bb30856efe9f427e/mc74hc1g04.pdf" H 4095 3365 60  0001 C CNN
 F 4 "http://www.tme.eu/pl/details/mc74hc1g04dtt1g/bramki-inwertery/on-semiconductor/" H 3950 3250 60  0001 C CNN "Shop link"
+F 5 "ON SEMICONDUCTOR" H 3950 3250 50  0001 C CNN "Manufacturer"
+F 6 "MC74HC1G04DTT1G" H 3950 3250 50  0001 C CNN "Symbol"
 	1    3950 3250
 	1    0    0    -1  
 $EndComp
@@ -161,6 +165,8 @@ F 1 "112K-TBA0-RA1" H 6900 3700 60  0000 C CNN
 F 2 "mux-footprints:usd-attend" H 6900 3550 60  0001 C CNN
 F 3 "http://www.tme.eu/pl/Document/d9baf2fd66256bac7b840e9a66d44492/112K-TBA0-RA1.pdf" H 6900 4250 60  0001 C CNN
 F 4 "http://www.tme.eu/pl/details/112k-tba0-ra1/zlacza-do-kart/attend/" H 6900 4250 60  0001 C CNN "Shop link"
+F 5 "ATTEND" H 6900 4250 50  0001 C CNN "Manufacturer"
+F 6 "112K-TBA0-RA1" H 6900 4250 50  0001 C CNN "Symbol"
 	1    6900 4250
 	1    0    0    -1  
 $EndComp
@@ -225,6 +231,8 @@ F 1 "4.7u/16V" H 7875 5750 50  0000 L CNN
 F 2 "Capacitors_Tantalum_SMD:Tantalum_Case-A_EIA-3216-18_Reflow" H 7888 5700 30  0001 C CNN
 F 3 "http://www.tme.eu/pl/Document/85f84849ee9dc6997647a15c8c95a9d3/taj.pdf" H 7850 5850 60  0001 C CNN
 F 4 "http://www.tme.eu/pl/details/taja475k016r/kondensatory-tantalowe-smd/avx/taja475k016rnj/" H 7850 5850 60  0001 C CNN "Shop link"
+F 5 "AVX" H 7850 5850 50  0001 C CNN "Manufacturer"
+F 6 "TAJA475K016RNJ" H 7850 5850 50  0001 C CNN "Symbol"
 	1    7850 5850
 	1    0    0    -1  
 $EndComp
@@ -279,6 +287,8 @@ F 1 "T821108A1S100CEU" H 8850 2250 50  0000 C CNN
 F 2 "w_conn_strip:vasch_strip_4x2" H 8850 700 60  0001 C CNN
 F 3 "http://www.tme.eu/pl/Document/cda30bae7de800ca9be388e3f3476120/T821-1-08-S1.pdf" H 8850 700 60  0001 C CNN
 F 4 "http://www.tme.eu/pl/details/t821-1-08-s1/zlacza-idc/amphenol/t821108a1s100ceu/" H 8850 1900 60  0001 C CNN "Shop link"
+F 5 "AMPHENOL" H 8850 1900 50  0001 C CNN "Manufacturer"
+F 6 "T821108A1S100CEU" H 8850 1900 50  0001 C CNN "Symbol"
 	1    8850 1900
 	1    0    0    -1  
 $EndComp
@@ -528,19 +538,9 @@ F 1 "MMBT4403LT1" V 5637 1600 50  0000 C CNN
 F 2 "TO_SOT_Packages_SMD:SOT-23" H 5600 1525 50  0001 L CIN
 F 3 "https://www.tme.eu/pl/Document/b8fb0b2a2196eb2b0100116bda4d5a47/mmbt4403.pdf" H 5400 1600 50  0001 L CNN
 F 4 "https://www.tme.eu/pl/details/mmbt4403lt1g/tranzystory-pnp-smd/on-semiconductor/" V 5400 1600 50  0001 C CNN "Shop link"
+F 5 "ON SEMICONDUCTOR" V 5400 1600 50  0001 C CNN "Manufacturer"
+F 6 "MMBT4403LT1G" V 5400 1600 50  0001 C CNN "Symbol"
 	1    5400 1600
-	0    1    -1   0   
-$EndComp
-$Comp
-L MuxPi:MMBT4403LT1 Q5
-U 1 1 5A6A2FE1
-P 5400 2650
-F 0 "Q5" V 5728 2650 50  0000 C CNN
-F 1 "MMBT4403LT1" V 5637 2650 50  0000 C CNN
-F 2 "TO_SOT_Packages_SMD:SOT-23" H 5600 2575 50  0001 L CIN
-F 3 "https://www.tme.eu/pl/Document/b8fb0b2a2196eb2b0100116bda4d5a47/mmbt4403.pdf" H 5400 2650 50  0001 L CNN
-F 4 "https://www.tme.eu/pl/details/mmbt4403lt1g/tranzystory-pnp-smd/on-semiconductor/" V 5400 2650 50  0001 C CNN "Shop link"
-	1    5400 2650
 	0    1    -1   0   
 $EndComp
 $Comp
@@ -581,4 +581,18 @@ Wire Wire Line
 Wire Wire Line
 	5400 2200 5400 1850
 Connection ~ 5400 1850
+$Comp
+L MuxPi:MMBT4403LT1 Q5
+U 1 1 5A8F3224
+P 5400 2650
+F 0 "Q5" V 5728 2650 50  0000 C CNN
+F 1 "MMBT4403LT1" V 5637 2650 50  0000 C CNN
+F 2 "TO_SOT_Packages_SMD:SOT-23" H 5600 2575 50  0001 L CIN
+F 3 "https://www.tme.eu/pl/Document/b8fb0b2a2196eb2b0100116bda4d5a47/mmbt4403.pdf" H 5400 2650 50  0001 L CNN
+F 4 "https://www.tme.eu/pl/details/mmbt4403lt1g/tranzystory-pnp-smd/on-semiconductor/" V 5400 2650 50  0001 C CNN "Shop link"
+F 5 "ON SEMICONDUCTOR" V 5400 2650 50  0001 C CNN "Manufacturer"
+F 6 "MMBT4403LT1G" V 5400 2650 50  0001 C CNN "Symbol"
+	1    5400 2650
+	0    1    -1   0   
+$EndComp
 $EndSCHEMATC

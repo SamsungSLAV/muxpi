@@ -23,6 +23,8 @@ F 1 "LAN9500A-ABZJ" H 4400 3727 50  0000 C CNN
 F 2 "mux-footprints:QFN_56" H 6150 2250 50  0001 C CNN
 F 3 "http://www.farnell.com/datasheets/1907741.pdf?_ga=1.91944537.291132730.1474618953" H 6150 2250 50  0001 C CNN
 F 4 "http://pl.farnell.com/microchip/lan9500a-abzj/ic-usb2-0-10-100-enet-cntrl-56vqfn/dp/2292585" H 4200 2500 60  0001 C CNN "Shop link"
+F 5 "LAN9500A-ABZJ" H 4200 2500 50  0001 C CNN "Symbol"
+F 6 "MICROCHIP" H 4200 2500 50  0001 C CNN "Manufacturer"
 	1    4200 2500
 	1    0    0    -1  
 $EndComp
@@ -35,6 +37,8 @@ F 1 "LAN9500A-ABZJ" H 3850 7524 50  0000 C CNN
 F 2 "mux-footprints:QFN_56" H 5800 6000 50  0001 C CNN
 F 3 "http://www.farnell.com/datasheets/1907741.pdf?_ga=1.91944537.291132730.1474618953" H 5800 6000 50  0001 C CNN
 F 4 "http://pl.farnell.com/microchip/lan9500a-abzj/ic-usb2-0-10-100-enet-cntrl-56vqfn/dp/2292585" H 3850 6250 60  0001 C CNN "Shop link"
+F 5 "MICROCHIP" H 3850 6250 50  0001 C CNN "Manufacturer"
+F 6 "LAN9500A-ABZJ" H 3850 6250 50  0001 C CNN "Symbol"
 	2    3850 6250
 	1    0    0    -1  
 $EndComp
@@ -59,18 +63,6 @@ F 2 "" H 6500 6150 50  0000 C CNN
 F 3 "" H 6500 6150 50  0000 C CNN
 	1    6500 6150
 	1    0    0    -1  
-$EndComp
-$Comp
-L MuxPi:Ferrite_Bead_Small L5
-U 1 1 585E1E42
-P 6250 6450
-F 0 "L5" V 6100 6450 50  0000 C CNN
-F 1 "BLM21PG121SN1D" V 6400 6450 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" H 6350 6359 50  0001 L CNN
-F 3 "http://www.tme.eu/pl/Document/6052c7f9d4f1672121538e0d10f79ff8/blm21pg300sn1d.pdf" H 6350 6359 50  0001 L CNN
-F 4 "http://www.tme.eu/pl/details/blm21pg121sn1d/ferryty-koraliki/murata/" H 6250 6450 60  0001 C CNN "Shop link"
-	1    6250 6450
-	0    1    1    0   
 $EndComp
 $Comp
 L MuxPi:GND #PWR0171
@@ -161,18 +153,6 @@ F 3 "" H 6250 7300 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L MuxPi:Ferrite_Bead_Small L4
-U 1 1 585E3856
-P 2450 6550
-F 0 "L4" V 2500 6650 50  0000 C CNN
-F 1 "BLM21PG121SN1D" V 2304 6550 50  0001 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" H 2550 6459 50  0001 L CNN
-F 3 "http://www.tme.eu/pl/Document/6052c7f9d4f1672121538e0d10f79ff8/blm21pg300sn1d.pdf" H 2550 6459 50  0001 L CNN
-F 4 "http://www.tme.eu/pl/details/blm21pg121sn1d/ferryty-koraliki/murata/" H 2450 6550 60  0001 C CNN "Shop link"
-	1    2450 6550
-	0    1    1    0   
-$EndComp
-$Comp
 L MuxPi:GND #PWR0165
 U 1 1 585E3BDA
 P 2700 7300
@@ -192,6 +172,8 @@ F 1 "BLM21PG121SN1D" V 1854 6450 50  0001 C CNN
 F 2 "Resistors_SMD:R_0805_HandSoldering" H 2100 6359 50  0001 L CNN
 F 3 "http://www.tme.eu/pl/Document/6052c7f9d4f1672121538e0d10f79ff8/blm21pg300sn1d.pdf" H 2100 6359 50  0001 L CNN
 F 4 "http://www.tme.eu/pl/details/blm21pg121sn1d/ferryty-koraliki/murata/" H 2000 6450 60  0001 C CNN "Shop link"
+F 5 "MURATA" V 2000 6450 50  0001 C CNN "Manufacturer"
+F 6 "BLM21PG121SN1D" V 2000 6450 50  0001 C CNN "Symbol"
 	1    2000 6450
 	0    1    1    0   
 $EndComp
@@ -293,6 +275,8 @@ F 1 "25.00M-SMDHC49S" V 1600 6100 50  0000 C CNN
 F 2 "Crystals:Q_49U3HMS" H 1900 6100 50  0001 C CNN
 F 3 "http://www.tme.eu/pl/Document/6527d4ac6cd20f858e4312ccc80ef7ce/YIC-49US_49SMT-quartz_crystal.pdf" H 1900 6100 50  0001 C CNN
 F 4 "http://www.tme.eu/pl/details/25.00m-smdhc49s/rezonatory-kwarcowe-smd/yic/" V 1900 6100 60  0001 C CNN "Shop link"
+F 5 "YIC" V 1900 6100 50  0001 C CNN "Manufacturer"
+F 6 "25.00M-SMDHC49S" V 1900 6100 50  0001 C CNN "Symbol"
 	1    1900 6100
 	0    1    1    0   
 $EndComp
@@ -380,6 +364,8 @@ F 1 "93AA56AT-I/OT" H 2450 2926 50  0000 C CNN
 F 2 "TO_SOT_Packages_SMD:SOT-23-6_Handsoldering" H 2350 2600 50  0001 C CIN
 F 3 "http://www.farnell.com/datasheets/1669363.pdf?_ga=1.23852537.291132730.1474618953" H 2350 2600 50  0001 C CNN
 F 4 "http://pl.farnell.com/microchip/93aa56at-i-ot/serial-eeprom-2kbit-2mhz-sot-23/dp/1331419" H 2450 2600 60  0001 C CNN "Shop link"
+F 5 "MICROCHIP" H 2450 2600 50  0001 C CNN "Manufacturer"
+F 6 "93AA56AT-I/OT" H 2450 2600 50  0001 C CNN "Symbol"
 	1    2450 2600
 	-1   0    0    -1  
 $EndComp
@@ -436,6 +422,8 @@ F 1 "TJACKCFL8P8CSR06M1" H 9050 2524 50  0000 C CNN
 F 2 "mux-footprints:RJ45_TRAFO_LEDS" H 9300 1900 50  0001 C CNN
 F 3 "https://www.maritex.com.pl/product/attachment/41725/TJACKCFL8P8CSB06-MAG1_new.pdf" H 9050 2523 50  0001 C CNN
 F 4 "https://www.maritex.com.pl/zlacza/zlacza_rj_modularne/zlacza_rj_1_x_port/zlacza_rj_gniazda_modularne_ekranowane_diody_led_transformator_separujacy/tjackcfl8p8csr06m1.html" H 9300 1900 60  0001 C CNN "Shop link"
+F 5 "CZT" H 9300 1900 50  0001 C CNN "Manufacturer"
+F 6 "JDFD10141104 TS-10014-11(6U)" H 9300 1900 50  0001 C CNN "Symbol"
 	1    9300 1900
 	1    0    0    -1  
 $EndComp
@@ -1276,4 +1264,32 @@ Wire Wire Line
 	9950 3050 10100 3050
 Wire Wire Line
 	9950 2650 10100 2650
+$Comp
+L MuxPi:Ferrite_Bead_Small L4
+U 1 1 5A8E75C9
+P 2450 6550
+F 0 "L4" V 2500 6650 50  0000 C CNN
+F 1 "BLM21PG121SN1D" V 2304 6550 50  0001 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" H 2550 6459 50  0001 L CNN
+F 3 "http://www.tme.eu/pl/Document/6052c7f9d4f1672121538e0d10f79ff8/blm21pg300sn1d.pdf" H 2550 6459 50  0001 L CNN
+F 4 "http://www.tme.eu/pl/details/blm21pg121sn1d/ferryty-koraliki/murata/" H 2450 6550 60  0001 C CNN "Shop link"
+F 5 "MURATA" V 2450 6550 50  0001 C CNN "Manufacturer"
+F 6 "BLM21PG121SN1D" V 2450 6550 50  0001 C CNN "Symbol"
+	1    2450 6550
+	0    1    1    0   
+$EndComp
+$Comp
+L MuxPi:Ferrite_Bead_Small L5
+U 1 1 5A8E7FF7
+P 6250 6450
+F 0 "L5" V 6300 6550 50  0000 C CNN
+F 1 "BLM21PG121SN1D" V 6104 6450 50  0001 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" H 6350 6359 50  0001 L CNN
+F 3 "http://www.tme.eu/pl/Document/6052c7f9d4f1672121538e0d10f79ff8/blm21pg300sn1d.pdf" H 6350 6359 50  0001 L CNN
+F 4 "http://www.tme.eu/pl/details/blm21pg121sn1d/ferryty-koraliki/murata/" H 6250 6450 60  0001 C CNN "Shop link"
+F 5 "MURATA" V 6250 6450 50  0001 C CNN "Manufacturer"
+F 6 "BLM21PG121SN1D" V 6250 6450 50  0001 C CNN "Symbol"
+	1    6250 6450
+	0    1    1    0   
+$EndComp
 $EndSCHEMATC

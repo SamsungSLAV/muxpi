@@ -133,6 +133,8 @@ F 1 "10uF/10V" H 7900 3600 50  0000 L CNN
 F 2 "Capacitors_Tantalum_SMD:Tantalum_Case-A_EIA-3216-18_Reflow" H 7888 3550 50  0001 C CNN
 F 3 "http://www.tme.eu/pl/Document/0ff508dea7a8224c6fb12ae10be076aa/KEM_T2005_T491.pdf" H 7850 3700 50  0001 C CNN
 F 4 "http://www.tme.eu/pl/details/t491a106m016at/kondensatory-tantalowe-smd/kemet/" H 7850 3700 60  0001 C CNN "Shop link"
+F 5 "KEMET" H 7850 3700 50  0001 C CNN "Manufacturer"
+F 6 "T491A106M016AT" H 7850 3700 50  0001 C CNN "Symbol"
 	1    7850 3700
 	1    0    0    -1  
 $EndComp
@@ -191,6 +193,8 @@ F 1 "100uF/10V" H 3350 4000 50  0000 L CNN
 F 2 "Capacitors_Tantalum_SMD:Tantalum_Case-C_EIA-6032-28_Reflow" H 3588 3550 50  0001 C CNN
 F 3 "http://www.tme.eu/pl/Document/0ff508dea7a8224c6fb12ae10be076aa/KEM_T2005_T491.pdf" H 3550 3700 50  0001 C CNN
 F 4 "http://www.tme.eu/pl/details/t491c107k010at/kondensatory-tantalowe-smd/kemet/" H 3550 3700 60  0001 C CNN "Shop link"
+F 5 "KEMET" H 3550 3700 50  0001 C CNN "Manufacturer"
+F 6 "T491C107K010AT" H 3550 3700 50  0001 C CNN "Symbol"
 	1    3550 3700
 	1    0    0    -1  
 $EndComp
@@ -217,6 +221,8 @@ F 1 "PC-GK2.1" H 1831 3834 50  0000 C CNN
 F 2 "mux-footprints:PC-GK2.5" H 1850 3600 50  0001 C CNN
 F 3 "http://www.tme.eu/pl/Document/0c2caa550314868a0a12e8b9344a6069/pc-gk2.1.pdf" H 1850 3600 50  0001 C CNN
 F 4 "http://www.tme.eu/pl/details/pc-gk2.1/zlacza-dc/ninigi/" H 1850 3600 60  0001 C CNN "Shop link"
+F 5 "NINIGI" H 1850 3600 50  0001 C CNN "Manufacturer"
+F 6 "PC-GK2.1" H 1850 3600 50  0001 C CNN "Symbol"
 	1    1850 3600
 	1    0    0    -1  
 $EndComp
@@ -284,6 +290,8 @@ F 1 "LD1117S33CTR" H 8600 3750 50  0000 C CNN
 F 2 "TO_SOT_Packages_SMD:SOT-223" H 8600 3776 50  0001 C CNN
 F 3 "http://www.tme.eu/pl/Document/bbab3ccbedd9735c8c7032084fb97a45/LD1117.pdf" H 8600 3550 50  0001 C CNN
 F 4 "http://www.tme.eu/pl/details/ld1117s33c/stabilizatory-napiecia-nieregulowane-ldo/st-microelectronics/" H 8600 3550 60  0001 C CNN "Shop link"
+F 5 "ST MICROELECTRONICS" H 8600 3550 50  0001 C CNN "Manufacturer"
+F 6 "LD1117S33C" H 8600 3550 50  0001 C CNN "Symbol"
 	1    8600 3550
 	1    0    0    -1  
 $EndComp
@@ -346,36 +354,12 @@ F 3 "" H 8600 3900 60  0000 C CNN
 $EndComp
 Wire Wire Line
 	8600 3800 8600 3900
-$Comp
-L MuxPi:BSO130P03S Q11
-U 1 1 5844A1FE
-P 6750 3700
-F 0 "Q11" H 6750 4207 50  0000 C CNN
-F 1 "BSO130P03S" H 6750 4116 50  0000 C CNN
-F 2 "mux-footprints:SOIC-8" H 6750 4025 50  0001 C CIN
-F 3 "http://www.tme.eu/pl/Document/fde90035d9a6021d44d09086b0d9119c/BSO130P03SHXUMA1-DTE.pdf" V 6750 3700 50  0001 L CNN
-F 4 "http://www.tme.eu/pl/details/bso130p03shxuma1/tranzystory-z-kanalem-p-smd/infineon-technologies/" H 6750 3700 60  0001 C CNN "Shop link"
-	1    6750 3700
-	1    0    0    -1  
-$EndComp
 Text HLabel 4100 5000 0    60   Input ~ 0
 PWR_CTRL
 Wire Wire Line
 	5050 4150 5050 5000
 Wire Wire Line
 	5050 5000 4100 5000
-$Comp
-L MuxPi:CP C51
-U 1 1 584AFD5D
-P 9550 3700
-F 0 "C51" H 9600 3800 50  0000 L CNN
-F 1 "10uF/10V" H 9600 3600 50  0000 L CNN
-F 2 "Capacitors_Tantalum_SMD:Tantalum_Case-A_EIA-3216-18_Reflow" H 9588 3550 50  0001 C CNN
-F 3 "http://www.tme.eu/pl/Document/0ff508dea7a8224c6fb12ae10be076aa/KEM_T2005_T491.pdf" H 9550 3700 50  0001 C CNN
-F 4 "http://www.tme.eu/pl/details/t491a106m016at/kondensatory-tantalowe-smd/kemet/" H 9550 3700 60  0001 C CNN "Shop link"
-	1    9550 3700
-	1    0    0    -1  
-$EndComp
 $Comp
 L MuxPi:C C50
 U 1 1 584B0B46
@@ -389,32 +373,6 @@ F 4 "http://www.tme.eu/pl/details/cc0805jrx7r9104/kondensatory-mlcc-smd-0805/yag
 	1    0    0    -1  
 $EndComp
 $Comp
-L MuxPi:2N7002 Q10
-U 1 1 584B26D7
-P 5700 4100
-AR Path="/584B26D7" Ref="Q10"  Part="1" 
-AR Path="/58449834/584B26D7" Ref="Q10"  Part="1" 
-F 0 "Q10" H 5891 4146 50  0000 L CNN
-F 1 "2N7002" H 5891 4055 50  0000 L CNN
-F 2 "TO_SOT_Packages_SMD:SOT-23" H 5900 4025 50  0001 L CIN
-F 3 "https://www.nxp.com/documents/data_sheet/2N7002.pdf" H 5700 4100 50  0001 L CNN
-F 4 "http://www.tme.eu/pl/details/2n7002/tranzystory-z-kanalem-n-smd/fairchild-semiconductor/" H 5700 4100 60  0001 C CNN "Shop link"
-	1    5700 4100
-	1    0    0    -1  
-$EndComp
-$Comp
-L MuxPi:LED_ALT D7
-U 1 1 58506DE3
-P 4050 4150
-F 0 "D7" V 4088 4032 50  0000 R CNN
-F 1 "KPT-2012EC (RED)" V 3997 4032 50  0000 R CNN
-F 2 "Diodes_SMD:D_0805" H 4050 4150 50  0001 C CNN
-F 3 "http://www.tme.eu/pl/Document/0a4307e0e1e070f4f6d553134056548e/kpt-2012.pdf" H 4050 4150 50  0001 C CNN
-F 4 "http://www.tme.eu/pl/details/kpt-2012ec/diody-led-smd-kolorowe/kingbright-electronic/" V 4050 4150 60  0001 C CNN "Shop link"
-	1    4050 4150
-	0    -1   -1   0   
-$EndComp
-$Comp
 L MuxPi:Polyfuse F1
 U 1 1 58D8D94F
 P 2500 3500
@@ -423,6 +381,8 @@ F 1 "30R300UU" V 2366 3500 50  0000 C CNN
 F 2 "Fuse_Holders_and_Fuses:Fuse_TE5_Littlefuse-395Series" H 2550 3300 50  0001 L CNN
 F 3 "http://www.tme.eu/pl/Document/fdd42053b89d1fd5c6b7e642c2aced3a/Littelfuse_Seria_30R.pdf" H 2500 3500 50  0001 C CNN
 F 4 "http://www.tme.eu/pl/details/30r300uu/bezpieczniki-polimerowe-tht/littelfuse/" H 2500 3500 60  0001 C CNN "Shop link"
+F 5 "LITTELFUSE" V 2500 3500 50  0001 C CNN "Manufacturer"
+F 6 "30R300UU" V 2500 3500 50  0001 C CNN "Symbol"
 	1    2500 3500
 	0    1    1    0   
 $EndComp
@@ -437,6 +397,8 @@ F 1 "BZT52H-C5V6.115" V 3300 3350 50  0000 L CNN
 F 2 "Diodes_SMD:D_SOD-123F" H 2850 3700 50  0001 C CNN
 F 3 "http://www.tme.eu/pl/Document/63e12ac79543603fbb5d1f749bbabbb4/BZT52H-DTE.pdf" H 2850 3700 50  0001 C CNN
 F 4 "http://www.tme.eu/pl/details/bzt52h-c5v6.115/diody-zenera-smd/nexperia/" V 2850 3700 60  0001 C CNN "Shop link"
+F 5 "NEXPERIA" V 2850 3700 50  0001 C CNN "Manufacturer"
+F 6 "BZT52H-C5V6.115" V 2850 3700 50  0001 C CNN "Symbol"
 	1    2850 3700
 	0    1    1    0   
 $EndComp
@@ -463,7 +425,10 @@ P 6300 4100
 F 0 "JP3" V 6300 4148 50  0000 L CNN
 F 1 "Jumper_NO_Small" V 6345 4148 50  0001 L CNN
 F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 6300 4100 50  0001 C CNN
-F 3 "" H 6300 4100 50  0001 C CNN
+F 3 "https://www.tme.eu/pl/Document/cc301e58a5da78cb543a94b5a5b7f06a/DS1021.pdf" H 6300 4100 50  0001 C CNN
+F 4 "https://www.tme.eu/pl/details/zl201-02g/listwy-i-gniazda-kolkowe/connfly/ds1021-1_2sf1-1/" V 6300 4100 50  0001 C CNN "Shop link"
+F 5 "CONNFLY" V 6300 4100 50  0001 C CNN "Manufacturer"
+F 6 "DS1021-1*2SF1-1" V 6300 4100 50  0001 C CNN "Symbol"
 	1    6300 4100
 	0    1    1    0   
 $EndComp
@@ -521,4 +486,60 @@ Wire Wire Line
 	2850 3500 3550 3500
 Wire Wire Line
 	6300 3850 6450 3850
+$Comp
+L MuxPi:LED_ALT D7
+U 1 1 5A87E5D9
+P 4050 4150
+F 0 "D7" V 4150 4100 50  0000 R CNN
+F 1 "KPT-2012EC (RED)" V 3850 4900 50  0000 R CNN
+F 2 "Diodes_SMD:D_0805" H 4050 4150 50  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/0a4307e0e1e070f4f6d553134056548e/kpt-2012.pdf" H 4050 4150 50  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/kpt-2012ec/diody-led-smd-kolorowe/kingbright-electronic/" V 4050 4150 60  0001 C CNN "Shop link"
+F 5 "KINGBRIGHT ELECTRONIC" V 4050 4150 50  0001 C CNN "Manufacturer"
+F 6 "KPT-2012EC" V 4050 4150 50  0001 C CNN "Symbol"
+	1    4050 4150
+	0    -1   -1   0   
+$EndComp
+$Comp
+L MuxPi:2N7002 Q10
+U 1 1 5A880A03
+P 5700 4100
+F 0 "Q10" H 5891 4146 50  0000 L CNN
+F 1 "2N7002" H 5891 4055 50  0000 L CNN
+F 2 "TO_SOT_Packages_SMD:SOT-23" H 5900 4025 50  0001 L CIN
+F 3 "https://www.nxp.com/documents/data_sheet/2N7002.pdf" H 5700 4100 50  0001 L CNN
+F 4 "http://www.tme.eu/pl/details/2n7002/tranzystory-z-kanalem-n-smd/fairchild-semiconductor/" H 5700 4100 60  0001 C CNN "Shop link"
+F 5 "ON SEMICONDUCTOR (FAIRCHILD)" H 5700 4100 50  0001 C CNN "Manufacturer"
+F 6 "2N7002" H 5700 4100 50  0001 C CNN "Symbol"
+	1    5700 4100
+	1    0    0    -1  
+$EndComp
+$Comp
+L MuxPi:BSO130P03S Q11
+U 1 1 5A881D8D
+P 6750 3700
+F 0 "Q11" H 6750 4207 50  0000 C CNN
+F 1 "BSO130P03S" H 6750 4116 50  0000 C CNN
+F 2 "mux-footprints:SOIC-8" H 6750 4025 50  0001 C CIN
+F 3 "http://www.tme.eu/pl/Document/fde90035d9a6021d44d09086b0d9119c/BSO130P03SHXUMA1-DTE.pdf" V 6750 3700 50  0001 L CNN
+F 4 "http://www.tme.eu/pl/details/bso130p03shxuma1/tranzystory-z-kanalem-p-smd/infineon-technologies/" H 6750 3700 60  0001 C CNN "Shop link"
+F 5 "INFINEON TECHNOLOGIES" H 6750 3700 50  0001 C CNN "Manufacturer"
+F 6 "BSO130P03SHXUMA1" H 6750 3700 50  0001 C CNN "Symbol"
+	1    6750 3700
+	1    0    0    -1  
+$EndComp
+$Comp
+L MuxPi:CP C51
+U 1 1 5A884D9F
+P 9550 3700
+F 0 "C51" H 9600 3800 50  0000 L CNN
+F 1 "10uF/10V" H 9600 3600 50  0000 L CNN
+F 2 "Capacitors_Tantalum_SMD:Tantalum_Case-A_EIA-3216-18_Reflow" H 9588 3550 50  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/0ff508dea7a8224c6fb12ae10be076aa/KEM_T2005_T491.pdf" H 9550 3700 50  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/t491a106m016at/kondensatory-tantalowe-smd/kemet/" H 9550 3700 60  0001 C CNN "Shop link"
+F 5 "KEMET" H 9550 3700 50  0001 C CNN "Manufacturer"
+F 6 "T491A106M016AT" H 9550 3700 50  0001 C CNN "Symbol"
+	1    9550 3700
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

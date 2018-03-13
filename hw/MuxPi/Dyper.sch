@@ -46,6 +46,8 @@ F 1 "1-1462037-4" H 6580 2555 50  0000 L CNN
 F 2 "mux-footprints:IM03-SMT_GULL" H 5750 2600 50  0001 C CNN
 F 3 "http://www.tme.eu/pl/Document/3d423240524ca321875bc7f197d833ad/IM-HICDP.pdf" H 5750 2600 50  0001 C CNN
 F 4 "http://www.tme.eu/pl/details/im03gr/przekazniki-elektromagn-miniaturowe/te-connectivity/1-1462037-4/" H 5750 2600 60  0001 C CNN "Shop link"
+F 5 "TE CONNECTIVITY" H 5750 2600 50  0001 C CNN "Manufacturer"
+F 6 "1-1462037-4" H 5750 2600 50  0001 C CNN "Symbol"
 	1    5750 2600
 	1    0    0    -1  
 $EndComp
@@ -88,8 +90,14 @@ F 1 "NS25-W2P" H 7777 1850 50  0000 L CNN
 F 2 "Connectors_Molex:Molex_KK-6410-02_02x2.54mm_Straight" H 7700 1900 50  0001 C CNN
 F 3 "http://www.tme.eu/pl/Document/f4fbc03349849389d5a444932ab1e0cf/ns25-w2p.pdf" H 7700 1900 50  0001 C CNN
 F 4 "http://www.tme.eu/pl/details/ns25-w2p/zlacza-sygnalowe-raster-254mm/ninigi/" H 7700 1900 60  0001 C CNN "Shop link"
-F 5 "http://www.tme.eu/pl/details/ns25-g2/zlacza-sygnalowe-raster-254mm/ninigi/" H 7700 1900 60  0001 C CNN "Complementary device"
-F 6 "http://www.tme.eu/pl/details/ns25-t/zlacza-sygnalowe-raster-254mm/ninigi/" H 7700 1900 60  0001 C CNN "Complementary device 1"
+F 5 "NINIGI" H 7700 1900 50  0001 C CNN "Manufacturer"
+F 6 "NS25-W2P" H 7700 1900 50  0001 C CNN "Symbol"
+F 7 "http://www.tme.eu/pl/details/ns25-g2/zlacza-sygnalowe-raster-254mm/ninigi/" H 7700 1900 60  0001 C CNN "Complementary device"
+F 8 "NINIGI" H 7700 1900 50  0001 C CNN "Complementary manufacturer"
+F 9 "NS25-G2" H 7700 1900 50  0001 C CNN "Complementary symbol"
+F 10 "http://www.tme.eu/pl/details/ns25-t/zlacza-sygnalowe-raster-254mm/ninigi/" H 7700 1900 60  0001 C CNN "Complementary device 1"
+F 11 "NINIGI" H 7700 1900 50  0001 C CNN "Complementary manufacturer 1"
+F 12 "NS25-T" H 7700 1900 50  0001 C CNN "Complementary symbol 1"
 	1    7700 1900
 	1    0    0    -1  
 $EndComp
@@ -105,18 +113,6 @@ F 2 "" H 5550 3650 60  0000 C CNN
 F 3 "" H 5550 3650 60  0000 C CNN
 	1    5550 3650
 	-1   0    0    -1  
-$EndComp
-$Comp
-L MuxPi:D D2
-U 1 1 585452FD
-P 5150 2600
-F 0 "D2" H 5150 2700 50  0000 C CNN
-F 1 "ES1AL" H 5150 2500 50  0000 C CNN
-F 2 "mux-footprints:Sub_SMA" H 5150 2600 60  0001 C CNN
-F 3 "http://www.tme.eu/pl/Document/6e3ed172b8ef57eec12ad172948b8283/ES1JL-DTE.pdf" H 5150 2600 60  0001 C CNN
-F 4 "http://www.tme.eu/pl/details/es1jl/diody-uniwersalne-smd/taiwan-semiconductor/" H 5150 2600 60  0001 C CNN "Shop link"
-	1    5150 2600
-	0    1    1    0   
 $EndComp
 $Comp
 L MuxPi:GND #PWR075
@@ -150,18 +146,6 @@ F 4 "http://www.tme.eu/pl/details/smd0805-560r/rezystory-smd-0805/royal-ohm/0805
 	1    5000 3450
 	1    0    0    -1  
 $EndComp
-$Comp
-L MuxPi:2N7002 Q2
-U 1 1 5854531C
-P 5450 3200
-F 0 "Q2" H 5641 3246 50  0000 L CNN
-F 1 "2N7002" H 5641 3155 50  0000 L CNN
-F 2 "TO_SOT_Packages_SMD:SOT-23" H 5650 3125 50  0001 L CIN
-F 3 "https://www.nxp.com/documents/data_sheet/2N7002.pdf" H 5450 3200 50  0001 L CNN
-F 4 "http://www.tme.eu/pl/details/2n7002/tranzystory-z-kanalem-n-smd/fairchild-semiconductor/" H 5450 3200 60  0001 C CNN "Shop link"
-	1    5450 3200
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	5150 5000 5150 5200
 Wire Wire Line
@@ -185,18 +169,6 @@ Wire Wire Line
 	5150 4500 5550 4500
 Wire Wire Line
 	5550 4300 5550 4500
-$Comp
-L MuxPi:IM03 K2
-U 1 1 58512F17
-P 5750 4850
-F 0 "K2" H 6580 4896 50  0000 L CNN
-F 1 "1-1462037-4" H 6580 4805 50  0000 L CNN
-F 2 "mux-footprints:IM03-SMT_GULL" H 5750 4850 50  0001 C CNN
-F 3 "http://www.tme.eu/pl/Document/3d423240524ca321875bc7f197d833ad/IM-HICDP.pdf" H 5750 4850 50  0001 C CNN
-F 4 "http://www.tme.eu/pl/details/im03gr/przekazniki-elektromagn-miniaturowe/te-connectivity/1-1462037-4/" H 5750 4850 60  0001 C CNN "Shop link"
-	1    5750 4850
-	1    0    0    -1  
-$EndComp
 Connection ~ 5550 4500
 Connection ~ 5550 5200
 NoConn ~ 5850 4550
@@ -237,18 +209,6 @@ F 3 "" H 5550 5900 60  0000 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L MuxPi:D D3
-U 1 1 58512F3B
-P 5150 4850
-F 0 "D3" H 5150 4950 50  0000 C CNN
-F 1 "ES1AL" H 5150 4750 50  0000 C CNN
-F 2 "mux-footprints:Sub_SMA" H 5150 4850 60  0001 C CNN
-F 3 "http://www.tme.eu/pl/Document/6e3ed172b8ef57eec12ad172948b8283/ES1JL-DTE.pdf" H 5150 4850 60  0001 C CNN
-F 4 "http://www.tme.eu/pl/details/es1jl/diody-uniwersalne-smd/taiwan-semiconductor/" H 5150 4850 60  0001 C CNN "Shop link"
-	1    5150 4850
-	0    1    1    0   
-$EndComp
-$Comp
 L MuxPi:GND #PWR076
 U 1 1 58512F41
 P 5000 5900
@@ -280,60 +240,6 @@ F 4 "http://www.tme.eu/pl/details/smd0805-560r/rezystory-smd-0805/royal-ohm/0805
 	1    5000 5700
 	1    0    0    -1  
 $EndComp
-$Comp
-L MuxPi:2N7002 Q3
-U 1 1 58512F54
-P 5450 5450
-F 0 "Q3" H 5641 5496 50  0000 L CNN
-F 1 "2N7002" H 5641 5405 50  0000 L CNN
-F 2 "TO_SOT_Packages_SMD:SOT-23" H 5650 5375 50  0001 L CIN
-F 3 "https://www.nxp.com/documents/data_sheet/2N7002.pdf" H 5450 5450 50  0001 L CNN
-F 4 "http://www.tme.eu/pl/details/2n7002/tranzystory-z-kanalem-n-smd/fairchild-semiconductor/" H 5450 5450 60  0001 C CNN "Shop link"
-	1    5450 5450
-	1    0    0    -1  
-$EndComp
-$Comp
-L MuxPi:CONN_01X02 P6
-U 1 1 58513C21
-P 7700 2200
-F 0 "P6" H 7777 2241 50  0000 L CNN
-F 1 "NS25-W2P" H 7777 2150 50  0000 L CNN
-F 2 "Connectors_Molex:Molex_KK-6410-02_02x2.54mm_Straight" H 7700 2200 50  0001 C CNN
-F 3 "http://www.tme.eu/pl/Document/f4fbc03349849389d5a444932ab1e0cf/ns25-w2p.pdf" H 7700 2200 50  0001 C CNN
-F 4 "http://www.tme.eu/pl/details/ns25-w2p/zlacza-sygnalowe-raster-254mm/ninigi/" H 7700 2200 60  0001 C CNN "Shop link"
-F 5 "http://www.tme.eu/pl/details/ns25-g2/zlacza-sygnalowe-raster-254mm/ninigi/" H 7700 2200 60  0001 C CNN "Complementary device"
-F 6 "http://www.tme.eu/pl/details/ns25-t/zlacza-sygnalowe-raster-254mm/ninigi/" H 7700 2200 60  0001 C CNN "Complementary device 1"
-	1    7700 2200
-	1    0    0    -1  
-$EndComp
-$Comp
-L MuxPi:CONN_01X02 P7
-U 1 1 58513EEC
-P 7700 4150
-F 0 "P7" H 7777 4191 50  0000 L CNN
-F 1 "NS25-W2P" H 7777 4100 50  0000 L CNN
-F 2 "Connectors_Molex:Molex_KK-6410-02_02x2.54mm_Straight" H 7700 4150 50  0001 C CNN
-F 3 "http://www.tme.eu/pl/Document/f4fbc03349849389d5a444932ab1e0cf/ns25-w2p.pdf" H 7700 4150 50  0001 C CNN
-F 4 "http://www.tme.eu/pl/details/ns25-w2p/zlacza-sygnalowe-raster-254mm/ninigi/" H 7700 4150 60  0001 C CNN "Shop link"
-F 5 "http://www.tme.eu/pl/details/ns25-g2/zlacza-sygnalowe-raster-254mm/ninigi/" H 7700 4150 60  0001 C CNN "Complementary device"
-F 6 "http://www.tme.eu/pl/details/ns25-t/zlacza-sygnalowe-raster-254mm/ninigi/" H 7700 4150 60  0001 C CNN "Complementary device 1"
-	1    7700 4150
-	1    0    0    -1  
-$EndComp
-$Comp
-L MuxPi:CONN_01X02 P8
-U 1 1 58513F6B
-P 7700 4450
-F 0 "P8" H 7777 4491 50  0000 L CNN
-F 1 "NS25-W2P" H 7777 4400 50  0000 L CNN
-F 2 "Connectors_Molex:Molex_KK-6410-02_02x2.54mm_Straight" H 7700 4450 50  0001 C CNN
-F 3 "http://www.tme.eu/pl/Document/f4fbc03349849389d5a444932ab1e0cf/ns25-w2p.pdf" H 7700 4450 50  0001 C CNN
-F 4 "http://www.tme.eu/pl/details/ns25-w2p/zlacza-sygnalowe-raster-254mm/ninigi/" H 7700 4450 60  0001 C CNN "Shop link"
-F 5 "http://www.tme.eu/pl/details/ns25-g2/zlacza-sygnalowe-raster-254mm/ninigi/" H 7700 4450 60  0001 C CNN "Complementary device"
-F 6 "http://www.tme.eu/pl/details/ns25-t/zlacza-sygnalowe-raster-254mm/ninigi/" H 7700 4450 60  0001 C CNN "Complementary device 1"
-	1    7700 4450
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	5550 2250 5550 2300
 Wire Wire Line
@@ -346,4 +252,134 @@ Wire Wire Line
 	5550 5200 5550 5250
 Wire Wire Line
 	5000 5500 5250 5500
+$Comp
+L MuxPi:2N7002 Q2
+U 1 1 5A8EB0B3
+P 5450 3200
+F 0 "Q2" H 5641 3246 50  0000 L CNN
+F 1 "2N7002" H 5641 3155 50  0000 L CNN
+F 2 "TO_SOT_Packages_SMD:SOT-23" H 5650 3125 50  0001 L CIN
+F 3 "https://www.nxp.com/documents/data_sheet/2N7002.pdf" H 5450 3200 50  0001 L CNN
+F 4 "http://www.tme.eu/pl/details/2n7002/tranzystory-z-kanalem-n-smd/fairchild-semiconductor/" H 5450 3200 60  0001 C CNN "Shop link"
+F 5 "ON SEMICONDUCTOR (FAIRCHILD)" H 5450 3200 50  0001 C CNN "Manufacturer"
+F 6 "2N7002" H 5450 3200 50  0001 C CNN "Symbol"
+	1    5450 3200
+	1    0    0    -1  
+$EndComp
+$Comp
+L MuxPi:2N7002 Q3
+U 1 1 5A8EBD2D
+P 5450 5450
+F 0 "Q3" H 5641 5496 50  0000 L CNN
+F 1 "2N7002" H 5641 5405 50  0000 L CNN
+F 2 "TO_SOT_Packages_SMD:SOT-23" H 5650 5375 50  0001 L CIN
+F 3 "https://www.nxp.com/documents/data_sheet/2N7002.pdf" H 5450 5450 50  0001 L CNN
+F 4 "http://www.tme.eu/pl/details/2n7002/tranzystory-z-kanalem-n-smd/fairchild-semiconductor/" H 5450 5450 60  0001 C CNN "Shop link"
+F 5 "ON SEMICONDUCTOR (FAIRCHILD)" H 5450 5450 50  0001 C CNN "Manufacturer"
+F 6 "2N7002" H 5450 5450 50  0001 C CNN "Symbol"
+	1    5450 5450
+	1    0    0    -1  
+$EndComp
+$Comp
+L MuxPi:D D2
+U 1 1 5A8EC99C
+P 5150 2600
+F 0 "D2" H 5150 2700 50  0000 C CNN
+F 1 "ES1AL" H 5150 2500 50  0000 C CNN
+F 2 "mux-footprints:Sub_SMA" H 5150 2600 60  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/6e3ed172b8ef57eec12ad172948b8283/ES1JL-DTE.pdf" H 5150 2600 60  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/es1jl/diody-uniwersalne-smd/taiwan-semiconductor/" H 5150 2600 60  0001 C CNN "Shop link"
+F 5 "TAIWAN SEMICONDUCTOR" H 5150 2600 50  0001 C CNN "Manufacturer"
+F 6 "ES1JL" H 5150 2600 50  0001 C CNN "Symbol"
+	1    5150 2600
+	0    1    1    0   
+$EndComp
+$Comp
+L MuxPi:D D3
+U 1 1 5A8EE3BF
+P 5150 4850
+F 0 "D3" H 5150 4950 50  0000 C CNN
+F 1 "ES1AL" H 5150 4750 50  0000 C CNN
+F 2 "mux-footprints:Sub_SMA" H 5150 4850 60  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/6e3ed172b8ef57eec12ad172948b8283/ES1JL-DTE.pdf" H 5150 4850 60  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/es1jl/diody-uniwersalne-smd/taiwan-semiconductor/" H 5150 4850 60  0001 C CNN "Shop link"
+F 5 "TAIWAN SEMICONDUCTOR" H 5150 4850 50  0001 C CNN "Manufacturer"
+F 6 "ES1JL" H 5150 4850 50  0001 C CNN "Symbol"
+	1    5150 4850
+	0    1    1    0   
+$EndComp
+$Comp
+L MuxPi:IM03 K2
+U 1 1 5A8EEE9D
+P 5750 4850
+F 0 "K2" H 6580 4896 50  0000 L CNN
+F 1 "1-1462037-4" H 6580 4805 50  0000 L CNN
+F 2 "mux-footprints:IM03-SMT_GULL" H 5750 4850 50  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/3d423240524ca321875bc7f197d833ad/IM-HICDP.pdf" H 5750 4850 50  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/im03gr/przekazniki-elektromagn-miniaturowe/te-connectivity/1-1462037-4/" H 5750 4850 60  0001 C CNN "Shop link"
+F 5 "TE CONNECTIVITY" H 5750 4850 50  0001 C CNN "Manufacturer"
+F 6 "1-1462037-4" H 5750 4850 50  0001 C CNN "Symbol"
+	1    5750 4850
+	1    0    0    -1  
+$EndComp
+$Comp
+L MuxPi:CONN_01X02 P6
+U 1 1 5A8EF6B9
+P 7700 2200
+F 0 "P6" H 7777 2241 50  0000 L CNN
+F 1 "NS25-W2P" H 7777 2150 50  0000 L CNN
+F 2 "Connectors_Molex:Molex_KK-6410-02_02x2.54mm_Straight" H 7700 2200 50  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/f4fbc03349849389d5a444932ab1e0cf/ns25-w2p.pdf" H 7700 2200 50  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/ns25-w2p/zlacza-sygnalowe-raster-254mm/ninigi/" H 7700 2200 60  0001 C CNN "Shop link"
+F 5 "NINIGI" H 7700 2200 50  0001 C CNN "Manufacturer"
+F 6 "NS25-W2P" H 7700 2200 50  0001 C CNN "Symbol"
+F 7 "http://www.tme.eu/pl/details/ns25-g2/zlacza-sygnalowe-raster-254mm/ninigi/" H 7700 2200 60  0001 C CNN "Complementary device"
+F 8 "NINIGI" H 7700 2200 50  0001 C CNN "Complementary manufacturer"
+F 9 "NS25-G2" H 7700 2200 50  0001 C CNN "Complementary symbol"
+F 10 "http://www.tme.eu/pl/details/ns25-t/zlacza-sygnalowe-raster-254mm/ninigi/" H 7700 2200 60  0001 C CNN "Complementary device 1"
+F 11 "NINIGI" H 7700 2200 50  0001 C CNN "Complementary manufacturer 1"
+F 12 "NS25-T" H 7700 2200 50  0001 C CNN "Complementary symbol 1"
+	1    7700 2200
+	1    0    0    -1  
+$EndComp
+$Comp
+L MuxPi:CONN_01X02 P7
+U 1 1 5A8EF880
+P 7700 4150
+F 0 "P7" H 7777 4191 50  0000 L CNN
+F 1 "NS25-W2P" H 7777 4100 50  0000 L CNN
+F 2 "Connectors_Molex:Molex_KK-6410-02_02x2.54mm_Straight" H 7700 4150 50  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/f4fbc03349849389d5a444932ab1e0cf/ns25-w2p.pdf" H 7700 4150 50  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/ns25-w2p/zlacza-sygnalowe-raster-254mm/ninigi/" H 7700 4150 60  0001 C CNN "Shop link"
+F 5 "NINIGI" H 7700 4150 50  0001 C CNN "Manufacturer"
+F 6 "NS25-W2P" H 7700 4150 50  0001 C CNN "Symbol"
+F 7 "http://www.tme.eu/pl/details/ns25-g2/zlacza-sygnalowe-raster-254mm/ninigi/" H 7700 4150 60  0001 C CNN "Complementary device"
+F 8 "NINIGI" H 7700 4150 50  0001 C CNN "Complementary manufacturer"
+F 9 "NS25-G2" H 7700 4150 50  0001 C CNN "Complementary symbol"
+F 10 "http://www.tme.eu/pl/details/ns25-t/zlacza-sygnalowe-raster-254mm/ninigi/" H 7700 4150 60  0001 C CNN "Complementary device 1"
+F 11 "NINIGI" H 7700 4150 50  0001 C CNN "Complementary manufacturer 1"
+F 12 "NS25-T" H 7700 4150 50  0001 C CNN "Complementary symbol 1"
+	1    7700 4150
+	1    0    0    -1  
+$EndComp
+$Comp
+L MuxPi:CONN_01X02 P8
+U 1 1 5A8EF912
+P 7700 4450
+F 0 "P8" H 7777 4491 50  0000 L CNN
+F 1 "NS25-W2P" H 7777 4400 50  0000 L CNN
+F 2 "Connectors_Molex:Molex_KK-6410-02_02x2.54mm_Straight" H 7700 4450 50  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/f4fbc03349849389d5a444932ab1e0cf/ns25-w2p.pdf" H 7700 4450 50  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/ns25-w2p/zlacza-sygnalowe-raster-254mm/ninigi/" H 7700 4450 60  0001 C CNN "Shop link"
+F 5 "NINIGI" H 7700 4450 50  0001 C CNN "Manufacturer"
+F 6 "NS25-W2P" H 7700 4450 50  0001 C CNN "Symbol"
+F 7 "http://www.tme.eu/pl/details/ns25-g2/zlacza-sygnalowe-raster-254mm/ninigi/" H 7700 4450 60  0001 C CNN "Complementary device"
+F 8 "NINIGI" H 7700 4450 50  0001 C CNN "Complementary manufacturer"
+F 9 "NS25-G2" H 7700 4450 50  0001 C CNN "Complementary symbol"
+F 10 "http://www.tme.eu/pl/details/ns25-t/zlacza-sygnalowe-raster-254mm/ninigi/" H 7700 4450 60  0001 C CNN "Complementary device 1"
+F 11 "NINIGI" H 7700 4450 50  0001 C CNN "Complementary manufacturer 1"
+F 12 "NS25-T" H 7700 4450 50  0001 C CNN "Complementary symbol 1"
+	1    7700 4450
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

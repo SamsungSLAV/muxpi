@@ -23,6 +23,8 @@ F 1 "471511001 (HDMI)" H 6369 2941 60  0000 L CNN
 F 2 "mux-footprints:HDMI" H 5300 2600 60  0001 C CNN
 F 3 "http://www.tme.eu/pl/Document/0ee89c51a17a2db3df4db584d9f4e80e/MX-47151-1001.pdf" H 5300 2600 60  0001 C CNN
 F 4 "http://www.tme.eu/pl/details/mx-47151-1001/zlacza-euro-hdmi/molex/471511001/" H 5800 3100 60  0001 C CNN "Shop link"
+F 5 "MOLEX" H 5800 3100 50  0001 C CNN "Manufacturer"
+F 6 "471511001" H 5800 3100 50  0001 C CNN "Symbol"
 	1    5800 3100
 	1    0    0    -1  
 $EndComp

@@ -45,6 +45,8 @@ F 1 "ES1AL" H 3900 4900 50  0000 C CNN
 F 2 "mux-footprints:Sub_SMA" H 3900 5000 60  0001 C CNN
 F 3 "http://www.tme.eu/pl/Document/6e3ed172b8ef57eec12ad172948b8283/ES1JL-DTE.pdf" H 3900 5000 60  0001 C CNN
 F 4 "http://www.tme.eu/pl/details/es1jl/diody-uniwersalne-smd/taiwan-semiconductor/" H 3900 5000 60  0001 C CNN "Shop link"
+F 5 "TAIWAN SEMICONDUCTOR" H 3900 5000 50  0001 C CNN "Manufacturer"
+F 6 "ES1JL" H 3900 5000 50  0001 C CNN "Symbol"
 	1    3900 5000
 	1    0    0    -1  
 $EndComp
@@ -57,6 +59,8 @@ F 1 "JV-5S-KT" H 4330 4355 50  0001 L CNN
 F 2 "mux-footprints:Relay_SPST-NO_FUJITSU-JV" H 3900 4400 50  0001 C CNN
 F 3 "http://www.tme.eu/pl/Document/160416a7d37511bbe210dab3bc04735d/jv.pdf" H 3900 4400 50  0001 C CNN
 F 4 "http://www.tme.eu/pl/details/jv-5s-kt/przekazniki-elektromagn-miniaturowe/fujitsu-takamisawa/" V 3900 4400 60  0001 C CNN "Shop link"
+F 5 "FUJITSU-TAKAMISAWA" V 3900 4400 50  0001 C CNN "Manufacturer"
+F 6 "JV-5S-KT" V 3900 4400 50  0001 C CNN "Symbol"
 	1    3900 4400
 	0    -1   -1   0   
 $EndComp
@@ -81,6 +85,10 @@ F 2 "mux-footprints:TerminalBlock_XY2500V-D(5.08)" H 2300 3900 50  0001 C CNN
 F 3 "http://www.cresttech.com.au/pdf/Pluggable_connector.pdf" H 2300 3900 50  0001 C CNN
 F 4 "http://www.tme.eu/pl/details/tbg-5-pw-2p-gn/listwy-zaciskowe-do-druku/xinya/xy2500v-d508-2pin/" H 2300 3900 60  0001 C CNN "Shop link"
 F 5 "http://www.tme.eu/pl/details/tbw-5.08-2p/listwy-zaciskowe-do-druku/xinya/xy2500f-bv508-2p/" H 2300 3900 60  0001 C CNN "Complementary device"
+F 6 "XINYA" H 2300 3900 50  0001 C CNN "Complementary manufacturer"
+F 7 "XY2500F-BV(5.08)-2P" H 2300 3900 50  0001 C CNN "Complementary symbol"
+F 8 "XINYA" H 2300 3900 50  0001 C CNN "Manufacturer"
+F 9 "XY2500V-D(5.08)-2PIN" H 2300 3900 50  0001 C CNN "Symbol"
 	1    2300 3900
 	-1   0    0    -1  
 $EndComp
@@ -93,6 +101,8 @@ F 1 "ACS712ELCTR-05B-T" V 3500 2450 60  0000 R CNN
 F 2 "mux-footprints:SOIC-8" H 1690 1690 60  0001 C CNN
 F 3 "http://www.farnell.com/datasheets/64754.pdf?_ga=1.192000233.291132730.1474618953" H 1690 1690 60  0001 C CNN
 F 4 "http://pl.farnell.com/allegro-microsystems/acs712elctr-05b-t/ic-sensor-current-5a-soic8/dp/1329623" V 3900 2800 60  0001 C CNN "Shop link"
+F 5 "ALLEGRO MICROSYSTEMS" V 3900 2800 50  0001 C CNN "Manufacturer"
+F 6 "ACS712ELCTR-05B-T " V 3900 2800 50  0001 C CNN "Symbol"
 	1    3900 2800
 	0    -1   -1   0   
 $EndComp
@@ -358,31 +368,6 @@ F 4 "http://www.tme.eu/pl/details/smd0805-560r/rezystory-smd-0805/royal-ohm/0805
 	1    3900 3850
 	0    1    1    0   
 $EndComp
-$Comp
-L MuxPi:2N7002 Q1
-U 1 1 584F2EFF
-P 4200 5300
-F 0 "Q1" H 4391 5346 50  0000 L CNN
-F 1 "2N7002" H 4391 5255 50  0000 L CNN
-F 2 "TO_SOT_Packages_SMD:SOT-23" H 4400 5225 50  0001 L CIN
-F 3 "https://www.nxp.com/documents/data_sheet/2N7002.pdf" H 4200 5300 50  0001 L CNN
-F 4 "http://www.tme.eu/pl/details/2n7002/tranzystory-z-kanalem-n-smd/fairchild-semiconductor/" H 4200 5300 60  0001 C CNN "Shop link"
-	1    4200 5300
-	1    0    0    -1  
-$EndComp
-$Comp
-L MuxPi:CONN_01X02 P3
-U 1 1 584FF008
-P 5950 3900
-F 0 "P3" H 6028 3941 50  0000 L CNN
-F 1 "XY2500V-D(5.08)-2PIN" H 6028 3850 50  0000 L CNN
-F 2 "mux-footprints:TerminalBlock_XY2500V-D(5.08)" H 5950 3900 50  0001 C CNN
-F 3 "http://www.cresttech.com.au/pdf/Pluggable_connector.pdf" H 5950 3900 50  0001 C CNN
-F 4 "http://www.tme.eu/pl/details/tbg-5-pw-2p-gn/listwy-zaciskowe-do-druku/xinya/xy2500v-d508-2pin/" H 5950 3900 60  0001 C CNN "Shop link"
-F 5 "http://www.tme.eu/pl/details/tbw-5.08-2p/listwy-zaciskowe-do-druku/xinya/xy2500f-bv508-2p/" H 5950 3900 60  0001 C CNN "Complementary device"
-	1    5950 3900
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	4600 3950 5050 3950
 Wire Wire Line
@@ -488,6 +473,8 @@ F 1 "1N4448WS" H 5750 1825 50  0000 C CNN
 F 2 "Diodes_SMD:D_SOD-323F" H 5750 1826 50  0001 C CNN
 F 3 "https://www.tme.eu/pl/Document/092852c2250de492ce82b1b9e9d241c4/1N4148WS.pdf" H 5750 1950 50  0001 C CNN
 F 4 "https://www.tme.eu/pl/details/1n4448ws/diody-uniwersalne-smd/on-semiconductor-fairchild/" H 5750 1950 50  0001 C CNN "Shop link"
+F 5 "ON SEMICONDUCTOR (FAIRCHILD)" H 5750 1950 50  0001 C CNN "Manufacturer"
+F 6 "1N4448WS" H 5750 1950 50  0001 C CNN "Symbol"
 	1    5750 1950
 	-1   0    0    1   
 $EndComp
@@ -503,30 +490,6 @@ Wire Wire Line
 Connection ~ 5450 1950
 Wire Wire Line
 	5450 1950 5600 1950
-$Comp
-L MuxPi:MCP6002 U15
-U 1 1 5A9F2BE3
-P 7800 2900
-F 0 "U15" H 7750 3200 50  0000 L CNN
-F 1 "MCP6002-E/SN" H 7750 3100 50  0000 L CNN
-F 2 "mux-footprints:SOIC-8" H 7700 2950 50  0001 C CNN
-F 3 "http://www.tme.eu/pl/Document/c98656c49a036767b89c9bb93e3dda4a/mcp6001_2_4.pdf" H 7800 3050 50  0001 C CNN
-F 4 "http://www.tme.eu/pl/details/mcp6002-e_sn/wzmacniacze-operacyjne-smd/microchip-technology/" H 7800 2900 60  0001 C CNN "Shop link"
-	1    7800 2900
-	1    0    0    -1  
-$EndComp
-$Comp
-L MuxPi:MCP6002 U15
-U 2 1 5A9F2BEB
-P 9150 3000
-F 0 "U15" H 9150 3200 50  0000 L CNN
-F 1 "MCP6002-E/SN" H 9150 2800 50  0000 L CNN
-F 2 "mux-footprints:SOIC-8" H 9050 3050 50  0001 C CNN
-F 3 "http://www.tme.eu/pl/Document/c98656c49a036767b89c9bb93e3dda4a/mcp6001_2_4.pdf" H 9150 3150 50  0001 C CNN
-F 4 "http://www.tme.eu/pl/details/mcp6002-e_sn/wzmacniacze-operacyjne-smd/microchip-technology/" H 9150 3000 60  0001 C CNN "Shop link"
-	2    9150 3000
-	1    0    0    -1  
-$EndComp
 $Comp
 L MuxPi:GND #PWR0215
 U 1 1 5A9F2BF2
@@ -719,4 +682,63 @@ Wire Wire Line
 Connection ~ 6400 1950
 Wire Wire Line
 	6400 1950 8000 1950
+$Comp
+L MuxPi:2N7002 Q1
+U 1 1 5A8B550D
+P 4200 5300
+F 0 "Q1" H 4391 5346 50  0000 L CNN
+F 1 "2N7002" H 4391 5255 50  0000 L CNN
+F 2 "TO_SOT_Packages_SMD:SOT-23" H 4400 5225 50  0001 L CIN
+F 3 "https://www.nxp.com/documents/data_sheet/2N7002.pdf" H 4200 5300 50  0001 L CNN
+F 4 "http://www.tme.eu/pl/details/2n7002/tranzystory-z-kanalem-n-smd/fairchild-semiconductor/" H 4200 5300 60  0001 C CNN "Shop link"
+F 5 "ON SEMICONDUCTOR (FAIRCHILD)" H 4200 5300 50  0001 C CNN "Manufacturer"
+F 6 "2N7002" H 4200 5300 50  0001 C CNN "Symbol"
+	1    4200 5300
+	1    0    0    -1  
+$EndComp
+$Comp
+L MuxPi:CONN_01X02 P3
+U 1 1 5A8B8B5B
+P 5950 3900
+F 0 "P3" H 6028 3941 50  0000 L CNN
+F 1 "XY2500V-D(5.08)-2PIN" H 6028 3850 50  0000 L CNN
+F 2 "mux-footprints:TerminalBlock_XY2500V-D(5.08)" H 5950 3900 50  0001 C CNN
+F 3 "http://www.cresttech.com.au/pdf/Pluggable_connector.pdf" H 5950 3900 50  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/tbg-5-pw-2p-gn/listwy-zaciskowe-do-druku/xinya/xy2500v-d508-2pin/" H 5950 3900 60  0001 C CNN "Shop link"
+F 5 "http://www.tme.eu/pl/details/tbw-5.08-2p/listwy-zaciskowe-do-druku/xinya/xy2500f-bv508-2p/" H 5950 3900 60  0001 C CNN "Complementary device"
+F 6 "XINYA" H 5950 3900 50  0001 C CNN "Complementary manufacturer"
+F 7 "XY2500F-BV(5.08)-2P" H 5950 3900 50  0001 C CNN "Complementary symbol"
+F 8 "XINYA" H 5950 3900 50  0001 C CNN "Manufacturer"
+F 9 "XY2500V-D(5.08)-2PIN" H 5950 3900 50  0001 C CNN "Symbol"
+	1    5950 3900
+	1    0    0    -1  
+$EndComp
+$Comp
+L MuxPi:MCP6002 U15
+U 1 1 5A8BCDE3
+P 7800 2900
+F 0 "U15" H 7800 3100 50  0000 L CNN
+F 1 "MCP6002-E/SN" H 7450 2600 50  0000 L CNN
+F 2 "mux-footprints:SOIC-8" H 7700 2950 50  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/c98656c49a036767b89c9bb93e3dda4a/mcp6001_2_4.pdf" H 7800 3050 50  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/mcp6002-e_sn/wzmacniacze-operacyjne-smd/microchip-technology/" H 7800 2900 60  0001 C CNN "Shop link"
+F 5 "MICROCHIP TECHNOLOGY" H 7800 2900 50  0001 C CNN "Manufacturer"
+F 6 "MCP6002-E/SN" H 7800 2900 50  0001 C CNN "Symbol"
+	1    7800 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L MuxPi:MCP6002 U15
+U 2 1 5A8BF6A4
+P 9150 3000
+F 0 "U15" H 9150 3200 50  0000 L CNN
+F 1 "MCP6002-E/SN" H 8800 2700 50  0000 L CNN
+F 2 "mux-footprints:SOIC-8" H 9050 3050 50  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/c98656c49a036767b89c9bb93e3dda4a/mcp6001_2_4.pdf" H 9150 3150 50  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/mcp6002-e_sn/wzmacniacze-operacyjne-smd/microchip-technology/" H 9150 3000 60  0001 C CNN "Shop link"
+F 5 "MICROCHIP TECHNOLOGY" H 9150 3000 50  0001 C CNN "Manufacturer"
+F 6 "MCP6002-E/SN" H 9150 3000 50  0001 C CNN "Symbol"
+	2    9150 3000
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

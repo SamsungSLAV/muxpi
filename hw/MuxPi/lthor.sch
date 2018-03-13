@@ -23,6 +23,8 @@ F 1 "CONN_01X04" H 4378 2500 50  0000 L CNN
 F 2 "Pin_Headers:Pin_Header_Straight_1x04_Pitch1.27mm" H 4300 2550 50  0001 C CNN
 F 3 "http://www.tme.eu/pl/Document/cb34e048abb83f790f0df461315a2ac0/DS1065-01.pdf" H 4300 2550 50  0001 C CNN
 F 4 "http://www.tme.eu/pl/details/ds1065-01-1x4s8bv/listwy-i-gniazda-kolkowe/connfly/ds1065-01-1_4s8bv/" H 4300 2550 60  0001 C CNN "Shop link"
+F 5 "CONNFLY" H 4300 2550 50  0001 C CNN "Manufacturer"
+F 6 "DS1065-01-1*4S8BV" H 4300 2550 50  0001 C CNN "Symbol"
 	1    4300 2550
 	-1   0    0    -1  
 $EndComp
@@ -62,6 +64,8 @@ F 1 "TS3USB30EDGSR" H 5900 3481 60  0000 C CNN
 F 2 "footprints:msoic-10" H 3690 1790 60  0001 C CNN
 F 3 "http://www.ti.com/lit/ds/symlink/ts3usb30e.pdf" H 3690 1790 60  0001 C CNN
 F 4 "http://pl.farnell.com/texas-instruments/ts3usb30edgsr/multiplexer-demultiplexer-1-2/dp/2335701" H 5900 2900 60  0001 C CNN "Shop link"
+F 5 "TEXAS INSTRUMENTS" H 5900 2900 50  0001 C CNN "Manufacturer"
+F 6 "TS3USB30EDGSR" H 5900 2900 50  0001 C CNN "Symbol"
 	1    5900 2900
 	-1   0    0    -1  
 $EndComp
@@ -148,18 +152,6 @@ $EndComp
 Text Label 7750 2800 0    60   ~ 0
 VBUS
 $Comp
-L MuxPi:2N7002 Q14
-U 1 1 58DAC98F
-P 6700 5200
-F 0 "Q14" H 6891 5246 50  0000 L CNN
-F 1 "2N7002" H 6891 5155 50  0000 L CNN
-F 2 "TO_SOT_Packages_SMD:SOT-23" H 6900 5125 50  0001 L CIN
-F 3 "https://www.nxp.com/documents/data_sheet/2N7002.pdf" H 6700 5200 50  0001 L CNN
-F 4 "http://www.tme.eu/pl/details/2n7002/tranzystory-z-kanalem-n-smd/fairchild-semiconductor/" H 6700 5200 60  0001 C CNN "Shop link"
-	1    6700 5200
-	1    0    0    -1  
-$EndComp
-$Comp
 L MuxPi:GND #PWR0200
 U 1 1 58DAC996
 P 6800 5450
@@ -179,6 +171,8 @@ F 1 "3224W-105-1LF" H 6730 4755 50  0000 R CNN
 F 2 "Potentiometers:Potentiometer_Trimmer_Bourns_3224W" H 6800 4800 50  0001 C CNN
 F 3 "https://www.maritex.com.pl/product/attachment/37649/pot-53w.pdf" H 6800 4800 50  0001 C CNN
 F 4 "https://www.maritex.com.pl/elementy_pasywne/potencjometry/wieloobrotowe/wieloobrotowe_smd/potencjometry_precyzyjne_wieloobrotowe_smd/pot53w105.html" H 6800 4800 60  0001 C CNN "Shop link"
+F 5 "ALLCONNE" H 6800 4800 50  0001 C CNN "Manufacturer"
+F 6 "POT53W105" H 6800 4800 50  0001 C CNN "Symbol"
 	1    6800 4800
 	1    0    0    -1  
 $EndComp
@@ -228,30 +222,6 @@ F 1 "GND" H 3300 5500 50  0000 C CNN
 F 2 "" H 3300 5650 60  0000 C CNN
 F 3 "" H 3300 5650 60  0000 C CNN
 	1    3300 5650
-	1    0    0    -1  
-$EndComp
-$Comp
-L MuxPi:BSO130P03S Q15
-U 1 1 58DAF6B4
-P 4500 4800
-F 0 "Q15" H 4500 5307 50  0000 C CNN
-F 1 "BSO130P03S" H 4500 5216 50  0000 C CNN
-F 2 "mux-footprints:SOIC-8" H 4500 5125 50  0001 C CIN
-F 3 "http://www.tme.eu/pl/Document/fde90035d9a6021d44d09086b0d9119c/BSO130P03SHXUMA1-DTE.pdf" V 4500 4800 50  0001 L CNN
-F 4 "http://www.tme.eu/pl/details/bso130p03shxuma1/tranzystory-z-kanalem-p-smd/infineon-technologies/" H 4500 4800 60  0001 C CNN "Shop link"
-	1    4500 4800
-	1    0    0    -1  
-$EndComp
-$Comp
-L MuxPi:2N7002 Q13
-U 1 1 58DAF6BD
-P 3750 5200
-F 0 "Q13" H 3941 5246 50  0000 L CNN
-F 1 "2N7002" H 3941 5155 50  0000 L CNN
-F 2 "TO_SOT_Packages_SMD:SOT-23" H 3950 5125 50  0001 L CIN
-F 3 "https://www.nxp.com/documents/data_sheet/2N7002.pdf" H 3750 5200 50  0001 L CNN
-F 4 "http://www.tme.eu/pl/details/2n7002/tranzystory-z-kanalem-n-smd/fairchild-semiconductor/" H 3750 5200 60  0001 C CNN "Shop link"
-	1    3750 5200
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -397,71 +367,8 @@ Text HLabel 5900 5250 0    60   Input ~ 0
 LTHOR_ID
 Text HLabel 7050 3250 2    60   Input ~ 0
 LTHOR_SWITCH
-$Comp
-L MuxPi:Q_PMOS_GSD Q16
-U 1 1 58DB6E6E
-P 6700 4400
-F 0 "Q16" V 7043 4400 50  0000 C CNN
-F 1 "IRLML2246TRPBF" V 6952 4400 50  0000 C CNN
-F 2 "TO_SOT_Packages_SMD:SOT-23" H 6900 4500 50  0001 C CNN
-F 3 "http://www.tme.eu/pl/Document/2f0f749c8d8f8ba613dc3956fc89a382/irlml2246pbf.pdf" H 6700 4400 50  0001 C CNN
-F 4 "http://www.tme.eu/pl/details/irlml2246trpbf/tranzystory-z-kanalem-p-smd/infineon-irf/" V 6700 4400 60  0001 C CNN "Shop link"
-	1    6700 4400
-	1    0    0    1   
-$EndComp
-$Comp
-L MuxPi:+3V3 #PWR199
-U 1 1 58DBC567
-P 6800 4000
-AR Path="/58DBC567" Ref="#PWR199"  Part="1" 
-AR Path="/58DA42D9/58DBC567" Ref="#PWR0199"  Part="1" 
-F 0 "#PWR0199" H 6800 3850 50  0001 C CNN
-F 1 "+3V3" H 6800 4140 50  0000 C CNN
-F 2 "" H 6800 4000 60  0000 C CNN
-F 3 "" H 6800 4000 60  0000 C CNN
-	1    6800 4000
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	6800 4600 6800 4650
-Wire Wire Line
-	6800 4000 6800 4200
-Wire Wire Line
-	6500 4400 6450 4400
-Text HLabel 7500 4800 2    60   Input ~ 0
-ADC2
-$Comp
-L MuxPi:R R26
-U 1 1 58DBD856
-P 6450 4200
-F 0 "R26" V 6350 4200 50  0000 C CNN
-F 1 "10K" V 6550 4200 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805" V 6380 4200 30  0001 C CNN
-F 3 "" H 6450 4200 30  0000 C CNN
-F 4 "http://www.tme.eu/pl/details/smd0805-560r/rezystory-smd-0805/royal-ohm/0805s8j0561t5e/" V 6450 4200 60  0001 C CNN "Shop link"
-	1    6450 4200
-	1    0    0    -1  
-$EndComp
-$Comp
-L MuxPi:+3V3 #PWR197
-U 1 1 58DBDB73
-P 6450 4000
-AR Path="/58DBDB73" Ref="#PWR197"  Part="1" 
-AR Path="/58DA42D9/58DBDB73" Ref="#PWR0197"  Part="1" 
-F 0 "#PWR0197" H 6450 3850 50  0001 C CNN
-F 1 "+3V3" H 6450 4140 50  0000 C CNN
-F 2 "" H 6450 4000 60  0000 C CNN
-F 3 "" H 6450 4000 60  0000 C CNN
-	1    6450 4000
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6450 4000 6450 4050
-Wire Wire Line
-	6450 4350 6450 4400
-Connection ~ 6450 4400
-Text HLabel 6300 4400 0    60   Input ~ 0
-ADC1
 Wire Wire Line
 	4900 4700 4900 4800
 Wire Wire Line
@@ -476,6 +383,47 @@ Wire Wire Line
 	4100 4600 4100 4700
 Wire Wire Line
 	4900 4600 5400 4600
-Wire Wire Line
-	6450 4400 6300 4400
+$Comp
+L MuxPi:2N7002 Q13
+U 1 1 5A88C1DF
+P 3750 5200
+F 0 "Q13" H 3941 5246 50  0000 L CNN
+F 1 "2N7002" H 3941 5155 50  0000 L CNN
+F 2 "TO_SOT_Packages_SMD:SOT-23" H 3950 5125 50  0001 L CIN
+F 3 "https://www.nxp.com/documents/data_sheet/2N7002.pdf" H 3750 5200 50  0001 L CNN
+F 4 "http://www.tme.eu/pl/details/2n7002/tranzystory-z-kanalem-n-smd/fairchild-semiconductor/" H 3750 5200 60  0001 C CNN "Shop link"
+F 5 "ON SEMICONDUCTOR (FAIRCHILD)" H 3750 5200 50  0001 C CNN "Manufacturer"
+F 6 "2N7002" H 3750 5200 50  0001 C CNN "Symbol"
+	1    3750 5200
+	1    0    0    -1  
+$EndComp
+$Comp
+L MuxPi:2N7002 Q14
+U 1 1 5A88D4E8
+P 6700 5200
+F 0 "Q14" H 6891 5246 50  0000 L CNN
+F 1 "2N7002" H 6891 5155 50  0000 L CNN
+F 2 "TO_SOT_Packages_SMD:SOT-23" H 6900 5125 50  0001 L CIN
+F 3 "https://www.nxp.com/documents/data_sheet/2N7002.pdf" H 6700 5200 50  0001 L CNN
+F 4 "http://www.tme.eu/pl/details/2n7002/tranzystory-z-kanalem-n-smd/fairchild-semiconductor/" H 6700 5200 60  0001 C CNN "Shop link"
+F 5 "ON SEMICONDUCTOR (FAIRCHILD)" H 6700 5200 50  0001 C CNN "Manufacturer"
+F 6 "2N7002" H 6700 5200 50  0001 C CNN "Symbol"
+	1    6700 5200
+	1    0    0    -1  
+$EndComp
+$Comp
+L MuxPi:BSO130P03S Q15
+U 1 1 5A88DDE3
+P 4500 4800
+F 0 "Q15" H 4500 5307 50  0000 C CNN
+F 1 "BSO130P03S" H 4500 5216 50  0000 C CNN
+F 2 "mux-footprints:SOIC-8" H 4500 5125 50  0001 C CIN
+F 3 "http://www.tme.eu/pl/Document/fde90035d9a6021d44d09086b0d9119c/BSO130P03SHXUMA1-DTE.pdf" V 4500 4800 50  0001 L CNN
+F 4 "http://www.tme.eu/pl/details/bso130p03shxuma1/tranzystory-z-kanalem-p-smd/infineon-technologies/" H 4500 4800 60  0001 C CNN "Shop link"
+F 5 "INFINEON TECHNOLOGIES" H 4500 4800 50  0001 C CNN "Manufacturer"
+F 6 "BSO130P03SHXUMA1" H 4500 4800 50  0001 C CNN "Symbol"
+	1    4500 4800
+	1    0    0    -1  
+$EndComp
+NoConn ~ 6800 4600
 $EndSCHEMATC

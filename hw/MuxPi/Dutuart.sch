@@ -23,6 +23,8 @@ F 1 "SN74LVC2T45DCTT" H 4250 3500 50  0000 C CNN
 F 2 "mux-footprints:SSOP-8" H 4150 3800 50  0001 C CIN
 F 3 "http://www.tme.eu/pl/Document/6c30e63cb6e35247759643c975f2fb23/SN74LVC2T45DCTT.pdf" H 4150 3800 50  0001 C CNN
 F 4 "http://www.tme.eu/pl/details/sn74lvc2t45dctt/konwertery-logiczne/texas-instruments/" H 4250 3800 60  0001 C CNN "Shop link"
+F 5 "TEXAS INSTRUMENTS" H 4250 3800 50  0001 C CNN "Manufacturer"
+F 6 "SN74LVC2T45DCTT" H 4250 3800 50  0001 C CNN "Symbol"
 	1    4250 3800
 	1    0    0    -1  
 $EndComp
@@ -79,6 +81,8 @@ F 1 "T821108A1S100CEU" H 5450 3600 50  0000 C CNN
 F 2 "Socket_Strips:Socket_Strip_Straight_2x04" H 5450 3000 60  0001 C CNN
 F 3 "http://www.tme.eu/pl/Document/cda30bae7de800ca9be388e3f3476120/T821-1-08-S1.pdf" H 5450 3000 60  0001 C CNN
 F 4 "http://www.tme.eu/pl/details/t821-1-08-s1/zlacza-idc/amphenol/t821108a1s100ceu/" H 5450 4200 60  0001 C CNN "Shop link"
+F 5 "CONNFLY" H 5450 4200 50  0001 C CNN "Manufacturer"
+F 6 "DS1021-2*4SF1-1" H 5450 4200 50  0001 C CNN "Symbol"
 	1    5450 4200
 	1    0    0    -1  
 $EndComp
@@ -274,30 +278,6 @@ F 4 "http://www.tme.eu/pl/details/cc0805jrx7r9104/kondensatory-mlcc-smd-0805/yag
 	1    0    0    -1  
 $EndComp
 $Comp
-L MuxPi:SN74LVC2T45 U6
-U 1 1 584E7273
-P 4250 4650
-F 0 "U6" H 4250 4950 50  0000 C CNN
-F 1 "SN74LVC2T45DCTT" H 4250 4350 50  0000 C CNN
-F 2 "mux-footprints:SSOP-8" H 4150 4650 50  0001 C CIN
-F 3 "http://www.tme.eu/pl/Document/6c30e63cb6e35247759643c975f2fb23/SN74LVC2T45DCTT.pdf" H 4150 4650 50  0001 C CNN
-F 4 "http://www.tme.eu/pl/details/sn74lvc2t45dctt/konwertery-logiczne/texas-instruments/" H 4250 4650 60  0001 C CNN "Shop link"
-	1    4250 4650
-	1    0    0    -1  
-$EndComp
-$Comp
-L MuxPi:LED_ALT D9
-U 1 1 58D934D3
-P 4850 5200
-F 0 "D9" V 4888 5082 50  0000 R CNN
-F 1 "KPT-2012SGC (GREEN)" V 4797 5082 50  0000 R CNN
-F 2 "Diodes_SMD:D_0805" H 4850 5200 50  0001 C CNN
-F 3 "http://www.tme.eu/pl/Document/0a4307e0e1e070f4f6d553134056548e/kpt-2012.pdf" H 4850 5200 50  0001 C CNN
-F 4 "http://www.tme.eu/pl/details/kpt-2012sgc/diody-led-smd-kolorowe/kingbright-electronic/" V 4850 5200 60  0001 C CNN "Shop link"
-	1    4850 5200
-	0    -1   -1   0   
-$EndComp
-$Comp
 L MuxPi:R R6
 U 1 1 58D93B8B
 P 4850 5550
@@ -323,19 +303,9 @@ F 1 "MCP6002-E/SN" H 3900 1350 50  0000 L CNN
 F 2 "mux-footprints:SOIC-8" H 4150 1700 50  0001 C CNN
 F 3 "http://www.tme.eu/pl/Document/c98656c49a036767b89c9bb93e3dda4a/mcp6001_2_4.pdf" H 4250 1800 50  0001 C CNN
 F 4 "http://www.tme.eu/pl/details/mcp6002-e_sn/wzmacniacze-operacyjne-smd/microchip-technology/" H 4250 1650 60  0001 C CNN "Shop link"
+F 5 "MICROCHIP TECHNOLOGY" H 4250 1650 50  0001 C CNN "Manufacturer"
+F 6 "MCP6002-E/SN" H 4250 1650 50  0001 C CNN "Symbol"
 	1    4250 1650
-	1    0    0    -1  
-$EndComp
-$Comp
-L MuxPi:MCP6002 U2
-U 2 1 58E19358
-P 5600 1750
-F 0 "U2" H 5600 1950 50  0000 L CNN
-F 1 "MCP6002-E/SN" H 5600 1550 50  0000 L CNN
-F 2 "mux-footprints:SOIC-8" H 5500 1800 50  0001 C CNN
-F 3 "http://www.tme.eu/pl/Document/c98656c49a036767b89c9bb93e3dda4a/mcp6001_2_4.pdf" H 5600 1900 50  0001 C CNN
-F 4 "http://www.tme.eu/pl/details/mcp6002-e_sn/wzmacniacze-operacyjne-smd/microchip-technology/" H 5600 1750 60  0001 C CNN "Shop link"
-	2    5600 1750
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -579,4 +549,46 @@ Connection ~ 5750 3650
 Connection ~ 5750 3250
 Wire Wire Line
 	5750 3250 6250 3250
+$Comp
+L MuxPi:MCP6002 U2
+U 2 1 5A886D70
+P 5600 1750
+F 0 "U2" H 5600 1950 50  0000 L CNN
+F 1 "MCP6002-E/SN" H 5250 1450 50  0000 L CNN
+F 2 "mux-footprints:SOIC-8" H 5500 1800 50  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/c98656c49a036767b89c9bb93e3dda4a/mcp6001_2_4.pdf" H 5600 1900 50  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/mcp6002-e_sn/wzmacniacze-operacyjne-smd/microchip-technology/" H 5600 1750 60  0001 C CNN "Shop link"
+F 5 "MICROCHIP TECHNOLOGY" H 5600 1750 50  0001 C CNN "Manufacturer"
+F 6 "MCP6002-E/SN" H 5600 1750 50  0001 C CNN "Symbol"
+	2    5600 1750
+	1    0    0    -1  
+$EndComp
+$Comp
+L MuxPi:LED_ALT D9
+U 1 1 5A887879
+P 4850 5200
+F 0 "D9" V 4888 5082 50  0000 R CNN
+F 1 "KPT-2012SGC (GREEN)" V 4797 5082 50  0000 R CNN
+F 2 "Diodes_SMD:D_0805" H 4850 5200 50  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/0a4307e0e1e070f4f6d553134056548e/kpt-2012.pdf" H 4850 5200 50  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/kpt-2012sgc/diody-led-smd-kolorowe/kingbright-electronic/" V 4850 5200 60  0001 C CNN "Shop link"
+F 5 "KINGBRIGHT ELECTRONIC" V 4850 5200 50  0001 C CNN "Manufacturer"
+F 6 "KPT-2012SGC" V 4850 5200 50  0001 C CNN "Symbol"
+	1    4850 5200
+	0    -1   -1   0   
+$EndComp
+$Comp
+L MuxPi:SN74LVC2T45 U6
+U 1 1 5A88984D
+P 4250 4650
+F 0 "U6" H 4250 4950 50  0000 C CNN
+F 1 "SN74LVC2T45DCTT" H 4250 4350 50  0000 C CNN
+F 2 "mux-footprints:SSOP-8" H 4150 4650 50  0001 C CIN
+F 3 "http://www.tme.eu/pl/Document/6c30e63cb6e35247759643c975f2fb23/SN74LVC2T45DCTT.pdf" H 4150 4650 50  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/sn74lvc2t45dctt/konwertery-logiczne/texas-instruments/" H 4250 4650 60  0001 C CNN "Shop link"
+F 5 "TEXAS INSTRUMENTS" H 4250 4650 50  0001 C CNN "Manufacturer"
+F 6 "SN74LVC2T45DCTT" H 4250 4650 50  0001 C CNN "Symbol"
+	1    4250 4650
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

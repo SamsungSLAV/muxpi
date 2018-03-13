@@ -23,6 +23,8 @@ F 1 "WS2812B" H 9800 3200 50  0000 C CNN
 F 2 "LEDs:LED_WS2812B-PLCC4" H 9800 3533 50  0001 C CNN
 F 3 "http://www.tme.eu/pl/Document/d396dfe883872510aebef40d9961d842/WS2812B.pdf" H 9800 3350 50  0001 C CNN
 F 4 "http://www.tme.eu/pl/details/ws2812b/diody-led-smd-kolorowe/worldsemi/" H 9800 3400 60  0001 C CNN "Shop link"
+F 5 "WORLDSEMI" H 9800 3400 50  0001 C CNN "Manufacturer"
+F 6 "WS2812B" H 9800 3400 50  0001 C CNN "Symbol"
 	1    9800 3400
 	1    0    0    -1  
 $EndComp
@@ -85,6 +87,8 @@ F 1 "OLED-AG-128032DY-Y (YELLOW)" H 9150 2250 50  0000 C CNN
 F 2 "mux-footprints:OLED-128x32-0.91Inch" H 9200 1150 50  0001 R TNN
 F 3 "http://www.buydisplay.com/download/manual/ER-OLED0.91-1_Series_Datasheet.pdf" H 9400 2900 50  0001 C CNN
 F 4 "http://www.artronic.com.pl/oferta.php?id=851&d=1&idp=0&" H 8950 1650 60  0001 C CNN "Shop link"
+F 5 "CHINA" H 8950 1650 50  0001 C CNN "Manufacturer"
+F 6 "OLED-AG-128032DY-Y" H 8950 1650 50  0001 C CNN "Symbol"
 	1    8950 1650
 	1    0    0    -1  
 $EndComp
@@ -238,8 +242,10 @@ AR Path="/58464F82/584699F1" Ref="U1"  Part="1"
 F 0 "U1" H 2000 6615 50  0000 C CNN
 F 1 "STM32F030C6T6" H 2000 6524 50  0000 C CNN
 F 2 "Housings_QFP:LQFP-48_7x7mm_Pitch0.5mm" H 2600 4700 50  0001 R TNN
-F 3 "http://www.farnell.com/datasheets/1883133.pdf?_ga=1.15381877.291132730.1474618953" H 2450 7150 50  0001 C CNN
+F 3 "http://www.farnell.com/datasheets/1883133.pdf?_ga=1.92009049.291132730.1474618953" H 2450 7150 50  0001 C CNN
 F 4 "http://pl.farnell.com/stmicroelectronics/stm32f030c6t6/mcu-32bit-cortex-m0-48mhz-lqfp/dp/2393632" H 1950 6050 60  0001 C CNN "Shop link"
+F 5 "STM32F030C6T6" H 1950 6050 50  0001 C CNN "Symbol"
+F 6 "STMICROELECTRONICS" H 1950 6050 50  0001 C CNN "Manufacturer"
 	1    1950 6050
 	1    0    0    -1  
 $EndComp
@@ -254,6 +260,8 @@ F 1 "STM32F030C6T6" H 4300 3374 50  0000 C CNN
 F 2 "Housings_QFP:LQFP-48_7x7mm_Pitch0.5mm" H 4950 750 50  0001 R TNN
 F 3 "http://www.farnell.com/datasheets/1883133.pdf?_ga=1.92009049.291132730.1474618953" H 4800 3200 50  0001 C CNN
 F 4 "http://pl.farnell.com/stmicroelectronics/stm32f030c6t6/mcu-32bit-cortex-m0-48mhz-lqfp/dp/2393632" H 4300 2100 60  0001 C CNN "Shop link"
+F 5 "STMICROELECTRONICS" H 4300 2100 50  0001 C CNN "Manufacturer"
+F 6 "STM32F030C6T6" H 4300 2100 50  0001 C CNN "Symbol"
 	2    4300 2100
 	1    0    0    -1  
 $EndComp
@@ -310,6 +318,8 @@ F 1 "1uF/20V" H 3075 7050 50  0000 L CNN
 F 2 "Capacitors_Tantalum_SMD:Tantalum_Case-A_EIA-3216-18_Reflow" H 3088 7000 30  0001 C CNN
 F 3 "http://www.tme.eu/pl/Document/0ff508dea7a8224c6fb12ae10be076aa/KEM_T2005_T491.pdf" H 3050 7150 60  0001 C CNN
 F 4 "http://www.tme.eu/pl/details/t491a105k020at/kondensatory-tantalowe-smd/kemet/" H 3050 7150 60  0001 C CNN "Shop link"
+F 5 "KEMET" H 3050 7150 50  0001 C CNN "Manufacturer"
+F 6 "T491A105K020AT" H 3050 7150 50  0001 C CNN "Symbol"
 	1    3050 7150
 	1    0    0    -1  
 $EndComp
@@ -431,8 +441,7 @@ P 850 2300
 F 0 "P1" H 928 2341 50  0000 L CNN
 F 1 "DS1021-1*6SF1-1" H 928 2250 50  0001 L CNN
 F 2 "Pin_Headers:Pin_Header_Straight_1x06" H 850 2300 50  0001 C CNN
-F 3 "http://www.tme.eu/pl/Document/cc301e58a5da78cb543a94b5a5b7f06a/DS1021.pdf" H 850 2300 50  0001 C CNN
-F 4 "http://www.tme.eu/pl/details/zl201-06g/listwy-i-gniazda-kolkowe/connfly/ds1021-1_6sf1-1/" H 850 2300 60  0001 C CNN "Shop link"
+F 3 "" H 850 2300 50  0001 C CNN
 	1    850  2300
 	-1   0    0    -1  
 $EndComp
@@ -681,6 +690,8 @@ F 1 "DTSM-62N-V-B" V 7950 5900 50  0000 R CNN
 F 2 "Buttons_Switches_SMD:SW_SPST_PTS645" H 8450 5700 50  0001 C CNN
 F 3 "http://www.tme.eu/pl/Document/07dad2bf5ecc0fffa24432cc9f8b10fa/dtsm.pdf" H 8450 5700 50  0001 C CNN
 F 4 "http://www.tme.eu/pl/details/dtsm-62n-v-b/mikroprzelaczniki-tact-pcb/diptronics/" V 8450 5700 60  0001 C CNN "Shop link"
+F 5 "DIPTRONICS" V 8450 5700 50  0001 C CNN "Manufacturer"
+F 6 "DTSM-62N-V-B" V 8450 5700 50  0001 C CNN "Symbol"
 	1    8450 5700
 	0    -1   -1   0   
 $EndComp
@@ -1002,30 +1013,6 @@ F 4 "http://www.tme.eu/pl/details/0805f225z160ct/kondensatory-mlcc-smd-0805/wals
 	0    1    1    0   
 $EndComp
 $Comp
-L MuxPi:WS2812B LED2
-U 1 1 584FD9D3
-P 9800 3900
-F 0 "LED2" H 9800 4000 50  0000 C CNN
-F 1 "WS2812B" H 9800 3700 50  0000 C CNN
-F 2 "LEDs:LED_WS2812B-PLCC4" H 9800 4033 50  0001 C CNN
-F 3 "http://www.tme.eu/pl/Document/d396dfe883872510aebef40d9961d842/WS2812B.pdf" H 9800 3850 50  0001 C CNN
-F 4 "http://www.tme.eu/pl/details/ws2812b/diody-led-smd-kolorowe/worldsemi/" H 9800 3900 60  0001 C CNN "Shop link"
-	1    9800 3900
-	1    0    0    -1  
-$EndComp
-$Comp
-L MuxPi:SW_SPST SW2
-U 1 1 5850008E
-P 9450 5700
-F 0 "SW2" V 9496 5612 50  0000 R CNN
-F 1 "DTSM-62N-V-B" V 9405 5612 50  0000 R CNN
-F 2 "Buttons_Switches_SMD:SW_SPST_PTS645" H 9450 5700 50  0001 C CNN
-F 3 "http://www.tme.eu/pl/Document/07dad2bf5ecc0fffa24432cc9f8b10fa/dtsm.pdf" H 9450 5700 50  0001 C CNN
-F 4 "http://www.tme.eu/pl/details/dtsm-62n-v-b/mikroprzelaczniki-tact-pcb/diptronics/" V 9450 5700 60  0001 C CNN "Shop link"
-	1    9450 5700
-	0    -1   -1   0   
-$EndComp
-$Comp
 L MuxPi:+3V3 #PWR010
 U 1 1 584699E5
 P 1700 6950
@@ -1072,18 +1059,6 @@ F 2 "Capacitors_SMD:C_0805" H 2788 7000 50  0001 C CNN
 F 3 "http://www.tme.eu/pl/Document/4a42202b32dab16128fe107dd69598cc/samsung-chip-cap.pdf" H 2750 7150 50  0001 C CNN
 F 4 "http://www.tme.eu/pl/details/cl21b331kbannnc/kondensatory-mlcc-smd-0805/samsung/" H 2750 7150 60  0001 C CNN "Shop link"
 	1    2750 7150
-	1    0    0    -1  
-$EndComp
-$Comp
-L MuxPi:CP C75
-U 1 1 585D0367
-P 4000 7150
-F 0 "C75" H 4025 7250 50  0000 L CNN
-F 1 "1uF/20V" H 4025 7050 50  0000 L CNN
-F 2 "Capacitors_Tantalum_SMD:Tantalum_Case-A_EIA-3216-18_Reflow" H 4038 7000 30  0001 C CNN
-F 3 "http://www.tme.eu/pl/Document/0ff508dea7a8224c6fb12ae10be076aa/KEM_T2005_T491.pdf" H 4000 7150 60  0001 C CNN
-F 4 "http://www.tme.eu/pl/details/t491a105k020at/kondensatory-tantalowe-smd/kemet/" H 4000 7150 60  0001 C CNN "Shop link"
-	1    4000 7150
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -1179,6 +1154,8 @@ F 1 "ABM3B-8.000MHZ-10-1-U-T" H 2050 2700 50  0000 L CNN
 F 2 "Crystals:Crystal_SMD_5032-4pin_5.0x3.2mm" H 2741 3409 50  0001 L CNN
 F 3 "http://www.tme.eu/pl/Document/a887f863d547643a986feb1a84bac6c0/abm3b.pdf" H 2741 3364 50  0001 L CNN
 F 4 "http://www.tme.eu/pl/details/abm3b-8.000mhz-10/rezonatory-kwarcowe-smd/abracon/abm3b-8000mhz-10-1-u-t/" H 2550 3500 60  0001 C CNN "Shop link"
+F 5 "ABRACON" H 2550 3500 50  0001 C CNN "Manufacturer"
+F 6 "ABM3B-8.000MHZ-10-1-U-T" H 2550 3500 50  0001 C CNN "Symbol"
 	1    2550 3500
 	1    0    0    -1  
 $EndComp
@@ -1271,17 +1248,6 @@ $EndComp
 Wire Wire Line
 	9000 3100 9000 3150
 $Comp
-L MuxPi:Jumper_NO_Small JP4
-U 1 1 5A64C931
-P 1150 3200
-F 0 "JP4" V 1150 3248 50  0000 L CNN
-F 1 "Jumper_NO_Small" V 1195 3248 50  0001 L CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 1150 3200 50  0001 C CNN
-F 3 "" H 1150 3200 50  0001 C CNN
-	1    1150 3200
-	0    1    1    0   
-$EndComp
-$Comp
 L MuxPi:GND #PWR0203
 U 1 1 5A64EB70
 P 1150 3350
@@ -1301,4 +1267,135 @@ Wire Wire Line
 Wire Wire Line
 	1150 3000 1150 3100
 Connection ~ 1150 3000
+$Comp
+L MuxPi:Jumper_NO_Small JP4
+U 1 1 5A8C7652
+P 1150 3200
+F 0 "JP4" V 1150 3248 50  0000 L CNN
+F 1 "Jumper_NO_Small" V 1195 3248 50  0001 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 1150 3200 50  0001 C CNN
+F 3 "https://www.tme.eu/pl/Document/cc301e58a5da78cb543a94b5a5b7f06a/DS1021.pdf" H 1150 3200 50  0001 C CNN
+F 4 "https://www.tme.eu/pl/details/zl201-02g/listwy-i-gniazda-kolkowe/connfly/ds1021-1_2sf1-1/" V 1150 3200 50  0001 C CNN "Shop link"
+F 5 "CONNFLY" V 1150 3200 50  0001 C CNN "Manufacturer"
+F 6 "DS1021-1*2SF1-1" V 1150 3200 50  0001 C CNN "Symbol"
+	1    1150 3200
+	0    1    1    0   
+$EndComp
+$Comp
+L MuxPi:CP C75
+U 1 1 5A8CFEF4
+P 4000 7150
+F 0 "C75" H 4025 7250 50  0000 L CNN
+F 1 "1uF/20V" H 4025 7050 50  0000 L CNN
+F 2 "Capacitors_Tantalum_SMD:Tantalum_Case-A_EIA-3216-18_Reflow" H 4038 7000 30  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/0ff508dea7a8224c6fb12ae10be076aa/KEM_T2005_T491.pdf" H 4000 7150 60  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/t491a105k020at/kondensatory-tantalowe-smd/kemet/" H 4000 7150 60  0001 C CNN "Shop link"
+F 5 "KEMET" H 4000 7150 50  0001 C CNN "Manufacturer"
+F 6 "T491A105K020AT" H 4000 7150 50  0001 C CNN "Symbol"
+	1    4000 7150
+	1    0    0    -1  
+$EndComp
+$Comp
+L MuxPi:WS2812B LED2
+U 1 1 5A8D1086
+P 9800 3900
+F 0 "LED2" H 9800 4000 50  0000 C CNN
+F 1 "WS2812B" H 9800 3700 50  0000 C CNN
+F 2 "LEDs:LED_WS2812B-PLCC4" H 9800 4033 50  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/d396dfe883872510aebef40d9961d842/WS2812B.pdf" H 9800 3850 50  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/ws2812b/diody-led-smd-kolorowe/worldsemi/" H 9800 3900 60  0001 C CNN "Shop link"
+F 5 "WORLDSEMI" H 9800 3900 50  0001 C CNN "Manufacturer"
+F 6 "WS2812B" H 9800 3900 50  0001 C CNN "Symbol"
+	1    9800 3900
+	1    0    0    -1  
+$EndComp
+$Comp
+L MuxPi:SW_SPST SW2
+U 1 1 5A8D198C
+P 9450 5700
+F 0 "SW2" V 9496 5612 50  0000 R CNN
+F 1 "DTSM-62N-V-B" V 8950 5900 50  0000 R CNN
+F 2 "Buttons_Switches_SMD:SW_SPST_PTS645" H 9450 5700 50  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/07dad2bf5ecc0fffa24432cc9f8b10fa/dtsm.pdf" H 9450 5700 50  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/dtsm-62n-v-b/mikroprzelaczniki-tact-pcb/diptronics/" V 9450 5700 60  0001 C CNN "Shop link"
+F 5 "DIPTRONICS" V 9450 5700 50  0001 C CNN "Manufacturer"
+F 6 "DTSM-62N-V-B" V 9450 5700 50  0001 C CNN "Symbol"
+	1    9450 5700
+	0    -1   -1   0   
+$EndComp
+$Comp
+L MuxPi:R R26
+U 1 1 5A8AD04E
+P 7700 3150
+F 0 "R26" V 7600 3150 50  0000 C CNN
+F 1 "3.3K 1%" V 7800 3150 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805" V 7630 3150 30  0001 C CNN
+F 3 "https://www.tme.eu/pl/Document/7b8fed8c112f8a94930279c22c957f7f/rc0805yageo.pdf" H 7700 3150 30  0001 C CNN
+F 4 "https://www.tme.eu/pl/details/rc0805fr-073k3/rezystory-smd-0805/yageo/rc0805fr-073k3l/" V 7700 3150 60  0001 C CNN "Shop link"
+	1    7700 3150
+	1    0    0    -1  
+$EndComp
+$Comp
+L MuxPi:R R77
+U 1 1 5A8AD056
+P 7700 3550
+F 0 "R77" V 7600 3550 50  0000 C CNN
+F 1 "3.3K 1%" V 7800 3550 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805" V 7630 3550 30  0001 C CNN
+F 3 "https://www.tme.eu/pl/Document/7b8fed8c112f8a94930279c22c957f7f/rc0805yageo.pdf" H 7700 3550 30  0001 C CNN
+F 4 "https://www.tme.eu/pl/details/rc0805fr-073k3/rezystory-smd-0805/yageo/rc0805fr-073k3l/" V 7700 3550 60  0001 C CNN "Shop link"
+	1    7700 3550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7700 3300 7700 3350
+$Comp
+L MuxPi:Jumper_NO_Small JP5
+U 1 1 5A8B4A8C
+P 7400 3350
+F 0 "JP5" V 7400 3398 50  0000 L CNN
+F 1 "Jumper_NO_Small" V 7445 3398 50  0001 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 7400 3350 50  0001 C CNN
+F 3 "https://www.tme.eu/pl/Document/cc301e58a5da78cb543a94b5a5b7f06a/DS1021.pdf" H 7400 3350 50  0001 C CNN
+F 4 "https://www.tme.eu/pl/details/zl201-02g/listwy-i-gniazda-kolkowe/connfly/ds1021-1_2sf1-1/" V 7400 3350 50  0001 C CNN "Shop link"
+F 5 "CONNFLY" V 7400 3350 50  0001 C CNN "Manufacturer"
+F 6 "DS1021-1*2SF1-1" V 7400 3350 50  0001 C CNN "Symbol"
+	1    7400 3350
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	7500 3350 7700 3350
+Connection ~ 7700 3350
+Wire Wire Line
+	7700 3350 7700 3400
+$Comp
+L MuxPi:VDD #PWR086
+U 1 1 5A8BBDA8
+P 7700 2950
+F 0 "#PWR086" H 7700 2800 50  0001 C CNN
+F 1 "VDD" H 7700 3100 50  0000 C CNN
+F 2 "" H 7700 2950 60  0000 C CNN
+F 3 "" H 7700 2950 60  0000 C CNN
+	1    7700 2950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7700 2950 7700 3000
+$Comp
+L MuxPi:GND #PWR0197
+U 1 1 5A8C310E
+P 7700 3750
+F 0 "#PWR0197" H 7700 3500 50  0001 C CNN
+F 1 "GND" H 7700 3600 50  0000 C CNN
+F 2 "" H 7700 3750 60  0000 C CNN
+F 3 "" H 7700 3750 60  0000 C CNN
+	1    7700 3750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7700 3700 7700 3750
+Text HLabel 7100 3350 0    60   Input ~ 0
+ADC1
+Wire Wire Line
+	7100 3350 7300 3350
 $EndSCHEMATC

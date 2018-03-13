@@ -274,15 +274,13 @@ Wire Wire Line
 Wire Wire Line
 	6300 4800 4950 4800
 Wire Wire Line
-	4950 4800 4950 5300
+	4950 4800 4950 5350
 Wire Wire Line
-	4950 5300 4750 5300
+	4950 5350 4750 5350
 Wire Wire Line
-	4650 5550 4650 5650
+	4650 5600 4650 5650
 Wire Wire Line
 	4650 5650 6300 5650
-Wire Wire Line
-	4650 5050 4650 4850
 Wire Wire Line
 	4650 4850 1200 4850
 $Comp
@@ -294,6 +292,8 @@ F 1 "DS1021-1*3SF1-1" V 4395 5852 50  0001 L CNN
 F 2 "Socket_Strips:Socket_Strip_Straight_1x03" H 4350 5750 50  0001 C CNN
 F 3 "http://www.tme.eu/pl/Document/cc301e58a5da78cb543a94b5a5b7f06a/DS1021.pdf" H 4350 5750 50  0001 C CNN
 F 4 "http://www.tme.eu/pl/details/zl201-03g/listwy-i-gniazda-kolkowe/connfly/ds1021-1_3sf1-1/" V 4350 5750 60  0001 C CNN "Shop link"
+F 5 "CONNFLY" V 4350 5750 50  0001 C CNN "Manufacturer"
+F 6 "DS1021-1*3SF1-1" V 4350 5750 50  0001 C CNN "Symbol"
 	1    4350 5750
 	0    -1   1    0   
 $EndComp
@@ -315,18 +315,6 @@ Wire Wire Line
 	5950 6100 5950 5750
 Wire Wire Line
 	5950 5750 6300 5750
-$Comp
-L MuxPi:Jumper_NC_Dual JP2
-U 1 1 584EA671
-P 4650 5300
-F 0 "JP2" V 4650 5402 50  0000 L CNN
-F 1 "DS1021-1*3SF1-1" V 4695 5402 50  0001 L CNN
-F 2 "Socket_Strips:Socket_Strip_Straight_1x03" H 4650 5300 50  0001 C CNN
-F 3 "http://www.tme.eu/pl/Document/cc301e58a5da78cb543a94b5a5b7f06a/DS1021.pdf" H 4650 5300 50  0001 C CNN
-F 4 "http://www.tme.eu/pl/details/zl201-03g/listwy-i-gniazda-kolkowe/connfly/ds1021-1_3sf1-1/" V 4650 5300 60  0001 C CNN "Shop link"
-	1    4650 5300
-	0    -1   1    0   
-$EndComp
 Wire Wire Line
 	8800 2200 9000 2200
 Wire Wire Line
@@ -446,4 +434,20 @@ Wire Wire Line
 	3700 2700 6300 2700
 Wire Wire Line
 	3600 2800 6300 2800
+Wire Wire Line
+	4650 4850 4650 5100
+$Comp
+L MuxPi:Jumper_NC_Dual JP2
+U 1 1 5A8A431E
+P 4650 5350
+F 0 "JP2" V 4650 5452 50  0000 L CNN
+F 1 "DS1021-1*3SF1-1" V 4695 5452 50  0001 L CNN
+F 2 "Socket_Strips:Socket_Strip_Straight_1x03" H 4650 5350 50  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/cc301e58a5da78cb543a94b5a5b7f06a/DS1021.pdf" H 4650 5350 50  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/zl201-03g/listwy-i-gniazda-kolkowe/connfly/ds1021-1_3sf1-1/" V 4650 5350 60  0001 C CNN "Shop link"
+F 5 "CONNFLY" V 4650 5350 50  0001 C CNN "Manufacturer"
+F 6 "DS1021-1*3SF1-1" V 4650 5350 50  0001 C CNN "Symbol"
+	1    4650 5350
+	0    -1   1    0   
+$EndComp
 $EndSCHEMATC

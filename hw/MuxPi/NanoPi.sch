@@ -25,10 +25,13 @@ P 1550 1650
 F 0 "P11" H 1500 2300 50  0000 L CNN
 F 1 "ZL262-20SG" H 1628 1600 50  0000 L CNN
 F 2 "mux-footprints:pin_strip_2.54_s_1x12" H 1550 1650 50  0001 C CNN
-F 3 "http://www.tme.eu/pl/Document/beb49351eb3243b0ae46821791a3d0f0/zl262-sg.pdf" H 1550 1650 50  0001 C CNN
-F 4 "http://www.tme.eu/pl/details/zl262-20sg/listwy-i-gniazda-kolkowe/ninigi/" H 1550 1650 60  0001 C CNN "Shop link"
-F 5 "May be more than 1x12 pin. In that case we will crop." H 1550 1650 60  0001 C CNN "Note"
-F 6 "http://www.tme.eu/pl/details/zl2019-20/listwy-i-gniazda-kolkowe/ninigi/" H 1550 1650 60  0001 C CNN "Complementary device"
+F 3 "https://www.tme.eu/pl/Document/efd0203e2d3a140765df98191085ea88/DS1023.pdf" H 1550 1650 50  0001 C CNN
+F 4 "https://www.tme.eu/pl/details/zl262-20sg/listwy-i-gniazda-kolkowe/connfly/ds1023-1_20s21/" H 1550 1650 60  0001 C CNN "Shop link"
+F 5 "CONNFLY" H 1550 1650 50  0001 C CNN "Manufacturer"
+F 6 "DS1023-1*20S21" H 1550 1650 50  0001 C CNN "Symbol"
+F 7 "http://www.tme.eu/pl/details/zl2019-20/listwy-i-gniazda-kolkowe/ninigi/" H 1550 1650 60  0001 C CNN "Complementary device"
+F 8 " ZL2019-20" H 1550 1650 50  0001 C CNN "Complementary symbol"
+F 9 "NINIGI" H 1550 1650 50  0001 C CNN "Complementary manufacturer"
 	1    1550 1650
 	-1   0    0    -1  
 $EndComp
@@ -40,9 +43,12 @@ F 0 "P14" H 4850 2300 50  0000 C CNN
 F 1 "ZL262-26DG" H 4850 2324 50  0001 C CNN
 F 2 "mux-footprints:pin_strip_2.54_s_2x12" H 4850 450 50  0001 C CNN
 F 3 "http://www.tme.eu/pl/Document/fb0b27a6ecd737255724d32410c10738/zl262-dg.pdf" H 4850 450 50  0001 C CNN
-F 4 "http://www.tme.eu/pl/details/zl262-26dg/listwy-i-gniazda-kolkowe/ninigi/" H 4850 1650 60  0001 C CNN "Shop link"
-F 5 "May be more than 2x12 pin. In that case we will crop." H 4850 1650 60  0001 C CNN "Note"
-F 6 "http://www.tme.eu/pl/details/zl2019-2x20/listwy-i-gniazda-kolkowe/ninigi/zl2019-40/" H 4850 1650 60  0001 C CNN "Complementary device"
+F 4 "https://www.tme.eu/pl/details/zl262-26dg/listwy-i-gniazda-kolkowe/connfly/ds1023-2_13s21/" H 4850 1650 60  0001 C CNN "Shop link"
+F 5 "CONNFLY" H 4850 1650 50  0001 C CNN "Manufacturer"
+F 6 "DS1023-2*13S21" H 4850 1650 50  0001 C CNN "Symbol"
+F 7 "http://www.tme.eu/pl/details/zl2019-2x20/listwy-i-gniazda-kolkowe/ninigi/zl2019-40/" H 4850 1650 60  0001 C CNN "Complementary device"
+F 8 "NINIGI" H 4850 1650 50  0001 C CNN "Complementary manufacturer"
+F 9 "ZL2019-40" H 4850 1650 50  0001 C CNN "Complememntary symbol"
 	1    4850 1650
 	1    0    0    -1  
 $EndComp
@@ -110,20 +116,6 @@ Text Label 9250 3400 0    60   ~ 0
 STATUS_LED2
 Text Label 3800 1700 0    60   ~ 0
 STATUS_LED2
-$Comp
-L MuxPi:2N7002 Q8
-U 1 1 583D87E9
-P 8500 3350
-AR Path="/583D87E9" Ref="Q8"  Part="1" 
-AR Path="/584D6079/583D87E9" Ref="Q8"  Part="1" 
-F 0 "Q8" H 8691 3396 50  0000 L CNN
-F 1 "2N7002" H 8691 3305 50  0000 L CNN
-F 2 "TO_SOT_Packages_SMD:SOT-23" H 8700 3275 50  0001 L CIN
-F 3 "https://www.nxp.com/documents/data_sheet/2N7002.pdf" H 8500 3350 50  0001 L CNN
-F 4 "http://www.tme.eu/pl/details/2n7002/tranzystory-z-kanalem-n-smd/fairchild-semiconductor/" H 8500 3350 60  0001 C CNN "Shop link"
-	1    8500 3350
-	1    0    0    -1  
-$EndComp
 $Comp
 L MuxPi:GND #PWR0115
 U 1 1 583D87EF
@@ -362,39 +354,44 @@ Wire Wire Line
 $Comp
 L MuxPi:CONN_01X04 P12
 U 1 1 5842EF3E
-P 1550 2900
-F 0 "P12" H 1628 2941 50  0000 L CNN
-F 1 "ZL201-04G" H 1628 2850 50  0000 L CNN
-F 2 "mux-footprints:pin_strip_2.54_s_1x4" H 1550 2900 50  0001 C CNN
-F 3 "http://www.tme.eu/pl/Document/cc301e58a5da78cb543a94b5a5b7f06a/DS1021.pdf" H 1550 2900 50  0001 C CNN
-F 4 "http://www.tme.eu/pl/details/zl201-04g/listwy-i-gniazda-kolkowe/connfly/ds1021-1_4sf1-1/" H 1550 2900 60  0001 C CNN "Shop link"
-	1    1550 2900
+P 1550 2950
+F 0 "P12" H 1628 2991 50  0000 L CNN
+F 1 "ZL201-04G" H 1628 2900 50  0000 L CNN
+F 2 "mux-footprints:pin_strip_2.54_s_1x4" H 1550 2950 50  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/cc301e58a5da78cb543a94b5a5b7f06a/DS1021.pdf" H 1550 2950 50  0001 C CNN
+F 4 "https://www.tme.eu/pl/details/zl262-4sg/listwy-i-gniazda-kolkowe/connfly/ds1023-1_4s21/" H 1550 2950 50  0001 C CNN "Shop link"
+F 5 "CONNFLY" H 1550 2950 50  0001 C CNN "Manufacturer"
+F 6 "DS1023-1*4S21" H 1550 2950 50  0001 C CNN "Symbol"
+F 7 "http://www.tme.eu/pl/details/zl201-04g/listwy-i-gniazda-kolkowe/connfly/ds1021-1_4sf1-1/" H 1550 2950 60  0001 C CNN "Complementary shop link"
+F 8 "CONNFLY" H 1550 2950 50  0001 C CNN "Complementary manufacturer"
+F 9 "DS1021-1*4SF1-1" H 1550 2950 50  0001 C CNN "Complementary symbol"
+	1    1550 2950
 	-1   0    0    -1  
 $EndComp
-NoConn ~ 1750 2850
+NoConn ~ 1750 2900
 $Comp
 L MuxPi:GND #PWR0100
 U 1 1 5842F3AD
-P 1850 3150
-F 0 "#PWR0100" H 1850 2900 50  0001 C CNN
-F 1 "GND" H 1850 3000 50  0000 C CNN
-F 2 "" H 1850 3150 60  0000 C CNN
-F 3 "" H 1850 3150 60  0000 C CNN
-	1    1850 3150
+P 1850 3200
+F 0 "#PWR0100" H 1850 2950 50  0001 C CNN
+F 1 "GND" H 1850 3050 50  0000 C CNN
+F 2 "" H 1850 3200 60  0000 C CNN
+F 3 "" H 1850 3200 60  0000 C CNN
+	1    1850 3200
 	-1   0    0    -1  
 $EndComp
 Wire Wire Line
-	1750 2750 1850 2750
+	1750 2800 1850 2800
 Wire Wire Line
-	1850 2750 1850 3150
-Text Label 2550 2950 2    60   ~ 0
+	1850 2800 1850 3200
+Text Label 2550 3000 2    60   ~ 0
 PI_UART0_TX
 Wire Wire Line
-	2550 2950 1750 2950
-Text Label 2550 3050 2    60   ~ 0
+	2550 3000 1750 3000
+Text Label 2550 3100 2    60   ~ 0
 PI_UART0_RX
 Wire Wire Line
-	2550 3050 1750 3050
+	2550 3100 1750 3100
 Text Label 1600 4450 0    60   ~ 0
 PI_UART0_TX
 Wire Wire Line
@@ -550,11 +547,11 @@ Extension\nconnectors\nSPICEs
 Wire Notes Line
 	850  650  6050 650 
 Wire Notes Line
-	6050 650  6050 3450
+	6050 650  6050 3550
 Wire Notes Line
-	6050 3450 850  3450
+	6050 3550 850  3550
 Wire Notes Line
-	850  3450 850  650 
+	850  3550 850  650 
 Text Notes 950  900  0    60   ~ 0
 NanoPi\nconnectors
 Text HLabel 9650 750  2    60   Input ~ 0
@@ -586,6 +583,8 @@ F 1 "UBA-4R-D14-4D" V 7271 1338 50  0000 L CNN
 F 2 "mux-footprints:conn_usb_A" V 7150 1050 50  0001 C CNN
 F 3 "http://www.tme.eu/pl/Document/1f19408d03550e8cdfa50980c10f45a8/UBA-4R-D14-4D.pdf" V 7150 1050 50  0001 C CNN
 F 4 "http://www.tme.eu/pl/details/uba-4r-d14-4d/zlacza-usb-i-ieee1394/jst/" V 7200 1150 60  0001 C CNN "Shop link"
+F 5 "JST" V 7200 1150 50  0001 C CNN "Manufacturer"
+F 6 "UBA-4R-D14-4D" V 7200 1150 50  0001 C CNN "Symbol"
 	1    7200 1150
 	0    1    1    0   
 $EndComp
@@ -593,17 +592,6 @@ Wire Wire Line
 	6250 1150 6900 1150
 Wire Wire Line
 	6250 1050 6900 1050
-$Comp
-L MuxPi:R R35
-U 1 1 5846D470
-P 7400 1700
-F 0 "R35" H 7500 1850 50  0000 C CNN
-F 1 "10K" V 7500 1700 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805" V 7330 1700 30  0001 C CNN
-F 3 "" H 7400 1700 30  0000 C CNN
-	1    7400 1700
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	7200 1850 7200 1900
 Wire Wire Line
@@ -663,20 +651,6 @@ USB_DUT-
 Text Notes 7600 950  0    60   ~ 0
 USBoIP
 $Comp
-L MuxPi:2N7002 Q9
-U 1 1 584ADC21
-P 10050 3350
-AR Path="/584ADC21" Ref="Q9"  Part="1" 
-AR Path="/584D6079/584ADC21" Ref="Q9"  Part="1" 
-F 0 "Q9" H 10241 3396 50  0000 L CNN
-F 1 "2N7002" H 10241 3305 50  0000 L CNN
-F 2 "TO_SOT_Packages_SMD:SOT-23" H 10250 3275 50  0001 L CIN
-F 3 "https://www.nxp.com/documents/data_sheet/2N7002.pdf" H 10050 3350 50  0001 L CNN
-F 4 "http://www.tme.eu/pl/details/2n7002/tranzystory-z-kanalem-n-smd/fairchild-semiconductor/" H 10050 3350 60  0001 C CNN "Shop link"
-	1    10050 3350
-	1    0    0    -1  
-$EndComp
-$Comp
 L MuxPi:LED_ALT D5
 U 1 1 585055E3
 P 10150 2950
@@ -685,6 +659,8 @@ F 1 "KPT-2012EC (RED)" V 10097 2832 50  0000 R CNN
 F 2 "Diodes_SMD:D_0805" H 10150 2950 50  0001 C CNN
 F 3 "http://www.tme.eu/pl/Document/0a4307e0e1e070f4f6d553134056548e/kpt-2012.pdf" H 10150 2950 50  0001 C CNN
 F 4 "http://www.tme.eu/pl/details/kpt-2012ec/diody-led-smd-kolorowe/kingbright-electronic/" V 10150 2950 60  0001 C CNN "Shop link"
+F 5 "KINGBRIGHT ELECTRONIC" V 10150 2950 50  0001 C CNN "Manufacturer"
+F 6 "KPT-2012EC" V 10150 2950 50  0001 C CNN "Symbol"
 	1    10150 2950
 	0    -1   -1   0   
 $EndComp
@@ -697,6 +673,8 @@ F 1 "KPT-2012SGC (GREEN)" V 8547 2832 50  0000 R CNN
 F 2 "Diodes_SMD:D_0805" H 8600 2950 50  0001 C CNN
 F 3 "http://www.tme.eu/pl/Document/0a4307e0e1e070f4f6d553134056548e/kpt-2012.pdf" H 8600 2950 50  0001 C CNN
 F 4 "http://www.tme.eu/pl/details/kpt-2012sgc/diody-led-smd-kolorowe/kingbright-electronic/" V 8600 2950 60  0001 C CNN "Shop link"
+F 5 "KINGBRIGHT ELECTRONIC" V 8600 2950 50  0001 C CNN "Manufacturer"
+F 6 "KPT-2012SGC" V 8600 2950 50  0001 C CNN "Symbol"
 	1    8600 2950
 	0    -1   -1   0   
 $EndComp
@@ -793,7 +771,8 @@ F 1 "PBTD16S" H 2500 4974 50  0000 C CNN
 F 2 "mux-footprints:PBTD16S" H 2500 3300 50  0001 C CNN
 F 3 "https://www.maritex.com.pl/product/attachment/43114/PBTD.pdf" H 2500 4973 50  0001 C CNN
 F 4 "https://www.maritex.com.pl/zlacza/listwy_stykowe_kolkowe/listwy_w_rastrze_2_54mm/listwy_stykowe_zenskie_proste_dwurzedowe_smt_w_rastrze_2_54mm/pbtd16s.html" H 2500 4500 60  0001 C CNN "Shop link"
-F 5 "https://www.maritex.com.pl/zlacza/listwy_stykowe_kolkowe/listwy_w_rastrze_2_54mm/listwy_kolkowe_proste_pietrowe_dwurzedowe_w_rastrze_2_54mm/pltdp16s10.html" H 2500 4500 60  0001 C CNN "Complementary device"
+F 5 "GREENCON" H 2500 4500 50  0001 C CNN "Manufacturer"
+F 6 "PBTD16S" H 2500 4500 50  0001 C CNN "Symbol"
 	1    2500 4500
 	1    0    0    -1  
 $EndComp
@@ -806,7 +785,8 @@ F 1 "PBTD16S" H 4950 4974 50  0000 C CNN
 F 2 "mux-footprints:PBTD16S" H 4950 3300 50  0001 C CNN
 F 3 "https://www.maritex.com.pl/product/attachment/43114/PBTD.pdf" H 4950 4973 50  0001 C CNN
 F 4 "https://www.maritex.com.pl/zlacza/listwy_stykowe_kolkowe/listwy_w_rastrze_2_54mm/listwy_stykowe_zenskie_proste_dwurzedowe_smt_w_rastrze_2_54mm/pbtd16s.html" H 4950 4500 60  0001 C CNN "Shop link"
-F 5 "https://www.maritex.com.pl/zlacza/listwy_stykowe_kolkowe/listwy_w_rastrze_2_54mm/listwy_kolkowe_proste_pietrowe_dwurzedowe_w_rastrze_2_54mm/pltdp16s10.html" H 4950 4500 60  0001 C CNN "Complementary device"
+F 5 "GREENCONN" H 4950 4500 50  0001 C CNN "Manufacturer"
+F 6 "PBTD16S" H 4950 4500 50  0001 C CNN "Symbol"
 	1    4950 4500
 	1    0    0    -1  
 $EndComp
@@ -833,6 +813,8 @@ F 1 "ATTINY10-TS8R" H 2550 6526 50  0000 C CNN
 F 2 "TO_SOT_Packages_SMD:SOT-23-6" H 2550 6525 50  0001 C CIN
 F 3 "http://www.tme.eu/pl/Document/3d037305fb4746ed6c57eab928892717/ATTINY4-5-9-10-DTE.pdf" H 2550 6526 50  0001 C CNN
 F 4 "http://www.tme.eu/pl/details/attiny10-ts8r/mikrokontrolery-atmel-avr-smd/atmel/" H 2550 6100 60  0001 C CNN "Shop link"
+F 5 "MICROCHIP (ATMEL)" H 2550 6100 50  0001 C CNN "Manufacturer"
+F 6 "ATTINY10-TS8R" H 2550 6100 50  0001 C CNN "Symbol"
 	1    2550 6100
 	-1   0    0    -1  
 $EndComp
@@ -896,6 +878,8 @@ F 1 "BSO130P03S" H 4900 6516 50  0000 C CNN
 F 2 "mux-footprints:SOIC-8" H 4900 6425 50  0001 C CIN
 F 3 "http://www.tme.eu/pl/Document/fde90035d9a6021d44d09086b0d9119c/BSO130P03SHXUMA1-DTE.pdf" V 4900 6100 50  0001 L CNN
 F 4 "http://www.tme.eu/pl/details/bso130p03shxuma1/tranzystory-z-kanalem-p-smd/infineon-technologies/" H 4900 6100 60  0001 C CNN "Shop link"
+F 5 "INFINEON TECHNOLOGIES" H 4900 6100 50  0001 C CNN "Manufacturer"
+F 6 "BSO130P03SHXUMA1" H 4900 6100 50  0001 C CNN "Symbol"
 	1    4900 6100
 	1    0    0    -1  
 $EndComp
@@ -1145,31 +1129,10 @@ F 0 "U14" H 9050 6050 50  0000 C CNN
 F 1 "FT230XQ" H 9150 5950 50  0000 C CNN
 F 2 "Housings_DFN_QFN:QFN-16-1EP_3x3mm_Pitch0.5mm" H 8750 5350 50  0001 C CNN
 F 3 "http://www.ftdichip.com/Products/ICs/FT230X.html" H 8750 5350 50  0001 C CNN
+F 4 "https://www.tme.eu/pl/details/ft230xq-t/uklady-scalone-interfejs-usb/ftdi/" H 8750 5350 50  0001 C CNN "Shop link"
+F 5 "FTDI" H 8750 5350 50  0001 C CNN "Manufacturer"
+F 6 "FT230XQ-T" H 8750 5350 50  0001 C CNN "Symbol"
 	1    8750 5350
-	1    0    0    -1  
-$EndComp
-$Comp
-L MuxPi:LED_ALT D10
-U 1 1 5A69EF3C
-P 10100 5550
-F 0 "D10" H 10400 5600 50  0000 R CNN
-F 1 "KPT-2012SGC (GREEN)" H 10450 5700 50  0000 R CNN
-F 2 "Diodes_SMD:D_0805" H 10100 5550 50  0001 C CNN
-F 3 "http://www.tme.eu/pl/Document/0a4307e0e1e070f4f6d553134056548e/kpt-2012.pdf" H 10100 5550 50  0001 C CNN
-F 4 "http://www.tme.eu/pl/details/kpt-2012sgc/diody-led-smd-kolorowe/kingbright-electronic/" V 10100 5550 60  0001 C CNN "Shop link"
-	1    10100 5550
-	1    0    0    -1  
-$EndComp
-$Comp
-L MuxPi:LED_ALT D11
-U 1 1 5A69F7C4
-P 10450 5650
-F 0 "D11" H 10700 5700 50  0000 R CNN
-F 1 "KPT-2012EC (RED)" H 10700 5500 50  0000 R CNN
-F 2 "Diodes_SMD:D_0805" H 10450 5650 50  0001 C CNN
-F 3 "http://www.tme.eu/pl/Document/0a4307e0e1e070f4f6d553134056548e/kpt-2012.pdf" H 10450 5650 50  0001 C CNN
-F 4 "http://www.tme.eu/pl/details/kpt-2012ec/diody-led-smd-kolorowe/kingbright-electronic/" V 10450 5650 60  0001 C CNN "Shop link"
-	1    10450 5650
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -1356,28 +1319,6 @@ Wire Wire Line
 Connection ~ 7950 5550
 Wire Wire Line
 	7950 5550 7950 4950
-$Comp
-L MuxPi:R R63
-U 1 1 5A7B5111
-P 9550 4750
-F 0 "R63" V 9500 4900 50  0000 C CNN
-F 1 "10K" V 9550 4750 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805" V 9480 4750 30  0001 C CNN
-F 3 "" H 9550 4750 30  0000 C CNN
-	1    9550 4750
-	1    0    0    -1  
-$EndComp
-$Comp
-L MuxPi:R R64
-U 1 1 5A7B53EC
-P 9700 4750
-F 0 "R64" V 9650 4900 50  0000 C CNN
-F 1 "10K" V 9700 4750 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805" V 9630 4750 30  0001 C CNN
-F 3 "" H 9700 4750 30  0000 C CNN
-	1    9700 4750
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	9550 4900 9550 4950
 Connection ~ 9550 4950
@@ -1422,6 +1363,8 @@ F 1 "USB_OTG_MICRO_USB" H 6650 5600 50  0000 C CNN
 F 2 "mux-footprints:micro_sub_molex" V 6600 5250 50  0001 C CNN
 F 3 "http://www.tme.eu/pl/Document/b7989e722b05f5084c507fb3ad8f02cb/MX-105017-0001.pdf" V 6600 5250 50  0001 C CNN
 F 4 "http://www.tme.eu/pl/details/mx-105017-0001/zlacza-usb-i-ieee1394/molex/1050170001/" V 6650 5350 50  0001 C CNN "Shop link"
+F 5 "MOLEX" V 6650 5350 50  0001 C CNN "Manufacturer"
+F 6 "1050170001" V 6650 5350 50  0001 C CNN "Symbol"
 	1    6650 5350
 	0    -1   1    0   
 $EndComp
@@ -1464,6 +1407,8 @@ F 1 "BLM21PG221SN1D" H 7150 4550 50  0000 C CNN
 F 2 "Resistors_SMD:R_0805" H 7250 4759 50  0001 L CNN
 F 3 "http://www.tme.eu/pl/Document/6052c7f9d4f1672121538e0d10f79ff8/blm21pg300sn1d.pdf" H 7250 4759 50  0001 L CNN
 F 4 "http://www.tme.eu/pl/details/blm21pg221sn1d/ferryty-koraliki/murata/" H 7150 4850 60  0001 C CNN "Shop link"
+F 5 "MURATA" H 7150 4850 50  0001 C CNN "Manufacturer"
+F 6 "BLM21PG221SN1D" H 7150 4850 50  0001 C CNN "Symbol"
 	1    7150 4850
 	-1   0    0    1   
 $EndComp
@@ -1475,17 +1420,6 @@ Wire Wire Line
 	7150 4750 7150 4600
 Wire Wire Line
 	7150 4600 8650 4600
-$Comp
-L MuxPi:R R60
-U 1 1 5A8FE338
-P 6650 6000
-F 0 "R60" H 6750 6150 50  0000 C CNN
-F 1 "10K" V 6750 6000 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805" V 6580 6000 30  0001 C CNN
-F 3 "" H 6650 6000 30  0000 C CNN
-	1    6650 6000
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	6450 6150 6450 6200
 Wire Wire Line
@@ -1557,6 +1491,157 @@ Wire Wire Line
 	10000 4050 10050 4050
 Wire Wire Line
 	9550 4950 10000 4950
-Text Notes 2200 2800 0    60   Italic 12
-NOTE!\nThis version of MuxPi is compatible only with NanoPi NEO in version 1.1 and 1.2.\nNanoPi NEO 1.3 has UART0  connector in different location.\nIf UART0 is not needed then version 1.3 of NanoPi NEO may be used as well.
+Text Notes 950  2700 0    60   Italic 12
+NOTE!\nP12 is for NanoPi NEO v1.1 and v1.2
+NoConn ~ 3550 2900
+$Comp
+L MuxPi:GND #PWR085
+U 1 1 5A7950F6
+P 3650 3200
+F 0 "#PWR085" H 3650 2950 50  0001 C CNN
+F 1 "GND" H 3650 3050 50  0000 C CNN
+F 2 "" H 3650 3200 60  0000 C CNN
+F 3 "" H 3650 3200 60  0000 C CNN
+	1    3650 3200
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	3550 2800 3650 2800
+Wire Wire Line
+	3650 2800 3650 3200
+Text Label 4350 3000 2    60   ~ 0
+PI_UART0_TX
+Wire Wire Line
+	4350 3000 3550 3000
+Text Label 4350 3100 2    60   ~ 0
+PI_UART0_RX
+Wire Wire Line
+	4350 3100 3550 3100
+Text Notes 2950 2700 0    60   Italic 12
+NOTE!\nP19 is for NanoPi NEO v1.3
+Text Notes 1200 3500 0    60   Italic 12
+Populate both if you want to comply with versions 1.1 1.2 1.3
+$Comp
+L MuxPi:CONN_01X04 P19
+U 1 1 5A86D25E
+P 3350 2950
+F 0 "P19" H 3428 2991 50  0000 L CNN
+F 1 "ZL201-04G" H 3428 2900 50  0000 L CNN
+F 2 "mux-footprints:pin_strip_2.54_s_1x4" H 3350 2950 50  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/cc301e58a5da78cb543a94b5a5b7f06a/DS1021.pdf" H 3350 2950 50  0001 C CNN
+F 4 "https://www.tme.eu/pl/details/zl262-4sg/listwy-i-gniazda-kolkowe/connfly/ds1023-1_4s21/" H 3350 2950 50  0001 C CNN "Shop link"
+F 5 "CONNFLY" H 3350 2950 50  0001 C CNN "Manufacturer"
+F 6 "DS1023-1*4S21" H 3350 2950 50  0001 C CNN "Symbol"
+F 7 "http://www.tme.eu/pl/details/zl201-04g/listwy-i-gniazda-kolkowe/connfly/ds1021-1_4sf1-1/" H 3350 2950 60  0001 C CNN "Complementary shop link"
+F 8 "CONNFLY" H 3350 2950 50  0001 C CNN "Complementary manufacturer"
+F 9 "DS1021-1*4SF1-1" H 3350 2950 50  0001 C CNN "Complementary symbol"
+	1    3350 2950
+	-1   0    0    -1  
+$EndComp
+$Comp
+L MuxPi:2N7002 Q9
+U 1 1 5A871503
+P 10050 3350
+F 0 "Q9" H 10241 3396 50  0000 L CNN
+F 1 "2N7002" H 10241 3305 50  0000 L CNN
+F 2 "TO_SOT_Packages_SMD:SOT-23" H 10250 3275 50  0001 L CIN
+F 3 "https://www.nxp.com/documents/data_sheet/2N7002.pdf" H 10050 3350 50  0001 L CNN
+F 4 "http://www.tme.eu/pl/details/2n7002/tranzystory-z-kanalem-n-smd/fairchild-semiconductor/" H 10050 3350 60  0001 C CNN "Shop link"
+F 5 "ON SEMICONDUCTOR (FAIRCHILD)" H 10050 3350 50  0001 C CNN "Manufacturer"
+F 6 "2N7002" H 10050 3350 50  0001 C CNN "Symbol"
+	1    10050 3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L MuxPi:LED_ALT D10
+U 1 1 5A873160
+P 10100 5550
+F 0 "D10" H 10400 5600 50  0000 R CNN
+F 1 "KPT-2012SGC (GREEN)" H 10450 5700 50  0000 R CNN
+F 2 "Diodes_SMD:D_0805" H 10100 5550 50  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/0a4307e0e1e070f4f6d553134056548e/kpt-2012.pdf" H 10100 5550 50  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/kpt-2012sgc/diody-led-smd-kolorowe/kingbright-electronic/" V 10100 5550 60  0001 C CNN "Shop link"
+F 5 "KINGBRIGHT ELECTRONIC" V 10100 5550 50  0001 C CNN "Manufacturer"
+F 6 "KPT-2012SGC" V 10100 5550 50  0001 C CNN "Symbol"
+	1    10100 5550
+	1    0    0    -1  
+$EndComp
+$Comp
+L MuxPi:LED_ALT D11
+U 1 1 5A874472
+P 10450 5650
+F 0 "D11" H 10750 5700 50  0000 R CNN
+F 1 "KPT-2012EC (RED)" H 10800 5500 50  0000 R CNN
+F 2 "Diodes_SMD:D_0805" H 10450 5650 50  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/0a4307e0e1e070f4f6d553134056548e/kpt-2012.pdf" H 10450 5650 50  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/kpt-2012ec/diody-led-smd-kolorowe/kingbright-electronic/" V 10450 5650 60  0001 C CNN "Shop link"
+F 5 "KINGBRIGHT ELECTRONIC" V 10450 5650 50  0001 C CNN "Manufacturer"
+F 6 "KPT-2012EC" V 10450 5650 50  0001 C CNN "Symbol"
+	1    10450 5650
+	1    0    0    -1  
+$EndComp
+$Comp
+L MuxPi:2N7002 Q8
+U 1 1 583D87E9
+P 8500 3350
+AR Path="/583D87E9" Ref="Q8"  Part="1" 
+AR Path="/584D6079/583D87E9" Ref="Q8"  Part="1" 
+F 0 "Q8" H 8691 3396 50  0000 L CNN
+F 1 "2N7002" H 8691 3305 50  0000 L CNN
+F 2 "TO_SOT_Packages_SMD:SOT-23" H 8700 3275 50  0001 L CIN
+F 3 "https://www.nxp.com/documents/data_sheet/2N7002.pdf" H 8500 3350 50  0001 L CNN
+F 4 "http://www.tme.eu/pl/details/2n7002/tranzystory-z-kanalem-n-smd/fairchild-semiconductor/" H 8500 3350 60  0001 C CNN "Shop link"
+F 5 "ON SEMICONDUCTOR (FAIRCHILD)" H 8500 3350 50  0001 C CNN "Manufacturer"
+F 6 "2N7002" H 8500 3350 50  0001 C CNN "Symbol"
+	1    8500 3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L MuxPi:R R35
+U 1 1 5A84C753
+P 7400 1700
+F 0 "R35" H 7550 1750 50  0000 C CNN
+F 1 "10K" H 7550 1650 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805" V 7330 1700 30  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/7b8fed8c112f8a94930279c22c957f7f/rc0805yageo.pdf" H 7400 1700 30  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/rc0805jr-0710k/rezystory-smd-0805/yageo/rc0805jr-0710kl/" V 7400 1700 60  0001 C CNN "Shop link"
+	1    7400 1700
+	1    0    0    -1  
+$EndComp
+$Comp
+L MuxPi:R R64
+U 1 1 5A86976E
+P 9700 4750
+F 0 "R64" V 9700 4750 50  0000 C CNN
+F 1 "10K" V 9800 4750 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805" V 9630 4750 30  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/7b8fed8c112f8a94930279c22c957f7f/rc0805yageo.pdf" H 9700 4750 30  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/rc0805jr-0710k/rezystory-smd-0805/yageo/rc0805jr-0710kl/" V 9700 4750 60  0001 C CNN "Shop link"
+	1    9700 4750
+	1    0    0    -1  
+$EndComp
+$Comp
+L MuxPi:R R63
+U 1 1 5A869920
+P 9550 4750
+F 0 "R63" V 9550 4750 50  0000 C CNN
+F 1 "10K" V 9800 5200 50  0001 C CNN
+F 2 "Resistors_SMD:R_0805" V 9480 4750 30  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/7b8fed8c112f8a94930279c22c957f7f/rc0805yageo.pdf" H 9550 4750 30  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/rc0805jr-0710k/rezystory-smd-0805/yageo/rc0805jr-0710kl/" V 9550 4750 60  0001 C CNN "Shop link"
+	1    9550 4750
+	1    0    0    -1  
+$EndComp
+$Comp
+L MuxPi:R R60
+U 1 1 5A86A3B2
+P 6650 6000
+F 0 "R60" H 6800 6100 50  0000 C CNN
+F 1 "10K" H 6800 6000 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805" V 6580 6000 30  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/7b8fed8c112f8a94930279c22c957f7f/rc0805yageo.pdf" H 6650 6000 30  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/rc0805jr-0710k/rezystory-smd-0805/yageo/rc0805jr-0710kl/" V 6650 6000 60  0001 C CNN "Shop link"
+	1    6650 6000
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

@@ -53,6 +53,8 @@ F 1 "USB2640-HZH-02" H 5675 3724 50  0000 C CNN
 F 2 "Housings_DFN_QFN:QFN-48-1EP_7x7mm_Pitch0.5mm" H 7450 2500 50  0001 C CNN
 F 3 "http://www.farnell.com/datasheets/2138035.pdf?_ga=1.187806955.291132730.1474618953" H 7450 2500 50  0001 C CNN
 F 4 "http://pl.farnell.com/microchip/usb2640-hzh-02/ic-usb-2-flash-media-cntrl-48vqfn/dp/2292611" H 5500 2400 60  0001 C CNN "Shop link"
+F 5 "USB2640-HZH-02" H 5500 2400 50  0001 C CNN "Symbol"
+F 6 "MICROCHIP" H 5500 2400 50  0001 C CNN "Manufacturer"
 	1    5500 2400
 	1    0    0    -1  
 $EndComp
@@ -65,6 +67,8 @@ F 1 "USB2640-HZH-02" H 3300 6974 50  0000 C CNN
 F 2 "Housings_DFN_QFN:QFN-48-1EP_7x7mm_Pitch0.5mm" H 5250 6050 50  0001 C CNN
 F 3 "http://www.farnell.com/datasheets/2138035.pdf?_ga=1.187806955.291132730.1474618953" H 5250 6050 50  0001 C CNN
 F 4 "http://pl.farnell.com/microchip/usb2640-hzh-02/ic-usb-2-flash-media-cntrl-48vqfn/dp/2292611" H 3300 5950 60  0001 C CNN "Shop link"
+F 5 "MICROCHIP" H 3300 5950 50  0001 C CNN "Manufacturer"
+F 6 "USB2640-HZH-02" H 3300 5950 50  0001 C CNN "Symbol"
 	2    3300 5950
 	1    0    0    -1  
 $EndComp
@@ -134,6 +138,8 @@ F 1 "AT24C02D-SSHM-T" H 4000 3300 50  0000 C CNN
 F 2 "mux-footprints:SOIC-8" H 3800 3300 50  0001 C CIN
 F 3 "http://www.tme.eu/pl/Document/9ec5256b58bf67caf05d35a0814832e6/AT24C01D-MAHM-T.pdf" H 3650 3600 50  0001 C CNN
 F 4 "http://www.tme.eu/pl/details/at24c02d-sshm-t/pamieci-eeprom-szeregowe/atmel/" H 3650 3600 60  0001 C CNN "Shop link"
+F 5 "MICROCHIP (ATMEL)" H 3650 3600 50  0001 C CNN "Manufacturer"
+F 6 "AT24C02D-SSHM-T" H 3650 3600 50  0001 C CNN "Symbol"
 	1    3650 3600
 	1    0    0    -1  
 $EndComp
@@ -226,6 +232,8 @@ F 1 "LF XTAL012504 - 24MHz" V 1350 5800 50  0000 C CNN
 F 2 "Crystals:Q_49U3HMS" H 1750 5550 50  0001 C CNN
 F 3 "http://www.tme.eu/pl/Document/fd32e3a1954dc23b6c626158f627af96/hc49_4hsmx.pdf" H 1750 5550 50  0001 C CNN
 F 4 "http://www.tme.eu/pl/details/24.00m-smdhc49r/rezonatory-kwarcowe-smd/iqd-frequency-products/lf-xtal012504/" V 1750 5550 60  0001 C CNN "Shop link"
+F 5 "IQD FREQUENCY PRODUCTS" V 1750 5550 50  0001 C CNN "Manufacturer"
+F 6 "LF XTAL012504" V 1750 5550 50  0001 C CNN "Symbol"
 	1    1750 5550
 	0    1    1    0   
 $EndComp
@@ -264,18 +272,6 @@ F 3 "" H 5650 6750 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L MuxPi:Ferrite_Bead_Small L2
-U 1 1 5846AD7D
-P 5350 5900
-F 0 "L2" H 5450 5946 50  0000 L CNN
-F 1 "BLM21PG221SN1D" H 5450 5855 50  0000 L CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" H 5450 5809 50  0001 L CNN
-F 3 "http://www.tme.eu/pl/Document/6052c7f9d4f1672121538e0d10f79ff8/blm21pg300sn1d.pdf" H 5450 5809 50  0001 L CNN
-F 4 "http://www.tme.eu/pl/details/blm21pg221sn1d/ferryty-koraliki/murata/" H 5350 5900 60  0001 C CNN "Shop link"
-	1    5350 5900
-	1    0    0    -1  
-$EndComp
-$Comp
 L MuxPi:+3V3 #PWR0129
 U 1 1 5846B688
 P 5350 5750
@@ -295,6 +291,8 @@ F 1 "BLM21PG221SN1D" V 4254 5200 50  0000 C CNN
 F 2 "Resistors_SMD:R_0805_HandSoldering" H 4500 5109 50  0001 L CNN
 F 3 "http://www.tme.eu/pl/Document/6052c7f9d4f1672121538e0d10f79ff8/blm21pg300sn1d.pdf" H 4500 5109 50  0001 L CNN
 F 4 "http://www.tme.eu/pl/details/blm21pg221sn1d/ferryty-koraliki/murata/" H 4400 5200 60  0001 C CNN "Shop link"
+F 5 "MURATA" V 4400 5200 50  0001 C CNN "Manufacturer"
+F 6 "BLM21PG221SN1D" V 4400 5200 50  0001 C CNN "Symbol"
 	1    4400 5200
 	0    1    1    0   
 $EndComp
@@ -676,6 +674,8 @@ F 1 "USBA-2G" V 10671 1588 50  0000 L CNN
 F 2 "mux-footprints:conn_usb_Ax2" V 10350 1300 50  0001 C CNN
 F 3 "http://www.tme.eu/pl/Document/7923e8726ae07a0825304f6fd9a186c2/usba-2g.pdf" V 10350 1300 50  0001 C CNN
 F 4 "http://www.tme.eu/pl/details/usba-2g/zlacza-usb-i-ieee1394/ninigi/" V 10400 1400 60  0001 C CNN "Shop link"
+F 5 "CONNFLY" V 10400 1400 50  0001 C CNN "Manufacturer"
+F 6 "DS1096-BN0" V 10400 1400 50  0001 C CNN "Symbol"
 	1    10400 1400
 	0    1    1    0   
 $EndComp
@@ -696,6 +696,8 @@ F 1 "OSB50805C1E (BLUE)" H 4950 5450 50  0000 R CNN
 F 2 "Diodes_SMD:D_0805" H 4600 5350 50  0001 C CNN
 F 3 "http://www.tme.eu/pl/Document/6f99baddc8b38eb1a865ea6b78250b2b/OSXX0805C1E-DTE.pdf" H 4600 5350 50  0001 C CNN
 F 4 "http://www.tme.eu/pl/details/osb50805c1e/diody-led-smd-kolorowe/optosupply/" V 4600 5350 60  0001 C CNN "Shop link"
+F 5 "OPTOSUPPLY" H 4600 5350 50  0001 C CNN "Manufacturer"
+F 6 "OSB50805C1E" H 4600 5350 50  0001 C CNN "Symbol"
 	1    4600 5350
 	-1   0    0    1   
 $EndComp
@@ -1051,4 +1053,18 @@ Wire Wire Line
 	1450 5300 1750 5300
 Wire Wire Line
 	1450 5800 1750 5800
+$Comp
+L MuxPi:Ferrite_Bead_Small L2
+U 1 1 5A8DBC88
+P 5350 5900
+F 0 "L2" H 5450 6000 50  0000 C CNN
+F 1 "BLM21PG221SN1D" H 5750 5800 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" H 5450 5809 50  0001 L CNN
+F 3 "http://www.tme.eu/pl/Document/6052c7f9d4f1672121538e0d10f79ff8/blm21pg300sn1d.pdf" H 5450 5809 50  0001 L CNN
+F 4 "http://www.tme.eu/pl/details/blm21pg221sn1d/ferryty-koraliki/murata/" H 5350 5900 60  0001 C CNN "Shop link"
+F 5 "MURATA" V 5350 5900 50  0001 C CNN "Manufacturer"
+F 6 "BLM21PG221SN1D" V 5350 5900 50  0001 C CNN "Symbol"
+	1    5350 5900
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
