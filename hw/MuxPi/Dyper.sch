@@ -1,5 +1,4 @@
 EESchema Schematic File Version 4
-LIBS:MuxPi-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
@@ -48,6 +47,8 @@ F 3 "http://www.tme.eu/pl/Document/3d423240524ca321875bc7f197d833ad/IM-HICDP.pdf
 F 4 "http://www.tme.eu/pl/details/im03gr/przekazniki-elektromagn-miniaturowe/te-connectivity/1-1462037-4/" H 5750 2600 60  0001 C CNN "Shop link"
 F 5 "TE CONNECTIVITY" H 5750 2600 50  0001 C CNN "Manufacturer"
 F 6 "1-1462037-4" H 5750 2600 50  0001 C CNN "Symbol"
+F 7 "G6K-2F-Y 5VDC" H 5750 2600 50  0001 C CNN "Alt. Symbol"
+F 8 "OMRON" H 5750 2600 50  0001 C CNN "Alt. Manufacturer"
 	1    5750 2600
 	1    0    0    -1  
 $EndComp
@@ -319,6 +320,8 @@ F 3 "http://www.tme.eu/pl/Document/3d423240524ca321875bc7f197d833ad/IM-HICDP.pdf
 F 4 "http://www.tme.eu/pl/details/im03gr/przekazniki-elektromagn-miniaturowe/te-connectivity/1-1462037-4/" H 5750 4850 60  0001 C CNN "Shop link"
 F 5 "TE CONNECTIVITY" H 5750 4850 50  0001 C CNN "Manufacturer"
 F 6 "1-1462037-4" H 5750 4850 50  0001 C CNN "Symbol"
+F 7 "G6K-2F-Y 5VDC" H 5750 4850 50  0001 C CNN "Alt. Symbol"
+F 8 "OMRON" H 5750 4850 50  0001 C CNN "Alt. Manufacturer"
 	1    5750 4850
 	1    0    0    -1  
 $EndComp
