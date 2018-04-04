@@ -1,0 +1,1178 @@
+EESchema Schematic File Version 4
+EELAYER 26 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L MuxPi_addon:CONN_02X08 J1
+U 1 1 58DF2CFB
+P 4450 1650
+F 0 "J1" H 4450 2215 50  0000 C CNN
+F 1 "CONN_02X08" H 4450 2124 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_2x08_Pitch2.54mm" H 4450 450 50  0001 C CNN
+F 3 "" H 4450 450 50  0001 C CNN
+	1    4450 1650
+	1    0    0    -1  
+$EndComp
+$Comp
+L MuxPi_addon:CONN_02X08 J2
+U 1 1 58DF2D90
+P 7250 1650
+F 0 "J2" H 7250 2215 50  0000 C CNN
+F 1 "CONN_02X08" H 7250 2124 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_2x08_Pitch2.54mm" H 7250 450 50  0001 C CNN
+F 3 "" H 7250 450 50  0001 C CNN
+	1    7250 1650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR13
+U 1 1 58DF2E6B
+P 4050 1200
+F 0 "#PWR13" H 4050 1050 50  0001 C CNN
+F 1 "+5V" H 4065 1373 50  0000 C CNN
+F 2 "" H 4050 1200 50  0001 C CNN
+F 3 "" H 4050 1200 50  0001 C CNN
+	1    4050 1200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VDD #PWR17
+U 1 1 58DF2F40
+P 4850 1200
+F 0 "#PWR17" H 4850 1050 50  0001 C CNN
+F 1 "VDD" H 4867 1373 50  0000 C CNN
+F 2 "" H 4850 1200 50  0001 C CNN
+F 3 "" H 4850 1200 50  0001 C CNN
+	1    4850 1200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR20
+U 1 1 58DF2F7D
+P 5050 1200
+F 0 "#PWR20" H 5050 1050 50  0001 C CNN
+F 1 "+3V3" H 5065 1373 50  0000 C CNN
+F 2 "" H 5050 1200 50  0001 C CNN
+F 3 "" H 5050 1200 50  0001 C CNN
+	1    5050 1200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR14
+U 1 1 58DF3037
+P 4050 2100
+F 0 "#PWR14" H 4050 1850 50  0001 C CNN
+F 1 "GND" H 4055 1927 50  0000 C CNN
+F 2 "" H 4050 2100 50  0001 C CNN
+F 3 "" H 4050 2100 50  0001 C CNN
+	1    4050 2100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR18
+U 1 1 58DF3092
+P 4850 2100
+F 0 "#PWR18" H 4850 1850 50  0001 C CNN
+F 1 "GND" H 4855 1927 50  0000 C CNN
+F 2 "" H 4850 2100 50  0001 C CNN
+F 3 "" H 4850 2100 50  0001 C CNN
+	1    4850 2100
+	1    0    0    -1  
+$EndComp
+NoConn ~ 4700 2000
+$Comp
+L power:GND #PWR29
+U 1 1 58DF30BF
+P 6850 2100
+F 0 "#PWR29" H 6850 1850 50  0001 C CNN
+F 1 "GND" H 6855 1927 50  0000 C CNN
+F 2 "" H 6850 2100 50  0001 C CNN
+F 3 "" H 6850 2100 50  0001 C CNN
+	1    6850 2100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR30
+U 1 1 58DF30CB
+P 7650 2100
+F 0 "#PWR30" H 7650 1850 50  0001 C CNN
+F 1 "GND" H 7655 1927 50  0000 C CNN
+F 2 "" H 7650 2100 50  0001 C CNN
+F 3 "" H 7650 2100 50  0001 C CNN
+	1    7650 2100
+	1    0    0    -1  
+$EndComp
+Text Label 3650 1600 0    60   ~ 0
+PI_UART_TX
+Text Label 5350 1600 2    60   ~ 0
+PI_UART_RX
+$Comp
+L MuxPi_addon:LED_ALT D4
+U 1 1 58DCA1D3
+P 10550 1300
+F 0 "D4" H 10588 1183 50  0000 R CNN
+F 1 "KPT-2012SGC" H 10800 1450 50  0000 R CNN
+F 2 "Diodes_SMD:D_0805" H 10550 1300 50  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/0a4307e0e1e070f4f6d553134056548e/kpt-2012.pdf" H 10550 1300 50  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/kpt-2012sgc/diody-led-smd-kolorowe/kingbright-electronic/" V 10550 1300 60  0001 C CNN "Shop link"
+	1    10550 1300
+	-1   0    0    1   
+$EndComp
+$Comp
+L MuxPi_addon:R R12
+U 1 1 58DCA1DB
+P 10200 1300
+F 0 "R12" V 10270 1346 50  0000 L CNN
+F 1 "330R" V 10100 1300 50  0000 L CNN
+F 2 "Resistors_SMD:R_0805" V 10130 1300 50  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/7b8fed8c112f8a94930279c22c957f7f/rc0805yageo.pdf" H 10200 1300 50  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/rc0805jr-07330r/rezystory-smd-0805/yageo/rc0805jr-07330rl/" H 10200 1300 60  0001 C CNN "Shop link"
+	1    10200 1300
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4050 1200 4050 1300
+Wire Wire Line
+	4050 1300 4200 1300
+Wire Wire Line
+	4050 1400 4200 1400
+Connection ~ 4050 1300
+Wire Wire Line
+	4700 1300 4850 1300
+Wire Wire Line
+	4850 1300 4850 1200
+Wire Wire Line
+	4700 1400 5050 1400
+Wire Wire Line
+	5050 1400 5050 1200
+Wire Wire Line
+	4050 1900 4050 2000
+Wire Wire Line
+	4050 1900 4200 1900
+Wire Wire Line
+	4200 2000 4050 2000
+Connection ~ 4050 2000
+Wire Wire Line
+	4700 1900 4850 1900
+Wire Wire Line
+	4850 1900 4850 2100
+Wire Wire Line
+	6850 1900 6850 2000
+Wire Wire Line
+	6850 1900 7000 1900
+Wire Wire Line
+	7000 2000 6850 2000
+Connection ~ 6850 2000
+Wire Wire Line
+	7500 1900 7650 1900
+Wire Wire Line
+	7650 1900 7650 2000
+Wire Wire Line
+	7500 2000 7650 2000
+Connection ~ 7650 2000
+Wire Wire Line
+	4200 1600 3650 1600
+Wire Wire Line
+	5350 1600 4700 1600
+Wire Wire Line
+	10800 1300 10700 1300
+Wire Wire Line
+	10350 1300 10400 1300
+$Comp
+L power:GND #PWR32
+U 1 1 58DCB309
+P 10800 1300
+F 0 "#PWR32" H 10800 1050 50  0001 C CNN
+F 1 "GND" H 10805 1127 50  0000 C CNN
+F 2 "" H 10800 1300 50  0001 C CNN
+F 3 "" H 10800 1300 50  0001 C CNN
+	1    10800 1300
+	0    -1   -1   0   
+$EndComp
+$Comp
+L MuxPi_addon:LED_ALT D5
+U 1 1 58DCC024
+P 10550 1700
+F 0 "D5" H 10588 1583 50  0000 R CNN
+F 1 "OSB50805C1E" H 10800 1850 50  0000 R CNN
+F 2 "Diodes_SMD:D_0805" H 10550 1700 50  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/6f99baddc8b38eb1a865ea6b78250b2b/OSXX0805C1E-DTE.pdf" H 10550 1700 50  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/osb50805c1e/diody-led-smd-kolorowe/optosupply/" V 10550 1700 60  0001 C CNN "Shop link"
+	1    10550 1700
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	10800 1700 10700 1700
+$Comp
+L power:GND #PWR33
+U 1 1 58DCC82A
+P 10800 1700
+F 0 "#PWR33" H 10800 1450 50  0001 C CNN
+F 1 "GND" H 10805 1527 50  0000 C CNN
+F 2 "" H 10800 1700 50  0001 C CNN
+F 3 "" H 10800 1700 50  0001 C CNN
+	1    10800 1700
+	0    -1   -1   0   
+$EndComp
+$Comp
+L MuxPi_addon:R R13
+U 1 1 58DCC867
+P 10200 1700
+F 0 "R13" V 10270 1746 50  0000 L CNN
+F 1 "330R" V 10100 1700 50  0000 L CNN
+F 2 "Resistors_SMD:R_0805" V 10130 1700 50  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/7b8fed8c112f8a94930279c22c957f7f/rc0805yageo.pdf" H 10200 1700 50  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/rc0805jr-07330r/rezystory-smd-0805/yageo/rc0805jr-07330rl/" H 10200 1700 60  0001 C CNN "Shop link"
+	1    10200 1700
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	10350 1700 10400 1700
+$Comp
+L MuxPi_addon:LED_ALT D3
+U 1 1 58DCD49A
+P 10550 900
+F 0 "D3" H 10588 783 50  0000 R CNN
+F 1 "KPT-2012EC" H 10800 1050 50  0000 R CNN
+F 2 "Diodes_SMD:D_0805" H 10550 900 50  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/0a4307e0e1e070f4f6d553134056548e/kpt-2012.pdf" H 10550 900 50  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/kpt-2012ec/diody-led-smd-kolorowe/kingbright-electronic/" V 10550 900 60  0001 C CNN "Shop link"
+	1    10550 900 
+	-1   0    0    1   
+$EndComp
+$Comp
+L MuxPi_addon:R R11
+U 1 1 58DCD4A1
+P 10200 900
+F 0 "R11" V 10270 946 50  0000 L CNN
+F 1 "330R" V 10100 900 50  0000 L CNN
+F 2 "Resistors_SMD:R_0805" V 10130 900 50  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/7b8fed8c112f8a94930279c22c957f7f/rc0805yageo.pdf" H 10200 900 50  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/rc0805jr-07330r/rezystory-smd-0805/yageo/rc0805jr-07330rl/" H 10200 900 60  0001 C CNN "Shop link"
+	1    10200 900 
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	10800 900  10700 900 
+Wire Wire Line
+	10350 900  10400 900 
+$Comp
+L power:GND #PWR31
+U 1 1 58DCD4A9
+P 10800 900
+F 0 "#PWR31" H 10800 650 50  0001 C CNN
+F 1 "GND" H 10805 727 50  0000 C CNN
+F 2 "" H 10800 900 50  0001 C CNN
+F 3 "" H 10800 900 50  0001 C CNN
+	1    10800 900 
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	10050 900  9550 900 
+Text Label 9550 900  0    60   ~ 0
+PI_GPIO_1
+Wire Wire Line
+	10050 1300 9550 1300
+Text Label 9550 1300 0    60   ~ 0
+PI_GPIO_2
+Wire Wire Line
+	10050 1700 9550 1700
+Text Label 9550 1700 0    60   ~ 0
+PI_GPIO_3
+$Comp
+L MuxPi_addon:LED_ALT D7
+U 1 1 58DCD88B
+P 10550 2650
+F 0 "D7" H 10588 2533 50  0000 R CNN
+F 1 "KPT-2012SGC" H 10800 2800 50  0000 R CNN
+F 2 "Diodes_SMD:D_0805" H 10550 2650 50  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/0a4307e0e1e070f4f6d553134056548e/kpt-2012.pdf" H 10550 2650 50  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/kpt-2012sgc/diody-led-smd-kolorowe/kingbright-electronic/" V 10550 2650 60  0001 C CNN "Shop link"
+	1    10550 2650
+	-1   0    0    1   
+$EndComp
+$Comp
+L MuxPi_addon:R R15
+U 1 1 58DCD892
+P 10200 2650
+F 0 "R15" V 10270 2696 50  0000 L CNN
+F 1 "330R" V 10100 2650 50  0000 L CNN
+F 2 "Resistors_SMD:R_0805" V 10130 2650 50  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/7b8fed8c112f8a94930279c22c957f7f/rc0805yageo.pdf" H 10200 2650 50  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/rc0805jr-07330r/rezystory-smd-0805/yageo/rc0805jr-07330rl/" H 10200 2650 60  0001 C CNN "Shop link"
+	1    10200 2650
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	10800 2650 10700 2650
+Wire Wire Line
+	10350 2650 10400 2650
+$Comp
+L power:GND #PWR35
+U 1 1 58DCD89A
+P 10800 2650
+F 0 "#PWR35" H 10800 2400 50  0001 C CNN
+F 1 "GND" H 10805 2477 50  0000 C CNN
+F 2 "" H 10800 2650 50  0001 C CNN
+F 3 "" H 10800 2650 50  0001 C CNN
+	1    10800 2650
+	0    -1   -1   0   
+$EndComp
+$Comp
+L MuxPi_addon:LED_ALT D8
+U 1 1 58DCD8A1
+P 10550 3050
+F 0 "D8" H 10588 2933 50  0000 R CNN
+F 1 "OSB50805C1E" H 10800 3200 50  0000 R CNN
+F 2 "Diodes_SMD:D_0805" H 10550 3050 50  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/6f99baddc8b38eb1a865ea6b78250b2b/OSXX0805C1E-DTE.pdf" H 10550 3050 50  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/osb50805c1e/diody-led-smd-kolorowe/optosupply/" V 10550 3050 60  0001 C CNN "Shop link"
+	1    10550 3050
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	10800 3050 10700 3050
+$Comp
+L power:GND #PWR36
+U 1 1 58DCD8A8
+P 10800 3050
+F 0 "#PWR36" H 10800 2800 50  0001 C CNN
+F 1 "GND" H 10805 2877 50  0000 C CNN
+F 2 "" H 10800 3050 50  0001 C CNN
+F 3 "" H 10800 3050 50  0001 C CNN
+	1    10800 3050
+	0    -1   -1   0   
+$EndComp
+$Comp
+L MuxPi_addon:R R16
+U 1 1 58DCD8AF
+P 10200 3050
+F 0 "R16" V 10270 3096 50  0000 L CNN
+F 1 "330R" V 10100 3050 50  0000 L CNN
+F 2 "Resistors_SMD:R_0805" V 10130 3050 50  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/7b8fed8c112f8a94930279c22c957f7f/rc0805yageo.pdf" H 10200 3050 50  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/rc0805jr-07330r/rezystory-smd-0805/yageo/rc0805jr-07330rl/" H 10200 3050 60  0001 C CNN "Shop link"
+	1    10200 3050
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	10350 3050 10400 3050
+$Comp
+L MuxPi_addon:LED_ALT D6
+U 1 1 58DCD8B7
+P 10550 2250
+F 0 "D6" H 10588 2133 50  0000 R CNN
+F 1 "KPT-2012EC" H 10800 2400 50  0000 R CNN
+F 2 "Diodes_SMD:D_0805" H 10550 2250 50  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/0a4307e0e1e070f4f6d553134056548e/kpt-2012.pdf" H 10550 2250 50  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/kpt-2012ec/diody-led-smd-kolorowe/kingbright-electronic/" V 10550 2250 60  0001 C CNN "Shop link"
+	1    10550 2250
+	-1   0    0    1   
+$EndComp
+$Comp
+L MuxPi_addon:R R14
+U 1 1 58DCD8BE
+P 10200 2250
+F 0 "R14" V 10270 2296 50  0000 L CNN
+F 1 "330R" V 10100 2250 50  0000 L CNN
+F 2 "Resistors_SMD:R_0805" V 10130 2250 50  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/7b8fed8c112f8a94930279c22c957f7f/rc0805yageo.pdf" H 10200 2250 50  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/rc0805jr-07330r/rezystory-smd-0805/yageo/rc0805jr-07330rl/" H 10200 2250 60  0001 C CNN "Shop link"
+	1    10200 2250
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	10800 2250 10700 2250
+Wire Wire Line
+	10350 2250 10400 2250
+$Comp
+L power:GND #PWR34
+U 1 1 58DCD8C6
+P 10800 2250
+F 0 "#PWR34" H 10800 2000 50  0001 C CNN
+F 1 "GND" H 10805 2077 50  0000 C CNN
+F 2 "" H 10800 2250 50  0001 C CNN
+F 3 "" H 10800 2250 50  0001 C CNN
+	1    10800 2250
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	10050 2250 9550 2250
+Text Label 9550 2250 0    60   ~ 0
+ST_GPIO_1
+Wire Wire Line
+	10050 2650 9550 2650
+Text Label 9550 2650 0    60   ~ 0
+ST_GPIO_2
+Wire Wire Line
+	10050 3050 9550 3050
+Text Label 9550 3050 0    60   ~ 0
+ST_GPIO_3
+Wire Wire Line
+	6450 1500 7000 1500
+Text Label 6500 1500 0    60   ~ 0
+PI_GPIO_1
+Wire Wire Line
+	6450 1600 7000 1600
+Text Label 6500 1600 0    60   ~ 0
+PI_GPIO_3
+Wire Wire Line
+	7500 1500 8050 1500
+Text Label 8000 1500 2    60   ~ 0
+PI_GPIO_2
+Wire Wire Line
+	7500 1600 8050 1600
+Text Label 8000 1600 2    60   ~ 0
+ST_GPIO_1
+Wire Wire Line
+	7500 1700 8050 1700
+Text Label 8000 1700 2    60   ~ 0
+ST_GPIO_3
+Wire Wire Line
+	6450 1700 7000 1700
+Text Label 6500 1700 0    60   ~ 0
+ST_GPIO_2
+Wire Wire Line
+	3650 1700 4200 1700
+Text Label 3650 1700 0    60   ~ 0
+USB_B+
+Wire Wire Line
+	3650 1800 4200 1800
+Text Label 3650 1800 0    60   ~ 0
+USB_A+
+Wire Wire Line
+	4700 1700 5350 1700
+Text Label 5350 1700 2    60   ~ 0
+USB_B-
+Wire Wire Line
+	4700 1800 5350 1800
+Text Label 5350 1800 2    60   ~ 0
+USB_A-
+$Comp
+L MuxPi_addon:LED_ALT D9
+U 1 1 58DBEEF2
+P 10550 3950
+F 0 "D9" H 10588 3833 50  0000 R CNN
+F 1 "KPT-2012EC" H 10800 4100 50  0000 R CNN
+F 2 "Diodes_SMD:D_0805" H 10550 3950 50  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/0a4307e0e1e070f4f6d553134056548e/kpt-2012.pdf" H 10550 3950 50  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/kpt-2012ec/diody-led-smd-kolorowe/kingbright-electronic/" V 10550 3950 60  0001 C CNN "Shop link"
+	1    10550 3950
+	-1   0    0    1   
+$EndComp
+$Comp
+L MuxPi_addon:R R17
+U 1 1 58DBEEF9
+P 10200 3950
+F 0 "R17" V 10270 3996 50  0000 L CNN
+F 1 "330R" V 10100 3950 50  0000 L CNN
+F 2 "Resistors_SMD:R_0805" V 10130 3950 50  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/7b8fed8c112f8a94930279c22c957f7f/rc0805yageo.pdf" H 10200 3950 50  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/rc0805jr-07330r/rezystory-smd-0805/yageo/rc0805jr-07330rl/" H 10200 3950 60  0001 C CNN "Shop link"
+	1    10200 3950
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	10800 3950 10700 3950
+Wire Wire Line
+	10350 3950 10400 3950
+$Comp
+L power:GND #PWR2
+U 1 1 58DBEF01
+P 10800 3950
+F 0 "#PWR2" H 10800 3700 50  0001 C CNN
+F 1 "GND" H 10805 3777 50  0000 C CNN
+F 2 "" H 10800 3950 50  0001 C CNN
+F 3 "" H 10800 3950 50  0001 C CNN
+	1    10800 3950
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:+5V #PWR1
+U 1 1 58DBF409
+P 9850 3900
+F 0 "#PWR1" H 9850 3750 50  0001 C CNN
+F 1 "+5V" H 9865 4073 50  0000 C CNN
+F 2 "" H 9850 3900 50  0001 C CNN
+F 3 "" H 9850 3900 50  0001 C CNN
+	1    9850 3900
+	1    0    0    -1  
+$EndComp
+$Comp
+L MuxPi_addon:R R18
+U 1 1 58DBFFBB
+P 10200 3550
+F 0 "R18" V 10270 3596 50  0000 L CNN
+F 1 "330R" V 10100 3550 50  0000 L CNN
+F 2 "Resistors_SMD:R_0805" V 10130 3550 50  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/7b8fed8c112f8a94930279c22c957f7f/rc0805yageo.pdf" H 10200 3550 50  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/rc0805jr-07330r/rezystory-smd-0805/yageo/rc0805jr-07330rl/" H 10200 3550 60  0001 C CNN "Shop link"
+	1    10200 3550
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	10800 3550 10700 3550
+Wire Wire Line
+	10350 3550 10400 3550
+$Comp
+L power:GND #PWR6
+U 1 1 58DBFFC3
+P 10800 3550
+F 0 "#PWR6" H 10800 3300 50  0001 C CNN
+F 1 "GND" H 10805 3377 50  0000 C CNN
+F 2 "" H 10800 3550 50  0001 C CNN
+F 3 "" H 10800 3550 50  0001 C CNN
+	1    10800 3550
+	0    -1   -1   0   
+$EndComp
+$Comp
+L MuxPi_addon:LED_ALT D10
+U 1 1 58DC0827
+P 10550 3550
+F 0 "D10" H 10588 3433 50  0000 R CNN
+F 1 "KPT-2012SGC" H 10800 3700 50  0000 R CNN
+F 2 "Diodes_SMD:D_0805" H 10550 3550 50  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/0a4307e0e1e070f4f6d553134056548e/kpt-2012.pdf" H 10550 3550 50  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/kpt-2012sgc/diody-led-smd-kolorowe/kingbright-electronic/" V 10550 3550 60  0001 C CNN "Shop link"
+	1    10550 3550
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:VDD #PWR5
+U 1 1 58DC229D
+P 9850 3500
+F 0 "#PWR5" H 9850 3350 50  0001 C CNN
+F 1 "VDD" H 9867 3673 50  0000 C CNN
+F 2 "" H 9850 3500 50  0001 C CNN
+F 3 "" H 9850 3500 50  0001 C CNN
+	1    9850 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L MuxPi_addon:CONN_01X01 J6
+U 1 1 58DC0F37
+P 5550 1500
+F 0 "J6" H 5627 1495 50  0000 L CNN
+F 1 "CONN_01X01" H 5628 1450 50  0001 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 5550 1500 50  0001 C CNN
+F 3 "" H 5550 1500 50  0001 C CNN
+	1    5550 1500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4700 1500 5350 1500
+Text Label 5150 1500 0    60   ~ 0
+SCL
+$Comp
+L MuxPi_addon:CONN_01X01 J3
+U 1 1 58DC239C
+P 3450 1500
+F 0 "J3" H 3528 1495 50  0000 L CNN
+F 1 "CONN_01X01" H 3528 1450 50  0001 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 3450 1500 50  0001 C CNN
+F 3 "" H 3450 1500 50  0001 C CNN
+	1    3450 1500
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	3650 1500 4200 1500
+Text Label 3650 1500 0    60   ~ 0
+SDA
+$Comp
+L MuxPi_addon:CONN_01X01 J7
+U 1 1 58DC4E3A
+P 5550 1700
+F 0 "J7" H 5627 1695 50  0000 L CNN
+F 1 "CONN_01X01" H 5628 1650 50  0001 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 5550 1700 50  0001 C CNN
+F 3 "" H 5550 1700 50  0001 C CNN
+	1    5550 1700
+	1    0    0    -1  
+$EndComp
+$Comp
+L MuxPi_addon:CONN_01X01 J8
+U 1 1 58DC4EAA
+P 5550 1800
+F 0 "J8" H 5627 1795 50  0000 L CNN
+F 1 "CONN_01X01" H 5628 1750 50  0001 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 5550 1800 50  0001 C CNN
+F 3 "" H 5550 1800 50  0001 C CNN
+	1    5550 1800
+	1    0    0    -1  
+$EndComp
+$Comp
+L MuxPi_addon:CONN_01X01 J4
+U 1 1 58DC55EC
+P 3450 1700
+F 0 "J4" H 3528 1695 50  0000 L CNN
+F 1 "CONN_01X01" H 3528 1650 50  0001 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 3450 1700 50  0001 C CNN
+F 3 "" H 3450 1700 50  0001 C CNN
+	1    3450 1700
+	-1   0    0    -1  
+$EndComp
+$Comp
+L MuxPi_addon:CONN_01X01 J5
+U 1 1 58DC565A
+P 3450 1800
+F 0 "J5" H 3528 1795 50  0000 L CNN
+F 1 "CONN_01X01" H 3528 1750 50  0001 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 3450 1800 50  0001 C CNN
+F 3 "" H 3450 1800 50  0001 C CNN
+	1    3450 1800
+	-1   0    0    -1  
+$EndComp
+$Comp
+L MuxPi_addon:CONN_01X01 J15
+U 1 1 58DC6738
+P 8250 1300
+F 0 "J15" H 8328 1295 50  0000 L CNN
+F 1 "CONN_01X01" H 8328 1250 50  0001 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 8250 1300 50  0001 C CNN
+F 3 "" H 8250 1300 50  0001 C CNN
+	1    8250 1300
+	1    0    0    -1  
+$EndComp
+$Comp
+L MuxPi_addon:CONN_01X01 J16
+U 1 1 58DC67FC
+P 8250 1400
+F 0 "J16" H 8328 1395 50  0000 L CNN
+F 1 "CONN_01X01" H 8328 1350 50  0001 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 8250 1400 50  0001 C CNN
+F 3 "" H 8250 1400 50  0001 C CNN
+	1    8250 1400
+	1    0    0    -1  
+$EndComp
+$Comp
+L MuxPi_addon:CONN_01X01 J17
+U 1 1 58DC686A
+P 8250 1500
+F 0 "J17" H 8328 1495 50  0000 L CNN
+F 1 "CONN_01X01" H 8328 1450 50  0001 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 8250 1500 50  0001 C CNN
+F 3 "" H 8250 1500 50  0001 C CNN
+	1    8250 1500
+	1    0    0    -1  
+$EndComp
+$Comp
+L MuxPi_addon:CONN_01X01 J18
+U 1 1 58DC68F2
+P 8250 1600
+F 0 "J18" H 8328 1595 50  0000 L CNN
+F 1 "CONN_01X01" H 8328 1550 50  0001 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 8250 1600 50  0001 C CNN
+F 3 "" H 8250 1600 50  0001 C CNN
+	1    8250 1600
+	1    0    0    -1  
+$EndComp
+$Comp
+L MuxPi_addon:CONN_01X01 J19
+U 1 1 58DC6964
+P 8250 1700
+F 0 "J19" H 8328 1695 50  0000 L CNN
+F 1 "CONN_01X01" H 8328 1650 50  0001 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 8250 1700 50  0001 C CNN
+F 3 "" H 8250 1700 50  0001 C CNN
+	1    8250 1700
+	1    0    0    -1  
+$EndComp
+$Comp
+L MuxPi_addon:CONN_01X01 J20
+U 1 1 58DC69D8
+P 8250 1800
+F 0 "J20" H 8328 1795 50  0000 L CNN
+F 1 "CONN_01X01" H 8328 1750 50  0001 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 8250 1800 50  0001 C CNN
+F 3 "" H 8250 1800 50  0001 C CNN
+	1    8250 1800
+	1    0    0    -1  
+$EndComp
+$Comp
+L MuxPi_addon:CONN_01X01 J9
+U 1 1 58DC6DE4
+P 6250 1300
+F 0 "J9" H 6328 1295 50  0000 L CNN
+F 1 "CONN_01X01" H 6328 1250 50  0001 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 6250 1300 50  0001 C CNN
+F 3 "" H 6250 1300 50  0001 C CNN
+	1    6250 1300
+	-1   0    0    -1  
+$EndComp
+$Comp
+L MuxPi_addon:CONN_01X01 J10
+U 1 1 58DC73FC
+P 6250 1400
+F 0 "J10" H 6328 1395 50  0000 L CNN
+F 1 "CONN_01X01" H 6328 1350 50  0001 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 6250 1400 50  0001 C CNN
+F 3 "" H 6250 1400 50  0001 C CNN
+	1    6250 1400
+	-1   0    0    -1  
+$EndComp
+$Comp
+L MuxPi_addon:CONN_01X01 J11
+U 1 1 58DC7476
+P 6250 1500
+F 0 "J11" H 6328 1495 50  0000 L CNN
+F 1 "CONN_01X01" H 6328 1450 50  0001 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 6250 1500 50  0001 C CNN
+F 3 "" H 6250 1500 50  0001 C CNN
+	1    6250 1500
+	-1   0    0    -1  
+$EndComp
+$Comp
+L MuxPi_addon:CONN_01X01 J12
+U 1 1 58DC74F2
+P 6250 1600
+F 0 "J12" H 6328 1595 50  0000 L CNN
+F 1 "CONN_01X01" H 6328 1550 50  0001 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 6250 1600 50  0001 C CNN
+F 3 "" H 6250 1600 50  0001 C CNN
+	1    6250 1600
+	-1   0    0    -1  
+$EndComp
+$Comp
+L MuxPi_addon:CONN_01X01 J13
+U 1 1 58DC7574
+P 6250 1700
+F 0 "J13" H 6328 1695 50  0000 L CNN
+F 1 "CONN_01X01" H 6328 1650 50  0001 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 6250 1700 50  0001 C CNN
+F 3 "" H 6250 1700 50  0001 C CNN
+	1    6250 1700
+	-1   0    0    -1  
+$EndComp
+$Comp
+L MuxPi_addon:CONN_01X01 J14
+U 1 1 58DC75F4
+P 6250 1800
+F 0 "J14" H 6328 1795 50  0000 L CNN
+F 1 "CONN_01X01" H 6328 1750 50  0001 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 6250 1800 50  0001 C CNN
+F 3 "" H 6250 1800 50  0001 C CNN
+	1    6250 1800
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	6450 1300 7000 1300
+Wire Wire Line
+	7500 1300 8050 1300
+Wire Wire Line
+	7500 1400 8050 1400
+Wire Wire Line
+	6450 1400 7000 1400
+Wire Wire Line
+	6450 1800 7000 1800
+Wire Wire Line
+	7500 1800 8050 1800
+Text Label 6500 1300 0    60   ~ 0
+SPI_CLK
+Text Label 6500 1400 0    60   ~ 0
+SPI_CS
+Text Label 7550 1300 0    60   ~ 0
+SPI_MOSI
+Text Label 7550 1400 0    60   ~ 0
+SPI_MISO
+Text Label 6500 1800 0    60   ~ 0
+ADC1
+Text Label 7550 1800 0    60   ~ 0
+ADC2
+$Comp
+L MuxPi_addon:CONN_01X01 J25
+U 1 1 58DD18E8
+P 950 1500
+F 0 "J25" H 1028 1495 50  0000 L CNN
+F 1 "CONN_01X01" H 1028 1450 50  0001 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 950 1500 50  0001 C CNN
+F 3 "" H 950 1500 50  0001 C CNN
+	1    950  1500
+	-1   0    0    -1  
+$EndComp
+$Comp
+L MuxPi_addon:CONN_01X01 J26
+U 1 1 58DD19BE
+P 950 1600
+F 0 "J26" H 1028 1595 50  0000 L CNN
+F 1 "CONN_01X01" H 1028 1550 50  0001 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 950 1600 50  0001 C CNN
+F 3 "" H 950 1600 50  0001 C CNN
+	1    950  1600
+	-1   0    0    -1  
+$EndComp
+$Comp
+L MuxPi_addon:CONN_01X01 J27
+U 1 1 58DD1A48
+P 950 1700
+F 0 "J27" H 1028 1695 50  0000 L CNN
+F 1 "CONN_01X01" H 1028 1650 50  0001 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 950 1700 50  0001 C CNN
+F 3 "" H 950 1700 50  0001 C CNN
+	1    950  1700
+	-1   0    0    -1  
+$EndComp
+$Comp
+L MuxPi_addon:CONN_01X01 J28
+U 1 1 58DD1AD0
+P 950 1800
+F 0 "J28" H 1028 1795 50  0000 L CNN
+F 1 "CONN_01X01" H 1028 1750 50  0001 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 950 1800 50  0001 C CNN
+F 3 "" H 950 1800 50  0001 C CNN
+	1    950  1800
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	1150 1500 1200 1500
+Wire Wire Line
+	1200 1500 1200 1600
+Wire Wire Line
+	1150 1800 1200 1800
+Connection ~ 1200 1800
+Wire Wire Line
+	1150 1700 1200 1700
+Connection ~ 1200 1700
+Wire Wire Line
+	1150 1600 1200 1600
+Connection ~ 1200 1600
+$Comp
+L power:GND #PWR10
+U 1 1 58DD1F19
+P 1200 1900
+F 0 "#PWR10" H 1200 1650 50  0001 C CNN
+F 1 "GND" H 1205 1727 50  0000 C CNN
+F 2 "" H 1200 1900 50  0001 C CNN
+F 3 "" H 1200 1900 50  0001 C CNN
+	1    1200 1900
+	1    0    0    -1  
+$EndComp
+$Comp
+L MuxPi_addon:CONN_01X01 J37
+U 1 1 58DD2F17
+P 950 2250
+F 0 "J37" H 1028 2245 50  0000 L CNN
+F 1 "CONN_01X01" H 1028 2200 50  0001 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 950 2250 50  0001 C CNN
+F 3 "" H 950 2250 50  0001 C CNN
+	1    950  2250
+	-1   0    0    -1  
+$EndComp
+$Comp
+L MuxPi_addon:CONN_01X01 J38
+U 1 1 58DD2F1D
+P 950 2350
+F 0 "J38" H 1028 2345 50  0000 L CNN
+F 1 "CONN_01X01" H 1028 2300 50  0001 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 950 2350 50  0001 C CNN
+F 3 "" H 950 2350 50  0001 C CNN
+	1    950  2350
+	-1   0    0    -1  
+$EndComp
+$Comp
+L MuxPi_addon:CONN_01X01 J39
+U 1 1 58DD2F23
+P 950 2450
+F 0 "J39" H 1028 2445 50  0000 L CNN
+F 1 "CONN_01X01" H 1028 2400 50  0001 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 950 2450 50  0001 C CNN
+F 3 "" H 950 2450 50  0001 C CNN
+	1    950  2450
+	-1   0    0    -1  
+$EndComp
+$Comp
+L MuxPi_addon:CONN_01X01 J40
+U 1 1 58DD2F29
+P 950 2550
+F 0 "J40" H 1028 2545 50  0000 L CNN
+F 1 "CONN_01X01" H 1028 2500 50  0001 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 950 2550 50  0001 C CNN
+F 3 "" H 950 2550 50  0001 C CNN
+	1    950  2550
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	1150 2250 1200 2250
+Wire Wire Line
+	1200 2250 1200 2350
+Wire Wire Line
+	1150 2550 1200 2550
+Connection ~ 1200 2550
+Wire Wire Line
+	1150 2450 1200 2450
+Connection ~ 1200 2450
+Wire Wire Line
+	1150 2350 1200 2350
+Connection ~ 1200 2350
+$Comp
+L power:GND #PWR28
+U 1 1 58DD2F37
+P 1200 2650
+F 0 "#PWR28" H 1200 2400 50  0001 C CNN
+F 1 "GND" H 1205 2477 50  0000 C CNN
+F 2 "" H 1200 2650 50  0001 C CNN
+F 3 "" H 1200 2650 50  0001 C CNN
+	1    1200 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L MuxPi_addon:CONN_01X01 J21
+U 1 1 58DD3C2A
+P 950 950
+F 0 "J21" H 1028 945 50  0000 L CNN
+F 1 "CONN_01X01" H 1028 900 50  0001 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 950 950 50  0001 C CNN
+F 3 "" H 950 950 50  0001 C CNN
+	1    950  950 
+	-1   0    0    -1  
+$EndComp
+$Comp
+L MuxPi_addon:CONN_01X01 J22
+U 1 1 58DD3C30
+P 950 1050
+F 0 "J22" H 1028 1045 50  0000 L CNN
+F 1 "CONN_01X01" H 1028 1000 50  0001 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 950 1050 50  0001 C CNN
+F 3 "" H 950 1050 50  0001 C CNN
+	1    950  1050
+	-1   0    0    -1  
+$EndComp
+$Comp
+L MuxPi_addon:CONN_01X01 J23
+U 1 1 58DD3C36
+P 950 1150
+F 0 "J23" H 1028 1145 50  0000 L CNN
+F 1 "CONN_01X01" H 1028 1100 50  0001 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 950 1150 50  0001 C CNN
+F 3 "" H 950 1150 50  0001 C CNN
+	1    950  1150
+	-1   0    0    -1  
+$EndComp
+$Comp
+L MuxPi_addon:CONN_01X01 J24
+U 1 1 58DD3C3C
+P 950 1250
+F 0 "J24" H 1028 1245 50  0000 L CNN
+F 1 "CONN_01X01" H 1028 1200 50  0001 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 950 1250 50  0001 C CNN
+F 3 "" H 950 1250 50  0001 C CNN
+	1    950  1250
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	1150 950  1200 950 
+Wire Wire Line
+	1150 1250 1200 1250
+Wire Wire Line
+	1150 1150 1200 1150
+Connection ~ 1200 1150
+Wire Wire Line
+	1150 1050 1200 1050
+Connection ~ 1200 1050
+$Comp
+L power:+5V #PWR9
+U 1 1 58DD4BD6
+P 1200 850
+F 0 "#PWR9" H 1200 700 50  0001 C CNN
+F 1 "+5V" H 1215 1023 50  0000 C CNN
+F 2 "" H 1200 850 50  0001 C CNN
+F 3 "" H 1200 850 50  0001 C CNN
+	1    1200 850 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1200 1250 1200 1150
+Connection ~ 1200 950 
+$Comp
+L MuxPi_addon:CONN_01X01 J29
+U 1 1 58DD54A9
+P 2000 950
+F 0 "J29" H 2078 945 50  0000 L CNN
+F 1 "CONN_01X01" H 2078 900 50  0001 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 2000 950 50  0001 C CNN
+F 3 "" H 2000 950 50  0001 C CNN
+	1    2000 950 
+	-1   0    0    -1  
+$EndComp
+$Comp
+L MuxPi_addon:CONN_01X01 J30
+U 1 1 58DD54AF
+P 2000 1050
+F 0 "J30" H 2078 1045 50  0000 L CNN
+F 1 "CONN_01X01" H 2078 1000 50  0001 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 2000 1050 50  0001 C CNN
+F 3 "" H 2000 1050 50  0001 C CNN
+	1    2000 1050
+	-1   0    0    -1  
+$EndComp
+$Comp
+L MuxPi_addon:CONN_01X01 J31
+U 1 1 58DD54B5
+P 2000 1150
+F 0 "J31" H 2078 1145 50  0000 L CNN
+F 1 "CONN_01X01" H 2078 1100 50  0001 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 2000 1150 50  0001 C CNN
+F 3 "" H 2000 1150 50  0001 C CNN
+	1    2000 1150
+	-1   0    0    -1  
+$EndComp
+$Comp
+L MuxPi_addon:CONN_01X01 J32
+U 1 1 58DD54BB
+P 2000 1250
+F 0 "J32" H 2078 1245 50  0000 L CNN
+F 1 "CONN_01X01" H 2078 1200 50  0001 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 2000 1250 50  0001 C CNN
+F 3 "" H 2000 1250 50  0001 C CNN
+	1    2000 1250
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	2200 950  2250 950 
+Wire Wire Line
+	2200 1250 2250 1250
+Wire Wire Line
+	2200 1150 2250 1150
+Connection ~ 2250 1150
+Wire Wire Line
+	2200 1050 2250 1050
+Connection ~ 2250 1050
+Wire Wire Line
+	2250 1250 2250 1150
+Connection ~ 2250 950 
+$Comp
+L MuxPi_addon:CONN_01X01 J33
+U 1 1 58DD5A6C
+P 2000 1500
+F 0 "J33" H 2078 1495 50  0000 L CNN
+F 1 "CONN_01X01" H 2078 1450 50  0001 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 2000 1500 50  0001 C CNN
+F 3 "" H 2000 1500 50  0001 C CNN
+	1    2000 1500
+	-1   0    0    -1  
+$EndComp
+$Comp
+L MuxPi_addon:CONN_01X01 J34
+U 1 1 58DD5A72
+P 2000 1600
+F 0 "J34" H 2078 1595 50  0000 L CNN
+F 1 "CONN_01X01" H 2078 1550 50  0001 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 2000 1600 50  0001 C CNN
+F 3 "" H 2000 1600 50  0001 C CNN
+	1    2000 1600
+	-1   0    0    -1  
+$EndComp
+$Comp
+L MuxPi_addon:CONN_01X01 J35
+U 1 1 58DD5A78
+P 2000 1700
+F 0 "J35" H 2078 1695 50  0000 L CNN
+F 1 "CONN_01X01" H 2078 1650 50  0001 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 2000 1700 50  0001 C CNN
+F 3 "" H 2000 1700 50  0001 C CNN
+	1    2000 1700
+	-1   0    0    -1  
+$EndComp
+$Comp
+L MuxPi_addon:CONN_01X01 J36
+U 1 1 58DD5A7E
+P 2000 1800
+F 0 "J36" H 2078 1795 50  0000 L CNN
+F 1 "CONN_01X01" H 2078 1750 50  0001 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 2000 1800 50  0001 C CNN
+F 3 "" H 2000 1800 50  0001 C CNN
+	1    2000 1800
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	2200 1500 2250 1500
+Wire Wire Line
+	2200 1800 2250 1800
+Wire Wire Line
+	2200 1700 2250 1700
+Connection ~ 2250 1700
+Wire Wire Line
+	2200 1600 2250 1600
+Connection ~ 2250 1600
+Wire Wire Line
+	2250 1800 2250 1700
+Connection ~ 2250 1500
+$Comp
+L power:+3V3 #PWR24
+U 1 1 58DD5A8C
+P 2250 1400
+F 0 "#PWR24" H 2250 1250 50  0001 C CNN
+F 1 "+3V3" H 2400 1450 50  0000 C CNN
+F 2 "" H 2250 1400 50  0001 C CNN
+F 3 "" H 2250 1400 50  0001 C CNN
+	1    2250 1400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VDD #PWR23
+U 1 1 58DD5B2D
+P 2250 850
+F 0 "#PWR23" H 2250 700 50  0001 C CNN
+F 1 "VDD" H 2267 1023 50  0000 C CNN
+F 2 "" H 2250 850 50  0001 C CNN
+F 3 "" H 2250 850 50  0001 C CNN
+	1    2250 850 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4050 1300 4050 1400
+Wire Wire Line
+	4050 2000 4050 2100
+Wire Wire Line
+	6850 2000 6850 2100
+Wire Wire Line
+	7650 2000 7650 2100
+Wire Wire Line
+	1200 1800 1200 1900
+Wire Wire Line
+	1200 1700 1200 1800
+Wire Wire Line
+	1200 1600 1200 1700
+Wire Wire Line
+	1200 2550 1200 2650
+Wire Wire Line
+	1200 2450 1200 2550
+Wire Wire Line
+	1200 2350 1200 2450
+Wire Wire Line
+	1200 1150 1200 1050
+Wire Wire Line
+	1200 1050 1200 950 
+Wire Wire Line
+	1200 950  1200 850 
+Wire Wire Line
+	2250 1150 2250 1050
+Wire Wire Line
+	2250 1050 2250 950 
+Wire Wire Line
+	2250 950  2250 850 
+Wire Wire Line
+	2250 1700 2250 1600
+Wire Wire Line
+	2250 1600 2250 1500
+Wire Wire Line
+	2250 1500 2250 1400
+Wire Wire Line
+	9850 3500 9850 3550
+Wire Wire Line
+	9850 3550 10050 3550
+Wire Wire Line
+	9850 3900 9850 3950
+Wire Wire Line
+	9850 3950 10050 3950
+$EndSCHEMATC
