@@ -40,10 +40,10 @@ func setFlags() {
 	flag.StringVar(&sdcard, "card", "", "path to SDcard")
 	// TODO: if map is not present it can generate an example.
 	flag.StringVar(&mapping, "map", "", "path to JSON formatted mapping")
-	flag.StringVar(&md5sums, "md5", "", "URL to MD5SUMS file")
+	flag.StringVar(&md5sums, "md5", "", "URL or path to MD5SUMS file")
 	flag.BoolVar(&quiet, "q", false, "suppress logging")
 
-	flag.StringVar(&remote, "remote", "", "path to remote service socket")
+	flag.StringVar(&remote, "remote", "/run/stm-user.socket", "path to remote service socket")
 }
 
 func checkErr(ctx string, err error) {
@@ -88,7 +88,7 @@ func main() {
 	}
 	defer dev.Close()
 
-	flasher := fota.NewFOTA(dev, flag.Args(), md5sums, sdcard, partMapping)
+	flasher := fota.NewFOTA(dev, sdcard, partMapping)
 	if !quiet {
 		flasher.SetVerbose()
 	}
@@ -96,5 +96,17 @@ func main() {
 
 	checkErr("SDcard not found: ", fota.WaitForSDcard(dev, sdcard, 10))
 	verbose("SDcard detected")
-	checkErr("failed to flash images: ", flasher.DownloadAndFlash())
+
+	args := flag.Args()
+	if len(args) == 0 {
+		verbose("nothing to do")
+		return
+	}
+	if _, err = os.Stat(args[0]); err != nil {
+		err = flasher.DownloadAndFlash(md5sums, flag.Args()...)
+	} else {
+		err = flasher.Flash(md5sums, flag.Args()...)
+	}
+	checkErr("failed to flash images: ", err)
+
 }

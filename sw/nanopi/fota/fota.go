@@ -36,11 +36,6 @@ import (
 
 // FOTA provides methods to help in the process of flashing an image to sdcard.
 type FOTA struct {
-	// URLs are the source of archives.
-	URLs []string
-	// md5sums is URL which should store checksums of files referenced by URLs.
-	md5sums string
-	// checksums maps filenames onto hash values.
 	checksums map[string]string
 	// SDcard is a path to block device images will be flashed to.
 	// Example: "/dev/sda".
@@ -55,10 +50,8 @@ type FOTA struct {
 }
 
 // NewFOTA returns new instance of FOTA. It also opens connection to STM.
-func NewFOTA(dev stm.Interface, URLs []string, md5sums string, sdcard string, partMapping map[string]string) *FOTA {
+func NewFOTA(dev stm.Interface, sdcard string, partMapping map[string]string) *FOTA {
 	return &FOTA{
-		URLs:        URLs,
-		md5sums:     md5sums,
 		checksums:   make(map[string]string),
 		SDcard:      sdcard,
 		PartMapping: partMapping,
@@ -152,8 +145,8 @@ func (fota *FOTA) log(str ...interface{}) {
 	}
 }
 
-func (fota *FOTA) getMD5() error {
-	r, err := http.Get(fota.md5sums)
+func (fota *FOTA) getMD5FromURL(url string) error {
+	r, err := http.Get(url)
 	if err != nil {
 		return err
 	}
@@ -161,7 +154,20 @@ func (fota *FOTA) getMD5() error {
 	if r.StatusCode != http.StatusOK {
 		return fmt.Errorf("unexpected HTTP status: %s", r.Status)
 	}
-	s := bufio.NewScanner(r.Body)
+	return fota.parseChecksum(r.Body)
+}
+
+func (fota *FOTA) getMD5FromFile(path string) error {
+	f, err := os.Open(path)
+	if err != nil {
+		return err
+	}
+	defer f.Close()
+	return fota.parseChecksum(f)
+}
+
+func (fota *FOTA) parseChecksum(r io.Reader) error {
+	s := bufio.NewScanner(r)
 	for s.Scan() {
 		str := s.Text()
 		var hash, filename string
@@ -182,15 +188,15 @@ func (fota *FOTA) getMD5() error {
 // MD5 checksum is calculated and error returned when mismatch occurs.
 // If MD5SUMS URL is not specified or downloaded file is not mentioned in it,
 // calculation results are ignored.
-func (fota *FOTA) DownloadAndFlash() (err error) {
-	if fota.md5sums != "" {
-		err = fota.getMD5()
+func (fota *FOTA) DownloadAndFlash(md5sums string, urls ...string) (err error) {
+	if md5sums != "" {
+		err = fota.getMD5FromURL(md5sums)
 		if err != nil {
 			return
 		}
 	}
 
-	for _, u := range fota.URLs {
+	for _, u := range urls {
 		err = fota.downloadAndFlash(u)
 		if err != nil {
 			return
@@ -209,12 +215,41 @@ func (fota *FOTA) downloadAndFlash(u string) error {
 	if err != nil {
 		return fmt.Errorf("GET failed: %s", err)
 	}
-	defer response.Body.Close()
 	if response.StatusCode != http.StatusOK {
+		response.Body.Close()
 		return fmt.Errorf("unexpected HTTP status code: %s", response.Status)
 	}
 	fota.log("Downloading images from:", u)
-	hashChan, reader := fota.computeHash(response.Body)
+	return fota.flashFromReader(response.Body, filename)
+}
+
+// Flash works in a similar way to DownloadAndFlash except that it takes paths to files instead of
+// HTTP addresses.
+func (fota *FOTA) Flash(md5sumsPath string, paths ...string) (err error) {
+	if md5sumsPath != "" {
+		err = fota.getMD5FromFile(md5sumsPath)
+		if err != nil {
+			return
+		}
+	}
+
+	for _, p := range paths {
+		var f *os.File
+		f, err = os.Open(p)
+		if err != nil {
+			return
+		}
+		err = fota.flashFromReader(f, f.Name())
+		if err != nil {
+			return
+		}
+	}
+	return
+}
+
+func (fota *FOTA) flashFromReader(r io.ReadCloser, filename string) (err error) {
+	defer r.Close()
+	hashChan, reader := fota.computeHash(r)
 	err = fota.uncompressAndFlash(reader)
 	if err != nil {
 		return fmt.Errorf("unpack or flash failed: %s", err)
