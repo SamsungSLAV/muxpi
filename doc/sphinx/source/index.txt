@@ -19,6 +19,7 @@ whole platform for specific target devices.
    hw-overview.txt
    armbian
    install-sw
+   dut-setup
 
 Indices and tables
 ==================
