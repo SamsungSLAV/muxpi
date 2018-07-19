@@ -29,6 +29,7 @@ var (
 	serviceSocket     string
 	serve             bool
 	remote            string
+	dummy             bool
 )
 
 func setGlobalFlags() {
@@ -36,6 +37,7 @@ func setGlobalFlags() {
 	flag.StringVar(&serviceSocket, "listen", "/run/stm.socket", "path to socket on which user and admin RPC interface will be served")
 	flag.BoolVar(&serve, "serve", false, "start RPC service")
 	flag.StringVar(&remote, "remote", "", "path to socket to use as a RPC service instead of local connection")
+	flag.BoolVar(&dummy, "dummy", false, "log actions instead of performing them")
 }
 
 func checkErr(ctx string, err error) {
@@ -63,8 +65,14 @@ func main() {
 		log.Fatal("conflicting flags: serve and remote")
 	}
 
+	if (remote != "") && dummy {
+		log.Fatal("conflicting flags: dummy and remote")
+	}
+
 	var dev stm.InterfaceCloser
-	if remote != "" {
+	if dummy {
+		dev = stm.NewDummy("stm")
+	} else if remote != "" {
 		cl, err := rpc.Dial("unix", remote)
 		checkErr("failed to connect to RPC service: ", err)
 
