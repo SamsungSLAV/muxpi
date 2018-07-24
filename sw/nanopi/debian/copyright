@@ -1,0 +1,7 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: muxpi
+Source: https://github.com/SamsungSLAV/muxpi
+
+Files: *
+Copyright: 2017-2018 Samsung Electronics Co., Ltd. All rights reserved.
+License: Apache-2.0
