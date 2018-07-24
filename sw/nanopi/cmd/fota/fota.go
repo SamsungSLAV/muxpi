@@ -98,7 +98,7 @@ func main() {
 	}
 	verbose("FOTA initialized")
 
-	checkErr("SDcard not found: ", fota.WaitForSDcard(dev, sdcard, 10))
+	checkErr("SDcard not found: ", fota.WaitForSDcard(dev, sdcard, partMapping, 10))
 	verbose("SDcard detected")
 
 	args := flag.Args()

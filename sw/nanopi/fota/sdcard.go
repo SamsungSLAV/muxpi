@@ -51,7 +51,7 @@ func checkFile(filename string) (bool, error) {
 // WaitForSDcard checks if an SDcard is present in the system and returns.
 // If card is not found it restarts it by DUT -> TS switch and tries again until
 // number of retryCount is exceeded (then it returns an error).
-func WaitForSDcard(dev stm.Interface, sdcard string, retryCount int) error {
+func WaitForSDcard(dev stm.Interface, sdcard string, partMapping map[string]string, retryCount int) error {
 	watcher, err := fsnotify.NewWatcher()
 	if err != nil {
 		return fmt.Errorf("starting watcher failed: %s", err)
@@ -65,15 +65,27 @@ func WaitForSDcard(dev stm.Interface, sdcard string, retryCount int) error {
 	ticker := time.NewTicker(sdcardWaitTimeout)
 	defer ticker.Stop()
 
-	// Check for first partition of SDcard (device is always available on muxPi).
-	filename := sdcard + "1"
+	// Check for all needed partitions of SDcard (device is always available on muxPi).
+	var neededParts []string
+	for _, partNumber := range partMapping {
+		neededParts = append(neededParts, sdcard+partNumber)
+	}
+	neededPartsCount := len(neededParts)
 	for try := 0; try < retryCount; try++ {
-		isPresent, err := checkFile(filename)
-		if err != nil {
-			return err
-		}
-		if isPresent {
-			return nil
+		availPartsCount := 0
+		for _, part := range neededParts {
+			isPresent, err := checkFile(part)
+			if err != nil {
+				return err
+			}
+			if isPresent {
+				availPartsCount++
+			} else {
+				break
+			}
+			if availPartsCount == neededPartsCount {
+				return nil
+			}
 		}
 
 		err = dev.DUT()
