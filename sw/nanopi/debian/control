@@ -1,0 +1,37 @@
+Source: muxpi
+Section: devel
+Priority: optional
+Maintainer: Michal Szymon Sidor <m.sidor@samsung.com>
+Build-Depends:
+ debhelper (>=9),
+ dh-golang,
+ dh-systemd,
+ golang-1.10-go
+Standards-Version: 3.9.7
+Homepage: https://github.com/SamsungSLAV/muxpi
+Vcs-Git: https://github.com/SamsungSLAV/muxpi
+Vcs-Browser: https://github.com/SamsungSLAV/muxpi
+
+Package: muxpi-stm
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, adduser, muxpi-power
+Description: Stm component of MuxPi
+ Stm is an application that controls communication with the ARM
+ processor on a MuxPi board, which in turn controls the SD reader and
+ other peripherals.
+
+Package: muxpi-power
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Control power on/off of MuxPi board
+ MuxPi Power script controls power on and power off of MuxPi board's
+ STM32 microcontroller, which in turns controls all the minutiae
+ details of the board.
+
+Package: muxpi-fota
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, muxpi-stm
+Description: Fota component of MuxPi
+ Fota is a program that flashes an SD card on-the-fly, that is, without
+ storing the images to disk, instead writing them as they are
+ downloaded.
