@@ -1,0 +1,18 @@
+#!/bin/sh
+
+set -e
+
+case "$1" in
+    configure)
+        getent group stm >/dev/null || addgroup --system stm
+        ;;
+esac
+
+#DEBHELPER#
+
+# stm.service must not be enabled due to the way it's coded
+if deb-systemd-helper --quiet is-enabled stm.service; then
+	deb-systemd-helper disable stm.service >/dev/null || true
+fi
+
+exit 0

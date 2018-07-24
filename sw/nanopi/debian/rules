@@ -1,0 +1,38 @@
+#!/usr/bin/make -f
+#export DH_VERBOSE = 1
+
+export DH_OPTIONS
+
+export DH_GOPKG := github.com/SamsungSLAV/muxpi/sw/nanopi
+export PATH := /usr/lib/go-1.10/bin:${PATH}
+
+GOFLAGS_x86_64=GOARCH=amd64
+GOFLAGS_armhf=GOARCH=arm GOARM=7
+
+BUILDDIR=${CURDIR}/build
+export GOPATH=${BUILDDIR}
+
+%:
+	dh $@ --with=golang,systemd --buildsystem=golang --builddirectory=${BUILDDIR}
+
+override_dh_auto_build:
+	${GOFLAGS_${DEB_TARGET_ARCH}} go get -d -v ${DH_GOPKG}/...
+	${GOFLAGS_${DEB_TARGET_ARCH}} go build -v -x -o ${BUILDDIR}/bin/fota ${DH_GOPKG}/cmd/fota
+	${GOFLAGS_${DEB_TARGET_ARCH}} go build -v -x -o ${BUILDDIR}/bin/stm ${DH_GOPKG}/cmd/stm
+
+override_dh_auto_install:
+	dh_auto_install --buildsystem=golang --builddirectory=${BUILDDIR} -- --no-source
+
+override_dh_auto_test:
+	echo "Tests currently disabled"
+	# To run tests, perform:
+	#  go get -d -v github.com/onsi/ginkgo github.com/onsi/gomega
+	#  dh_auto_test --buildsystem=golang --builddirectory=${BUILDDIR}
+
+override_dh_systemd_enable:
+	dh_systemd_enable -pmuxpi-power --name=muxpi-power
+	dh_systemd_enable --name=stm
+	dh_systemd_enable --name=stm-user
+
+override_dh_usrlocal:
+	@echo This must be a non-empty target due in order to disable dh_usrlocal.
