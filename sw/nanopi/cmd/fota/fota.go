@@ -76,6 +76,10 @@ func main() {
 	partMapping := make(map[string]string)
 	decoder := json.NewDecoder(f)
 	checkErr("failed to decode the mapping: ", decoder.Decode(&partMapping))
+	if len(partMapping) == 0 {
+		verbose("empty partition mapping; nothing to do")
+		return
+	}
 
 	var dev stm.InterfaceCloser
 	if remote != "" {
