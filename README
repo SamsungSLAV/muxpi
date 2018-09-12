@@ -1,31 +1,81 @@
-﻿Directory structure:
+#####
+MuxPi
+#####
 
-.
-│
-└── doc - overall documentation for all of the components of MuxPi
-│
-└── hw - MuxPi board design and fabrication files
-│
-└── sw - MuxPi's software
-    │
-    └── attiny - firmware for ATtiny10 microcontroller (watchdog)
-    │
-    └── cortex - firmware for STM32F030 (controller)
-    │
-    └── nanopi - configs, scripts, tools, OS recipes, etc. for NanoPi NEO
-        │
-        └── config - ansible files for configuring NanoPi NEO
-        │
-        └── fota - tools/libs for flashing devices (usually microSD card) with given images
-        │
-        └── stm - tools/libs for communicating with STM32F030 microntroller
-        │
-        └── power - tool for controling power supply for  MuxPi's main board
-        │
-        └── gpio - tool for controling MuxPi's GPIOs including two one-color LEDs
-        │
-        └── firmware - tool for updating firmware of STM32 microntroller
-        │
-        └── nv - tool for writing and reading non-volatile data of MuxPi
-        │
-        └── debian - files for creating packages for Debian-based distributions
+**MuxPi** is an open hardware and open software board which was designed to
+aid in automating tasks on physical devices. Initial goal was to automate
+testing on hardware platform, thus connected devices will be called **D**\evice
+**U**\nder **T**\est or shortly **DUT**\.  Muxpi is intended to help in testing
+of embedded systems, automatic software installation or flashing and automation
+during development. MuxPi is connected between the DUT and a PC/Server machine
+which will be managing the work.  The name of the board is based on its two
+main components: **SD Mux** and **NanoPi**
+
+
+********
+Features
+********
+
+* Providing a DUT connection (UART, USB, ETH, microSD card) to remote location
+  over Ethernet
+* Switching a microSD card between a DUT's microSD card slot and an onboard
+  USB card reader
+* Flashing a microSD card using an onboard USB card reader
+* Flashing and controlling state of Samsung mobile devices over fully
+  controllable, dedicated USB interface
+* Switching DUT's power supply
+* Switching jumpers/buttons of a DUT in order to (re)boot/(re)configure it
+* Measuring power consumption of a DUT
+* Handling serial connection (UART) of a DUT
+* Writing EDID to a DUT over HDMI connection
+* Interacting with a user/maintainer over a simple, bidirectional interface
+
+
+******************************
+Repository Directory structure
+******************************
+
+::
+
+  .
+  │
+  └── doc - overall documentation for all of the components of MuxPi
+  │
+  └── hw - MuxPi board design and fabrication files
+  │
+  └── sw - MuxPi's software
+      │
+      └── attiny - firmware for ATtiny10 microcontroller (watchdog)
+      │
+      └── cortex - firmware for STM32F030 (controller)
+      │
+      └── nanopi - configs, scripts, tools, OS recipes, etc. for NanoPi NEO
+          │
+          └── config - ansible files for configuring NanoPi NEO
+          │
+          └── fota - tools/libs for flashing devices (usually microSD card)
+          │   with given images
+          │
+          └── stm - tools/libs for communicating with STM32F030 microntroller
+          │
+          └── power - tool for controling power supply for  MuxPi's main board
+          │
+          └── gpio - tool for controling MuxPi's GPIOs including two one-color
+          │   LEDs
+          │
+          └── firmware - tool for updating firmware of STM32 microntroller
+          │
+          └── nv - tool for writing and reading non-volatile data of MuxPi
+          │
+          └── debian - files for creating packages for Debian-based
+              distributions
+
+
+
+*******
+License
+*******
+
+MuxPi is distributed under `Apache 2.0 License`_
+
+.. _`Apache 2.0 License`: LICENSE
