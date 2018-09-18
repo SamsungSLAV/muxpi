@@ -1,0 +1,71 @@
+#!/bin/sh
+
+set -e
+
+MODE_PIN=203
+MODE_NORMAL=0
+MODE_FLASHING=1
+
+POWER_PIN=3
+POWER_OFF=0
+POWER_ON=1
+
+check_gpio_sysfs() {
+  test -e /sys/class/gpio
+}
+
+export_gpio_out() {
+  GPIO_NUM=$1
+  test -d "/sys/class/gpio/gpio$GPIO_NUM" \
+    || echo "$GPIO_NUM" > /sys/class/gpio/export
+  echo out > "/sys/class/gpio/gpio$GPIO_NUM/direction"
+}
+
+prepare_gpios() {
+  export_gpio_out $MODE_PIN
+  export_gpio_out $POWER_PIN
+}
+
+gpio_set() {
+  GPIO_NUM=$1
+  GPIO_VALUE=$2
+  echo "$GPIO_VALUE" > "/sys/class/gpio/gpio$GPIO_NUM/value"
+}
+
+stm_power_off() {
+  prepare_gpios
+  gpio_set $POWER_PIN $POWER_OFF
+  gpio_set $MODE_PIN $MODE_NORMAL
+}
+
+stm_power_on() {
+  prepare_gpios
+  gpio_set $POWER_PIN $POWER_OFF
+  gpio_set $MODE_PIN $MODE_NORMAL
+  gpio_set $POWER_PIN $POWER_ON
+}
+
+stm_flash_mode() {
+  prepare_gpios
+  gpio_set $POWER_PIN $POWER_OFF
+  gpio_set $MODE_PIN $MODE_FLASHING
+  gpio_set $POWER_PIN $POWER_ON
+}
+
+SUBCOMMAND="$1"
+case "$SUBCOMMAND" in
+  "off")
+    stm_power_off
+  ;;
+  "on")
+    stm_power_on
+  ;;
+  "flashing")
+    stm_flash_mode
+  ;;
+  *)
+    echo "unknown command"
+    printf "usage: %s {off,on,flashing}\n" "$0"
+    exit 1
+  ;;
+esac

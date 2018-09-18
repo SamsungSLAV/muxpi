@@ -1,0 +1,11 @@
+[Unit]
+Description=MuxPi microcontroller power
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/muxpi-power on
+ExecStop=/usr/bin/muxpi-power off
+RemainAfterExit=yes
+
+[Install]
+WantedBy=basic.target
