@@ -1,4 +1,4 @@
-Directory structure:
+﻿Directory structure:
 
 .
 │
@@ -16,6 +16,16 @@ Directory structure:
         │
         └── config - ansible files for configuring NanoPi NEO
         │
-        └── os - recipes and files needed to create or download operating system for NanoPi NEO
+        └── fota - tools/libs for flashing devices (usually microSD card) with given images
         │
         └── stm - tools/libs for communicating with STM32F030 microntroller
+        │
+        └── power - tool for controling power supply for  MuxPi's main board
+        │
+        └── gpio - tool for controling MuxPi's GPIOs including two one-color LEDs
+        │
+        └── firmware - tool for updating firmware of STM32 microntroller
+        │
+        └── nv - tool for writing and reading non-volatile data of MuxPi
+        │
+        └── debian - files for creating packages for Debian-based distributions
