@@ -1,0 +1,173 @@
+#########################
+OS installation - Armbian
+#########################
+
+Armbian is an operating system for ARM based boards based on Debian. It is the
+recommended operating system for MuxPi board.
+
+There is also a flavour of Armbian based on Ubuntu, which should work in a
+similar manner to the Debian one, although it is not supported.
+
+
+************
+Installation
+************
+
+.. highlight:: console
+
+#. Download the latest Stretch `Armbian for Nanopi Neo`_. You can either use
+   `torrent`_ or `http`_ download. We will download via http using wget. You
+   can install wget on Debian-based distributions with ``apt-get install
+   wget``::
+
+     $ wget https://dl.armbian.com/nanopineo/Debian_stretch_next.7z
+
+   .. _`Armbian for Nanopi Neo`: https://www.armbian.com/nanopi-neo/
+   .. _`http`: https://dl.armbian.com/nanopineo/Debian_stretch_next.7z
+   .. _`torrent`: https://dl.armbian.com/nanopineo/Debian_stretch_next.7z.torrent
+
+#. Go to directory where you placed downloaded file and uncompress it. It will
+   likely be a ``.7z`` file. To extract it we will use `7-Zip`_. You can
+   install it on Debian-based distributions with ``apt-get install
+   p7zip-full``::
+
+      $ 7z e Debian_*
+
+   .. _`7-Zip`: http://www.7-zip.org/
+
+#. Verify if the download and unpacking were successful by checking checksum::
+
+      $ sha256sum Armbian_*.img
+
+   Output should be the same as contents of sha256sum.sha file.
+
+#. Connect your SD card and check which ``/dev/sdX`` it is. You can do this
+   using e.g. fdisk::
+
+      # fdisk -l
+
+#. Copy the extracted image to your SD card.
+
+   .. danger:: Make sure your ``/dev/sdX`` device is the SD card. If performed
+      incorrectly, next step may destroy your files unrecoverably and even stop
+      your machine from working.
+
+   .. note:: You need to adjust Armbian_*.img name as dd tools does not take
+      wildcards.
+
+
+   ::
+
+      # dd bs=1M if=Armbian_*.img of=/dev/sdX
+
+   You can verify if the image was copied correctly by running::
+
+      # sha256sum /dev/sdX
+
+#. Put prepared SD card in your MuxPi's NanoPi SD card slot.
+
+
+*************
+Configuration
+*************
+
+#. Connect NanoPi's UART0. You can use the UART->USB converter on the MuxPi
+   board, just connect a cable to  microUSB port on the bottom of the board.
+
+   .. note::  You can omit this if you connect the device to DHCP server and
+      connect over ssh. You will need to adjust below steps in such case.
+
+#. Connect to serial using either screen or minicom (or your tool of choice)
+
+   .. warning:: Change ``ttyUSB0`` to your serial that is connected to NanoPi. 
+      If you do not  have any USB UART connected, MuxPi's converter should be
+      ttyUSB0.
+
+   ::
+
+      # screen /dev/ttyUSB0 115200
+
+      # minicom -b 115200 -D /dev/ttyUSB0
+
+
+#. Power the device on. First boot might take some time.
+
+#. After system boots, you need to log in to it::
+
+     login: root
+     password 1234
+
+   .. note ::
+
+      ``1234`` password was correct at the time of writing this page. If it
+      does not work, you should check FAQ section on `Armbian for Nanopi Neo`_
+      page.
+
+#. You will be asked to change your password:
+
+   ::
+
+      You are required to change your password immediately (root enforced)
+      Changing password for root.
+      (current) UNIX password:
+      Enter new UNIX password:
+      Retype new UNIX password:
+
+#. Next, you will be greeted with nice colourful text and initial non-root user
+   account configuration. Follow the interactive user creation process.
+
+   We always create a ``pi`` user.
+
+#. Set static IP on the device by creating following file::
+
+     # vim /etc/network/interfaces.d/eth0
+
+   With the following contents:
+
+   .. code-block:: none
+
+     auto eth0
+     allow-hotplug eth0
+     iface eth0 inet static
+     	address 192.168.0.2
+     	netmask 255.255.255.0
+     	gateway 192.168.0.1
+
+   Above will work if you connect MuxPi to your machine (which will have
+   192.168.0.1 address) and the 192.168.0.2 address will be available.
+   For this document purpose we will assume the IP address is ``192.168.0.2``.
+
+#. Settings need to be changed, you need to restart networking::
+
+     # systemctl restart networking
+
+   Or just restart the whole device::
+
+     # shutdown -r now
+
+#. Now you should be able to connect to device through ssh::
+
+      $ ssh root@192.168.0.2
+
+   .. note::
+
+      If you are not able to connect to it, it might mean that the network
+      settings did not reload properly. It is best to restart device using
+      serial connection from earlier::
+
+        # shutdown -r now
+
+#. Configure UARTs for communication with MuxPi's stm and for communication
+   with DUT::
+
+    # armbian-config
+
+   It will ask you for internet connection but it is not required (press any
+   key to continue)
+
+   Go to :menuselection:`System --> Hardware` and enable ``uart1`` and ``uart2``.
+
+   Reboot when asked.
+
+.. target-notes::
+

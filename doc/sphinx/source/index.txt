@@ -17,6 +17,7 @@ whole platform for specific target devices.
 
    project-overview.txt
    hw-overview.txt
+   armbian
 
 Indices and tables
 ==================
