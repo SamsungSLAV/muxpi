@@ -1,15 +1,16 @@
 EESchema Schematic File Version 4
+LIBS:MuxPi-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 7 12
-Title ""
-Date ""
-Rev ""
-Comp ""
-Comment1 ""
-Comment2 ""
+Title "MuxPi"
+Date "2018-04-20"
+Rev "1.2"
+Comp "SRPOL"
+Comment1 "Author: Adam Malinowski <a.malinowsk2@partner.samsung.com>"
+Comment2 "Copyright (c) 2016 - 2018 Samsung Electronics Co., Ltd All Rights Reserved"
 Comment3 ""
 Comment4 ""
 $EndDescr
@@ -52,22 +53,22 @@ $EndComp
 $Comp
 L MuxPi:74AHC1G14 U7
 U 1 1 584BAD12
-P 3950 3250
+P 3450 2200
 AR Path="/584BAD12" Ref="U7"  Part="1" 
 AR Path="/584BA053/584BAD12" Ref="U7"  Part="1" 
-F 0 "U7" H 4095 3365 40  0000 C CNN
-F 1 "MC74HC1G04DTT1G" H 4250 3100 40  0000 C CNN
-F 2 "TO_SOT_Packages_SMD:SOT-23-5" H 4045 3115 30  0001 C CNN
-F 3 "http://www.tme.eu/pl/Document/0bd9f377abd5f258bb30856efe9f427e/mc74hc1g04.pdf" H 4095 3365 60  0001 C CNN
-F 4 "http://www.tme.eu/pl/details/mc74hc1g04dtt1g/bramki-inwertery/on-semiconductor/" H 3950 3250 60  0001 C CNN "Shop link"
-F 5 "ON SEMICONDUCTOR" H 3950 3250 50  0001 C CNN "Manufacturer"
-F 6 "MC74HC1G04DTT1G" H 3950 3250 50  0001 C CNN "Symbol"
-	1    3950 3250
+F 0 "U7" H 3595 2315 40  0000 C CNN
+F 1 "MC74HC1G04DTT1G" H 3750 2050 40  0000 C CNN
+F 2 "TO_SOT_Packages_SMD:SOT-23-5" H 3545 2065 30  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/0bd9f377abd5f258bb30856efe9f427e/mc74hc1g04.pdf" H 3595 2315 60  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/mc74hc1g04dtt1g/bramki-inwertery/on-semiconductor/" H 3450 2200 60  0001 C CNN "Shop link"
+F 5 "ON SEMICONDUCTOR" H 3450 2200 50  0001 C CNN "Manufacturer"
+F 6 "MC74HC1G04DTT1G" H 3450 2200 50  0001 C CNN "Symbol"
+	1    3450 2200
 	1    0    0    -1  
 $EndComp
 Text Label 4050 2550 0    60   ~ 0
 VDD_DUT
-Text Notes 3450 2300 0    60   ~ 0
+Text Notes 1950 2450 0    60   ~ 0
 0 - DUT, 1 - TS
 $Comp
 L MuxPi:GND #PWR084
@@ -83,12 +84,12 @@ $EndComp
 $Comp
 L MuxPi:GND #PWR082
 U 1 1 584BAD22
-P 3900 3500
-F 0 "#PWR082" H 3900 3250 50  0001 C CNN
-F 1 "GND" H 3900 3350 50  0000 C CNN
-F 2 "" H 3900 3500 60  0000 C CNN
-F 3 "" H 3900 3500 60  0000 C CNN
-	1    3900 3500
+P 3400 2450
+F 0 "#PWR082" H 3400 2200 50  0001 C CNN
+F 1 "GND" H 3400 2300 50  0000 C CNN
+F 2 "" H 3400 2450 60  0000 C CNN
+F 3 "" H 3400 2450 60  0000 C CNN
+	1    3400 2450
 	-1   0    0    -1  
 $EndComp
 Text Label 3750 4250 0    60   ~ 0
@@ -174,15 +175,15 @@ USD_VDD
 $Comp
 L MuxPi:+3V3 #PWR081
 U 1 1 584BAD80
-P 3900 3000
-F 0 "#PWR081" H 3900 2850 50  0001 C CNN
-F 1 "+3V3" H 3900 3140 50  0000 C CNN
-F 2 "" H 3900 3000 60  0000 C CNN
-F 3 "" H 3900 3000 60  0000 C CNN
-	1    3900 3000
+P 3400 1950
+F 0 "#PWR081" H 3400 1800 50  0001 C CNN
+F 1 "+3V3" H 3400 2090 50  0000 C CNN
+F 2 "" H 3400 1950 60  0000 C CNN
+F 3 "" H 3400 1950 60  0000 C CNN
+	1    3400 1950
 	1    0    0    -1  
 $EndComp
-Text Label 3450 2200 0    60   ~ 0
+Text Label 3000 3250 0    60   ~ 0
 SOCKET_SEL
 $Comp
 L MuxPi:+3V3 #PWR083
@@ -259,7 +260,7 @@ F 3 "" H 7850 6050 60  0000 C CNN
 $EndComp
 Text Label 7500 5550 0    60   ~ 0
 USD_VDD
-Text HLabel 3150 2200 0    60   Input ~ 0
+Text HLabel 2600 2200 0    60   Input ~ 0
 SOCKET_SEL
 Text HLabel 3150 1500 0    60   Input ~ 0
 SD_PWR_TS
@@ -381,9 +382,9 @@ Wire Wire Line
 Wire Wire Line
 	4350 5950 4350 6050
 Wire Wire Line
-	3900 3450 3900 3500
+	3400 2400 3400 2450
 Wire Wire Line
-	3900 3000 3900 3050
+	3400 1950 3400 2000
 Wire Wire Line
 	4450 5450 3750 5450
 Wire Wire Line
@@ -426,7 +427,6 @@ Wire Wire Line
 	9100 1950 9200 1950
 Wire Wire Line
 	9200 1950 9200 2150
-Connection ~ 4100 2200
 Wire Wire Line
 	3750 5750 4350 5750
 Wire Wire Line
@@ -453,12 +453,7 @@ Wire Wire Line
 	5800 2050 6300 2050
 Connection ~ 5800 2050
 Wire Wire Line
-	4400 3250 4600 3250
-Wire Wire Line
-	3150 2200 3400 2200
-Wire Wire Line
-	3500 3250 3400 3250
-Connection ~ 3400 2200
+	2600 2200 2900 2200
 Wire Wire Line
 	6300 2050 6300 3800
 Wire Wire Line
@@ -495,7 +490,7 @@ Wire Wire Line
 Wire Wire Line
 	5750 3950 5750 4450
 Wire Wire Line
-	3400 3250 3400 2200
+	2900 3250 2900 2200
 Wire Wire Line
 	5850 3950 5850 4250
 Wire Wire Line
@@ -524,8 +519,6 @@ Wire Wire Line
 	4350 2550 5200 2550
 Wire Wire Line
 	5800 2050 5800 2550
-Wire Wire Line
-	3400 2200 4100 2200
 Wire Wire Line
 	7500 5650 7500 5700
 $Comp
@@ -594,4 +587,12 @@ F 6 "MMBT4403LT1G" V 5400 2650 50  0001 C CNN "Symbol"
 	1    5400 2650
 	0    1    -1   0   
 $EndComp
+Wire Wire Line
+	2900 2200 3000 2200
+Connection ~ 2900 2200
+Wire Wire Line
+	3900 2200 4100 2200
+Connection ~ 4100 2200
+Wire Wire Line
+	2900 3250 4600 3250
 $EndSCHEMATC

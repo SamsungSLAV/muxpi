@@ -1,15 +1,16 @@
 EESchema Schematic File Version 4
+LIBS:MuxPi-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 8 12
-Title ""
-Date ""
-Rev ""
-Comp ""
-Comment1 ""
-Comment2 ""
+Title "MuxPi"
+Date "2018-04-20"
+Rev "1.2"
+Comp "SRPOL"
+Comment1 "Author: Adam Malinowski <a.malinowsk2@partner.samsung.com>"
+Comment2 "Copyright (c) 2016 - 2018 Samsung Electronics Co., Ltd All Rights Reserved"
 Comment3 ""
 Comment4 ""
 $EndDescr
@@ -1126,7 +1127,7 @@ U 1 1 5A694E3A
 P 8750 5350
 F 0 "U14" H 9050 6050 50  0000 C CNN
 F 1 "FT230XQ" H 9150 5950 50  0000 C CNN
-F 2 "Housings_DFN_QFN:QFN-16-1EP_3x3mm_Pitch0.5mm" H 8750 5350 50  0001 C CNN
+F 2 "Housings_DFN_QFN:QFN-16-1EP_4x4mm_Pitch0.65mm" H 8750 5350 50  0001 C CNN
 F 3 "http://www.ftdichip.com/Products/ICs/FT230X.html" H 8750 5350 50  0001 C CNN
 F 4 "https://www.tme.eu/pl/details/ft230xq-t/uklady-scalone-interfejs-usb/ftdi/" H 8750 5350 50  0001 C CNN "Shop link"
 F 5 "FTDI" H 8750 5350 50  0001 C CNN "Manufacturer"

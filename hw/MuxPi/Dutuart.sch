@@ -1,15 +1,16 @@
 EESchema Schematic File Version 4
+LIBS:MuxPi-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 5 12
-Title ""
-Date ""
-Rev ""
-Comp ""
-Comment1 ""
-Comment2 ""
+Title "MuxPi"
+Date "2018-04-20"
+Rev "1.2"
+Comp "SRPOL"
+Comment1 "Author: Adam Malinowski <a.malinowsk2@partner.samsung.com>"
+Comment2 "Copyright (c) 2016 - 2018 Samsung Electronics Co., Ltd All Rights Reserved"
 Comment3 ""
 Comment4 ""
 $EndDescr

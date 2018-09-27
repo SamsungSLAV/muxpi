@@ -30,3 +30,9 @@ Note: Hardware versioning is not related to git tags of this repository.
 	Added NanoPi NEO debug UART converter
 	Changed SD-MUX power supply switching circuitry (MOS -> PNP)
 	Removed one connector (TS side) for microSD flat cable
+
+1.2 - 2018-04-20
+	Fixed footprint for NanoPi NEO debug UART converter
+	Fixed (partially) current measurement circuitry - still needs further improvements
+	Fixed SD-MUX power supply switching circuitry (inverted SOCKET_SEL signal)
+	Adjusted to NanoPi NEO v1.3 keeping compatibility with v1.2 and v1.1

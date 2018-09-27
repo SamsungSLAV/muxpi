@@ -1,15 +1,16 @@
 EESchema Schematic File Version 4
+LIBS:MuxPi-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 2 12
-Title ""
-Date ""
-Rev ""
-Comp ""
-Comment1 ""
-Comment2 ""
+Title "MuxPi"
+Date "2018-04-20"
+Rev "1.2"
+Comp "SRPOL"
+Comment1 "Author: Adam Malinowski <a.malinowsk2@partner.samsung.com>"
+Comment2 "Copyright (c) 2016 - 2018 Samsung Electronics Co., Ltd All Rights Reserved"
 Comment3 ""
 Comment4 ""
 $EndDescr
@@ -1233,17 +1234,6 @@ Wire Wire Line
 Connection ~ 9000 3500
 Wire Wire Line
 	9000 3500 9400 3500
-$Comp
-L MuxPi:+5V #PWR0202
-U 1 1 5A63A394
-P 9000 3100
-F 0 "#PWR0202" H 9000 2950 50  0001 C CNN
-F 1 "+5V" H 9015 3273 50  0000 C CNN
-F 2 "" H 9000 3100 50  0001 C CNN
-F 3 "" H 9000 3100 50  0001 C CNN
-	1    9000 3100
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	9000 3100 9000 3150
 $Comp
@@ -1397,4 +1387,15 @@ Text HLabel 7100 3350 0    60   Input ~ 0
 ADC1
 Wire Wire Line
 	7100 3350 7300 3350
+$Comp
+L MuxPi:VDD #PWR0202
+U 1 1 5AE48E8E
+P 9000 3100
+F 0 "#PWR0202" H 9000 2950 50  0001 C CNN
+F 1 "VDD" H 9000 3250 50  0000 C CNN
+F 2 "" H 9000 3100 60  0000 C CNN
+F 3 "" H 9000 3100 60  0000 C CNN
+	1    9000 3100
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
