@@ -6,11 +6,11 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 9 12
 Title "MuxPi"
-Date "2018-04-20"
-Rev "1.2"
+Date "2018-08-14"
+Rev "1.3"
 Comp "SRPOL"
 Comment1 "Author: Adam Malinowski <a.malinowsk2@partner.samsung.com>"
-Comment2 "Copyright (c) 2016 - 2018 Samsung Electronics Co., Ltd All Rights Reserved"
+Comment2 "Copyright (c) 2016 -2018 Samsung Electronics Co., Ltd All Rights Reserved"
 Comment3 ""
 Comment4 ""
 $EndDescr
@@ -288,7 +288,7 @@ U 1 1 58470C8E
 P 4400 5200
 F 0 "L1" V 4163 5200 50  0000 C CNN
 F 1 "BLM21PG221SN1D" V 4254 5200 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" H 4500 5109 50  0001 L CNN
+F 2 "Resistors_SMD:R_0805" H 4500 5109 50  0001 L CNN
 F 3 "http://www.tme.eu/pl/Document/6052c7f9d4f1672121538e0d10f79ff8/blm21pg300sn1d.pdf" H 4500 5109 50  0001 L CNN
 F 4 "http://www.tme.eu/pl/details/blm21pg221sn1d/ferryty-koraliki/murata/" H 4400 5200 60  0001 C CNN "Shop link"
 F 5 "MURATA" V 4400 5200 50  0001 C CNN "Manufacturer"
@@ -303,10 +303,9 @@ L MuxPi:R R42
 U 1 1 58477E8D
 P 5000 5350
 F 0 "R42" V 5100 5350 50  0000 L CNN
-F 1 "330R" V 5100 5100 50  0000 L CNN
+F 1 "560R" V 5100 5100 50  0000 L CNN
 F 2 "Resistors_SMD:R_0805" V 4930 5350 50  0001 C CNN
 F 3 "http://www.tme.eu/pl/Document/7b8fed8c112f8a94930279c22c957f7f/rc0805yageo.pdf" H 5000 5350 50  0001 C CNN
-F 4 "http://www.tme.eu/pl/details/rc0805jr-07330r/rezystory-smd-0805/yageo/rc0805jr-07330rl/" V 5000 5350 60  0001 C CNN "Shop link"
 	1    5000 5350
 	0    -1   -1   0   
 $EndComp
@@ -934,10 +933,9 @@ L MuxPi:R R43
 U 1 1 58507178
 P 10600 2350
 F 0 "R43" H 10650 2450 50  0000 L CNN
-F 1 "330R" H 10650 2350 50  0000 L CNN
+F 1 "10K" H 10650 2350 50  0000 L CNN
 F 2 "Resistors_SMD:R_0805" V 10530 2350 50  0001 C CNN
 F 3 "http://www.tme.eu/pl/Document/7b8fed8c112f8a94930279c22c957f7f/rc0805yageo.pdf" H 10600 2350 50  0001 C CNN
-F 4 "http://www.tme.eu/pl/details/rc0805jr-07330r/rezystory-smd-0805/yageo/rc0805jr-07330rl/" V 10600 2350 60  0001 C CNN "Shop link"
 	1    10600 2350
 	1    0    0    -1  
 $EndComp
@@ -1059,7 +1057,7 @@ U 1 1 5A8DBC88
 P 5350 5900
 F 0 "L2" H 5450 6000 50  0000 C CNN
 F 1 "BLM21PG221SN1D" H 5750 5800 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" H 5450 5809 50  0001 L CNN
+F 2 "Resistors_SMD:R_0805" H 5450 5809 50  0001 L CNN
 F 3 "http://www.tme.eu/pl/Document/6052c7f9d4f1672121538e0d10f79ff8/blm21pg300sn1d.pdf" H 5450 5809 50  0001 L CNN
 F 4 "http://www.tme.eu/pl/details/blm21pg221sn1d/ferryty-koraliki/murata/" H 5350 5900 60  0001 C CNN "Shop link"
 F 5 "MURATA" V 5350 5900 50  0001 C CNN "Manufacturer"

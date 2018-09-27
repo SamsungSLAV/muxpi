@@ -6,11 +6,11 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 4 12
 Title "MuxPi"
-Date "2018-04-20"
-Rev "1.2"
+Date "2018-08-14"
+Rev "1.3"
 Comp "SRPOL"
 Comment1 "Author: Adam Malinowski <a.malinowsk2@partner.samsung.com>"
-Comment2 "Copyright (c) 2016 - 2018 Samsung Electronics Co., Ltd All Rights Reserved"
+Comment2 "Copyright (c) 2016 -2018 Samsung Electronics Co., Ltd All Rights Reserved"
 Comment3 ""
 Comment4 ""
 $EndDescr
@@ -264,10 +264,9 @@ L MuxPi:R R15
 U 1 1 585059E2
 P 5600 4750
 F 0 "R15" H 5700 4800 50  0000 L CNN
-F 1 "330R" H 5700 4700 50  0000 L CNN
+F 1 "10K" H 5700 4700 50  0000 L CNN
 F 2 "Resistors_SMD:R_0805" V 5530 4750 50  0001 C CNN
 F 3 "http://www.tme.eu/pl/Document/7b8fed8c112f8a94930279c22c957f7f/rc0805yageo.pdf" H 5600 4750 50  0001 C CNN
-F 4 "http://www.tme.eu/pl/details/rc0805jr-07330r/rezystory-smd-0805/yageo/rc0805jr-07330rl/" V 5600 4750 60  0001 C CNN "Shop link"
 	1    5600 4750
 	1    0    0    -1  
 $EndComp

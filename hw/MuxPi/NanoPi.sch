@@ -6,11 +6,11 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 8 12
 Title "MuxPi"
-Date "2018-04-20"
-Rev "1.2"
+Date "2018-08-14"
+Rev "1.3"
 Comp "SRPOL"
 Comment1 "Author: Adam Malinowski <a.malinowsk2@partner.samsung.com>"
-Comment2 "Copyright (c) 2016 - 2018 Samsung Electronics Co., Ltd All Rights Reserved"
+Comment2 "Copyright (c) 2016 -2018 Samsung Electronics Co., Ltd All Rights Reserved"
 Comment3 ""
 Comment4 ""
 $EndDescr
@@ -1207,8 +1207,6 @@ F 3 "" H 8750 6200 60  0000 C CNN
 $EndComp
 Wire Wire Line
 	8750 6200 8750 6150
-Wire Wire Line
-	8650 4600 8650 4650
 $Comp
 L MuxPi:R R61
 U 1 1 5A73B0F9
@@ -1416,10 +1414,6 @@ Wire Wire Line
 	6950 5150 7150 5150
 Wire Wire Line
 	7150 5150 7150 4950
-Wire Wire Line
-	7150 4750 7150 4600
-Wire Wire Line
-	7150 4600 8650 4600
 Wire Wire Line
 	6450 6150 6450 6200
 Wire Wire Line
@@ -1644,4 +1638,38 @@ F 4 "http://www.tme.eu/pl/details/rc0805jr-0710k/rezystory-smd-0805/yageo/rc0805
 	1    6650 6000
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	8650 4130 7710 4130
+Wire Wire Line
+	8650 4130 8650 4650
+$Comp
+L MuxPi:BAR43CFILM D12
+U 1 1 5B759F3D
+P 7460 4030
+F 0 "D12" H 7410 3814 50  0000 C CNN
+F 1 "BAR43CFILM" H 7410 3905 50  0000 C CNN
+F 2 "TO_SOT_Packages_SMD:SOT-23" H 7310 3830 50  0001 C CNN
+F 3 "www.st.com/resource/en/datasheet/bar42.pdf" H 7460 4030 50  0001 C CNN
+	1    7460 4030
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	7310 4230 7150 4230
+Wire Wire Line
+	7150 4230 7150 4750
+$Comp
+L MuxPi:+5V #PWR0210
+U 1 1 5B76899A
+P 7150 3960
+F 0 "#PWR0210" H 7150 3810 50  0001 C CNN
+F 1 "+5V" H 7165 4133 50  0000 C CNN
+F 2 "" H 7150 3960 50  0000 C CNN
+F 3 "" H 7150 3960 50  0000 C CNN
+	1    7150 3960
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7150 3960 7150 4030
+Wire Wire Line
+	7150 4030 7310 4030
 $EndSCHEMATC

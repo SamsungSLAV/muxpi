@@ -36,3 +36,10 @@ Note: Hardware versioning is not related to git tags of this repository.
 	Fixed (partially) current measurement circuitry - still needs further improvements
 	Fixed SD-MUX power supply switching circuitry (inverted SOCKET_SEL signal)
 	Adjusted to NanoPi NEO v1.3 keeping compatibility with v1.2 and v1.1
+
+1.3 - 2018-08-14
+	Added alternative power supply for NanoPi NEO debug UART<->USB converter
+		Previously the converter was powered from USB cable. As it turned out
+		it has to be powered even when it's not connected to any PC.
+	Change few footprints to more convenient ones
+	Change current measurement circuitry
