@@ -1,0 +1,32 @@
+MuxPi hardware changelog.
+
+Note: Hardware versioning is not related to git tags of this repository.
+
+1.0 - 2017-01-18 - never published
+	Initial release
+	Main components:
+	- NanoPi NEO v1.1 and v1.2 compatible socket
+	- 4-wire UART level shifter
+	- Watchdog timer (ATtiny)
+	- Power control & current measurement
+	- STM32 microntroller handling:
+		* SD-MUX module
+		* DyPers
+		* UI (OLED 128x32, 2xRGB LED, push buttons)
+		* HDMI/DDC
+		* DUT's power switch
+		* DUT's power consumption measurement
+	- 2 port USB hub with integrated SD card reader
+	- USB<->ETH converter
+	- SD-MUX
+	- 2x 2-channel DyPers
+	- HDMI/DDC
+
+1.1 - 2018-02-01
+	Added Cortex-M0 flashing from NanoPi NEO capability
+	Added reverse-polarity protection
+	Added USB-M circuitry
+	Added voltage genreator for DUT UART
+	Added NanoPi NEO debug UART converter
+	Changed SD-MUX power supply switching circuitry (MOS -> PNP)
+	Removed one connector (TS side) for microSD flat cable
