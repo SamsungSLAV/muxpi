@@ -19,7 +19,7 @@ package stm_test
 import (
 	"time"
 
-	. "git.tizen.org/tools/muxpi/sw/nanopi/stm"
+	. "github.com/SamsungSLAV/muxpi/sw/nanopi/stm"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
