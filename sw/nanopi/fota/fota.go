@@ -31,7 +31,7 @@ import (
 	"path"
 	"time"
 
-	"git.tizen.org/tools/muxpi/sw/nanopi/stm"
+	"github.com/SamsungSLAV/muxpi/sw/nanopi/stm"
 )
 
 // FOTA provides methods to help in the process of flashing an image to sdcard.

@@ -23,8 +23,8 @@ import (
 	"net/rpc"
 	"os"
 
-	"git.tizen.org/tools/muxpi/sw/nanopi/fota"
-	"git.tizen.org/tools/muxpi/sw/nanopi/stm"
+	"github.com/SamsungSLAV/muxpi/sw/nanopi/fota"
+	"github.com/SamsungSLAV/muxpi/sw/nanopi/stm"
 )
 
 var (
