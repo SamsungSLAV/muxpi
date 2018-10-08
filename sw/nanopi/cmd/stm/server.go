@@ -23,7 +23,7 @@ import (
 	"os"
 	"os/signal"
 
-	"git.tizen.org/tools/muxpi/sw/nanopi/stm"
+	"github.com/SamsungSLAV/muxpi/sw/nanopi/stm"
 	"github.com/coreos/go-systemd/activation"
 )
 
