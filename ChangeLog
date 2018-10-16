@@ -1,0 +1,13 @@
+Release 0.1.0 - Tue Oct. 16 2018 - Adam Malinowski <a.malinowsk2@partner.samsung.com>
+=====================================================================================
+* Hardware design:
+  - MuxPi main board
+  - add-on template
+* 'stm' tool for controlling MuxPi accessories
+* 'fota' tool for flashing microSD card
+* Power control tool for switching MuxPi board on, off and flash
+* Documentation:
+  - Overview
+  - Hardware
+  - NanoPi OS installation
+  - MuxPi specific software installation
