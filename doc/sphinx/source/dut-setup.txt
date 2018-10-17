@@ -39,8 +39,8 @@ settings should be desired for most situations.
 
    .. note::
 
-       You might need to set up a gateway to have internet access on the MuxPi.
-       For Ubuntu see `this manual`_.
+      You might need to set up a gateway to have internet access on the MuxPi.
+      For Ubuntu see `this manual`_.
 
    .. _`this manual`: https://help.ubuntu.com/community/Internet/ConnectionSharing#Ubuntu_Internet_Gateway_Method_.28iptables.29
 
