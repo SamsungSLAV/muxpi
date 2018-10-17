@@ -20,16 +20,15 @@ Installation
    can install wget on Debian-based distributions with ``apt-get install
    wget``::
 
-     $ wget https://dl.armbian.com/nanopineo/Debian_stretch_next.7z
+      $ wget https://dl.armbian.com/nanopineo/Debian_stretch_next.7z
 
    .. _`Armbian for Nanopi Neo`: https://www.armbian.com/nanopi-neo/
    .. _`http`: https://dl.armbian.com/nanopineo/Debian_stretch_next.7z
    .. _`torrent`: https://dl.armbian.com/nanopineo/Debian_stretch_next.7z.torrent
 
-#. Go to directory where you placed downloaded file and uncompress it. It will
-   likely be a ``.7z`` file. To extract it we will use `7-Zip`_. You can
-   install it on Debian-based distributions with ``apt-get install
-   p7zip-full``::
+#. Uncompress the downloaded file. It will likely be a ``.7z`` file. To extract
+   it we will use `7-Zip`_. You can install it on Debian-based distributions
+   with ``apt-get `install p7zip-full``::
 
       $ 7z e Debian_*
 
@@ -74,14 +73,17 @@ Configuration
 #. Connect NanoPi's UART0. You can use the UART->USB converter on the MuxPi
    board, just connect a cable to  microUSB port on the bottom of the board.
 
-   .. note::  You can omit this if you connect the device to DHCP server and
+   .. note::
+
+      You can omit this if you connect the device to DHCP server and
       connect over ssh. You will need to adjust below steps in such case.
 
 #. Connect to serial using either screen or minicom (or your tool of choice)
 
-   .. warning:: Change ``ttyUSB0`` to your serial that is connected to NanoPi. 
-      If you do not  have any USB UART connected, MuxPi's converter should be
-      ttyUSB0.
+   .. warning::
+
+      Change ``ttyUSB0`` to your serial that is connected to NanoPi.  If you do
+      not  have any USB UART connected, MuxPi's converter should be ttyUSB0.
 
    ::
 
@@ -92,14 +94,14 @@ Configuration
 
 #. Power the device on. First boot might take some time.
 
-#. After system boots, you need to log in to it::
+#. After system boots, you need to log in::
 
-     login: root
-     password 1234
+      login: root
+      password 1234
 
    .. note ::
 
-      ``1234`` password was correct at the time of writing this page. If it
+      ``1234`` was the correct password at the time of writing this page. If it
       does not work, you should check FAQ section on `Armbian for Nanopi Neo`_
       page.
 
@@ -113,25 +115,25 @@ Configuration
       Enter new UNIX password:
       Retype new UNIX password:
 
-#. Next, you will be greeted with nice colourful text and initial non-root user
-   account configuration. Follow the interactive user creation process.
+#. Next, you will be greeted with nice, colourful text and initial non-root
+   user account configuration. Follow the interactive user creation process.
 
    We always create a ``pi`` user.
 
 #. Set static IP on the device by creating following file::
 
-     # vim /etc/network/interfaces.d/eth0
+      # vim /etc/network/interfaces.d/eth0
 
    With the following contents:
 
    .. code-block:: none
 
-     auto eth0
-     allow-hotplug eth0
-     iface eth0 inet static
-     	address 192.168.0.2
-     	netmask 255.255.255.0
-     	gateway 192.168.0.1
+      auto eth0
+      allow-hotplug eth0
+      iface eth0 inet static
+      	address 192.168.0.2
+      	netmask 255.255.255.0
+      	gateway 192.168.0.1
 
    Above will work if you connect MuxPi to your machine (which will have
    192.168.0.1 address) and the 192.168.0.2 address will be available.
@@ -139,11 +141,11 @@ Configuration
 
 #. Settings need to be changed, you need to restart networking::
 
-     # systemctl restart networking
+      # systemctl restart networking
 
    Or just restart the whole device::
 
-     # shutdown -r now
+      # shutdown -r now
 
 #. Now you should be able to connect to device through ssh::
 
@@ -155,12 +157,12 @@ Configuration
       settings did not reload properly. It is best to restart device using
       serial connection from earlier::
 
-        # shutdown -r now
+         # shutdown -r now
 
 #. Configure UARTs for communication with MuxPi's stm and for communication
    with DUT::
 
-    # armbian-config
+      # armbian-config
 
    It will ask you for internet connection but it is not required (press any
    key to continue)
