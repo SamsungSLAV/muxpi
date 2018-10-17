@@ -20,8 +20,8 @@ main components: **SD Mux** and **NanoPi**
 Essential functionalities
 =========================
 
-* Providing a DUT connection (UART, USB, ETH, microSD card, HDMI DDC) to remote location
-  over Ethernet
+* Providing a DUT connection (UART, USB, ETH, microSD card, HDMI DDC) to remote
+  location over Ethernet
 * Switching a microSD card between a DUT's microSD card slot and an onboard
   USB card reader
 * Flashing a microSD card using an onboard USB card reader
@@ -38,16 +38,16 @@ Interfaces / Connectivity
 =========================
 
 MuxPi provides all **DUT** interfaces using the network interface on the
-NanoPi. You can connect to it using standrd RJ45 socket. equipped with standard
-RJ45 socket. Additionally NanoPi NEO's USB OTG and UART might be used to
-communicate with the MuxPi.
+NanoPi. You can connect to it using standrd RJ45 socket. Additionally NanoPi
+NEO's USB OTG and UART might be used to communicate with the MuxPi.
 
-As for the interfaces to communicate with a **DUT** (or control it), MuxPi is
+As for the interfaces to communicate with (or control) a **DUT**, MuxPi is
 equipped with:
 
 * Ethernet
 * UART (level shifted)
-* USB Host (up to 4 onboard connectors, one of those with power and ID control)
+* USB Host (up to 4 onboard connectors, including one with power and ID
+  control)
 * USB OTG
 * DyPers (Dynamic jumPers)
 * microSD
@@ -71,6 +71,8 @@ MuxPi is a successor of `SD-MUX`_.  While its main purpose is still the same:
 to help automated testing of OS binary images, the MuxPi allows for achieving
 much more control and feedback.  There are only three common functions of these
 two boards:
+
+.. _`SD-MUX`: https://wiki.tizen.org/SD_MUX
 
 * SD card multiplexing
 * controlling power of a DUT
@@ -96,17 +98,20 @@ advantages over SD-MUX:
   may look a little bit to much for such device but experience in using SD-MUX
   showed that operator needs information that can't be passed using just LEDs.
 * independency - SD-MUX was not a standalone device. It had to be connected
-  (and powered) via USB - usually a PC or server. To reduce PC/server number
-  USB hubs had to be used which introduced many problems. MuxPi is a completely
-  standalone device with its own microcomputer and linux operating system. It
-  needs only an Ethernet connection and a power supply.
+  (and powered) via USB - usually a PC or server. To reduce number of USB hubs
+  connected to PC/server USB hubs had to be used which introduced many
+  problems. MuxPi is a completely standalone device with its own microcomputer
+  and linux operating system. It needs only an Ethernet connection and a power
+  supply.
 
 
 SDWire
 ------
 
-After MuxPi, a simpler board was created, `SDWire`_. It is a cheap solution for
+After SD-MUX, a simpler board was created, `SDWire`_. It is a cheap solution for
 multiplexing SD card between connected device and USB (card reader mode).
+
+.. _`SDWire`: https://wiki.tizen.org/SDWire
 
 SLAV stack
 ----------
@@ -129,6 +134,9 @@ predeccessor)
 * `https://github.com/MentorEmbedded/mtda`_
 * `https://github.com/resin-io/autohat-board`_
 
+.. _`https://github.com/MentorEmbedded/mtda`: https://github.com/MentorEmbedded/mtda
+.. _`https://github.com/resin-io/autohat-board`: https://github.com/resin-io/autohat-board
+
 
 ********
 Licenses
@@ -136,11 +144,6 @@ Licenses
 
 MuxPi is distributed under `Apache License Version 2.0`_
 
+.. _`Apache License Version 2.0`: https://www.apache.org/licenses/LICENSE-2.0
 
 .. target-notes::
-
-.. _`SD-MUX`: https://wiki.tizen.org/SD_MUX
-.. _`SDWire`: https://wiki.tizen.org/SDWire
-.. _`https://github.com/MentorEmbedded/mtda`: https://github.com/MentorEmbedded/mtda
-.. _`https://github.com/resin-io/autohat-board`: https://github.com/resin-io/autohat-board
-.. _`Apache License Version 2.0`_ https://www.apache.org/licenses/LICENSE-2.0
