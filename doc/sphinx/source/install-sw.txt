@@ -90,9 +90,9 @@ Install muxpi-power
 Install stm
 ===========
 
-#. Copy stm binary and systemd files to MuxPi device
+#. Copy stm binary and systemd files to MuxPi device::
 
-     $ scp stm root@192.168.0.2:/usr/bin/
+     $ scp bin/stm root@192.168.0.2:/usr/bin/
      $ scp stm/systemd/stm.service root@192.168.0.2:/etc/systemd/system
      $ scp stm/systemd/stm-user.socket root@192.168.0.2:/etc/systemd/system
      $ scp stm/systemd/stm.socket root@192.168.0.2:/etc/systemd/system
@@ -128,7 +128,7 @@ Install fota
 
 #. Copy fota binary to MuxPi device::
 
-     $ scp fota root@192.168.0.2:/usr/bin/
+     $ scp bin/fota root@192.168.0.2:/usr/bin/
 
 #. On your MuxPi device - create a symlink from ``/usr/local/bin/fota`` to
    ``/usr/bin/fota/``. Only ``/usr/local/bin/fota/`` should be used by software
