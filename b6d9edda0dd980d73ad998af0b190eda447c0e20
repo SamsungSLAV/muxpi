@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "36cd38e1_c7cd6359",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1015231
+      },
+      "writtenOn": "2018-10-17T13:56:33Z",
+      "side": 1,
+      "message": "dot",
+      "range": {
+        "startLine": 9,
+        "startChar": 27,
+        "endLine": 9,
+        "endChar": 35
+      },
+      "revId": "b6d9edda0dd980d73ad998af0b190eda447c0e20",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9baf35e2_68c638b5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1015231
+      },
+      "writtenOn": "2018-10-17T13:56:33Z",
+      "side": 1,
+      "message": "starting sentence with also :(",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 4
+      },
+      "revId": "b6d9edda0dd980d73ad998af0b190eda447c0e20",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ddb93f0_b1a8d790",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1015231
+      },
+      "writtenOn": "2018-10-17T13:56:33Z",
+      "side": 1,
+      "message": "building from source also outputs to bin dir",
+      "range": {
+        "startLine": 11,
+        "startChar": 32,
+        "endLine": 11,
+        "endChar": 44
+      },
+      "revId": "b6d9edda0dd980d73ad998af0b190eda447c0e20",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "716d820b_42f4eb80",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1015231
+      },
+      "writtenOn": "2018-10-17T13:56:33Z",
+      "side": 1,
+      "message": "dot",
+      "range": {
+        "startLine": 12,
+        "startChar": 20,
+        "endLine": 12,
+        "endChar": 26
+      },
+      "revId": "b6d9edda0dd980d73ad998af0b190eda447c0e20",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
