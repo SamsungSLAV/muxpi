@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ed0940c8_b9b9e237",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1015222
+      },
+      "writtenOn": "2018-10-18T07:15:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36cd38e1_c7cd6359",
+      "range": {
+        "startLine": 9,
+        "startChar": 27,
+        "endLine": 9,
+        "endChar": 35
+      },
+      "revId": "b6d9edda0dd980d73ad998af0b190eda447c0e20",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9baf35e2_68c638b5",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -71,6 +95,54 @@
     },
     {
       "key": {
+        "uuid": "e7e45bdc_8cf48604",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1015222
+      },
+      "writtenOn": "2018-10-18T07:15:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9baf35e2_68c638b5",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 4
+      },
+      "revId": "b6d9edda0dd980d73ad998af0b190eda447c0e20",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b1d3663_af9e6fab",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1015222
+      },
+      "writtenOn": "2018-10-18T07:15:29Z",
+      "side": 1,
+      "message": "Yes. What I mean is that all paths in scp block should have the same root.\nAll of the other operations are run from sw/nanopi, that\u0027s why I think adding \"bin/\" to fota and stm binaries should be done.\n\nI hope, that this was clear to you despite poor grammar, punctuation and vocabulary of this commit message.\n\nMy apologies.",
+      "parentUuid": "0ddb93f0_b1a8d790",
+      "range": {
+        "startLine": 11,
+        "startChar": 32,
+        "endLine": 11,
+        "endChar": 44
+      },
+      "revId": "b6d9edda0dd980d73ad998af0b190eda447c0e20",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "716d820b_42f4eb80",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -91,6 +163,30 @@
       "revId": "b6d9edda0dd980d73ad998af0b190eda447c0e20",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16942549_a7f89093",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1015222
+      },
+      "writtenOn": "2018-10-18T07:15:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "716d820b_42f4eb80",
+      "range": {
+        "startLine": 12,
+        "startChar": 20,
+        "endLine": 12,
+        "endChar": 26
+      },
+      "revId": "b6d9edda0dd980d73ad998af0b190eda447c0e20",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
