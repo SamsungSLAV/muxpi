@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8506515d_b297eea4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1015231
+      },
+      "writtenOn": "2018-10-19T19:35:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43baf0e5_d9aff14a",
+      "revId": "99ccd627047bf250314b81f13ff855c9d1566d82",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b901aa7d_bb6b2da4",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
@@ -33,6 +51,24 @@
       "revId": "99ccd627047bf250314b81f13ff855c9d1566d82",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9275cc3e_1801eb23",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1015231
+      },
+      "writtenOn": "2018-10-19T19:35:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b901aa7d_bb6b2da4",
+      "revId": "99ccd627047bf250314b81f13ff855c9d1566d82",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     },
     {
       "key": {
@@ -59,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "044f4558_62a8566f",
+        "filename": "doc/sphinx/source/armbian.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1015231
+      },
+      "writtenOn": "2018-10-19T19:35:52Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f50054f3_bd7f4152",
+      "range": {
+        "startLine": 86,
+        "startChar": 68,
+        "endLine": 86,
+        "endChar": 75
+      },
+      "revId": "99ccd627047bf250314b81f13ff855c9d1566d82",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "06c877b3_f6a5c4e0",
         "filename": "doc/sphinx/source/install-sw.txt",
         "patchSetId": 3
@@ -79,6 +139,30 @@
       "revId": "99ccd627047bf250314b81f13ff855c9d1566d82",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c438291f_523d6166",
+        "filename": "doc/sphinx/source/install-sw.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1015231
+      },
+      "writtenOn": "2018-10-19T19:35:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06c877b3_f6a5c4e0",
+      "range": {
+        "startLine": 8,
+        "startChar": 20,
+        "endLine": 8,
+        "endChar": 21
+      },
+      "revId": "99ccd627047bf250314b81f13ff855c9d1566d82",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     },
     {
       "key": {
@@ -105,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "80f000a5_42134318",
+        "filename": "doc/sphinx/source/install-sw.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1015231
+      },
+      "writtenOn": "2018-10-19T19:35:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b18c142_46bc8f8e",
+      "range": {
+        "startLine": 117,
+        "startChar": 18,
+        "endLine": 117,
+        "endChar": 28
+      },
+      "revId": "99ccd627047bf250314b81f13ff855c9d1566d82",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a1f64129_3ab686d6",
         "filename": "doc/sphinx/source/project-overview.txt",
         "patchSetId": 3
@@ -116,6 +224,30 @@
       "writtenOn": "2018-10-18T07:15:29Z",
       "side": 1,
       "message": "SD-MUX",
+      "range": {
+        "startLine": 111,
+        "startChar": 6,
+        "endLine": 111,
+        "endChar": 11
+      },
+      "revId": "99ccd627047bf250314b81f13ff855c9d1566d82",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8384f0d_4537aeb0",
+        "filename": "doc/sphinx/source/project-overview.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1015231
+      },
+      "writtenOn": "2018-10-19T19:35:52Z",
+      "side": 1,
+      "message": "currently it is correct, SDWire was created after MuxPi (but also after SD-MUX) but as SDWire has more in common with SD-MUX than MuxPi, I\u0027m changing it as recommended.",
+      "parentUuid": "a1f64129_3ab686d6",
       "range": {
         "startLine": 111,
         "startChar": 6,
