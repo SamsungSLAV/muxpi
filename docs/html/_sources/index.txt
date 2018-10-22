@@ -1,0 +1,28 @@
+.. MuxPi documentation master file, created by
+   sphinx-quickstart on Mon Aug 20 15:26:48 2018.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+======================================
+Welcome to MuxPi's documentation!
+======================================
+MuxPi is an open-source hardware and software board for automation of various tasks that need to
+be performed on target devices. It is intended to help in development of firmware, drivers or a
+whole platform for specific target devices.
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Resources:
+
+   project-overview.txt
+   hw-overview.txt
+   armbian
+   install-sw
+   dut-setup
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`search`

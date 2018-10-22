@@ -1,0 +1,97 @@
+###################
+MuxPi setup for DUT
+###################
+
+This manual will teach you how to configure MuxPi to allow interfacing with DUT
+using UART or Ethernet connection.
+
+.. highlight:: console
+
+First of all, you need to connect to the MuxPi::
+
+   $ ssh root@192.168.0.2
+
+
+**************************
+Set up DHCP server on eth1
+**************************
+
+Most embedded Linux distributions are looking for DHCP server thus below
+settings should be desired for most situations.
+
+#. Set up eth1 interaface::
+
+      # vim /etc/network/interfaces.d/eth1
+
+   And populate it with the following:
+
+   .. code-block:: none
+
+      auto eth1
+      allow-hotplug eth1
+      iface eth1 inet static
+      	address 192.168.69.1
+      	netmask 255.255.255.0
+
+#. Install isc-dhcp-server::
+
+      # apt-get install isc-dhcp-server
+
+   .. note::
+
+      You might need to set up a gateway to have internet access on the MuxPi.
+      For Ubuntu see `this manual`_.
+
+   .. _`this manual`: https://help.ubuntu.com/community/Internet/ConnectionSharing#Ubuntu_Internet_Gateway_Method_.28iptables.29
+
+#. Then you should set the interface which will be dhcp server::
+
+      # vim /etc/default/isc-dhcp-server
+
+   Adjust lines at the bottom of the file as below:
+
+   .. code-block:: none
+
+      INTERFACESv4="eth1"
+      #INTERFACESv6=""
+
+#. Configure iscp-dhcp-server to always assign the same address::
+
+      # vim /etc/dhcp/dhcpd.conf
+
+   To always assign the same address::
+
+      subnet 192.168.69.0 netmask 255.255.255.0 {
+        range 192.168.69.10 192.168.69.10;
+      }
+
+
+#. Now after booting the device, you should be able to connect to it using a
+   protocol understood by both MuxPi and DUT.
+
+
+******************
+Connect using UART
+******************
+
+#. Set terminal options for the DUT serial connection by
+   running ``stty`` command with appropriate settings::
+
+      # stty -F /dev/ttyS1 115200 cs8 -cstopb -parenb
+
+   .. note::
+
+      You need to adjust setting in the command above to fit your UART
+      connection
+
+   .. warning:: This setting is temporary.
+
+#. Connect to the device using your tool of choice::
+
+      # screen /dev/ttyS1 115200
+      # minicom -b 115200 -D /dev/ttyUSB0
+
+   .. note:: Adjust the baud rate accordingly.
+
+.. target-notes::
+

@@ -1,0 +1,282 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>MuxPi software installation &#8212; MuxPi 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MuxPi setup for DUT" href="dut-setup.html" />
+    <link rel="prev" title="OS installation - Armbian" href="armbian.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="muxpi-software-installation">
+<h1>MuxPi software installation<a class="headerlink" href="#muxpi-software-installation" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Below manual, assumes that you have MuxPi board connected to your machine’s
+local network and it is avaliable at 192.168.0.2 address. If you set another
+address or use DHCP server substitute that address for yours.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It is recommended to cross-compile MuxPi’s software on your host machine,
+rather than install go-toolchain on MuxPi’s NanoPi NEO board.</p>
+</div>
+<div class="section" id="building-binaries">
+<h2>Building binaries<a class="headerlink" href="#building-binaries" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="building-using-docker">
+<h3>Building using docker<a class="headerlink" href="#building-using-docker" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Prerequisites</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.docker.com/">Docker</a> <a class="footnote-reference" href="#id1" id="id2">[1]</a></li>
+<li><a class="reference external" href="https://www.gnu.org/software/make/">Make</a> <a class="footnote-reference" href="#id3" id="id4">[2]</a></li>
+</ul>
+</li>
+<li><p class="first">Clone MuxPi and go to that directory with software:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> git clone https://github.com/SamsungSLAV/muxpi.git <span class="o">&amp;&amp;</span> <span class="nb">cd</span> muxpi/sw/nanopi
+</pre></div>
+</div>
+</li>
+<li><p class="first">Build MuxPi software:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> make docker-build
+</pre></div>
+</div>
+<p>Resulting binaries will be in <code class="docutils literal notranslate"><span class="pre">bin</span></code> directory.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="building-from-source">
+<h3>Building from source<a class="headerlink" href="#building-from-source" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Prerequisites</p>
+<ul class="simple">
+<li><a class="reference external" href="https://git-scm.com/">git</a> <a class="footnote-reference" href="#id5" id="id6">[3]</a></li>
+<li><a class="reference external" href="https://golang.org/doc/install">go (1.10+)</a> <a class="footnote-reference" href="#id7" id="id8">[4]</a></li>
+</ul>
+</li>
+<li><p class="first">Go get it and go to muxpi directory:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> go get github.com/SamsungSLAV/muxpi
+<span class="gp">$</span> <span class="nb">cd</span> <span class="nv">$GOPATH</span>/src/github.com/SamsungSLAV/muxpi/sw/nanopi
+</pre></div>
+</div>
+</li>
+<li><p class="first">Download dependencies:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> go get ./...
+</pre></div>
+</div>
+</li>
+<li><p class="first">Build binaries:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> mkdir -p bin
+<span class="gp">$</span> <span class="nv">GOARCH</span><span class="o">=</span>arm <span class="nv">GOOARM</span><span class="o">=</span><span class="m">7</span> <span class="nv">GOOS</span><span class="o">=</span>linux go build -o bin/stm ./cmd/stm/
+<span class="gp">$</span> <span class="nv">GOARCH</span><span class="o">=</span>arm <span class="nv">GOOARM</span><span class="o">=</span><span class="m">7</span> <span class="nv">GOOS</span><span class="o">=</span>linux go build -o bin/fota ./cmd/fota/
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="install-muxpi-power">
+<h3>Install muxpi-power<a class="headerlink" href="#install-muxpi-power" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Copy muxpi-power files to your MuxPi:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> scp power/muxpi-power root@192.168.0.2:/usr/bin
+<span class="gp">$</span> scp power/systemd/muxpi-power.service root@192.168.0.2:/etc/systemd/system
+</pre></div>
+</div>
+</li>
+<li><p class="first">On your MuxPi device, enable and start muxpi-power service:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> systemctl <span class="nb">enable</span> muxpi-power.service
+<span class="gp">#</span> systemctl start muxpi-power.service
+</pre></div>
+</div>
+<p>When you restart MuxPi board, you should see that after system boot, board
+comes alive - e.g. display lights up.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="install-stm">
+<h3>Install stm<a class="headerlink" href="#install-stm" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Copy stm binary and systemd files to MuxPi device:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> scp bin/stm root@192.168.0.2:/usr/bin/
+<span class="gp">$</span> scp stm/systemd/stm.service root@192.168.0.2:/etc/systemd/system
+<span class="gp">$</span> scp stm/systemd/stm-user.socket root@192.168.0.2:/etc/systemd/system
+<span class="gp">$</span> scp stm/systemd/stm.socket root@192.168.0.2:/etc/systemd/system
+<span class="gp">$</span> scp stm/stm root@192.168.0.2:/usr/local/bin/stm
+</pre></div>
+</div>
+</li>
+<li><p class="first">On your MuxPi device - create group stm and add your user (assumed to be
+<code class="docutils literal notranslate"><span class="pre">stm</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> groupadd stm
+<span class="gp">#</span> usermod -aG stm pi
+</pre></div>
+</div>
+</li>
+<li><p class="first">On your MuxPi device - enable stm sockets:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> systemctl daemon-reload
+<span class="gp">#</span> systemctl <span class="nb">enable</span> stm.socket stm-user.socket
+<span class="gp">#</span> systemctl start stm.socket stm-user.socket
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Currently stm is not safe for concurrent use and requires root to operate
+(or whoever <code class="docutils literal notranslate"><span class="pre">/dev/ttyS2</span></code> permissions point to). It is recommended to
+install stm as an auto starting service as described above.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">stm.service should NOT be started manually or enabled, because when
+run through systemd, stm expects to be able to obtain the aforementioned
+socket paths from systemd, which is only possible when the service is
+launched by the sockets.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="install-fota">
+<h3>Install fota<a class="headerlink" href="#install-fota" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Copy fota binary to MuxPi device:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> scp bin/fota root@192.168.0.2:/usr/bin/
+</pre></div>
+</div>
+</li>
+<li><p class="first">On your MuxPi device - create a symlink from <code class="docutils literal notranslate"><span class="pre">/usr/local/bin/fota</span></code> to
+<code class="docutils literal notranslate"><span class="pre">/usr/bin/fota/</span></code>. Only <code class="docutils literal notranslate"><span class="pre">/usr/local/bin/fota/</span></code> should be used by software
+interfacing with MuxPi. This allows to swap fota implementation to your
+preferred tool:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> ln -s /usr/bin/fota /usr/local/bin/fota
+</pre></div>
+</div>
+</li>
+</ol>
+<table class="docutils footnote" frame="void" id="id1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td><a class="reference external" href="https://www.docker.com/">https://www.docker.com/</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[2]</a></td><td><a class="reference external" href="https://www.gnu.org/software/make/">https://www.gnu.org/software/make/</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id5" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id6">[3]</a></td><td><a class="reference external" href="https://git-scm.com/">https://git-scm.com/</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id7" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id8">[4]</a></td><td><a class="reference external" href="https://golang.org/doc/install">https://golang.org/doc/install</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">MuxPi</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Resources:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="project-overview.html">Project overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw-overview.html">Hardware overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="armbian.html">OS installation - Armbian</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">MuxPi software installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#building-binaries">Building binaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setup">Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dut-setup.html">MuxPi setup for DUT</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="armbian.html" title="previous chapter">OS installation - Armbian</a></li>
+      <li>Next: <a href="dut-setup.html" title="next chapter">MuxPi setup for DUT</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Samsung Electronics Co., Ltd.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
+      
+      |
+      <a href="_sources/install-sw.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

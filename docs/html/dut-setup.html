@@ -1,0 +1,206 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>MuxPi setup for DUT &#8212; MuxPi 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="MuxPi software installation" href="install-sw.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="muxpi-setup-for-dut">
+<h1>MuxPi setup for DUT<a class="headerlink" href="#muxpi-setup-for-dut" title="Permalink to this headline">¶</a></h1>
+<p>This manual will teach you how to configure MuxPi to allow interfacing with DUT
+using UART or Ethernet connection.</p>
+<p>First of all, you need to connect to the MuxPi:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> ssh root@192.168.0.2
+</pre></div>
+</div>
+<div class="section" id="set-up-dhcp-server-on-eth1">
+<h2>Set up DHCP server on eth1<a class="headerlink" href="#set-up-dhcp-server-on-eth1" title="Permalink to this headline">¶</a></h2>
+<p>Most embedded Linux distributions are looking for DHCP server thus below
+settings should be desired for most situations.</p>
+<ol class="arabic">
+<li><p class="first">Set up eth1 interaface:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> vim /etc/network/interfaces.d/eth1
+</pre></div>
+</div>
+<p>And populate it with the following:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>auto eth1
+allow-hotplug eth1
+iface eth1 inet static
+  address 192.168.69.1
+  netmask 255.255.255.0
+</pre></div>
+</div>
+</li>
+<li><p class="first">Install isc-dhcp-server:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> apt-get install isc-dhcp-server
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You might need to set up a gateway to have internet access on the MuxPi.
+For Ubuntu see <a class="reference external" href="https://help.ubuntu.com/community/Internet/ConnectionSharing#Ubuntu_Internet_Gateway_Method_.28iptables.29">this manual</a> <a class="footnote-reference" href="#id1" id="id2">[1]</a>.</p>
+</div>
+</li>
+<li><p class="first">Then you should set the interface which will be dhcp server:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> vim /etc/default/isc-dhcp-server
+</pre></div>
+</div>
+<p>Adjust lines at the bottom of the file as below:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>INTERFACESv4=&quot;eth1&quot;
+#INTERFACESv6=&quot;&quot;
+</pre></div>
+</div>
+</li>
+<li><p class="first">Configure iscp-dhcp-server to always assign the same address:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> vim /etc/dhcp/dhcpd.conf
+</pre></div>
+</div>
+<p>To always assign the same address:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">subnet 192.168.69.0 netmask 255.255.255.0 {</span>
+<span class="go">  range 192.168.69.10 192.168.69.10;</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Now after booting the device, you should be able to connect to it using a
+protocol understood by both MuxPi and DUT.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="connect-using-uart">
+<h2>Connect using UART<a class="headerlink" href="#connect-using-uart" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Set terminal options for the DUT serial connection by
+running <code class="docutils literal notranslate"><span class="pre">stty</span></code> command with appropriate settings:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> stty -F /dev/ttyS1 <span class="m">115200</span> cs8 -cstopb -parenb
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You need to adjust setting in the command above to fit your UART
+connection</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This setting is temporary.</p>
+</div>
+</li>
+<li><p class="first">Connect to the device using your tool of choice:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> screen /dev/ttyS1 <span class="m">115200</span>
+<span class="gp">#</span> minicom -b <span class="m">115200</span> -D /dev/ttyUSB0
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Adjust the baud rate accordingly.</p>
+</div>
+</li>
+</ol>
+<table class="docutils footnote" frame="void" id="id1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td><a class="reference external" href="https://help.ubuntu.com/community/Internet/ConnectionSharing#Ubuntu_Internet_Gateway_Method_.28iptables.29">https://help.ubuntu.com/community/Internet/ConnectionSharing#Ubuntu_Internet_Gateway_Method_.28iptables.29</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">MuxPi</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Resources:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="project-overview.html">Project overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw-overview.html">Hardware overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="armbian.html">OS installation - Armbian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install-sw.html">MuxPi software installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">MuxPi setup for DUT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#set-up-dhcp-server-on-eth1">Set up DHCP server on eth1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#connect-using-uart">Connect using UART</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="install-sw.html" title="previous chapter">MuxPi software installation</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Samsung Electronics Co., Ltd.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
+      
+      |
+      <a href="_sources/dut-setup.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
