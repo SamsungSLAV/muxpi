@@ -1,0 +1,265 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Project overview &#8212; MuxPi 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Hardware overview" href="hw-overview.html" />
+    <link rel="prev" title="Welcome to MuxPi’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="project-overview">
+<h1>Project overview<a class="headerlink" href="#project-overview" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="muxpi-overview">
+<h2>MuxPi overview<a class="headerlink" href="#muxpi-overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>MuxPi</strong> is an open-source hardware and software board which was designed to
+aid in automating tasks on physical devices. Initial goal was to automate
+testing on hardware platform, thus connected devices will be called <strong>D</strong>evice
+<strong>U</strong>nder <strong>T</strong>est or shortly <strong>DUT</strong>.  MuxPi is intended to help in testing
+of embedded systems, automatic software installation or flashing and automation
+during development. MuxPi is connected between the DUT and a PC/Server machine
+which will be managing the work.  The name of the board is based on its two
+main components: <strong>SD Mux</strong> and <strong>NanoPi</strong></p>
+<div class="section" id="essential-functionalities">
+<h3>Essential functionalities<a class="headerlink" href="#essential-functionalities" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Providing a DUT connection (UART, USB, ETH, microSD card, HDMI DDC) to remote
+location over Ethernet</li>
+<li>Switching a microSD card between a DUT’s microSD card slot and an onboard
+USB card reader</li>
+<li>Flashing a microSD card using an onboard USB card reader</li>
+<li>Flashing and controlling state of Samsung mobile devices over fully
+controllable, dedicated USB interface</li>
+<li>Switching DUT’s power supply</li>
+<li>Switching jumpers/buttons of a DUT in order to (re)boot/(re)configure it</li>
+<li>Measuring power consumption of a DUT</li>
+<li>Handling serial connection (UART) of a DUT</li>
+<li>Writing EDID to a DUT over HDMI connection</li>
+<li>Interacting with a user/maintainer over a simple, bidirectional interface</li>
+</ul>
+</div>
+<div class="section" id="interfaces-connectivity">
+<h3>Interfaces / Connectivity<a class="headerlink" href="#interfaces-connectivity" title="Permalink to this headline">¶</a></h3>
+<p>MuxPi provides all <strong>DUT</strong> interfaces using the network interface on the
+NanoPi. You can connect to it using standrd RJ45 socket. Additionally NanoPi
+NEO’s USB OTG and UART might be used to communicate with the MuxPi.</p>
+<p>As for the interfaces to communicate with (or control) a <strong>DUT</strong>, MuxPi is
+equipped with:</p>
+<ul class="simple">
+<li>Ethernet</li>
+<li>UART (level shifted)</li>
+<li>USB Host (up to 4 onboard connectors, including one with power and ID
+control)</li>
+<li>USB OTG</li>
+<li>DyPers (Dynamic jumPers)</li>
+<li>microSD</li>
+<li>HMDI (via I2C to write EDID)</li>
+<li>power control and measurements</li>
+<li>I2C</li>
+<li>SPI</li>
+</ul>
+</div>
+</div>
+<div class="section" id="relation-to-other-projects">
+<h2>Relation to other projects<a class="headerlink" href="#relation-to-other-projects" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="samsung-projects">
+<h3>Samsung projects<a class="headerlink" href="#samsung-projects" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="sd-mux">
+<h4>SD-MUX<a class="headerlink" href="#sd-mux" title="Permalink to this headline">¶</a></h4>
+<p>MuxPi is a successor of <a class="reference external" href="https://wiki.tizen.org/SD_MUX">SD-MUX</a> <a class="footnote-reference" href="#id3" id="id4">[1]</a>.  While its main purpose is still the same:
+to help automated testing of OS binary images, the MuxPi allows for achieving
+much more control and feedback.  There are only three common functions of these
+two boards:</p>
+<ul class="simple">
+<li>SD card multiplexing</li>
+<li>controlling power of a DUT</li>
+<li>USB switch (not a HUB) - switch is the same but in MuxPi it does totally
+differnt thing. It is used to redirect USB-M data lines either to NanoPi’s
+USB or NanoPi’s UART.</li>
+</ul>
+<p>And one function which was not present on SD-MUX board natively but would be
+added to them as an external circuit:</p>
+<ul class="simple">
+<li>DyPer</li>
+</ul>
+<p>The whole rest of functionalities makes MuxPi far more powerful and versatile
+device than SD-MUX.</p>
+<p>Besides the huge difference in hardware there are also two unquestionable
+advantages over SD-MUX:</p>
+<ul class="simple">
+<li>user interface - SD-MUX was more “blind” device. User couldn’t tell in what
+state the device was.  You couldn’t tell whether the devices were turned on
+or off by looking on the board which is problematic in case of bigger number
+of devices. MuxPi has several LEDs, graphic OLED display and two buttons. It
+may look a little bit to much for such device but experience in using SD-MUX
+showed that operator needs information that can’t be passed using just LEDs.</li>
+<li>independency - SD-MUX was not a standalone device. It had to be connected
+(and powered) via USB - usually a PC or server. To reduce number of USB hubs
+connected to PC/server USB hubs had to be used which introduced many
+problems. MuxPi is a completely standalone device with its own microcomputer
+and linux operating system. It needs only an Ethernet connection and a power
+supply.</li>
+</ul>
+</div>
+<div class="section" id="sdwire">
+<h4>SDWire<a class="headerlink" href="#sdwire" title="Permalink to this headline">¶</a></h4>
+<p>After SD-MUX, a simpler board was created, <a class="reference external" href="https://wiki.tizen.org/SDWire">SDWire</a> <a class="footnote-reference" href="#id5" id="id6">[2]</a>. It is a cheap solution for
+multiplexing SD card between connected device and USB (card reader mode).</p>
+</div>
+<div class="section" id="slav-stack">
+<h4>SLAV stack<a class="headerlink" href="#slav-stack" title="Permalink to this headline">¶</a></h4>
+<p>MuxPi is intended to be used as part of SLAV stack, consisting of:</p>
+<ul class="simple">
+<li>Dryads - pairs of MuxPi and DUT</li>
+<li>Boruta - server application for device farm management</li>
+<li>Weles - server application for test automation</li>
+<li>Perun - TBD.</li>
+</ul>
+<p>… but nothing is constraining you to use MuxPi on its own or use it with other frameworks.</p>
+</div>
+</div>
+<div class="section" id="non-samsung-projects">
+<h3>Non-Samsung projects<a class="headerlink" href="#non-samsung-projects" title="Permalink to this headline">¶</a></h3>
+<p>Below list consist only of the public projects based on SD-MUX (MuxPi
+predeccessor)</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/MentorEmbedded/mtda">https://github.com/MentorEmbedded/mtda</a> <a class="footnote-reference" href="#id7" id="id8">[3]</a></li>
+<li><a class="reference external" href="https://github.com/resin-io/autohat-board">https://github.com/resin-io/autohat-board</a> <a class="footnote-reference" href="#id9" id="id10">[4]</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="licenses">
+<h2>Licenses<a class="headerlink" href="#licenses" title="Permalink to this headline">¶</a></h2>
+<p>MuxPi is distributed under <a class="reference external" href="https://www.apache.org/licenses/LICENSE-2.0">Apache License Version 2.0</a> <a class="footnote-reference" href="#id11" id="id12">[5]</a></p>
+<table class="docutils footnote" frame="void" id="id3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[1]</a></td><td><a class="reference external" href="https://wiki.tizen.org/SD_MUX">https://wiki.tizen.org/SD_MUX</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id5" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id6">[2]</a></td><td><a class="reference external" href="https://wiki.tizen.org/SDWire">https://wiki.tizen.org/SDWire</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id7" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id8">[3]</a></td><td><a class="reference external" href="https://github.com/MentorEmbedded/mtda">https://github.com/MentorEmbedded/mtda</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id9" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id10">[4]</a></td><td><a class="reference external" href="https://github.com/resin-io/autohat-board">https://github.com/resin-io/autohat-board</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id11" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id12">[5]</a></td><td><a class="reference external" href="https://www.apache.org/licenses/LICENSE-2.0">https://www.apache.org/licenses/LICENSE-2.0</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">MuxPi</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Resources:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Project overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#muxpi-overview">MuxPi overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#relation-to-other-projects">Relation to other projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#licenses">Licenses</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hw-overview.html">Hardware overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="armbian.html">OS installation - Armbian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install-sw.html">MuxPi software installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dut-setup.html">MuxPi setup for DUT</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to MuxPi’s documentation!</a></li>
+      <li>Next: <a href="hw-overview.html" title="next chapter">Hardware overview</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Samsung Electronics Co., Ltd.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
+      
+      |
+      <a href="_sources/project-overview.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

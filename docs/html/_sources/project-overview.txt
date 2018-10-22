@@ -1,0 +1,149 @@
+################
+Project overview
+################
+
+
+**************
+MuxPi overview
+**************
+
+**MuxPi** is an open-source hardware and software board which was designed to
+aid in automating tasks on physical devices. Initial goal was to automate
+testing on hardware platform, thus connected devices will be called **D**\evice
+**U**\nder **T**\est or shortly **DUT**\.  MuxPi is intended to help in testing
+of embedded systems, automatic software installation or flashing and automation
+during development. MuxPi is connected between the DUT and a PC/Server machine
+which will be managing the work.  The name of the board is based on its two
+main components: **SD Mux** and **NanoPi**
+
+
+Essential functionalities
+=========================
+
+* Providing a DUT connection (UART, USB, ETH, microSD card, HDMI DDC) to remote
+  location over Ethernet
+* Switching a microSD card between a DUT's microSD card slot and an onboard
+  USB card reader
+* Flashing a microSD card using an onboard USB card reader
+* Flashing and controlling state of Samsung mobile devices over fully
+  controllable, dedicated USB interface
+* Switching DUT's power supply
+* Switching jumpers/buttons of a DUT in order to (re)boot/(re)configure it
+* Measuring power consumption of a DUT
+* Handling serial connection (UART) of a DUT
+* Writing EDID to a DUT over HDMI connection
+* Interacting with a user/maintainer over a simple, bidirectional interface
+
+Interfaces / Connectivity
+=========================
+
+MuxPi provides all **DUT** interfaces using the network interface on the
+NanoPi. You can connect to it using standrd RJ45 socket. Additionally NanoPi
+NEO's USB OTG and UART might be used to communicate with the MuxPi.
+
+As for the interfaces to communicate with (or control) a **DUT**, MuxPi is
+equipped with:
+
+* Ethernet
+* UART (level shifted)
+* USB Host (up to 4 onboard connectors, including one with power and ID
+  control)
+* USB OTG
+* DyPers (Dynamic jumPers)
+* microSD
+* HMDI (via I2C to write EDID)
+* power control and measurements
+* I2C
+* SPI
+
+
+**************************
+Relation to other projects
+**************************
+
+Samsung projects
+================
+
+SD-MUX
+------
+
+MuxPi is a successor of `SD-MUX`_.  While its main purpose is still the same:
+to help automated testing of OS binary images, the MuxPi allows for achieving
+much more control and feedback.  There are only three common functions of these
+two boards:
+
+.. _`SD-MUX`: https://wiki.tizen.org/SD_MUX
+
+* SD card multiplexing
+* controlling power of a DUT
+* USB switch (not a HUB) - switch is the same but in MuxPi it does totally
+  differnt thing. It is used to redirect USB-M data lines either to NanoPi's
+  USB or NanoPi's UART.
+
+And one function which was not present on SD-MUX board natively but would be
+added to them as an external circuit:
+
+* DyPer
+
+The whole rest of functionalities makes MuxPi far more powerful and versatile
+device than SD-MUX.
+
+Besides the huge difference in hardware there are also two unquestionable
+advantages over SD-MUX:
+
+* user interface - SD-MUX was more "blind" device. User couldn't tell in what
+  state the device was.  You couldn't tell whether the devices were turned on
+  or off by looking on the board which is problematic in case of bigger number
+  of devices. MuxPi has several LEDs, graphic OLED display and two buttons. It
+  may look a little bit to much for such device but experience in using SD-MUX
+  showed that operator needs information that can't be passed using just LEDs.
+* independency - SD-MUX was not a standalone device. It had to be connected
+  (and powered) via USB - usually a PC or server. To reduce number of USB hubs
+  connected to PC/server USB hubs had to be used which introduced many
+  problems. MuxPi is a completely standalone device with its own microcomputer
+  and linux operating system. It needs only an Ethernet connection and a power
+  supply.
+
+
+SDWire
+------
+
+After SD-MUX, a simpler board was created, `SDWire`_. It is a cheap solution for
+multiplexing SD card between connected device and USB (card reader mode).
+
+.. _`SDWire`: https://wiki.tizen.org/SDWire
+
+SLAV stack
+----------
+
+MuxPi is intended to be used as part of SLAV stack, consisting of:
+
+* Dryads - pairs of MuxPi and DUT
+* Boruta - server application for device farm management
+* Weles - server application for test automation
+* Perun - TBD.
+
+... but nothing is constraining you to use MuxPi on its own or use it with other frameworks.
+
+Non-Samsung projects
+=====================
+
+Below list consist only of the public projects based on SD-MUX (MuxPi
+predeccessor)
+
+* `https://github.com/MentorEmbedded/mtda`_
+* `https://github.com/resin-io/autohat-board`_
+
+.. _`https://github.com/MentorEmbedded/mtda`: https://github.com/MentorEmbedded/mtda
+.. _`https://github.com/resin-io/autohat-board`: https://github.com/resin-io/autohat-board
+
+
+********
+Licenses
+********
+
+MuxPi is distributed under `Apache License Version 2.0`_
+
+.. _`Apache License Version 2.0`: https://www.apache.org/licenses/LICENSE-2.0
+
+.. target-notes::
