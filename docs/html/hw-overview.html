@@ -1,0 +1,689 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hardware overview &#8212; MuxPi 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="OS installation - Armbian" href="armbian.html" />
+    <link rel="prev" title="Project overview" href="project-overview.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="hardware-overview">
+<h1>Hardware overview<a class="headerlink" href="#hardware-overview" title="Permalink to this headline">¶</a></h1>
+<p>It is assumed that the reader is familiar with purpose and functionalities of
+MuxPi board from the <a class="reference internal" href="project-overview.html"><span class="doc">Project overview</span></a>.</p>
+<p>The purpose of this page is to give the user general overview of the MuxPi
+board. Board assembly or flashing microcontrollers with firmware is not
+considered in scope of this document.</p>
+<div class="section" id="high-level-overview">
+<h2>High Level Overview<a class="headerlink" href="#high-level-overview" title="Permalink to this headline">¶</a></h2>
+<p>The following diagram is meant to set a general picture of how MuxPi was built:</p>
+<div class="figure">
+<img alt="_images/hw-overview.svg" src="_images/hw-overview.svg" /></div>
+<ul class="simple">
+<li>White denotes MuxPi components (SOC, SBC, IC, etc.)</li>
+<li>Green components are various connectors on  MuxPi board</li>
+<li>Red components are power sockets on MuxPi board</li>
+<li>Blue components are MuxPi’s user  interface elements</li>
+<li>Yellow denotes ETH MuxPi connector to test server</li>
+</ul>
+</div>
+<div class="section" id="component-description">
+<h2>Component description<a class="headerlink" href="#component-description" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>NanoPi NEO</strong> - is a Single Board Computer (SBC) based on Allwinner H3
+(Cortex-A7). It features 1.2GHz quad core with 512MB of RAM.  Currently MuxPi
+is compatible with NanoPi NEO v1.1, v1.2, v1.3.</li>
+<li><strong>4-wire UART level shifter</strong> - simple block of voltage level shifters for
+connecting to DUT’s UART. Not pictured on the diagram above:<ul>
+<li>UART voltage generator - allows to generate voltage in range from 0 to 5V.</li>
+</ul>
+</li>
+<li><strong>USB/UART SWITCH &amp; ID</strong> - a block of componnets with dedicated USB
+connector. The component allows to control USB Vbus and ID, and allows to
+redirect USB data lines either to NanoPi’s USB or UART.</li>
+<li><strong>STM32</strong> - specifically STM32F030C6T6 is a Cortex-M0 based micro-controller
+which supports NanoPi board with low-level functions. The module takes care
+of:<ul>
+<li>controlling SD-MUX module</li>
+<li>controlling DyPers</li>
+<li>handling User Interface elements (2x button, 2x LED, OLED Display)</li>
+<li>writing <a class="reference external" href="https://en.wikipedia.org/wiki/Extended_Display_Identification_Data">EDID</a> <a class="footnote-reference" href="#id3" id="id4">[1]</a> to DUT’s HDMI</li>
+<li>measuring DUT’s current draw</li>
+<li>handling NanoPi’s watchdog</li>
+<li>cooperating with add-ons (NanoPi NEO can also cooperate with add-ons
+directly):<ul>
+<li>measuring analog signals</li>
+<li>handling GPIOs</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><strong>Watchdog Timer</strong> - a simple timer that allows to restart of NanoPi board;
+timeout can be configured in a very wide range: milliseconds, seconds,
+minutes, hours… It also allows the STM32 to reset the NanoPi NEO when
+it becomes unresponsive.</li>
+<li><strong>User Interface</strong> (Blue elements):<ul>
+<li>red power presence LED</li>
+<li>yellow UART VCC presence LED</li>
+<li>blue SD card reader activity LED</li>
+<li>blue NanoPi NEO keepalive LED</li>
+<li>two monochrome (green and red) LEDs driven by NanoPi (accessible by user)</li>
+<li>two RGB LEDs driven by uC (accessible by user)</li>
+<li>128x32 OLED display (accessible by user)</li>
+<li>2 push buttons (accessible by user)</li>
+</ul>
+</li>
+<li><strong>USB HUB</strong> - 2 port USB hub with integrated microSD card reader. Downstream
+ports are distributed to:<ul>
+<li>2xUSB-A connector</li>
+<li>add-ons connector</li>
+<li>USB-ETH converter</li>
+</ul>
+</li>
+<li><strong>USB-&gt;ETH</strong> - USB to Ethernet converter, connected to NanoPi onboard USB
+hub, used to connect MuxPi to DUT in order to eliminate need of external
+Ethernet switch.</li>
+<li><strong>SD-READER</strong> - microSD card reader (part of USB HUB integrated circuit)
+connected to SD-MUX and NanoPi NEO in order to eliminate need of external
+one.</li>
+<li><strong>SD-MUX</strong> - multiplexer of microSD card which allows to connect the card
+either to SD-READER or a DUT.</li>
+<li><strong>2x 2-channel DyPers (Dynamic jumPer)</strong> - a simple switch intended to
+programmatically connect jumpers or push buttons on a DUT.</li>
+<li><strong>Power Control &amp; Current Measurement</strong> - a circuitry which allows to:<ul>
+<li>control power of a DUT using electromagnetic relay</li>
+<li>measure DUTs current draw using HAL effect current sensor which gives
+galvanic isolation from control logic</li>
+</ul>
+</li>
+<li><strong>MuxPi Power Control</strong> - simple circuitry giving two functionalities:<ul>
+<li>generate 3.3V for internal needs</li>
+<li>enable/disable power supply for the main board, controlled by NanoPi (power
+supply for NanoPi is not controlled by this circuit)</li>
+</ul>
+</li>
+<li><strong>UART-&gt;USB</strong> - simple converter allowing user to directly connect to
+NanoPi’s NEO UART0 (debug port).</li>
+</ul>
+</div>
+<div class="section" id="standard-connectors">
+<h2>Standard connectors<a class="headerlink" href="#standard-connectors" title="Permalink to this headline">¶</a></h2>
+<p>The following connectors are standard thus it is assumed that no additional
+explanation is neccessary.</p>
+<div class="figure">
+<img alt="_images/board-top-standard-connectors.png" src="_images/board-top-standard-connectors.png" />
+</div>
+<p>Above, you can find following connectors highlighted (listed clockwise):</p>
+<ul class="simple">
+<li><strong>2x USB-A</strong>   - USB-A Host interfaces connected to NanoPi NEO through
+onboard USB HUB USB2640.</li>
+<li><strong>ETH</strong> -  standard RJ45 with built in LEDs and transformer. It is a
+connector for LAN9500A ETH&lt;-&gt;USB converter which is connected to NanoPi
+through onboard USB HUB USB2640.</li>
+<li><strong>POWER</strong> - 5V Power supply  connector for MuxPi. Typical barrel receptacle
+5.5/2.1 ensures that widely used, typical power adapters can be used to power
+the board. Power consumption of MuxPi should be less than 1A assuming no
+addons are connected.</li>
+<li><strong>HDMI</strong> - Full-sized HDMI connector with connected only DDC channel wires,
+hot plug pin and GND/VCC pins. It is meant to be EDID injector into a DUT’s
+HDMI output. It is connected to Cortex-M0 microcontroller.</li>
+<li><strong>1x USB-A</strong> - USB-A Host interface connected directly to NanoPi NEO. Power
+supply of this connector is not controllable by NanoPi. It is always present.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<blockquote>
+<div>The upper USB of the double USB socket, shares the same USB channel from USB
+HUB with ETH. (As shown on figure below) Jumpers located at the rear side of
+double USB connector allow to disconnect this USB from ETH and connect to
+add-on connector. Details on this topic are covered in <a class="reference internal" href="#jumpers">Jumpers</a> section.</div></blockquote>
+<div class="last figure">
+<img alt="_images/board-eth.png" src="_images/board-eth.png" />
+</div>
+</div>
+<div class="figure">
+<img alt="_images/board-bottom-standrad-connectors.png" src="_images/board-bottom-standrad-connectors.png" />
+</div>
+<ul class="simple">
+<li><strong>Micro SD</strong> - slot for card controlled by SD-MUX part of MuxPi.</li>
+<li><strong>Micro USB</strong> - NanoPi NEO UART0 (debug serial)</li>
+</ul>
+</div>
+<div class="section" id="other-connectors">
+<h2>Other connectors<a class="headerlink" href="#other-connectors" title="Permalink to this headline">¶</a></h2>
+<p>Below image shows the layout of all non-standard connectors.</p>
+<ul class="simple">
+<li>Green color is used to denote <a class="reference internal" href="#nanopi-neo-connector">NanoPi NEO connector</a>. It supports v1.1, v1.2
+and v1.3 <a class="reference external" href="http://wiki.friendlyarm.com/wiki/index.php/NanoPi_NEO">NanoPi NEO</a> <a class="footnote-reference" href="#id5" id="id6">[2]</a> board versions.</li>
+<li>Yellow color is used to denote MuxPi <a class="reference internal" href="#add-on-connector">ADD-ON connector</a>.</li>
+<li>Blue color is used to denote development only connectors, which are not
+described here. It is assumed that people who are interested in development
+of the firmware will refer to the schematics for pinout.</li>
+<li>Red color is used to denote rest of the connectors.</li>
+</ul>
+<div class="figure">
+<img alt="_images/board-other-connectors.png" src="_images/board-other-connectors.png" />
+</div>
+<div class="section" id="nanopi-neo-connector">
+<h3>NanoPi NEO connector<a class="headerlink" href="#nanopi-neo-connector" title="Permalink to this headline">¶</a></h3>
+<p>NanoPi NEO is external module that is not subject to this documentation.
+Please refer to pinout of the <a class="reference external" href="http://wiki.friendlyarm.com/wiki/index.php/NanoPi_NEO">NanoPi NEO</a> <a class="footnote-reference" href="#id5" id="id7">[2]</a> v1.1, v1.2 or v1.3.</p>
+</div>
+<div class="section" id="sd-adapter">
+<h3>SD Adapter<a class="headerlink" href="#sd-adapter" title="Permalink to this headline">¶</a></h3>
+<p>This connector is used to hook the microSD card placed in to the MuxPi board
+(NOT NanoPi NEO) to the DUT. Name of pins follow the microSD standard thus are
+not explained here.</p>
+<div class="figure">
+<img alt="_images/board-sd.png" src="_images/board-sd.png" />
+</div>
+</div>
+<div class="section" id="dut-power">
+<h3>DUT Power<a class="headerlink" href="#dut-power" title="Permalink to this headline">¶</a></h3>
+<p>This component gives two features:</p>
+<ul>
+<li><p class="first">Power switch or a “hard resetter” for a DUT. This feature is realised using
+electromagnetic relay controlled by STM32. It can switch power supply up to
+5A and 250VAC. One line is connected directly and one is connected through
+the relay.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">It is not recommended to use this feature if DUT hasn’t been properly shut
+down as it might cause errors.</p>
+</div>
+</li>
+<li><p class="first">Current measurement - Muxpi is able to masure up to 5A. Current sensor is
+galvanically isolated from the rest of components thanks to use of Hall effect current
+sensor. It is connected to unswitchable power line.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Current sensor is bypassed with 3 0R resistors that can be populated if
+current sensor is not needed. These resistors must not be populated if
+current measurement is required.</p>
+</div>
+</li>
+</ul>
+<div class="figure">
+<img alt="_images/board-power.png" src="_images/board-power.png" />
+</div>
+</div>
+<div class="section" id="dypers">
+<h3>DyPers<a class="headerlink" href="#dypers" title="Permalink to this headline">¶</a></h3>
+<p>Dynamic jumPers, so called DyPers, are simple programmatically controlled
+switches that can act as a regular jumper or a switch. It is meant to help
+automation when the jumpers or push buttons must be used on the DUT during
+normal operations such as powering on/off. Excellent example are ARTIK boards,
+which can’t be booted just by powering on. After applying power, the user is
+required to press “Power on” button. Such requirement would normally rule out
+automated testing.</p>
+<p>Two-wire cable needs to be soldered to pins of the button (or connected to
+a jumper) and connected to one of DyPers. Using software it can be switched on
+and off what simulates pressing the button. Dypers are a small, electromagnetic
+relays There are 2 dypers on MuxPi board. Each of them has two channels.
+Both channels are switched at the same time with the same command. So both of
+them can be on and both can be off but there is no way to turn one on and one
+off. The two-channel design is useful for pairs of jumpers that need to be
+operated as pair. If for example some board needs to have 2 jumpers linked for
+flashing mode and 0 jumpers linked for normal operation then only one DyPer
+with two channels may be used. These two channels are separated galvanically so
+there is no worry that there will be some kind of influence.</p>
+<div class="figure">
+<img alt="_images/board-dypers.png" src="_images/board-dypers.png" />
+</div>
+<p>Why electromagnetic realys instead of semiconductor switches? Because we don’t
+wan’t to deal with some relation of steering and operating signals.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">DyPers can be used for other purposes e.g. power switch - it can switch up
+to 0.5A signals.</p>
+</div>
+</div>
+<div class="section" id="uart">
+<h3>UART<a class="headerlink" href="#uart" title="Permalink to this headline">¶</a></h3>
+<p>This is smart UART for connecting NanoPi NEO to a DUT. There is no need to use
+dedicated converters for particular boards because MuxPi has special level
+shifter which takes care for adjusting voltages of UART lines for both sides:
+NanoPi and the DUT. To take advantage of this shifter, pin VCC must be
+connected to power pin on DUT’s board. Voltage shifters have operating range
+from 1.6 to 5.5V.  This is 4-wire UART which means that it can communicate
+using hardware flow control.</p>
+<div class="figure">
+<img alt="_images/board-uart.png" src="_images/board-uart.png" />
+</div>
+<ul>
+<li><p class="first">GND - digital ground of MuxPi board</p>
+</li>
+<li><p class="first">N.C. - not connected</p>
+</li>
+<li><p class="first">Vloc - local voltage</p>
+<p>Voltage may be generated internally on MuxPi if the DUT, or anything else we
+are connecting to, has no power pin. In such case voltage generator must be
+set to desired value and activated. Command “uart 3300” must be sent to
+Cortex-M0, where 3300 is desired voltage given in millivolts. Supported
+voltage range is from 0 to 5000mV. Vloc an VCC pins must be connected in such
+case, e.g. with a jumper. Vloc may be also used to power up additional
+converter e.g.to RS-232C (+/-12V).</p>
+</li>
+<li><p class="first">VCC - power of DUT. If dut has no such power pin then it must be connected to
+Vloc which must be confgured properly (as stated above).</p>
+</li>
+<li><p class="first">DUT RX - receiver data line in the DUT - through this line MuxPi sends data
+to the DUT</p>
+</li>
+<li><p class="first">DUT TX - transmitter data line in the DUT - from this line MuxPi reads data
+form the DUT</p>
+</li>
+<li><p class="first">DUT CTS - Clear To Send - hardware handshake</p>
+</li>
+<li><p class="first">DUT RTS - Ready To Send - hardware handshake</p>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">RX, TX, CTS, RTS are shown from DUT perspective so you don’t need cross the
+wires yourself.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">A device powered from Vloc must not draw more than 50mA of current.</p>
+</div>
+<p><strong>Example connection to RS232 converter</strong></p>
+<p>Below image shows how to connect UART of MuxPi to a device. In this particular
+case it is 4-wire RS232C converter which must be powered from external source
+(from converter’s point of view). As stated above, wire cross is done on MuxPi
+board so cable should not be crossed. However in this image you can see cross
+because of strange labeling of pins on the converter.</p>
+<div class="figure">
+<img alt="_images/board-uart-rs232.png" src="_images/board-uart-rs232.png" />
+</div>
+<p>You can see in the image that Vloc and VCC are connected. In this example Vloc
+is used to power up the converter and bias the level shifters (VCC).</p>
+</div>
+<div class="section" id="usb-m">
+<h3>USB-M<a class="headerlink" href="#usb-m" title="Permalink to this headline">¶</a></h3>
+<p>This USB connector is dedicated to mobile Samsung devices. It has controllable
+Vbus and ID lines.</p>
+<div class="figure">
+<img alt="_images/board-usb.png" src="_images/board-usb.png" />
+</div>
+<ul class="simple">
+<li>USB D- - USB data line.</li>
+<li>USB D+ - USB data line.</li>
+<li>ID - pin controllable by MuxPi. A resistor with specified value can be
+connected to this pin or it may by left unconnected</li>
+<li>VBUS - +5V power line. It can be switched on and off.</li>
+<li>GND - ground line.</li>
+</ul>
+<p>This connector is an endpoint of larger entity which is dedicated to connect to
+mobile devices.  Thanks to its controllable Vbus and ID lines it is possible to
+control connected devices. It comprises of:</p>
+<ul class="simple">
+<li>ID switch with connected 1M multi-turn potentiometer - ID can be connected to
+ground through potentiometer or left open. The potentiometer has 11 turns.
+its value can be easily set using ohmmeter.</li>
+<li>Vbus switch thanks to which power can be switched on and off. This
+functionality is necessary to control connected device (power off, power on,
+download mode, etc.)</li>
+<li>UART/USB switch which allows to redirect mobile’s USB data lines either to
+NanoPi’s USB or to MuxPi’s DUT UART.</li>
+</ul>
+<p>All of those components are independently controlled by Cortex-M0
+microcontroller. For example if there is a need to reflash a mobile device,
+following steps needs to be taken:</p>
+<ol class="arabic simple">
+<li>switch off VBus</li>
+<li>disconnect the battery of the mobile device - power switch of MuxPi can be
+used to accomplish this task</li>
+<li>connect resistor (potentiometer) to ID pin - potentiometer should be set to
+the correct value before the whole procedure is started. The value should be
+valid for UART mode.</li>
+<li>connect USB data lines of the mobile device to NanoPi by setting UART/USB
+switch to UART mode</li>
+<li>connect the battery to the mobile device</li>
+<li>switch on the VBus power</li>
+<li>send enter key code to the serial to stop u-boot</li>
+<li>send ‘thordown’ command to u-boot through serial connection (UART) - after
+this command the mobile device will switch USB data lines to USB
+automatically</li>
+<li>connect data lines of the mobile device to USB of NanoPi by setting UART/USB
+switch to USB mode</li>
+<li>start lthor/heimdall software to flash the device</li>
+<li>after flashing is finished switch off VBus</li>
+<li>disconnect the battery</li>
+<li>disconnect resistor from ID pin</li>
+<li>connect the battery</li>
+<li>switch on the VBus</li>
+<li><dl class="first docutils">
+<dt>the device should boot with the new binary image and USB connection can be</dt>
+<dd>used to run tests.</dd>
+</dl>
+</li>
+</ol>
+<p>This is an example which perfectly works with Samsung mobile devices. However,
+it should be possible to execute similar procedure with products of other
+brands if they support it.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Special USB cable needs to be used as commonly available cables do
+not have ID pin connected.  Micro USB connector pinout can be found on the
+internet and pinout of MuxPi connector is shown above.</p>
+</div>
+</div>
+<div class="section" id="add-on-connector">
+<h3>ADD-ON connector<a class="headerlink" href="#add-on-connector" title="Permalink to this headline">¶</a></h3>
+<p>MuxPi can be easily extended by connecting add-on boards to it. There is a
+<a class="reference external" href="ADD-ONs">reference add-on</a> which serves as universal starting point to
+design custom addon.</p>
+<div class="figure" id="id1">
+<img alt="Left ADD-ON Connector" src="_images/board-addon-left.png" />
+<p class="caption"><span class="caption-text">Above image shows left connector of the ADD-ON</span></p>
+</div>
+<ul class="simple">
+<li>5V - power supply - not switchable - always present</li>
+<li>3V3 - switchable (controlled by NanoPi) 3.3V power supply</li>
+<li>I2C0 SDA - I2C0 SDA line connected to NanoPi</li>
+<li>I2C0 SCL - I2C0 SCL line connected to NanoPi * DBG UART TX - UART0 (debug) of
+NanoPi</li>
+<li>DBG UART RX - UART0 (debug) of NanoPi</li>
+<li>USB B+/-, USB A+/- USB host lines connected to NanoPi through USB HUB</li>
+<li>GND - ground lines</li>
+<li>N.C. - not connected</li>
+</ul>
+<div class="figure" id="id2">
+<img alt="Right ADD-ON Connector" src="_images/board-addon-right.png" />
+<p class="caption"><span class="caption-text">Above image shows right connector of the ADD-ON</span></p>
+</div>
+<ul class="simple">
+<li>SPI0 CLK - SPI0 clock line connected to NanoPi</li>
+<li>SPI0 MOSI - SPI0 “master output slave input” line connected to NanoPi</li>
+<li>SPI0 CS - SPI0 “chip select” line connected to NanoPi</li>
+<li>SPI0 MISO - SPI0 “master input slave output” line connected to NanoPi</li>
+<li>PI GPIO 1,2,3 - GPIO (General Purpose Input/Output) connected to NanoPi NEO.
+Ports PG11, PL11, PA17 respectively.</li>
+<li>ST GPIO 1,2,3 - GPIO connected to Cortex-M0 microcontroller. Ports PB3, PB4,
+PB5 of STM32F03C6T6 respectively.</li>
+<li>ADC1,2 - analog inputs connected to analog to digital converter of Cortex-M0
+microcontroller.  Ports PA1, PA2 respectively. Voltage range of this input is
+0 to 3.3V. This lines are not buffered in any way so attention must paid when
+dealing with them.</li>
+<li>GND - ground lines</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">NanoPi’s GPIO 1 has additional special function. It is connected to
+Cortex-M0 Boot0 pin which enables firmware download mode during
+microcontroller boot.  1 - enables this mode while 0 disables it. So it is
+useless as GPIO when the microcontroller is being booted</p>
+</div>
+</div>
+</div>
+<div class="section" id="jumpers">
+<h2>Jumpers<a class="headerlink" href="#jumpers" title="Permalink to this headline">¶</a></h2>
+<p>There are 4 jumpers on the MuxPi board.</p>
+<div class="figure">
+<img alt="_images/board-jumpers.png" src="_images/board-jumpers.png" />
+</div>
+<ul>
+<li><p class="first">UART - pins Vloc &amp; VCC - if jumped then internal voltage generator is used as
+voltage reference for data lines and powers up target device. If open then
+voltage reference for data lines comes from target device and internal
+voltage generator is unused.</p>
+</li>
+<li><p class="first">USB/ETH - determines what USB data lines of one USB HUB are connected to.
+One downstream channel, outgoing from onboard USB HUB, is always connected to
+upper socket of double USB-A connector. It can be also connected to either
+add-on connector or onboard USB&lt;-&gt;ETH converter. If first two pins are jumped
+then USB lines are connected to add-on connector. If last two pins are jumped
+then these lines are connected tu USB&lt;-&gt;ETH converter. If none of the pins
+are jumped then the only connection is the upper socket of double connector.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The upper socket of double USB-A connector must be lefty empty if
+USB&lt;-&gt;ETH is selected or add-on connector is selected and something is
+connected to these data lines on the addon!</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Both jumpers must be placed in the same position!</p>
+</div>
+</li>
+<li><p class="first">VDD - if this pins are jumped then the VDD and 3V3 are always on. If this is
+left open then VDD and 3V3 are controlled by NanoPi. Having the voltage
+always on may be helpful when MuxPi is to be used without NanoPi NEO board.
+The best example is setting value of USB ID potentiometer. The potentiometer
+is located underneath NanoPi NEO so it must be removed in order to do the
+adjustment. But when NanoPi NEO is removed there is no way to turn on power
+for microcontroller.  And that is the moment when VDD jumper comes into the
+action. Just simply connect pins with jumper and power is on. Don’t forget to
+take of the jumper after the work is done.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If there is no particular need, it’s best to leave this jumper open.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="user-interface">
+<h2>User Interface<a class="headerlink" href="#user-interface" title="Permalink to this headline">¶</a></h2>
+<p>MuxPi, in contrast to SD MUX, has quite rich user interface. It can give some
+information to an operator as well as receive it.</p>
+<div class="figure">
+<img alt="_images/board-ui.png" src="_images/board-ui.png" />
+</div>
+<ul class="simple">
+<li>POWER LED - red LED indicating presence of power supply</li>
+<li>SD READER LED - blue LED indicating internal SD card reader activity</li>
+<li>UART VCC LED - red LED indicating presence of UART target voltage</li>
+<li>(MONOCHROME) LED 1 - general purpose, green LED connected directly to NanoPi
+NEO GPIO</li>
+<li>(MONOCHROME) LED 2 - general purpose, red LED connected directly to NanoPi
+NEO GPIO</li>
+<li>RGB LED1, LED2 - two general purpose, RGB LEDs connected to Cortex-M0
+microcontroller. Fully controllable by NanoPi NEO. These are WS2812B LEDs
+with builtin controller.</li>
+<li>128x32 OLED Display - general purpose 0.96”, graphic display.  Connected to
+Cortex-M0 and fully controllable by NanoPi NEO.</li>
+<li>BUTTON 1, 2 - two general purpose buttons connected to Cortex-M0
+microcontroller. Fully accessible from NanoPi NEO.</li>
+<li>NanoPi NEO - not shown in the above picture. Keep-alive blue LED, mounted on
+NanoPi NEO board.</li>
+</ul>
+<p>With this UI, an operator can be informed about current status of MuxPi and
+gently disturb it in order to perform some actions. Functions of UI are
+customizable and can be controlled from NanoPi NEO.</p>
+</div>
+<div class="section" id="add-ons">
+<h2>ADD-ONs<a class="headerlink" href="#add-ons" title="Permalink to this headline">¶</a></h2>
+<p>Add-ons are meant to:</p>
+<ul class="simple">
+<li>add functionality in the future, which was unknown during design process of
+MuxPi 8 add functionalities very rarely used (e.g. addon for USB ID
+potentiometer adjusting) - placing them on the board would be a waste of
+place.</li>
+</ul>
+<p>A sample add-on was designed to provide board template for users specific
+boards.</p>
+<div class="figure">
+<img alt="_images/board-addon-sample.png" src="_images/board-addon-sample.png" />
+</div>
+<p>This add-on contains:</p>
+<ul class="simple">
+<li>LEDs connected to:<ul>
+<li>5V and VDD indicating power presence</li>
+<li>PI GPIO 1-3 indicating state of 3 NanoPi NEO GPIOs</li>
+<li>ST GPIO 1-3 indicating state of 3 Cortex-M0 GPIOs</li>
+</ul>
+</li>
+<li>UART0 (NanoPi NEO) to USB converter</li>
+<li>lots of THT pads to ease soldering new circuits</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Its dimensions are as big as possible with special cutouts for power plugs.</p>
+</div>
+</div>
+<div class="section" id="programmable-units">
+<h2>Programmable units<a class="headerlink" href="#programmable-units" title="Permalink to this headline">¶</a></h2>
+<p>Muxpi contains 3 programmable units:</p>
+<ul class="simple">
+<li>NanoPi NEO - the most advanced one. It is Linux based microprocessor.</li>
+<li>Cortex-M0 microcontroller - is responsible for low level actions and
+is only a slave for NanoPi NEO.</li>
+<li>ATtiny10 - a small AVR microcontroller which is used only a watchdog for
+NanoPi NEO.</li>
+</ul>
+<p>All of the above units need software for the MuxPi board to function properly.</p>
+<p>NanoPi NEO needs some distribution of linux on a micro SD card. You can
+find how to setup and configure a linux distibution on other pages in this
+documentation.</p>
+<p>Cortex-M0 needs a firmware which is not available in the repo. There is the
+whole source code that can be built according to instructions that can be found
+in INSTALL file. There are also ready to flash binaries that are useful when a
+user does not wan’t to build one on their own. There are two ways to flash the
+microcontroller:</p>
+<ul class="simple">
+<li>flash it using some kind of SWD interface</li>
+<li>flash it from NanoPi NEO</li>
+</ul>
+<p>Second solution is preferred as there is no single hardware nor software tool
+required. All what needs to be done is to download the binary and execute
+flash_firmware script with the file name as argument. It is true only if
+distribution of NanoPi NEO contains proper software. To be sure just use MuxPi
+dedicated distribution.</p>
+<p>ATtiny10 microcontroller also needs firmware. Unfortunately this one needs
+special interface e.g. <a class="reference external" href="http://www.fischl.de/usbasp/">USBasp</a> <a class="footnote-reference" href="#id8" id="id9">[3]</a>  or any other interface which is able to flash
+this microcontroller over TPI interface. Also for this microcontroller there is
+a full source code and ready to flash binaries. If watchdog functionality is
+not desired then instead of flashing firmware into ATTiny, R21 can be removed
+from MuxPi board. In such situation NanoPi NEO will always be powered on.</p>
+<div class="figure">
+<img alt="_images/board-r21.png" src="_images/board-r21.png" />
+</div>
+<table class="docutils footnote" frame="void" id="id3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[1]</a></td><td><a class="reference external" href="https://en.wikipedia.org/wiki/Extended_Display_Identification_Data">https://en.wikipedia.org/wiki/Extended_Display_Identification_Data</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id5" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[2]</td><td><em>(<a class="fn-backref" href="#id6">1</a>, <a class="fn-backref" href="#id7">2</a>)</em> <a class="reference external" href="http://wiki.friendlyarm.com/wiki/index.php/NanoPi_NEO">http://wiki.friendlyarm.com/wiki/index.php/NanoPi_NEO</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id8" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id9">[3]</a></td><td><a class="reference external" href="http://www.fischl.de/usbasp/">http://www.fischl.de/usbasp/</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">MuxPi</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Resources:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="project-overview.html">Project overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Hardware overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#high-level-overview">High Level Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#component-description">Component description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#standard-connectors">Standard connectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#other-connectors">Other connectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jumpers">Jumpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#user-interface">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#add-ons">ADD-ONs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#programmable-units">Programmable units</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="armbian.html">OS installation - Armbian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install-sw.html">MuxPi software installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dut-setup.html">MuxPi setup for DUT</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="project-overview.html" title="previous chapter">Project overview</a></li>
+      <li>Next: <a href="armbian.html" title="next chapter">OS installation - Armbian</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Samsung Electronics Co., Ltd.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
+      
+      |
+      <a href="_sources/hw-overview.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

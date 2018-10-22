@@ -1,0 +1,297 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>OS installation - Armbian &#8212; MuxPi 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MuxPi software installation" href="install-sw.html" />
+    <link rel="prev" title="Hardware overview" href="hw-overview.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="os-installation-armbian">
+<h1>OS installation - Armbian<a class="headerlink" href="#os-installation-armbian" title="Permalink to this headline">¶</a></h1>
+<p>Armbian is an operating system for ARM based boards based on Debian. It is the
+recommended operating system for MuxPi board.</p>
+<p>There is also a flavour of Armbian based on Ubuntu, which should work in a
+similar manner to the Debian one, although it is not supported.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Download the latest Stretch <a class="reference external" href="https://www.armbian.com/nanopi-neo/">Armbian for Nanopi Neo</a> <a class="footnote-reference" href="#id1" id="id2">[1]</a>. You can either use
+<a class="reference external" href="https://dl.armbian.com/nanopineo/Debian_stretch_next.7z.torrent">torrent</a> <a class="footnote-reference" href="#id6" id="id7">[3]</a> or <a class="reference external" href="https://dl.armbian.com/nanopineo/Debian_stretch_next.7z">http</a> <a class="footnote-reference" href="#id4" id="id5">[2]</a> download. We will download via http using wget. You
+can install wget on Debian-based distributions with <code class="docutils literal notranslate"><span class="pre">apt-get</span> <span class="pre">install</span>
+<span class="pre">wget</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> wget https://dl.armbian.com/nanopineo/Debian_stretch_next.7z
+</pre></div>
+</div>
+</li>
+<li><p class="first">Uncompress the downloaded file. It will likely be a <code class="docutils literal notranslate"><span class="pre">.7z</span></code> file. To extract
+it we will use <a class="reference external" href="http://www.7-zip.org/">7-Zip</a> <a class="footnote-reference" href="#id8" id="id9">[4]</a>. You can install it on Debian-based distributions
+with <code class="docutils literal notranslate"><span class="pre">apt-get</span> <span class="pre">`install</span> <span class="pre">p7zip-full</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> 7z e Debian_*
+</pre></div>
+</div>
+</li>
+<li><p class="first">Verify if the download and unpacking were successful by checking checksum:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> sha256sum Armbian_*.img
+</pre></div>
+</div>
+<p>Output should be the same as contents of sha256sum.sha file.</p>
+</li>
+<li><p class="first">Connect your SD card and check which <code class="docutils literal notranslate"><span class="pre">/dev/sdX</span></code> it is. You can do this
+using e.g. fdisk:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> fdisk -l
+</pre></div>
+</div>
+</li>
+<li><p class="first">Copy the extracted image to your SD card.</p>
+<div class="admonition danger">
+<p class="first admonition-title">Danger</p>
+<p class="last">Make sure your <code class="docutils literal notranslate"><span class="pre">/dev/sdX</span></code> device is the SD card. If performed
+incorrectly, next step may destroy your files unrecoverably and even stop
+your machine from working.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You need to adjust Armbian_*.img name as dd tools does not take
+wildcards.</p>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> dd <span class="nv">bs</span><span class="o">=</span>1M <span class="k">if</span><span class="o">=</span>Armbian_*.img <span class="nv">of</span><span class="o">=</span>/dev/sdX
+</pre></div>
+</div>
+<p>You can verify if the image was copied correctly by running:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> sha256sum /dev/sdX
+</pre></div>
+</div>
+</li>
+<li><p class="first">Put prepared SD card in your MuxPi’s NanoPi SD card slot.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Connect NanoPi’s UART0. You can use the UART-&gt;USB converter on the MuxPi
+board, just connect a cable to  microUSB port on the bottom of the board.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can omit this if you connect the device to DHCP server and
+connect over ssh. You will need to adjust below steps in such case.</p>
+</div>
+</li>
+<li><p class="first">Connect to serial using either screen or minicom (or your tool of choice)</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Change <code class="docutils literal notranslate"><span class="pre">ttyUSB0</span></code> to your serial that is connected to NanoPi.  If you do
+not  have any USB UART connected, MuxPi’s converter should be
+<code class="docutils literal notranslate"><span class="pre">ttyUSB0</span></code>.</p>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> screen /dev/ttyUSB0 <span class="m">115200</span>
+
+<span class="gp">#</span> minicom -b <span class="m">115200</span> -D /dev/ttyUSB0
+</pre></div>
+</div>
+</li>
+<li><p class="first">Power the device on. First boot might take some time.</p>
+</li>
+<li><p class="first">After system boots, you need to log in:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">login: root</span>
+<span class="go">password 1234</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">1234</span></code> was the correct password at the time of writing this page. If it
+does not work, you should check FAQ section on <a class="reference external" href="https://www.armbian.com/nanopi-neo/">Armbian for Nanopi Neo</a> <a class="footnote-reference" href="#id1" id="id3">[1]</a>
+page.</p>
+</div>
+</li>
+<li><p class="first">You will be asked to change your password:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">You are required to change your password immediately (root enforced)</span>
+<span class="go">Changing password for root.</span>
+<span class="go">(current) UNIX password:</span>
+<span class="go">Enter new UNIX password:</span>
+<span class="go">Retype new UNIX password:</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Next, you will be greeted with nice, colourful text and initial non-root
+user account configuration. Follow the interactive user creation process.</p>
+<p>We always create a <code class="docutils literal notranslate"><span class="pre">pi</span></code> user.</p>
+</li>
+<li><p class="first">Set static IP on the device by creating following file:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> vim /etc/network/interfaces.d/eth0
+</pre></div>
+</div>
+<p>With the following contents:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>auto eth0
+allow-hotplug eth0
+iface eth0 inet static
+  address 192.168.0.2
+  netmask 255.255.255.0
+  gateway 192.168.0.1
+</pre></div>
+</div>
+<p>Above will work if you connect MuxPi to your machine (which will have
+192.168.0.1 address) and the 192.168.0.2 address will be available.
+For this document purpose we will assume the IP address is <code class="docutils literal notranslate"><span class="pre">192.168.0.2</span></code>.</p>
+</li>
+<li><p class="first">Settings need to be changed, you need to restart networking:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> systemctl restart networking
+</pre></div>
+</div>
+<p>Or just restart the whole device:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> shutdown -r now
+</pre></div>
+</div>
+</li>
+<li><p class="first">Now you should be able to connect to device through ssh:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> ssh root@192.168.0.2
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>If you are not able to connect to it, it might mean that the network
+settings did not reload properly. It is best to restart device using
+serial connection from earlier:</p>
+<div class="last highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> shutdown -r now
+</pre></div>
+</div>
+</div>
+</li>
+<li><p class="first">Configure UARTs for communication with MuxPi’s stm and for communication
+with DUT:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> armbian-config
+</pre></div>
+</div>
+<p>It will ask you for internet connection but it is not required (press any
+key to continue)</p>
+<p>Go to <span class="menuselection">System ‣ Hardware</span> and enable <code class="docutils literal notranslate"><span class="pre">uart1</span></code> and <code class="docutils literal notranslate"><span class="pre">uart2</span></code>.</p>
+<p>Reboot when asked.</p>
+</li>
+</ol>
+<table class="docutils footnote" frame="void" id="id1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td><em>(<a class="fn-backref" href="#id2">1</a>, <a class="fn-backref" href="#id3">2</a>)</em> <a class="reference external" href="https://www.armbian.com/nanopi-neo/">https://www.armbian.com/nanopi-neo/</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id5">[2]</a></td><td><a class="reference external" href="https://dl.armbian.com/nanopineo/Debian_stretch_next.7z">https://dl.armbian.com/nanopineo/Debian_stretch_next.7z</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id6" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id7">[3]</a></td><td><a class="reference external" href="https://dl.armbian.com/nanopineo/Debian_stretch_next.7z.torrent">https://dl.armbian.com/nanopineo/Debian_stretch_next.7z.torrent</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id8" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id9">[4]</a></td><td><a class="reference external" href="http://www.7-zip.org/">http://www.7-zip.org/</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">MuxPi</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Resources:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="project-overview.html">Project overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw-overview.html">Hardware overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">OS installation - Armbian</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="install-sw.html">MuxPi software installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dut-setup.html">MuxPi setup for DUT</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="hw-overview.html" title="previous chapter">Hardware overview</a></li>
+      <li>Next: <a href="install-sw.html" title="next chapter">MuxPi software installation</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Samsung Electronics Co., Ltd.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
+      
+      |
+      <a href="_sources/armbian.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

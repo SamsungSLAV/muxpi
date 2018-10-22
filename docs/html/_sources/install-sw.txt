@@ -1,0 +1,142 @@
+###########################
+MuxPi software installation
+###########################
+
+.. note::
+
+   Below manual, assumes that you have MuxPi board connected to your machine's
+   local network and it is avaliable at 192.168.0.2 address. If you set another
+   address or use DHCP server substitute that address for yours.
+
+.. note ::
+
+   It is recommended to cross-compile MuxPi's software on your host machine,
+   rather than install go-toolchain on MuxPi's NanoPi NEO board.
+
+.. highlight:: console
+
+
+*****************
+Building binaries
+*****************
+
+Building using docker
+=====================
+
+#. Prerequisites
+
+   * Docker_
+   * Make_
+
+   .. _Docker: https://www.docker.com/
+   .. _Make: https://www.gnu.org/software/make/
+
+#. Clone MuxPi and go to that directory with software::
+
+      $ git clone https://github.com/SamsungSLAV/muxpi.git && cd muxpi/sw/nanopi
+
+#. Build MuxPi software::
+
+      $ make docker-build
+
+   Resulting binaries will be in ``bin`` directory.
+
+Building from source
+======================
+
+#. Prerequisites
+
+   * git_
+   * `go (1.10+)`_
+
+   .. _git: https://git-scm.com/
+   .. _`go (1.10+)`: https://golang.org/doc/install
+
+#. Go get it and go to muxpi directory::
+
+      $ go get github.com/SamsungSLAV/muxpi
+      $ cd $GOPATH/src/github.com/SamsungSLAV/muxpi/sw/nanopi
+
+#. Download dependencies::
+
+      $ go get ./...
+
+#. Build binaries::
+
+      $ mkdir -p bin
+      $ GOARCH=arm GOOARM=7 GOOS=linux go build -o bin/stm ./cmd/stm/
+      $ GOARCH=arm GOOARM=7 GOOS=linux go build -o bin/fota ./cmd/fota/
+
+
+*****
+Setup
+*****
+
+Install muxpi-power
+===================
+
+#. Copy muxpi-power files to your MuxPi::
+
+      $ scp power/muxpi-power root@192.168.0.2:/usr/bin
+      $ scp power/systemd/muxpi-power.service root@192.168.0.2:/etc/systemd/system
+
+#. On your MuxPi device, enable and start muxpi-power service::
+
+      # systemctl enable muxpi-power.service
+      # systemctl start muxpi-power.service
+
+   When you restart MuxPi board, you should see that after system boot, board
+   comes alive - e.g. display lights up.
+
+Install stm
+===========
+
+#. Copy stm binary and systemd files to MuxPi device::
+
+      $ scp bin/stm root@192.168.0.2:/usr/bin/
+      $ scp stm/systemd/stm.service root@192.168.0.2:/etc/systemd/system
+      $ scp stm/systemd/stm-user.socket root@192.168.0.2:/etc/systemd/system
+      $ scp stm/systemd/stm.socket root@192.168.0.2:/etc/systemd/system
+      $ scp stm/stm root@192.168.0.2:/usr/local/bin/stm
+
+#. On your MuxPi device - create group stm and add your user (assumed to be
+   ``stm``::
+
+      # groupadd stm
+      # usermod -aG stm pi
+
+#. On your MuxPi device - enable stm sockets::
+
+      # systemctl daemon-reload
+      # systemctl enable stm.socket stm-user.socket
+      # systemctl start stm.socket stm-user.socket
+
+   .. note::
+
+      Currently stm is not safe for concurrent use and requires root to operate
+      (or whoever ``/dev/ttyS2`` permissions point to). It is recommended to
+      install stm as an auto starting service as described above.
+
+   .. warning::
+
+      stm.service should NOT be started manually or enabled, because when
+      run through systemd, stm expects to be able to obtain the aforementioned
+      socket paths from systemd, which is only possible when the service is
+      launched by the sockets.
+
+Install fota
+============
+
+#. Copy fota binary to MuxPi device::
+
+      $ scp bin/fota root@192.168.0.2:/usr/bin/
+
+#. On your MuxPi device - create a symlink from ``/usr/local/bin/fota`` to
+   ``/usr/bin/fota/``. Only ``/usr/local/bin/fota/`` should be used by software
+   interfacing with MuxPi. This allows to swap fota implementation to your
+   preferred tool::
+
+      # ln -s /usr/bin/fota /usr/local/bin/fota
+
+.. target-notes::
+
