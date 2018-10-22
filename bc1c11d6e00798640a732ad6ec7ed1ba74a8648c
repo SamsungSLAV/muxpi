@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d7278a58_172675bc",
+        "filename": "doc/sphinx/source/armbian.txt",
+        "patchSetId": 5
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1015231
+      },
+      "writtenOn": "2018-10-22T18:12:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "449f0941_44a10d4c",
+      "range": {
+        "startLine": 86,
+        "startChar": 68,
+        "endLine": 86,
+        "endChar": 75
+      },
+      "revId": "bc1c11d6e00798640a732ad6ec7ed1ba74a8648c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "21e20750_57b3b61e",
         "filename": "doc/sphinx/source/hw-overview.txt",
         "patchSetId": 5
@@ -45,6 +69,30 @@
       "revId": "bc1c11d6e00798640a732ad6ec7ed1ba74a8648c",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3db1cc8a_8421c202",
+        "filename": "doc/sphinx/source/hw-overview.txt",
+        "patchSetId": 5
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1015231
+      },
+      "writtenOn": "2018-10-22T18:12:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21e20750_57b3b61e",
+      "range": {
+        "startLine": 283,
+        "startChar": 54,
+        "endLine": 284,
+        "endChar": 11
+      },
+      "revId": "bc1c11d6e00798640a732ad6ec7ed1ba74a8648c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
