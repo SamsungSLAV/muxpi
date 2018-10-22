@@ -31,6 +31,15 @@ Features
 * Interacting with a user/maintainer over a simple, bidirectional interface
 
 
+*************
+Documentation
+*************
+
+`Muxpi documentation`_ is hosted on Read The Docs pages.
+
+.. _`Muxpi documentation`: https://muxpi.rtfd.io/
+
+
 ******************************
 Repository Directory structure
 ******************************
