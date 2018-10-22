@@ -31,6 +31,15 @@ Features
 * Interacting with a user/maintainer over a simple, bidirectional interface
 
 
+*************
+Documentation
+*************
+
+`Muxpi documentation`_ is hosted on Github pages:
+
+.. _`Muxpi documentation`: https://samsungslav.github.io/muxpi/html
+
+
 ******************************
 Repository Directory structure
 ******************************
