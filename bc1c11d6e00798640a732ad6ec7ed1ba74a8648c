@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "449f0941_44a10d4c",
+        "filename": "doc/sphinx/source/armbian.txt",
+        "patchSetId": 5
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1015222
+      },
+      "writtenOn": "2018-10-22T07:17:41Z",
+      "side": 1,
+      "message": "I added `` `` on purpose. In my opinion it looks better when both occurrences are ``ttyUSB0``",
+      "range": {
+        "startLine": 86,
+        "startChar": 68,
+        "endLine": 86,
+        "endChar": 75
+      },
+      "revId": "bc1c11d6e00798640a732ad6ec7ed1ba74a8648c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21e20750_57b3b61e",
+        "filename": "doc/sphinx/source/hw-overview.txt",
+        "patchSetId": 5
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1015222
+      },
+      "writtenOn": "2018-10-22T07:17:41Z",
+      "side": 1,
+      "message": "with eachother? to eachother? I am not sure, since one coffee is not enough, but something doesn\u0027t look right. But I may be wrong. Please see for yourself.",
+      "range": {
+        "startLine": 283,
+        "startChar": 54,
+        "endLine": 284,
+        "endChar": 11
+      },
+      "revId": "bc1c11d6e00798640a732ad6ec7ed1ba74a8648c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
