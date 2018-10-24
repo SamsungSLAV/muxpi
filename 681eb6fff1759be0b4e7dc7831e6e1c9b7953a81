@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b797fa50_9610c591",
+        "filename": "README",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1015231
+      },
+      "writtenOn": "2018-10-24T10:09:30Z",
+      "side": 1,
+      "message": "should be \".\"",
+      "range": {
+        "startLine": 38,
+        "startChar": 48,
+        "endLine": 38,
+        "endChar": 49
+      },
+      "revId": "681eb6fff1759be0b4e7dc7831e6e1c9b7953a81",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
