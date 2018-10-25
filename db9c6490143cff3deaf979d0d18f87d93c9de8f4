@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "08ce4a87_1609ec3b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1015237
+      },
+      "writtenOn": "2018-10-25T07:16:24Z",
+      "side": 1,
+      "message": "I see another option: readthedocs.org, which supports Sphinx docs (among other things) and versioning via tags. Notably, this is where our beloved Sphinx style guide is hosted. This would introduce a dependency on another third party service, although I\u0027d argue RTD is already on Github-level of being expected to work.",
+      "revId": "db9c6490143cff3deaf979d0d18f87d93c9de8f4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f7c33b6_d5e16451",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1015237
+      },
+      "writtenOn": "2018-10-25T07:16:24Z",
+      "side": 1,
+      "message": "minor: space",
+      "range": {
+        "startLine": 31,
+        "startChar": 17,
+        "endLine": 31,
+        "endChar": 18
+      },
+      "revId": "db9c6490143cff3deaf979d0d18f87d93c9de8f4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea485857_dabac0ed",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1015237
+      },
+      "writtenOn": "2018-10-25T07:16:24Z",
+      "side": 1,
+      "message": "minor: allow",
+      "range": {
+        "startLine": 35,
+        "startChar": 62,
+        "endLine": 35,
+        "endChar": 66
+      },
+      "revId": "db9c6490143cff3deaf979d0d18f87d93c9de8f4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "494aeb96_7c6c68a7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1015237
+      },
+      "writtenOn": "2018-10-25T07:16:24Z",
+      "side": 1,
+      "message": "minor: unmatched paren",
+      "range": {
+        "startLine": 38,
+        "startChar": 7,
+        "endLine": 38,
+        "endChar": 8
+      },
+      "revId": "db9c6490143cff3deaf979d0d18f87d93c9de8f4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9617ea48_20a658bd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1015237
+      },
+      "writtenOn": "2018-10-25T07:16:24Z",
+      "side": 1,
+      "message": "Every time you amend this commit that thread gets pinged. (And it shows up separately.)",
+      "revId": "db9c6490143cff3deaf979d0d18f87d93c9de8f4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
