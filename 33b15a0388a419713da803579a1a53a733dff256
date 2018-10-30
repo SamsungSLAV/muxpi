@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b34ff96a_ad1464e2",
+        "filename": "doc/sphinx/source/hw-overview.txt",
+        "patchSetId": 6
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1015240
+      },
+      "writtenOn": "2018-10-30T12:39:23Z",
+      "side": 1,
+      "message": "Why did you drop the first part of this sentence?",
+      "revId": "33b15a0388a419713da803579a1a53a733dff256",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ee70915_690c5432",
+        "filename": "doc/sphinx/source/hw-overview.txt",
+        "patchSetId": 6
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1015240
+      },
+      "writtenOn": "2018-10-30T12:39:23Z",
+      "side": 1,
+      "message": "the",
+      "range": {
+        "startLine": 210,
+        "startChar": 1,
+        "endLine": 210,
+        "endChar": 2
+      },
+      "revId": "33b15a0388a419713da803579a1a53a733dff256",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a88c73f_fbb875cc",
+        "filename": "doc/sphinx/source/hw-overview.txt",
+        "patchSetId": 6
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1015240
+      },
+      "writtenOn": "2018-10-30T12:39:23Z",
+      "side": 1,
+      "message": "Drop please.",
+      "range": {
+        "startLine": 387,
+        "startChar": 30,
+        "endLine": 387,
+        "endChar": 38
+      },
+      "revId": "33b15a0388a419713da803579a1a53a733dff256",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b7c2229_36f163a1",
+        "filename": "doc/sphinx/source/hw-overview.txt",
+        "patchSetId": 6
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1015240
+      },
+      "writtenOn": "2018-10-30T12:39:23Z",
+      "side": 1,
+      "message": "Drop this sentence please.",
+      "range": {
+        "startLine": 503,
+        "startChar": 52,
+        "endLine": 505,
+        "endChar": 44
+      },
+      "revId": "33b15a0388a419713da803579a1a53a733dff256",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
