@@ -1,0 +1,169 @@
+36997681088232
+MIR
+403AC
+
+
+0
+2
+2
+MIR
+Crystal_SMD_Abracon_ABM3-2pin_5.0x3.2mm_HandSoldering
+Abracon Miniature Ceramic Smd Crystal ABM3 http://www.abracon.com/Resonators/abm3.pdf, hand-soldering, 5.0x3.2mm^2 package
+SMD SMT crystal hand-soldering
+0
+2
+2
+MIR
+C_0805
+Capacitor SMD 0805, reflow soldering, AVX (see smccp.pdf)
+capacitor 0805
+0
+2
+2
+MIR
+C_T_0805
+Capacitor SMD 0805, reflow soldering, AVX (see smccp.pdf)
+capacitor 0805
+0
+2
+2
+MIR
+DTSM-3
+
+
+0
+2
+2
+MIR
+D_0805
+Diode SMD in 0805 package http://datasheets.avx.com/schottky.pdf
+smd diode
+0
+2
+2
+MIR
+D_SOD-323_HandSoldering
+SOD-323
+SOD-323
+0
+2
+2
+MIR
+EXTERNAL ELEMENT
+
+
+0
+0
+0
+MIR
+HC49USM
+
+
+0
+2
+2
+MIR
+Pin_Header_Straight_1x01_Pitch2.54mm
+Through hole straight pin header, 1x01, 2.54mm pitch, single row
+Through hole pin header THT 1x01 2.54mm single row
+0
+1
+1
+MIR
+Pin_Header_Straight_1x02_Pitch2.54mm
+Through hole straight pin header, 1x02, 2.54mm pitch, single row
+Through hole pin header THT 1x02 2.54mm single row
+0
+2
+2
+MIR
+Pin_Header_Straight_1x15_Pitch2.54mm
+Through hole straight pin header, 1x15, 2.54mm pitch, single row
+Through hole pin header THT 1x15 2.54mm single row
+0
+15
+15
+MIR
+Pin_Header_Straight_2x03_Pitch2.54mm
+Through hole straight pin header, 2x03, 2.54mm pitch, double rows
+Through hole pin header THT 2x03 2.54mm double row
+0
+6
+6
+MIR
+Pin_Header_Straight_2x08_Pitch2.54mm
+Through hole straight pin header, 2x08, 2.54mm pitch, double rows
+Through hole pin header THT 2x08 2.54mm double row
+0
+16
+16
+MIR
+QFN-16-1EP_4x4mm_Pitch0.65mm
+16-Lead Plastic Quad Flat, No Lead Package (ML) - 4x4x0.9 mm Body [QFN]; (see Microchip Packaging Specification 00000049BS.pdf)
+QFN 0.65
+0
+20
+17
+MIR
+QFN-32-1EP_5x5mm_Pitch0.5mm
+UH Package; 32-Lead Plastic QFN (5mm x 5mm); (see Linear Technology QFN_32_05-08-1693.pdf)
+QFN 0.5
+0
+36
+33
+MIR
+R_0805
+Resistor SMD 0805, reflow soldering, Vishay (see dcrcw.pdf)
+resistor 0805
+0
+2
+2
+MIR
+SOD-503
+Resistor SMD 0603, reflow soldering, Vishay (see dcrcw.pdf)
+resistor 0603
+0
+2
+2
+MIR
+SOD-523
+Resistor SMD 0603, reflow soldering, Vishay (see dcrcw.pdf)
+resistor 0603
+0
+2
+2
+MIR
+SSOP-28_5.3x10.2mm_Pitch0.65mm
+28-Lead Plastic Shrink Small Outline (SS)-5.30 mm Body [SSOP] (see Microchip Packaging Specification 00000049BS.pdf)
+SSOP 0.65
+0
+28
+28
+MIR
+TQFP-32_7x7mm_Pitch0.8mm
+32-Lead Plastic Thin Quad Flatpack (PT) - 7x7x1.0 mm Body, 2.00 mm [TQFP] (see Microchip Packaging Specification 00000049BS.pdf)
+QFP 0.8
+0
+32
+32
+MIR
+USB_Micro-B_Molex-105017-0001
+http://www.molex.com/pdm_docs/sd/1050170001_sd.pdf
+Micro-USB SMD Typ-B
+0
+13
+6
+MIR
+USB_Mini_SMD
+
+
+0
+11
+6
+MIR
+WQFN-32-1EP_5x5mm_Pitch0.5mm
+QFN, 32-Leads, Body 5x5x0.8mm, Pitch 0.5mm, Thermal Pad 3.1x3.1mm; (see Texas Instruments LM25119 http://www.ti.com/lit/ds/symlink/lm25119.pdf)
+WQFN 0.5
+0
+36
+33
