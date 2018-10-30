@@ -1,4 +1,0 @@
-(sym_lib_table
-  (lib (name MuxPi_addon)(type Legacy)(uri ${KIPRJMOD}/MuxPi_addon.lib)(options "")(descr ""))
-  (lib (name power)(type Legacy)(uri ${KICAD_SYMBOL_DIR}/power.lib)(options "")(descr ""))
-)
