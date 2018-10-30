@@ -1,0 +1,28 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP +3.3V
+D Power flag, +3.3V
+K power-flag
+$ENDCMP
+#
+$CMP +3V3
+D Power flag, +3.3V
+K power-flag
+$ENDCMP
+#
+$CMP +5V
+D Power flag, +5V
+K power-flag
+$ENDCMP
+#
+$CMP GND
+D Power flag, ground
+K power-flag
+$ENDCMP
+#
+$CMP VDD
+D Power flag, positive voltage
+K power-flag
+$ENDCMP
+#
+#End Doc Library
