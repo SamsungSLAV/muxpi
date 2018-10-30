@@ -1,0 +1,1231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="D">
+  <design>
+    <source>/home/k.gorska/go/src/github.com/SamsungSLAV/muxpi/hw/MIR/MIR.sch</source>
+    <date>Mon 05 Nov 2018 01:05:39 PM CET</date>
+    <tool>Eeschema 6.0.0-rc1-unknown-589e1f6~66~ubuntu16.04.1</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+	<source>MIR.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="J1">
+      <value>CONN_02X08</value>
+      <footprint>MIR:Pin_Header_Straight_2x08_Pitch2.54mm</footprint>
+      <fields>
+        <field name="Shop link">https://www.tme.eu/pl/details/sl22.112.16g/listwy-i-gniazda-kolkowe/fischer-elektronik/sl-22-112-16g/</field>
+      </fields>
+      <libsource lib="MIR" part="CONN_02X08" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58DF2CFB</tstamp>
+    </comp>
+    <comp ref="J2">
+      <value>CONN_02X08</value>
+      <footprint>MIR:Pin_Header_Straight_2x08_Pitch2.54mm</footprint>
+      <fields>
+        <field name="Shop link">https://www.tme.eu/pl/details/sl22.112.16g/listwy-i-gniazda-kolkowe/fischer-elektronik/sl-22-112-16g/</field>
+      </fields>
+      <libsource lib="MIR" part="CONN_02X08" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58DF2D90</tstamp>
+    </comp>
+    <comp ref="J15">
+      <value>CONN_01X01</value>
+      <footprint>MIR:Pin_Header_Straight_1x01_Pitch2.54mm</footprint>
+      <libsource lib="MIR" part="CONN_01X01" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58DC6738</tstamp>
+    </comp>
+    <comp ref="J16">
+      <value>CONN_01X01</value>
+      <footprint>MIR:Pin_Header_Straight_1x01_Pitch2.54mm</footprint>
+      <libsource lib="MIR" part="CONN_01X01" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58DC67FC</tstamp>
+    </comp>
+    <comp ref="J17">
+      <value>CONN_01X01</value>
+      <footprint>MIR:Pin_Header_Straight_1x01_Pitch2.54mm</footprint>
+      <libsource lib="MIR" part="CONN_01X01" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58DC686A</tstamp>
+    </comp>
+    <comp ref="J18">
+      <value>CONN_01X01</value>
+      <footprint>MIR:Pin_Header_Straight_1x01_Pitch2.54mm</footprint>
+      <libsource lib="MIR" part="CONN_01X01" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58DC68F2</tstamp>
+    </comp>
+    <comp ref="J19">
+      <value>CONN_01X01</value>
+      <footprint>MIR:Pin_Header_Straight_1x01_Pitch2.54mm</footprint>
+      <libsource lib="MIR" part="CONN_01X01" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58DC6964</tstamp>
+    </comp>
+    <comp ref="J20">
+      <value>CONN_01X01</value>
+      <footprint>MIR:Pin_Header_Straight_1x01_Pitch2.54mm</footprint>
+      <libsource lib="MIR" part="CONN_01X01" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58DC69D8</tstamp>
+    </comp>
+    <comp ref="J9">
+      <value>CONN_01X01</value>
+      <footprint>MIR:Pin_Header_Straight_1x01_Pitch2.54mm</footprint>
+      <libsource lib="MIR" part="CONN_01X01" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58DC6DE4</tstamp>
+    </comp>
+    <comp ref="J10">
+      <value>CONN_01X01</value>
+      <footprint>MIR:Pin_Header_Straight_1x01_Pitch2.54mm</footprint>
+      <libsource lib="MIR" part="CONN_01X01" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58DC73FC</tstamp>
+    </comp>
+    <comp ref="J11">
+      <value>CONN_01X01</value>
+      <footprint>MIR:Pin_Header_Straight_1x01_Pitch2.54mm</footprint>
+      <libsource lib="MIR" part="CONN_01X01" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58DC7476</tstamp>
+    </comp>
+    <comp ref="J12">
+      <value>CONN_01X01</value>
+      <footprint>MIR:Pin_Header_Straight_1x01_Pitch2.54mm</footprint>
+      <libsource lib="MIR" part="CONN_01X01" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58DC74F2</tstamp>
+    </comp>
+    <comp ref="J13">
+      <value>CONN_01X01</value>
+      <footprint>MIR:Pin_Header_Straight_1x01_Pitch2.54mm</footprint>
+      <libsource lib="MIR" part="CONN_01X01" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58DC7574</tstamp>
+    </comp>
+    <comp ref="J14">
+      <value>CONN_01X01</value>
+      <footprint>MIR:Pin_Header_Straight_1x01_Pitch2.54mm</footprint>
+      <libsource lib="MIR" part="CONN_01X01" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58DC75F4</tstamp>
+    </comp>
+    <comp ref="J25">
+      <value>CONN_01X01</value>
+      <footprint>MIR:Pin_Header_Straight_1x01_Pitch2.54mm</footprint>
+      <libsource lib="MIR" part="CONN_01X01" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58DD18E8</tstamp>
+    </comp>
+    <comp ref="J26">
+      <value>CONN_01X01</value>
+      <footprint>MIR:Pin_Header_Straight_1x01_Pitch2.54mm</footprint>
+      <libsource lib="MIR" part="CONN_01X01" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58DD19BE</tstamp>
+    </comp>
+    <comp ref="J27">
+      <value>CONN_01X01</value>
+      <footprint>MIR:Pin_Header_Straight_1x01_Pitch2.54mm</footprint>
+      <libsource lib="MIR" part="CONN_01X01" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58DD1A48</tstamp>
+    </comp>
+    <comp ref="J28">
+      <value>CONN_01X01</value>
+      <footprint>MIR:Pin_Header_Straight_1x01_Pitch2.54mm</footprint>
+      <libsource lib="MIR" part="CONN_01X01" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58DD1AD0</tstamp>
+    </comp>
+    <comp ref="J37">
+      <value>CONN_01X01</value>
+      <footprint>MIR:Pin_Header_Straight_1x01_Pitch2.54mm</footprint>
+      <libsource lib="MIR" part="CONN_01X01" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58DD2F17</tstamp>
+    </comp>
+    <comp ref="J38">
+      <value>CONN_01X01</value>
+      <footprint>MIR:Pin_Header_Straight_1x01_Pitch2.54mm</footprint>
+      <libsource lib="MIR" part="CONN_01X01" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58DD2F1D</tstamp>
+    </comp>
+    <comp ref="J39">
+      <value>CONN_01X01</value>
+      <footprint>MIR:Pin_Header_Straight_1x01_Pitch2.54mm</footprint>
+      <libsource lib="MIR" part="CONN_01X01" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58DD2F23</tstamp>
+    </comp>
+    <comp ref="J40">
+      <value>CONN_01X01</value>
+      <footprint>MIR:Pin_Header_Straight_1x01_Pitch2.54mm</footprint>
+      <libsource lib="MIR" part="CONN_01X01" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58DD2F29</tstamp>
+    </comp>
+    <comp ref="J21">
+      <value>CONN_01X01</value>
+      <footprint>MIR:Pin_Header_Straight_1x01_Pitch2.54mm</footprint>
+      <libsource lib="MIR" part="CONN_01X01" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58DD3C2A</tstamp>
+    </comp>
+    <comp ref="J22">
+      <value>CONN_01X01</value>
+      <footprint>MIR:Pin_Header_Straight_1x01_Pitch2.54mm</footprint>
+      <libsource lib="MIR" part="CONN_01X01" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58DD3C30</tstamp>
+    </comp>
+    <comp ref="J23">
+      <value>CONN_01X01</value>
+      <footprint>MIR:Pin_Header_Straight_1x01_Pitch2.54mm</footprint>
+      <libsource lib="MIR" part="CONN_01X01" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58DD3C36</tstamp>
+    </comp>
+    <comp ref="J24">
+      <value>CONN_01X01</value>
+      <footprint>MIR:Pin_Header_Straight_1x01_Pitch2.54mm</footprint>
+      <libsource lib="MIR" part="CONN_01X01" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58DD3C3C</tstamp>
+    </comp>
+    <comp ref="J29">
+      <value>CONN_01X01</value>
+      <footprint>MIR:Pin_Header_Straight_1x01_Pitch2.54mm</footprint>
+      <libsource lib="MIR" part="CONN_01X01" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58DD54A9</tstamp>
+    </comp>
+    <comp ref="J30">
+      <value>CONN_01X01</value>
+      <footprint>MIR:Pin_Header_Straight_1x01_Pitch2.54mm</footprint>
+      <libsource lib="MIR" part="CONN_01X01" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58DD54AF</tstamp>
+    </comp>
+    <comp ref="J31">
+      <value>CONN_01X01</value>
+      <footprint>MIR:Pin_Header_Straight_1x01_Pitch2.54mm</footprint>
+      <libsource lib="MIR" part="CONN_01X01" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58DD54B5</tstamp>
+    </comp>
+    <comp ref="J32">
+      <value>CONN_01X01</value>
+      <footprint>MIR:Pin_Header_Straight_1x01_Pitch2.54mm</footprint>
+      <libsource lib="MIR" part="CONN_01X01" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58DD54BB</tstamp>
+    </comp>
+    <comp ref="J33">
+      <value>CONN_01X01</value>
+      <footprint>MIR:Pin_Header_Straight_1x01_Pitch2.54mm</footprint>
+      <libsource lib="MIR" part="CONN_01X01" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58DD5A6C</tstamp>
+    </comp>
+    <comp ref="J34">
+      <value>CONN_01X01</value>
+      <footprint>MIR:Pin_Header_Straight_1x01_Pitch2.54mm</footprint>
+      <libsource lib="MIR" part="CONN_01X01" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58DD5A72</tstamp>
+    </comp>
+    <comp ref="J35">
+      <value>CONN_01X01</value>
+      <footprint>MIR:Pin_Header_Straight_1x01_Pitch2.54mm</footprint>
+      <libsource lib="MIR" part="CONN_01X01" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58DD5A78</tstamp>
+    </comp>
+    <comp ref="J36">
+      <value>CONN_01X01</value>
+      <footprint>MIR:Pin_Header_Straight_1x01_Pitch2.54mm</footprint>
+      <libsource lib="MIR" part="CONN_01X01" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58DD5A7E</tstamp>
+    </comp>
+    <comp ref="U1">
+      <value>ATmega328P-AU</value>
+      <footprint>MIR:TQFP-32_7x7mm_Pitch0.8mm</footprint>
+      <datasheet>https://www.tme.eu/pl/Document/9d2a0f24d19320b803e2081a185f270d/ft232r.pdf</datasheet>
+      <fields>
+        <field name="Manufacturer">Microchip</field>
+        <field name="Manufacturer Part No">ATMEGA328P-AU</field>
+        <field name="Shop link">https://www.tme.eu/pl/details/atmega328p-au/rodzina-avr-8-bit/microchip-atmel/</field>
+      </fields>
+      <libsource lib="MIR" part="ATmega328P-AU" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5AC593F8</tstamp>
+    </comp>
+    <comp ref="C3">
+      <value>0.1uF</value>
+      <footprint>MIR:C_0805</footprint>
+      <fields>
+        <field name="Manufacturer">AVX</field>
+        <field name="Manufacturer Part No">08055F104K4T2A</field>
+        <field name="Shop link">https://www.tme.eu/pl/details/08055f104k4t2a/kondensatory-mlcc-smd-0805/avx/</field>
+      </fields>
+      <libsource lib="MIR" part="C" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5AC8D80D</tstamp>
+    </comp>
+    <comp ref="CP1">
+      <value>4.7uF</value>
+      <footprint>MIR:C_T_0805</footprint>
+      <fields>
+        <field name="Manufacturer">AVX</field>
+        <field name="Manufacturer Part No">TAJR475K010RNJ</field>
+        <field name="Shop link">https://www.tme.eu/pl/details/tajr475k010rnj/kondensatory-tantalowe-smd/avx/</field>
+      </fields>
+      <libsource lib="MIR" part="CP" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5AC8D95F</tstamp>
+    </comp>
+    <comp ref="Y1">
+      <value>16MHz</value>
+      <footprint>MIR:HC49USM</footprint>
+      <datasheet>https://www.tme.eu/pl/Document/f9d1782f27c3a96ae8c4e91c94d19ebc/HC49USM_Series.pdf</datasheet>
+      <fields>
+        <field name="Manufacturer">ILSI</field>
+        <field name="Manufacturer Part No">HC49USM-FF3F18-16.0000</field>
+        <field name="Shop link">https://www.tme.eu/pl/details/hc49usm-ff3f16.00/rezonatory-kwarcowe-smd/ilsi/hc49usm-ff3f18-160000/</field>
+      </fields>
+      <libsource lib="MIR" part="Crystal" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5ACF6AE9</tstamp>
+    </comp>
+    <comp ref="C1">
+      <value>18pF</value>
+      <footprint>MIR:C_0805</footprint>
+      <fields>
+        <field name="Manufacturer">Vishay</field>
+        <field name="Manufacturer Part No"> VJ0805A180JXBCW1BC</field>
+        <field name="Shop link">https://www.tme.eu/pl/details/vj0805a180jxbcw1bc/kondensatory-mlcc-smd-0805/vishay/</field>
+      </fields>
+      <libsource lib="MIR" part="C" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5ACF6CC9</tstamp>
+    </comp>
+    <comp ref="C2">
+      <value>18pF</value>
+      <footprint>MIR:C_0805</footprint>
+      <fields>
+        <field name="Manufacturer">Vishay</field>
+        <field name="Manufacturer Part No"> VJ0805A180JXBCW1BC</field>
+        <field name="Shop link">https://www.tme.eu/pl/details/vj0805a180jxbcw1bc/kondensatory-mlcc-smd-0805/vishay/</field>
+      </fields>
+      <libsource lib="MIR" part="C" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5ACFC09E</tstamp>
+    </comp>
+    <comp ref="SW1">
+      <value>SwitchPush</value>
+      <footprint>MIR:DTSM-3</footprint>
+      <fields>
+        <field name="Manufacturer">DIPTRONICS</field>
+        <field name="Manufacturer Part No">DTSM31N </field>
+        <field name="Shop link">https://www.tme.eu/pl/details/dtsm31n/mikroprzelaczniki-tact/diptronics/</field>
+      </fields>
+      <libsource lib="MIR" part="SwitchPush" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5AD98D34</tstamp>
+    </comp>
+    <comp ref="R6">
+      <value>1k1</value>
+      <footprint>MIR:R_0805</footprint>
+      <fields>
+        <field name="Manufacturer">Yageo</field>
+        <field name="Manufacturer Part No"> RC0805FR-071K1L</field>
+        <field name="Shop link">https://www.tme.eu/pl/details/rc0805fr-071k1l/rezystory-smd-0805/yageo/</field>
+      </fields>
+      <libsource lib="MIR" part="R" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5AD98E99</tstamp>
+    </comp>
+    <comp ref="R1">
+      <value>330R</value>
+      <footprint>MIR:R_0805</footprint>
+      <fields>
+        <field name="Manufacturer">Yageo</field>
+        <field name="Manufacturer Part No"> RC0805JR-07330RL</field>
+        <field name="Shop link">http://www.tme.eu/pl/details/rc0805jr-07330r/rezystory-smd-0805/yageo/rc0805jr-07330rl/</field>
+      </fields>
+      <libsource lib="MIR" part="R" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5ADC30BA</tstamp>
+    </comp>
+    <comp ref="J41">
+      <value>CONN_02X03</value>
+      <footprint>MIR:Pin_Header_Straight_2x03_Pitch2.54mm</footprint>
+      <fields>
+        <field name="Shop link">https://www.tme.eu/pl/details/zl202-6g/listwy-i-gniazda-kolkowe/connfly/ds1021-2_3sf1-1/</field>
+      </fields>
+      <libsource lib="MIR" part="CONN_02X03" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5AE67200</tstamp>
+    </comp>
+    <comp ref="R2">
+      <value>1k</value>
+      <footprint>MIR:R_0805</footprint>
+      <fields>
+        <field name="Manufacturer">Yageo</field>
+        <field name="Manufacturer Part No">RC0805JR-071KL</field>
+        <field name="Shop link">https://www.tme.eu/pl/details/rc0805jr-071k/rezystory-smd-0805/yageo/rc0805jr-071kl/</field>
+      </fields>
+      <libsource lib="MIR" part="R" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B113872</tstamp>
+    </comp>
+    <comp ref="R3">
+      <value>1k</value>
+      <footprint>MIR:R_0805</footprint>
+      <fields>
+        <field name="Manufacturer">Yageo</field>
+        <field name="Manufacturer Part No">RC0805JR-071KL</field>
+        <field name="Shop link">https://www.tme.eu/pl/details/rc0805jr-071k/rezystory-smd-0805/yageo/rc0805jr-071kl/</field>
+      </fields>
+      <libsource lib="MIR" part="R" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B113A22</tstamp>
+    </comp>
+    <comp ref="CP2">
+      <value>4.7uF</value>
+      <footprint>MIR:C_T_0805</footprint>
+      <fields>
+        <field name="Manufacturer">AVX</field>
+        <field name="Manufacturer Part No">TAJR475K010RNJ</field>
+        <field name="Shop link">https://www.tme.eu/pl/details/tajr475k010rnj/kondensatory-tantalowe-smd/avx/</field>
+      </fields>
+      <libsource lib="MIR" part="CP" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B6EB006</tstamp>
+    </comp>
+    <comp ref="C4">
+      <value>0.1uF</value>
+      <footprint>MIR:C_0805</footprint>
+      <fields>
+        <field name="Manufacturer">AVX</field>
+        <field name="Manufacturer Part No">08055F104K4T2A</field>
+        <field name="Shop link">https://www.tme.eu/pl/details/08055f104k4t2a/kondensatory-mlcc-smd-0805/avx/</field>
+      </fields>
+      <libsource lib="MIR" part="C" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B6EB149</tstamp>
+    </comp>
+    <comp ref="D_ESD1">
+      <value>ESD5B5.0S</value>
+      <footprint>MIR:SOD-523</footprint>
+      <datasheet>https://www.tme.eu/pl/Document/8ba981c25abd6ce4f7df00b12050621e/ESD5B5.0-DTE.PDF</datasheet>
+      <fields>
+        <field name="Manufacturer">ON SEMICONDUCTOR</field>
+        <field name="Manufacturer Part No">ESD5B5.0ST1G</field>
+        <field name="Shop link">https://www.tme.eu/pl/details/esd5b5.0st1g/diody-transil-smd-dwukierunkowe/on-semiconductor/</field>
+      </fields>
+      <libsource lib="MIR" part="ESD5B5.0S" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5AE57637</tstamp>
+    </comp>
+    <comp ref="L1">
+      <value>BLM21PG221SN1D</value>
+      <footprint>MIR:R_0805</footprint>
+      <fields>
+        <field name="Manufacturer">MURATA</field>
+        <field name="Manufacturer Part No">BLM21PG221SN1D</field>
+        <field name="Shop link">https://www.tme.eu/pl/details/blm21pg221sn1d/ferryty-koraliki/murata/</field>
+      </fields>
+      <libsource lib="MIR" part="BLM21PG221SN1D" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B2E191D</tstamp>
+    </comp>
+    <comp ref="D1">
+      <value>KPT-2012SGC</value>
+      <footprint>MIR:D_0805</footprint>
+      <datasheet>http://www.tme.eu/pl/Document/0a4307e0e1e070f4f6d553134056548e/kpt-2012.pdf</datasheet>
+      <fields>
+        <field name="Manufacturer">KINGBRIGHT ELECTRONIC</field>
+        <field name="Manufacturer Part No">KPT-2012SGC</field>
+        <field name="Shop link">http://www.tme.eu/pl/details/kpt-2012sgc/diody-led-smd-kolorowe/kingbright-electronic/</field>
+      </fields>
+      <libsource lib="MIR" part="LED_ALT" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5BD101FF</tstamp>
+    </comp>
+    <comp ref="J3">
+      <value>CONN_01X02</value>
+      <footprint>MIR:Pin_Header_Straight_1x02_Pitch2.54mm</footprint>
+      <fields>
+        <field name="Manufacturer">MOLEX</field>
+        <field name="Manufacturer Part No">022232021 A-6373-02A222</field>
+        <field name="Shop link">https://www.tme.eu/pl/details/mx-22-23-2021/zlacza-sygnalowe-raster-254mm/molex/022232021-a-6373-02a222/</field>
+      </fields>
+      <libsource lib="MIR" part="CONN_01X02" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5B082CA9</tstamp>
+    </comp>
+    <comp ref="C5">
+      <value>0.1uF</value>
+      <footprint>MIR:C_0805</footprint>
+      <fields>
+        <field name="Manufacturer">AVX</field>
+        <field name="Manufacturer Part No">08055F104K4T2A</field>
+        <field name="Shop link">https://www.tme.eu/pl/details/08055f104k4t2a/kondensatory-mlcc-smd-0805/avx/</field>
+      </fields>
+      <libsource lib="MIR" part="C" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5BF2377A</tstamp>
+    </comp>
+    <comp ref="C6">
+      <value>0.1uF</value>
+      <footprint>MIR:C_0805</footprint>
+      <fields>
+        <field name="Manufacturer">AVX</field>
+        <field name="Manufacturer Part No">08055F104K4T2A</field>
+        <field name="Shop link">https://www.tme.eu/pl/details/08055f104k4t2a/kondensatory-mlcc-smd-0805/avx/</field>
+      </fields>
+      <libsource lib="MIR" part="C" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5C0EE50B</tstamp>
+    </comp>
+    <comp ref="D11">
+      <value>KPT-2012EC</value>
+      <footprint>MIR:D_0805</footprint>
+      <datasheet>http://www.tme.eu/pl/Document/0a4307e0e1e070f4f6d553134056548e/kpt-2012.pdf</datasheet>
+      <fields>
+        <field name="Manufacturer">KINGBRIGHT ELECTRONIC</field>
+        <field name="Manufacturer Part No">KPT-2012EC</field>
+        <field name="Shop link">http://www.tme.eu/pl/details/kpt-2012ec/diody-led-smd-kolorowe/kingbright-electronic/</field>
+      </fields>
+      <libsource lib="MIR" part="LED_ALT" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5C17798C</tstamp>
+    </comp>
+    <comp ref="D2">
+      <value>KPT-2012EC</value>
+      <footprint>MIR:D_0805</footprint>
+      <datasheet>http://www.tme.eu/pl/Document/0a4307e0e1e070f4f6d553134056548e/kpt-2012.pdf</datasheet>
+      <fields>
+        <field name="Manufacturer">KINGBRIGHT ELECTRONIC</field>
+        <field name="Manufacturer Part No">KPT-2012EC</field>
+        <field name="Shop link">http://www.tme.eu/pl/details/kpt-2012ec/diody-led-smd-kolorowe/kingbright-electronic/</field>
+      </fields>
+      <libsource lib="MIR" part="LED_ALT" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5C1C2549</tstamp>
+    </comp>
+    <comp ref="R4">
+      <value>330R</value>
+      <footprint>MIR:R_0805</footprint>
+      <fields>
+        <field name="Manufacturer">Yageo</field>
+        <field name="Manufacturer Part No"> RC0805JR-07330RL</field>
+        <field name="Shop link">http://www.tme.eu/pl/details/rc0805jr-07330r/rezystory-smd-0805/yageo/rc0805jr-07330rl/</field>
+      </fields>
+      <libsource lib="MIR" part="R" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5C1C3060</tstamp>
+    </comp>
+    <comp ref="R7">
+      <value>R</value>
+      <footprint>MIR:R_0805</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5BD9FCDA</tstamp>
+    </comp>
+    <comp ref="U2">
+      <value>FT232RQ</value>
+      <footprint>MIR:QFN-32-1EP_5x5mm_Pitch0.5mm</footprint>
+      <fields>
+        <field name="Manufacturer">FTDI</field>
+        <field name="Manufacturer Part No">FT232RQ</field>
+        <field name="Shop link">https://pl.farnell.com/ftdi/ft232rq/ic-usb-to-uart-smd-qfn-32-232/dp/1146033?st=FT232RQ-REEL</field>
+      </fields>
+      <libsource lib="MIR" part="FT232RQ" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5BE3532D</tstamp>
+    </comp>
+    <comp ref="R5">
+      <value>330R</value>
+      <footprint>MIR:R_0805</footprint>
+      <fields>
+        <field name="Manufacturer">Yageo</field>
+        <field name="Manufacturer Part No"> RC0805JR-07330RL</field>
+        <field name="Shop link">http://www.tme.eu/pl/details/rc0805jr-07330r/rezystory-smd-0805/yageo/rc0805jr-07330rl/</field>
+      </fields>
+      <libsource lib="MIR" part="R" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5C28AE79</tstamp>
+    </comp>
+    <comp ref="C7">
+      <value>47pF</value>
+      <footprint>MIR:C_0805</footprint>
+      <fields>
+        <field name="Manufacturer">Yageo</field>
+        <field name="Manufacturer Part No">CC0805JRNPO9BN470</field>
+        <field name="Shop link">https://www.tme.eu/pl/details/cc0805jrnpo9470/kondensatory-mlcc-smd-0805/yageo/cc0805jrnpo9bn470/</field>
+      </fields>
+      <libsource lib="MIR" part="C" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5BFDEF86</tstamp>
+    </comp>
+    <comp ref="R8">
+      <value>27R</value>
+      <footprint>MIR:R_0805</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Manufacturer">Royal Ohm</field>
+        <field name="Manufacturer Part No"> CQ05S8F270JT5E </field>
+        <field name="Shop link">https://www.tme.eu/pl/details/cq0805-27r-1%25/rezystory-smd-0805/royal-ohm/cq05s8f270jt5e/</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5BFEB271</tstamp>
+    </comp>
+    <comp ref="R9">
+      <value>27R</value>
+      <footprint>MIR:R_0805</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Manufacturer">Royal Ohm</field>
+        <field name="Manufacturer Part No"> CQ05S8F270JT5E </field>
+        <field name="Shop link">https://www.tme.eu/pl/details/cq0805-27r-1%25/rezystory-smd-0805/royal-ohm/cq05s8f270jt5e/</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5C316C9A</tstamp>
+    </comp>
+    <comp ref="C8">
+      <value>47pF</value>
+      <footprint>MIR:C_0805</footprint>
+      <fields>
+        <field name="Manufacturer">Yageo</field>
+        <field name="Manufacturer Part No">CC0805JRNPO9BN470</field>
+        <field name="Shop link">https://www.tme.eu/pl/details/cc0805jrnpo9470/kondensatory-mlcc-smd-0805/yageo/cc0805jrnpo9bn470/</field>
+      </fields>
+      <libsource lib="MIR" part="C" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5BE0EA3E</tstamp>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="Device" part="R">
+      <description>Resistor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="MIR" part="ATmega328P-AU">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">ATmega328P-AU</field>
+      </fields>
+      <pins>
+        <pin num="1" name="PD3(INT1)" type="BiDi"/>
+        <pin num="2" name="PD4(T0)" type="BiDi"/>
+        <pin num="3" name="GND" type="power_in"/>
+        <pin num="4" name="VCC" type="power_in"/>
+        <pin num="5" name="GND" type="passive"/>
+        <pin num="6" name="VCC" type="passive"/>
+        <pin num="7" name="XTAL1/PB6" type="BiDi"/>
+        <pin num="8" name="XTAL2/PB7" type="BiDi"/>
+        <pin num="9" name="PD5(T1)" type="BiDi"/>
+        <pin num="10" name="PD6(AIN0)" type="BiDi"/>
+        <pin num="11" name="PD7(AIN1)" type="BiDi"/>
+        <pin num="12" name="PB0(ICP)" type="BiDi"/>
+        <pin num="13" name="PB1(OC1)" type="BiDi"/>
+        <pin num="14" name="PB2(SS)" type="BiDi"/>
+        <pin num="15" name="PB3(MOSI)" type="BiDi"/>
+        <pin num="16" name="PB4(MISO)" type="BiDi"/>
+        <pin num="17" name="PB5(SCK)" type="BiDi"/>
+        <pin num="18" name="AVCC" type="power_in"/>
+        <pin num="19" name="ADC6" type="input"/>
+        <pin num="20" name="AREF" type="input"/>
+        <pin num="21" name="GND" type="passive"/>
+        <pin num="22" name="ADC7" type="input"/>
+        <pin num="23" name="PC0(ADC0)" type="BiDi"/>
+        <pin num="24" name="PC1(ADC1)" type="BiDi"/>
+        <pin num="25" name="PC2(ADC2)" type="BiDi"/>
+        <pin num="26" name="PC3(ADC3)" type="BiDi"/>
+        <pin num="27" name="PC4(ADC4)" type="BiDi"/>
+        <pin num="28" name="PC5(ADC5)" type="BiDi"/>
+        <pin num="29" name="~RESET~/PC6" type="BiDi"/>
+        <pin num="30" name="PD0(RXD)" type="BiDi"/>
+        <pin num="31" name="PD1(TXD)" type="BiDi"/>
+        <pin num="32" name="PD2(IND0)" type="BiDi"/>
+      </pins>
+    </libpart>
+    <libpart lib="MIR" part="BLM21PG221SN1D">
+      <fields>
+        <field name="Reference">L</field>
+        <field name="Value">BLM21PG221SN1D</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="input"/>
+        <pin num="2" name="~" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="MIR" part="C">
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="MIR" part="CONN_01X01">
+      <footprints>
+        <fp>Pin_Header_Straight_1X*</fp>
+        <fp>Pin_Header_Angled_1X*</fp>
+        <fp>Socket_Strip_Straight_1X*</fp>
+        <fp>Socket_Strip_Angled_1X*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">CONN_01X01</field>
+      </fields>
+      <pins>
+        <pin num="1" name="P1" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="MIR" part="CONN_01X02">
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">CONN_01X02</field>
+        <field name="Shop link">https://www.tme.eu/pl/details/mx-22-23-2021/zlacza-sygnalowe-raster-254mm/molex/022232021-a-6373-02a222/</field>
+        <field name="Manufacturer">MOLEX</field>
+        <field name="Manufacturer Part No">022232021 A-6373-02A222</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="MIR" part="CONN_02X03">
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">CONN_02X03</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+        <pin num="5" name="PIN_5" type="passive"/>
+        <pin num="6" name="PIN_6" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="MIR" part="CONN_02X08">
+      <footprints>
+        <fp>Pin_Header_Straight_2X*</fp>
+        <fp>Pin_Header_Angled_2X*</fp>
+        <fp>Socket_Strip_Straight_2X*</fp>
+        <fp>Socket_Strip_Angled_2X*</fp>
+        <fp>IDC_Header_Straight_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">CONN_02X08</field>
+      </fields>
+      <pins>
+        <pin num="1" name="P1" type="passive"/>
+        <pin num="2" name="P2" type="passive"/>
+        <pin num="3" name="P3" type="passive"/>
+        <pin num="4" name="P4" type="passive"/>
+        <pin num="5" name="P5" type="passive"/>
+        <pin num="6" name="P6" type="passive"/>
+        <pin num="7" name="P7" type="passive"/>
+        <pin num="8" name="P8" type="passive"/>
+        <pin num="9" name="P9" type="passive"/>
+        <pin num="10" name="P10" type="passive"/>
+        <pin num="11" name="P11" type="passive"/>
+        <pin num="12" name="P12" type="passive"/>
+        <pin num="13" name="P13" type="passive"/>
+        <pin num="14" name="P14" type="passive"/>
+        <pin num="15" name="P15" type="passive"/>
+        <pin num="16" name="P16" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="MIR" part="CP">
+      <footprints>
+        <fp>CP_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">CP</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="MIR" part="Crystal">
+      <fields>
+        <field name="Reference">Y</field>
+        <field name="Value">Crystal</field>
+      </fields>
+      <pins>
+        <pin num="1" name="P1" type="passive"/>
+        <pin num="2" name="P2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="MIR" part="ESD5B5.0S">
+      <fields>
+        <field name="Reference">D_ESD</field>
+        <field name="Value">ESD5B5.0S</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="input"/>
+        <pin num="2" name="~" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="MIR" part="FT232RQ">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">FT232RQ</field>
+        <field name="Footprint">MIR:QFN-32-1EP_5x5mm_Pitch0.5mm</field>
+        <field name="Datasheet">http://www.farnell.com/datasheets/2007793.pdf?_ga=2.208695444.747099090.1540906726-785918788.1540906726</field>
+        <field name="Shop link">https://pl.farnell.com/ftdi/ft232rq/ic-usb-to-uart-smd-qfn-32-232/dp/1146033?st=FT232RQ-REEL</field>
+        <field name="Manufacturer">FTDI</field>
+        <field name="Manufacturer Part No">FT232RQ</field>
+      </fields>
+      <pins>
+        <pin num="1" name="VCCIO" type="input"/>
+        <pin num="2" name="RXD" type="input"/>
+        <pin num="3" name="RI" type="input"/>
+        <pin num="4" name="GND" type="power_in"/>
+        <pin num="6" name="DSR" type="input"/>
+        <pin num="7" name="DCD" type="input"/>
+        <pin num="8" name="CTS" type="input"/>
+        <pin num="9" name="CBUS4" type="BiDi"/>
+        <pin num="10" name="CBUS2" type="BiDi"/>
+        <pin num="11" name="CBUS3" type="BiDi"/>
+        <pin num="14" name="USBD+" type="BiDi"/>
+        <pin num="15" name="USBD-" type="BiDi"/>
+        <pin num="16" name="3V3OUT" type="input"/>
+        <pin num="17" name="GND" type="power_in"/>
+        <pin num="18" name="~RESET~" type="input"/>
+        <pin num="19" name="VCC" type="power_in"/>
+        <pin num="20" name="GND" type="power_in"/>
+        <pin num="21" name="CBUS1" type="output"/>
+        <pin num="22" name="CBUS0" type="BiDi"/>
+        <pin num="24" name="AGND" type="power_in"/>
+        <pin num="26" name="TEST" type="power_in"/>
+        <pin num="27" name="OSCI" type="input"/>
+        <pin num="28" name="OSCO" type="output"/>
+        <pin num="30" name="TXD" type="output"/>
+        <pin num="31" name="DTR" type="output"/>
+        <pin num="32" name="RTS" type="output"/>
+      </pins>
+    </libpart>
+    <libpart lib="MIR" part="LED_ALT">
+      <footprints>
+        <fp>LED*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">LED_ALT</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="MIR" part="R">
+      <footprints>
+        <fp>R_*</fp>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="MIR" part="SwitchPush">
+      <fields>
+        <field name="Reference">SW</field>
+        <field name="Value">SwitchPush</field>
+      </fields>
+      <pins>
+        <pin num="1" name="P1" type="passive"/>
+        <pin num="2" name="P2" type="passive"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="Device">
+      <uri>/usr/share/kicad/library/Device.lib</uri>
+    </library>
+    <library logical="MIR">
+      <uri>/home/k.gorska/go/src/github.com/SamsungSLAV/muxpi/hw/MIR/MIR.lib</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="/D8">
+      <node ref="U1" pin="12"/>
+    </net>
+    <net code="2" name="/TX">
+      <node ref="R3" pin="1"/>
+      <node ref="U2" pin="2"/>
+    </net>
+    <net code="3" name="/D1-TX">
+      <node ref="R3" pin="2"/>
+      <node ref="U1" pin="31"/>
+    </net>
+    <net code="4" name="/RX">
+      <node ref="U2" pin="30"/>
+      <node ref="R2" pin="1"/>
+    </net>
+    <net code="5" name="/D0-RX">
+      <node ref="U1" pin="30"/>
+      <node ref="R2" pin="2"/>
+    </net>
+    <net code="6" name="/D9">
+      <node ref="U1" pin="13"/>
+    </net>
+    <net code="7" name="/D10">
+      <node ref="U1" pin="14"/>
+    </net>
+    <net code="8" name="/D3">
+      <node ref="R7" pin="1"/>
+      <node ref="D_ESD1" pin="1"/>
+      <node ref="U1" pin="1"/>
+    </net>
+    <net code="9" name="/A2">
+      <node ref="U1" pin="25"/>
+    </net>
+    <net code="10" name="/A4">
+      <node ref="U1" pin="27"/>
+    </net>
+    <net code="11" name="/A5">
+      <node ref="U1" pin="28"/>
+    </net>
+    <net code="12" name="/A6">
+      <node ref="U1" pin="19"/>
+    </net>
+    <net code="13" name="/A7">
+      <node ref="U1" pin="22"/>
+    </net>
+    <net code="14" name="/D2">
+      <node ref="U1" pin="32"/>
+    </net>
+    <net code="15" name="/D4">
+      <node ref="U1" pin="2"/>
+    </net>
+    <net code="16" name="/D5">
+      <node ref="U1" pin="9"/>
+    </net>
+    <net code="17" name="/D6">
+      <node ref="U1" pin="10"/>
+    </net>
+    <net code="18" name="/D7">
+      <node ref="U1" pin="11"/>
+    </net>
+    <net code="19" name="GND">
+      <node ref="J37" pin="1"/>
+      <node ref="J27" pin="1"/>
+      <node ref="J38" pin="1"/>
+      <node ref="C6" pin="2"/>
+      <node ref="J39" pin="1"/>
+      <node ref="J40" pin="1"/>
+      <node ref="J25" pin="1"/>
+      <node ref="J26" pin="1"/>
+      <node ref="J2" pin="13"/>
+      <node ref="J2" pin="14"/>
+      <node ref="J2" pin="15"/>
+      <node ref="J2" pin="16"/>
+      <node ref="J1" pin="13"/>
+      <node ref="J1" pin="14"/>
+      <node ref="J3" pin="1"/>
+      <node ref="U2" pin="17"/>
+      <node ref="C7" pin="2"/>
+      <node ref="J28" pin="1"/>
+      <node ref="C8" pin="1"/>
+      <node ref="C2" pin="2"/>
+      <node ref="C1" pin="2"/>
+      <node ref="CP1" pin="2"/>
+      <node ref="C3" pin="2"/>
+      <node ref="J1" pin="15"/>
+      <node ref="U1" pin="3"/>
+      <node ref="U1" pin="5"/>
+      <node ref="U1" pin="21"/>
+      <node ref="SW1" pin="1"/>
+      <node ref="U2" pin="4"/>
+      <node ref="J41" pin="6"/>
+      <node ref="U2" pin="26"/>
+      <node ref="U2" pin="24"/>
+      <node ref="U2" pin="20"/>
+      <node ref="D_ESD1" pin="2"/>
+      <node ref="D1" pin="1"/>
+      <node ref="CP2" pin="2"/>
+      <node ref="C4" pin="2"/>
+    </net>
+    <net code="20" name="/AREF">
+      <node ref="U1" pin="20"/>
+    </net>
+    <net code="21" name="Net-(C4-Pad1)">
+      <node ref="C4" pin="1"/>
+      <node ref="CP2" pin="1"/>
+      <node ref="L1" pin="2"/>
+    </net>
+    <net code="22" name="/A3">
+      <node ref="U1" pin="26"/>
+    </net>
+    <net code="23" name="/D11-MOSI">
+      <node ref="J41" pin="4"/>
+      <node ref="U1" pin="15"/>
+    </net>
+    <net code="24" name="Net-(D1-Pad2)">
+      <node ref="R1" pin="2"/>
+      <node ref="D1" pin="2"/>
+    </net>
+    <net code="25" name="/D12-MISO">
+      <node ref="J41" pin="1"/>
+      <node ref="U1" pin="16"/>
+    </net>
+    <net code="26" name="/D13-SCK">
+      <node ref="J41" pin="3"/>
+      <node ref="U1" pin="17"/>
+      <node ref="R1" pin="1"/>
+    </net>
+    <net code="27" name="Net-(C1-Pad1)">
+      <node ref="U1" pin="8"/>
+      <node ref="Y1" pin="2"/>
+      <node ref="C1" pin="1"/>
+    </net>
+    <net code="28" name="Net-(C2-Pad1)">
+      <node ref="C2" pin="1"/>
+      <node ref="Y1" pin="1"/>
+      <node ref="U1" pin="7"/>
+    </net>
+    <net code="29" name="+5V">
+      <node ref="J22" pin="1"/>
+      <node ref="J41" pin="2"/>
+      <node ref="J1" pin="3"/>
+      <node ref="J1" pin="1"/>
+      <node ref="J24" pin="1"/>
+      <node ref="J23" pin="1"/>
+      <node ref="J21" pin="1"/>
+    </net>
+    <net code="30" name="/RESET">
+      <node ref="U1" pin="29"/>
+      <node ref="J41" pin="5"/>
+      <node ref="SW1" pin="2"/>
+      <node ref="R6" pin="2"/>
+      <node ref="C5" pin="2"/>
+    </net>
+    <net code="31" name="/A0">
+      <node ref="U1" pin="23"/>
+    </net>
+    <net code="32" name="/A1">
+      <node ref="U1" pin="24"/>
+    </net>
+    <net code="33" name="Net-(U2-Pad8)">
+      <node ref="U2" pin="8"/>
+    </net>
+    <net code="34" name="Net-(U2-Pad18)">
+      <node ref="U2" pin="18"/>
+    </net>
+    <net code="35" name="Net-(U2-Pad9)">
+      <node ref="U2" pin="9"/>
+    </net>
+    <net code="36" name="Net-(U2-Pad11)">
+      <node ref="U2" pin="11"/>
+    </net>
+    <net code="37" name="Net-(U2-Pad10)">
+      <node ref="U2" pin="10"/>
+    </net>
+    <net code="38" name="Net-(U2-Pad32)">
+      <node ref="U2" pin="32"/>
+    </net>
+    <net code="39" name="Net-(U2-Pad3)">
+      <node ref="U2" pin="3"/>
+    </net>
+    <net code="40" name="Net-(U2-Pad6)">
+      <node ref="U2" pin="6"/>
+    </net>
+    <net code="41" name="Net-(U2-Pad7)">
+      <node ref="U2" pin="7"/>
+    </net>
+    <net code="42" name="Net-(U2-Pad28)">
+      <node ref="U2" pin="28"/>
+    </net>
+    <net code="43" name="Net-(U2-Pad27)">
+      <node ref="U2" pin="27"/>
+    </net>
+    <net code="44" name="Net-(D11-Pad1)">
+      <node ref="D11" pin="1"/>
+      <node ref="R5" pin="2"/>
+    </net>
+    <net code="45" name="Net-(R5-Pad1)">
+      <node ref="R5" pin="1"/>
+      <node ref="U2" pin="21"/>
+    </net>
+    <net code="46" name="Net-(R4-Pad1)">
+      <node ref="R4" pin="1"/>
+      <node ref="U2" pin="22"/>
+    </net>
+    <net code="47" name="+3V3">
+      <node ref="J1" pin="4"/>
+      <node ref="J33" pin="1"/>
+      <node ref="J35" pin="1"/>
+      <node ref="J36" pin="1"/>
+      <node ref="J34" pin="1"/>
+      <node ref="C6" pin="1"/>
+      <node ref="U2" pin="16"/>
+    </net>
+    <net code="48" name="/USB_B-">
+      <node ref="J1" pin="10"/>
+      <node ref="R9" pin="1"/>
+    </net>
+    <net code="49" name="Net-(C8-Pad2)">
+      <node ref="C8" pin="2"/>
+      <node ref="U2" pin="14"/>
+      <node ref="R9" pin="2"/>
+    </net>
+    <net code="50" name="/USB_B+">
+      <node ref="J1" pin="9"/>
+      <node ref="R8" pin="1"/>
+    </net>
+    <net code="51" name="Net-(C7-Pad1)">
+      <node ref="C7" pin="1"/>
+      <node ref="R8" pin="2"/>
+      <node ref="U2" pin="15"/>
+    </net>
+    <net code="52" name="Net-(C5-Pad1)">
+      <node ref="U2" pin="31"/>
+      <node ref="C5" pin="1"/>
+    </net>
+    <net code="53" name="Net-(D2-Pad1)">
+      <node ref="R4" pin="2"/>
+      <node ref="D2" pin="1"/>
+    </net>
+    <net code="54" name="Net-(J3-Pad2)">
+      <node ref="R7" pin="2"/>
+      <node ref="J3" pin="2"/>
+    </net>
+    <net code="55" name="/USB_A-">
+      <node ref="J1" pin="12"/>
+    </net>
+    <net code="56" name="/SCL">
+      <node ref="J1" pin="6"/>
+    </net>
+    <net code="57" name="/SDA">
+      <node ref="J1" pin="5"/>
+    </net>
+    <net code="58" name="/USB_A+">
+      <node ref="J1" pin="11"/>
+    </net>
+    <net code="59" name="/PI_UART_TX">
+      <node ref="J1" pin="7"/>
+    </net>
+    <net code="60" name="/PI_UART_RX">
+      <node ref="J1" pin="8"/>
+    </net>
+    <net code="61" name="/PI_GPIO_1">
+      <node ref="J2" pin="5"/>
+      <node ref="J11" pin="1"/>
+    </net>
+    <net code="62" name="/PI_GPIO_3">
+      <node ref="J12" pin="1"/>
+      <node ref="J2" pin="7"/>
+    </net>
+    <net code="63" name="/PI_GPIO_2">
+      <node ref="J2" pin="6"/>
+      <node ref="J17" pin="1"/>
+    </net>
+    <net code="64" name="/ST_GPIO_1">
+      <node ref="J2" pin="8"/>
+      <node ref="J18" pin="1"/>
+    </net>
+    <net code="65" name="/ST_GPIO_3">
+      <node ref="J2" pin="10"/>
+      <node ref="J19" pin="1"/>
+    </net>
+    <net code="66" name="/ST_GPIO_2">
+      <node ref="J2" pin="9"/>
+      <node ref="J13" pin="1"/>
+    </net>
+    <net code="67" name="/SPI_CLK">
+      <node ref="J2" pin="1"/>
+      <node ref="J9" pin="1"/>
+    </net>
+    <net code="68" name="/SPI_CS">
+      <node ref="J10" pin="1"/>
+      <node ref="J2" pin="3"/>
+    </net>
+    <net code="69" name="/SPI_MOSI">
+      <node ref="J2" pin="2"/>
+      <node ref="J15" pin="1"/>
+    </net>
+    <net code="70" name="/SPI_MISO">
+      <node ref="J16" pin="1"/>
+      <node ref="J2" pin="4"/>
+    </net>
+    <net code="71" name="/ADC1">
+      <node ref="J2" pin="11"/>
+      <node ref="J14" pin="1"/>
+    </net>
+    <net code="72" name="/ADC2">
+      <node ref="J2" pin="12"/>
+      <node ref="J20" pin="1"/>
+    </net>
+    <net code="73" name="Net-(J1-Pad16)">
+      <node ref="J1" pin="16"/>
+    </net>
+    <net code="74" name="VDD">
+      <node ref="U2" pin="19"/>
+      <node ref="U2" pin="1"/>
+      <node ref="D2" pin="2"/>
+      <node ref="D11" pin="2"/>
+      <node ref="CP1" pin="1"/>
+      <node ref="C3" pin="1"/>
+      <node ref="U1" pin="18"/>
+      <node ref="J1" pin="2"/>
+      <node ref="U1" pin="4"/>
+      <node ref="R6" pin="1"/>
+      <node ref="U1" pin="6"/>
+      <node ref="J32" pin="1"/>
+      <node ref="L1" pin="1"/>
+      <node ref="J31" pin="1"/>
+      <node ref="J30" pin="1"/>
+      <node ref="J29" pin="1"/>
+    </net>
+  </nets>
+</export>
