@@ -108,12 +108,11 @@ func main() {
 	defer dev.Close()
 
 	flasher := sflasher.NewSflasher(dev, sdcard, partMapping)
-	if logger.Threshold() >= logger.InfoLevel {
-		flasher.LogStats()
-	}
 	logger.Info("sflasher initialized")
 
-	exitOnErr("SDcard not found: ", sflasher.WaitForSDcard(dev, sdcard, 10))
+	if sflasher.WaitForSDcard(dev, sdcard, 10) == nil {
+		exitWithMsgStatus("SDcard not found.", 1)
+	}
 	logger.Info("SDcard detected")
 
 	args := flag.Args()

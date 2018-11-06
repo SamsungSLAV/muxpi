@@ -22,6 +22,7 @@ import (
 	"time"
 
 	"github.com/SamsungSLAV/muxpi/sw/nanopi/muxpictl"
+	"github.com/SamsungSLAV/slav/logger"
 	fsnotify "gopkg.in/fsnotify/fsnotify.v1"
 )
 
@@ -34,31 +35,37 @@ func checkFile(filename string) (bool, error) {
 	f, err := os.Stat(filename)
 	if err != nil {
 		if os.IsNotExist(err) {
+			logger.WithError(err).WithProperty("file", filename).Error("File does not exist.")
 			return false, nil
 		}
+		logger.WithError(err).WithProperty("file", filename).Error("Failed to get FileInfo.")
 		return false, fmt.Errorf("could not access file %s: %s", filename, err)
 	}
 	// SDcard detected.
 	mode := f.Mode()
 	if mode&os.ModeDevice != 0 {
-		// Partition is a block device.
+		logger.WithProperty("file", filename).Debug("File is a block device.")
 		return true, nil
 	}
-	// Partition is not a block device.
-	return false, fmt.Errorf("unexpected attribute: %s", mode)
+	logger.WithProperties(logger.Properties{"file": filename, "mode": mode}).
+		Error("File is not a block device.")
+	return false, fmt.Errorf("unexpected file mode: %s, expected b", mode)
 }
 
 // WaitForSDcard checks if an SDcard is present in the system and returns.
-// If card is not found it restarts it by DUT -> TS switch and tries again until
-// number of retryCount is exceeded (then it returns an error).
+// If card is not found it restarts it by DUT -> TS switch and tries again until number of
+// retryCount is exceeded (then it returns an error).
+// Logs are omitted as failure to get access to SD card is critical from sflasher point of view.
 func WaitForSDcard(dev muxpictl.Interface, sdcard string, retryCount int) error {
 	watcher, err := fsnotify.NewWatcher()
 	if err != nil {
+		logger.WithError(err).Error("Failed to establish new watcher with OS.")
 		return fmt.Errorf("starting watcher failed: %s", err)
 	}
 	defer watcher.Close()
 	err = watcher.Add("/dev/disk/by-path/")
 	if err != nil {
+		logger.WithError(err).Error("Failed to add SD card watcher.")
 		return fmt.Errorf("add of sdcard to watcher failed: %s", err)
 	}
 
@@ -70,6 +77,7 @@ func WaitForSDcard(dev muxpictl.Interface, sdcard string, retryCount int) error 
 	for try := 0; try < retryCount; try++ {
 		isPresent, err := checkFile(filename)
 		if err != nil {
+			// err logger in checkFile
 			return err
 		}
 		if isPresent {
@@ -78,13 +86,15 @@ func WaitForSDcard(dev muxpictl.Interface, sdcard string, retryCount int) error 
 
 		err = dev.DUT()
 		if err != nil {
-			return fmt.Errorf("failed to DUT: %s", err)
+			logger.WithError(err).Error("Failed to connect SD card to DUT.")
+			return fmt.Errorf("failed to connect SD card to DUT: %s", err)
 		}
 		// It is good to make sure that it is completely disconnected from the reader.
 		time.Sleep(2 * time.Second)
 		err = dev.TS()
 		if err != nil {
-			return fmt.Errorf("failed to TS: %s", err)
+			logger.WithError(err).Error("Failed to connect SD card to TS.")
+			return fmt.Errorf("failed to connect SD card to TS: %s", err)
 		}
 
 	wait:
@@ -95,9 +105,12 @@ func WaitForSDcard(dev muxpictl.Interface, sdcard string, retryCount int) error 
 			}
 			goto wait
 		case err := <-watcher.Errors:
+			logger.WithError(err).Error("SD card watcher failed.")
 			return fmt.Errorf("watcher error occurred: %s", err)
 		case <-ticker.C:
 		}
 	}
+	logger.WithProperty("attempts", retryCount).
+		Error("Exceeded number of attemts when waiting for the SD card.")
 	return fmt.Errorf("exceeded number of attempts")
 }
