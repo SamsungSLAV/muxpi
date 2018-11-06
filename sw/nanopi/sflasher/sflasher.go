@@ -44,8 +44,8 @@ type Sflasher struct {
 	// PartMapping ".img" file -> partition number.
 	// Example: {"boot.img":1}
 	PartMapping map[string]string
-	// verbose allows logging to default log.Logger instance or prevents it if false.
-	verbose bool
+	// logStats allows printing stats as Info logs.
+	logStats bool
 	// dev is interface to MuxPiCtl.
 	dev muxpictl.Interface
 }
@@ -60,9 +60,9 @@ func NewSflasher(dev muxpictl.Interface, sdcard string, partMapping map[string]s
 	}
 }
 
-// SetVerbose increases logging of sflasher actions.
-func (sf *Sflasher) SetVerbose() {
-	sf.verbose = true
+// LogStats increases logging of sflasher actions.
+func (sf *Sflasher) LogStats() {
+	sf.logStats = true
 }
 
 // computeHash passes content of the reader to the PipeReader
@@ -109,7 +109,7 @@ func (sf *Sflasher) uncompressAndFlash(reader io.ReadCloser) error {
 	}
 	tarReader := tar.NewReader(gzipReader)
 	for {
-		if sf.verbose {
+		if sf.logStats {
 			start = time.Now()
 		}
 		header, err := tarReader.Next()
@@ -132,7 +132,7 @@ func (sf *Sflasher) uncompressAndFlash(reader io.ReadCloser) error {
 			return err
 		}
 		sf.log("Flashed", header.Name, "to", path)
-		if sf.verbose {
+		if sf.logStats {
 			duration := time.Since(start)
 			log.Printf("Average speed: %.2f kB/s\n", float64(written)/(duration.Seconds()*1000))
 		}
@@ -141,7 +141,7 @@ func (sf *Sflasher) uncompressAndFlash(reader io.ReadCloser) error {
 }
 
 func (sf *Sflasher) log(str ...interface{}) {
-	if sf.verbose {
+	if sf.logStats {
 		log.Println(str...)
 	}
 }
