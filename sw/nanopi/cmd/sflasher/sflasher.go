@@ -19,67 +19,85 @@ package main
 
 import (
 	"encoding/json"
-	"flag"
-	"log"
 	"os"
 
+	flag "github.com/spf13/pflag"
+
 	"github.com/SamsungSLAV/muxpi/sw/nanopi/sflasher"
+	"github.com/SamsungSLAV/slav/logger"
 )
 
 var (
-	sdcard  string
-	mapping string
-	md5sums string
-	quiet   bool
+	sdcard   string
+	mapping  string
+	md5sums  string
+	logLevel string
 )
 
 func setFlags() {
 	flag.StringVar(&sdcard, "card", "", "path to SDcard")
 	flag.StringVar(&mapping, "map", "", "path to JSON formatted mapping")
 	flag.StringVar(&md5sums, "md5", "", "URL or path to MD5SUMS file")
-	flag.BoolVar(&quiet, "q", false, "suppress logging")
+	flag.StringVarP(&logLevel, "log-level", "l", "error", `Level of logging.
+	Levels:
+	* emergency
+	* alert
+	* critical
+	* error
+	* warning
+	* notice
+	* info
+	* debug`)
 }
 
-func checkErr(msg string, err error) {
+func setLogger() {
+	logLvl, err := logger.StringToLevel(logLevel)
+	exitOnErr("Invalid value of --log-level flag.", err)
+	logger.SetThreshold(logLvl)
+	logger.IncDepth(1).Infof("Logging level: %s", logLvl.String())
+}
+
+func exitOnErr(msg string, err error) {
 	if err != nil {
-		log.Fatal(ctx, err)
+		logger.IncDepth(1).WithError(err).Critical(msg)
+		os.Exit(1)
 	}
 }
 
-func verbose(str string) {
-	if !quiet {
-		log.Println(str)
-	}
+func exitWithMsgStatus(msg string, status int) {
+	logger.IncDepth(1).Critical(msg)
+	os.Exit(status)
 }
 
 func main() {
 	setFlags()
 	flag.Parse()
+	setLogger()
 
 	if mapping == "" {
-		log.Fatal("missing mapping argument. Example: " + exampleMap)
+		exitWithMsgStatus("Missing mapping argument.", 1)
 	}
 	if sdcard == "" {
-		log.Fatal("missing sdcard argument")
+		exitWithMsgStatus("Missing sdcard argument.", 1)
 	}
 
 	f, err := os.Open(mapping)
-	checkErr("failed to open the mapping: ", err)
+	exitOnErr("Failed to open the mapping.", err)
 	defer f.Close()
 
 	partMapping := make(map[string]string)
 	decoder := json.NewDecoder(f)
-	checkErr("failed to decode the mapping: ", decoder.Decode(&partMapping))
+	exitOnErr("Failed to decode the mapping.", decoder.Decode(&partMapping))
 
 	flasher := sflasher.NewSflasher(sdcard, partMapping)
-	if !quiet {
-		flasher.SetVerbose()
+	if logger.Threshold() >= logger.InfoLevel {
+		flasher.LogStats()
 	}
-	verbose("sflasher initialized")
+	logger.Info("sflasher initialized")
 
 	args := flag.Args()
 	if len(args) == 0 {
-		verbose("nothing to do")
+		logger.Info("Nothing to do.")
 		return
 	}
 	if _, err = os.Stat(args[0]); err != nil {
@@ -87,7 +105,7 @@ func main() {
 	} else {
 		err = flasher.Flash(md5sums, flag.Args()...)
 	}
-	checkErr("failed to flash images: ", err)
+	exitOnErr("Failed to flash images.", err)
 
 }
 
