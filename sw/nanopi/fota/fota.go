@@ -24,14 +24,15 @@ import (
 	"crypto/md5"
 	"fmt"
 	"io"
-	"log"
 	"net/http"
 	"net/url"
 	"os"
+	"os/exec"
 	"path"
 	"time"
 
 	"github.com/SamsungSLAV/muxpi/sw/nanopi/stm"
+	"github.com/SamsungSLAV/slav/logger"
 )
 
 // FOTA provides methods to help in the process of flashing an image to sdcard.
@@ -76,6 +77,7 @@ func (fota *FOTA) computeHash(reader io.Reader) (chan []byte, *io.PipeReader) {
 		defer close(ret)
 		_, err := io.Copy(writer, reader)
 		if err != nil {
+			logger.WithError(err).Debug("Failed to copy Reader to PipeReader")
 			pipeWriter.CloseWithError(err)
 			return
 		}
@@ -89,6 +91,7 @@ func (fota *FOTA) computeHash(reader io.Reader) (chan []byte, *io.PipeReader) {
 func (fota *FOTA) flash(reader io.Reader, path string) (int64, error) {
 	f, err := os.OpenFile(path, os.O_WRONLY, 0660)
 	if err != nil {
+		logger.WithProperty("path", path).WithError(err).Error("Failed to open.")
 		return 0, err
 	}
 	defer f.Sync()
@@ -104,6 +107,7 @@ func (fota *FOTA) uncompressAndFlash(reader io.ReadCloser) error {
 	var start time.Time
 	gzipReader, err := gzip.NewReader(reader)
 	if err != nil {
+		logger.WithError(err).Error("Failed to create gzip reader.")
 		return err
 	}
 	tarReader := tar.NewReader(gzipReader)
@@ -116,24 +120,25 @@ func (fota *FOTA) uncompressAndFlash(reader io.ReadCloser) error {
 			break
 		}
 		if err != nil {
+			logger.Error("Failed to get Image.")
 			return err
 		}
 		part, present := fota.PartMapping[header.Name]
 		if !present {
 			// Image not in mapping, skipping.
-			fota.log("Image is not present in the mapping. Skipping...", header.Name)
+			logger.Infof("Image %s not present in mapping, skipping...", header.Name)
 			continue
 		}
 		path := fota.SDcard + part
-		fota.log("Flashing", header.Name, "to", path)
+		logger.Infof("Flashing %s to %s", header.Name, path)
 		written, err := fota.flash(tarReader, path)
 		if err != nil {
 			return err
 		}
-		fota.log("Flashed", header.Name, "to", path)
+		logger.Infof("Successfuly flashed %s to %s.", header.Name, path)
 		if fota.verbose {
 			duration := time.Since(start)
-			log.Printf("Average speed: %.2f kB/s\n", float64(written)/(duration.Seconds()*1000))
+			logger.Noticef("Average speed: %.2f kB/s\n", float64(written)/(duration.Seconds()*1000))
 		}
 	}
 	return nil
@@ -141,17 +146,20 @@ func (fota *FOTA) uncompressAndFlash(reader io.ReadCloser) error {
 
 func (fota *FOTA) log(str ...interface{}) {
 	if fota.verbose {
-		log.Println(str...)
+		logger.Log(logger.NoticeLevel, str...)
 	}
 }
 
 func (fota *FOTA) getMD5FromURL(url string) error {
 	r, err := http.Get(url)
 	if err != nil {
+		logger.WithProperty("url", url).WithError(err).Error("Failed to download md5sum.")
 		return err
 	}
 	defer r.Body.Close()
 	if r.StatusCode != http.StatusOK {
+		logger.WithProperties(logger.Properties{"received-status-code": r.Status, "url": url}).
+			Error("Expected 200 OK.")
 		return fmt.Errorf("unexpected HTTP status: %s", r.Status)
 	}
 	return fota.parseChecksum(r.Body)
@@ -160,6 +168,7 @@ func (fota *FOTA) getMD5FromURL(url string) error {
 func (fota *FOTA) getMD5FromFile(path string) error {
 	f, err := os.Open(path)
 	if err != nil {
+		logger.WithProperty("path", path).WithError(err).Error("Failed to open file")
 		return err
 	}
 	defer f.Close()
@@ -219,7 +228,7 @@ func (fota *FOTA) downloadAndFlash(u string) error {
 		response.Body.Close()
 		return fmt.Errorf("unexpected HTTP status code: %s", response.Status)
 	}
-	fota.log("Downloading images from:", u)
+	logger.Infof("Downloading images from: %s", u)
 	return fota.flashFromReader(response.Body, filename)
 }
 
@@ -237,6 +246,9 @@ func (fota *FOTA) Flash(md5sumsPath string, paths ...string) (err error) {
 		var f *os.File
 		f, err = os.Open(p)
 		if err != nil {
+			res, _ := exec.Command("sh", "-c", "lsof").Output()
+			logger.Info("lsof returned:" + string(res))
+			logger.WithError(err).Error("Failed to open file.")
 			return
 		}
 		err = fota.flashFromReader(f, f.Name())
