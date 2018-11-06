@@ -20,12 +20,12 @@ package main
 import (
 	"encoding/json"
 	"flag"
-	"log"
 	"net/rpc"
 	"os"
 
 	"github.com/SamsungSLAV/muxpi/sw/nanopi/muxpictl"
 	"github.com/SamsungSLAV/muxpi/sw/nanopi/sflasher"
+	"github.com/SamsungSLAV/slav/logger"
 )
 
 var (
@@ -47,45 +47,56 @@ func setFlags() {
 	flag.StringVar(&remote, "remote", "/run/muxpictl-user.socket", "path to remote service socket")
 }
 
-func checkErr(ctx string, err error) {
+func exitOnErr(msg string, err error) {
 	if err != nil {
-		log.Fatal(ctx, err)
+		logger.IncDepth(1).WithError(err).Critical(msg)
+		os.Exit(1)
 	}
+}
+
+func exitWithMsgStatus(msg string, status int) {
+	logger.IncDepth(1).Critical(msg)
+	os.Exit(status)
 }
 
 func verbose(str string) {
 	if !quiet {
-		log.Println(str)
+		logger.IncDepth(1).Info(str)
 	}
 }
 
 func main() {
 	setFlags()
+	logger.SetThreshold(logger.InfoLevel)
+
 	flag.Parse()
 
 	if mapping == "" {
-		log.Fatal("missing mapping argument")
+		exitWithMsgStatus("Missing mapping argument.", 1)
 	}
 	if sdcard == "" {
-		log.Fatal("missing sdcard argument")
+		exitWithMsgStatus("Missing sdcard argument.", 1)
 	}
 
 	f, err := os.Open(mapping)
-	checkErr("failed to open the mapping: ", err)
+	exitOnErr("Failed to open the mapping.", err)
 	defer f.Close()
 
 	partMapping := make(map[string]string)
 	decoder := json.NewDecoder(f)
-	checkErr("failed to decode the mapping: ", decoder.Decode(&partMapping))
-
+	exitOnErr("Failed to decode the mapping.", decoder.Decode(&partMapping))
+	if len(partMapping) == 0 {
+		exitWithMsgStatus("Empty partition mapping, nothing to do.", 0)
+		return
+	}
 	var dev muxpictl.InterfaceCloser
 	if remote != "" {
 		cl, err := rpc.Dial("unix", remote)
-		checkErr("failed to connect to RPC service: ", err)
+		exitOnErr("Failed to connect to RPC service.", err)
 		dev = muxpictl.NewInterfaceClient(cl)
 	} else {
 		dev, err = muxpictl.GetDefaultMuxPiCtl()
-		checkErr("failed to connect to muxpictl: ", err)
+		exitOnErr("Failed to connect to muxpictl.", err)
 	}
 	defer dev.Close()
 
@@ -95,12 +106,12 @@ func main() {
 	}
 	verbose("sflasher initialized")
 
-	checkErr("SDcard not found: ", sflasher.WaitForSDcard(dev, sdcard, 10))
+	exitOnErr("SDcard not found: ", sflasher.WaitForSDcard(dev, sdcard, 10))
 	verbose("SDcard detected")
 
 	args := flag.Args()
 	if len(args) == 0 {
-		verbose("nothing to do")
+		verbose("Nothing to do.")
 		return
 	}
 	if _, err = os.Stat(args[0]); err != nil {
@@ -108,6 +119,6 @@ func main() {
 	} else {
 		err = flasher.Flash(md5sums, flag.Args()...)
 	}
-	checkErr("failed to flash images: ", err)
+	exitOnErr("Failed to flash images.", err)
 
 }
