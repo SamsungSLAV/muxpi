@@ -22,6 +22,7 @@ import (
 	"time"
 
 	"github.com/SamsungSLAV/muxpi/sw/nanopi/muxpictl"
+	"github.com/SamsungSLAV/slav/logger"
 	fsnotify "gopkg.in/fsnotify/fsnotify.v1"
 )
 
@@ -34,17 +35,20 @@ func checkFile(filename string) (bool, error) {
 	f, err := os.Stat(filename)
 	if err != nil {
 		if os.IsNotExist(err) {
+			logger.WithError(err).WithProperty("file", filename).Error("File does not exist.")
 			return false, nil
 		}
+		logger.WithError(err).WithProperty("file", filename).Error("Failed to get FileInfo.")
 		return false, fmt.Errorf("could not access file %s: %s", filename, err)
 	}
 	// SDcard detected.
 	mode := f.Mode()
 	if mode&os.ModeDevice != 0 {
-		// Partition is a block device.
+		logger.WithProperty("file", filename).Debug("File is a block device.")
 		return true, nil
 	}
-	// Partition is not a block device.
+	logger.WithProperties(logger.Properties{"file": filename, "mode": mode}).
+		Error("File is not a block device.")
 	return false, fmt.Errorf("unexpected attribute: %s", mode)
 }
 
@@ -54,11 +58,13 @@ func checkFile(filename string) (bool, error) {
 func WaitForSDcard(dev muxpictl.Interface, sdcard string, retryCount int) error {
 	watcher, err := fsnotify.NewWatcher()
 	if err != nil {
+		logger.WithError(err).Error("Failed to establish new watcher with OS.")
 		return fmt.Errorf("starting watcher failed: %s", err)
 	}
 	defer watcher.Close()
 	err = watcher.Add("/dev/disk/by-path/")
 	if err != nil {
+		logger.WithError(err).Error("Failed to add SD card watcher.")
 		return fmt.Errorf("add of sdcard to watcher failed: %s", err)
 	}
 
