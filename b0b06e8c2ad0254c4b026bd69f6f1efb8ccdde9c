@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ac26d2ab_86a6a982",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1015231
+      },
+      "writtenOn": "2018-11-08T12:01:45Z",
+      "side": 1,
+      "message": "i know dpkg are not binaries but i guess placing them in sw/nanopi/bin could be acceptable and would result in keeping all build artifacts in one place.",
+      "range": {
+        "startLine": 10,
+        "startChar": 59,
+        "endLine": 10,
+        "endChar": 65
+      },
+      "revId": "b0b06e8c2ad0254c4b026bd69f6f1efb8ccdde9c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "589e4fa7_f0e9f6a0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1015231
+      },
+      "writtenOn": "2018-11-08T12:01:45Z",
+      "side": 1,
+      "message": "please add amd64 for cyber dryads (and consistency with boruta/dryad binary docker build)",
+      "range": {
+        "startLine": 10,
+        "startChar": 13,
+        "endLine": 10,
+        "endChar": 18
+      },
+      "revId": "b0b06e8c2ad0254c4b026bd69f6f1efb8ccdde9c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
