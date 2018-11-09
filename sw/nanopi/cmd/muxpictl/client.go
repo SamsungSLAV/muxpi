@@ -23,12 +23,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/SamsungSLAV/muxpi/sw/nanopi/stm"
+	"github.com/SamsungSLAV/muxpi/sw/nanopi/muxpictl"
 )
 
 type command interface {
 	setFlags()
-	run(dev stm.Interface)
+	run(dev muxpictl.Interface)
 }
 
 type multiplexer struct {
@@ -40,7 +40,7 @@ func (m *multiplexer) setFlags() {
 	flag.BoolVar(&m.dut, "dut", false, "connect SD card to DUT")
 }
 
-func (m *multiplexer) run(dev stm.Interface) {
+func (m *multiplexer) run(dev muxpictl.Interface) {
 	switch {
 	// Only one is allowed at a time.
 	case m.ts && m.dut:
@@ -63,7 +63,7 @@ func (c *cutter) setFlags() {
 	flag.DurationVar(&c.tickDuration, "m", time.Second, "time delay for tick command")
 }
 
-func (c *cutter) run(dev stm.Interface) {
+func (c *cutter) run(dev muxpictl.Interface) {
 	if c.tick {
 		checkErr("failed to tick the power supply: ", dev.PowerTick(c.tickDuration))
 	}
@@ -85,7 +85,7 @@ func (c *current) setFlags() {
 	flag.DurationVar(&c.sampleDuration, "cur-duration", time.Minute, "duration the sample should be recorded for")
 }
 
-func (c *current) run(dev stm.Interface) {
+func (c *current) run(dev muxpictl.Interface) {
 	if c.cur {
 		i, err := dev.GetCurrent()
 		checkErr("failed to read the power consumption: ", err)
@@ -144,12 +144,12 @@ func (d *display) setFlags() {
 	flag.UintVar(&d.y, "print-y", 0, "y coordinate for print command")
 }
 
-func (d *display) run(dev stm.Interface) {
+func (d *display) run(dev muxpictl.Interface) {
 	if d.clr {
 		checkErr("failed to clear the display: ", dev.ClearDisplay())
 	}
 	if d.text != "" {
-		checkErr("failed to print on the display: ", dev.PrintText(d.x, d.y, stm.Foreground, d.text))
+		checkErr("failed to print on the display: ", dev.PrintText(d.x, d.y, muxpictl.Foreground, d.text))
 	}
 }
 
@@ -164,19 +164,19 @@ func (l *leds) setFlags() {
 		"set the color of led2; accepted format 'r,g,b' where each is value in 0-255 range")
 }
 
-func (l *leds) setLED(dev stm.Interface, led string, stmLED stm.LED) {
+func (l *leds) setLED(dev muxpictl.Interface, led string, muxpictlLED muxpictl.LED) {
 	var r, g, b uint8
 	_, err := fmt.Sscanf(led, "%d,%d,%d", &r, &g, &b)
 	checkErr("failed to parse the led argument: ", err)
-	checkErr("failed to update value for led: ", dev.SetLED(stmLED, r, g, b))
+	checkErr("failed to update value for led: ", dev.SetLED(muxpictlLED, r, g, b))
 }
 
-func (l *leds) run(dev stm.Interface) {
+func (l *leds) run(dev muxpictl.Interface) {
 	if l.led1 != "" {
-		l.setLED(dev, l.led1, stm.LED1)
+		l.setLED(dev, l.led1, muxpictl.LED1)
 	}
 	if l.led2 != "" {
-		l.setLED(dev, l.led2, stm.LED2)
+		l.setLED(dev, l.led2, muxpictl.LED2)
 	}
 }
 
@@ -202,7 +202,7 @@ func (s *switches) setFlags() {
 	flag.StringVar(&s.hdmiState, "hdmi", "", "switch HDMI HOTPLUG pin (on|off)")
 }
 
-func (s *switches) setDyper(dev stm.Interface, dyper stm.Dyper, state string) {
+func (s *switches) setDyper(dev muxpictl.Interface, dyper muxpictl.Dyper, state string) {
 	if state == "" {
 		return
 	}
@@ -214,7 +214,7 @@ func (s *switches) setDyper(dev stm.Interface, dyper stm.Dyper, state string) {
 	dev.SetDyper(dyper, b)
 }
 
-func (s *switches) setHDMI(dev stm.Interface, state string) {
+func (s *switches) setHDMI(dev muxpictl.Interface, state string) {
 	if state == "" {
 		return
 	}
@@ -226,9 +226,9 @@ func (s *switches) setHDMI(dev stm.Interface, state string) {
 	dev.HDMI(b)
 }
 
-func (s *switches) run(dev stm.Interface) {
-	s.setDyper(dev, stm.DYPER1, s.dyper1State)
-	s.setDyper(dev, stm.DYPER2, s.dyper2State)
+func (s *switches) run(dev muxpictl.Interface) {
+	s.setDyper(dev, muxpictl.DYPER1, s.dyper1State)
+	s.setDyper(dev, muxpictl.DYPER2, s.dyper2State)
 
 	s.setHDMI(dev, s.hdmiState)
 }

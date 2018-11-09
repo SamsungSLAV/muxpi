@@ -31,7 +31,7 @@ import (
 	"path"
 	"time"
 
-	"github.com/SamsungSLAV/muxpi/sw/nanopi/stm"
+	"github.com/SamsungSLAV/muxpi/sw/nanopi/muxpictl"
 )
 
 // FOTA provides methods to help in the process of flashing an image to sdcard.
@@ -46,11 +46,11 @@ type FOTA struct {
 	// verbose allows logging to default log.Logger instance or prevents it if false.
 	verbose bool
 	// dev is interface to STM.
-	dev stm.Interface
+	dev muxpictl.Interface
 }
 
 // NewFOTA returns new instance of FOTA. It also opens connection to STM.
-func NewFOTA(dev stm.Interface, sdcard string, partMapping map[string]string) *FOTA {
+func NewFOTA(dev muxpictl.Interface, sdcard string, partMapping map[string]string) *FOTA {
 	return &FOTA{
 		checksums:   make(map[string]string),
 		SDcard:      sdcard,
