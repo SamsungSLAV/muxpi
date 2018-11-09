@@ -14,6 +14,7 @@
  *  limitations under the License
  */
 
+// Sflasher is a simple utility to flash SD cards.
 package main
 
 import (
@@ -23,8 +24,8 @@ import (
 	"net/rpc"
 	"os"
 
-	"github.com/SamsungSLAV/muxpi/sw/nanopi/fota"
 	"github.com/SamsungSLAV/muxpi/sw/nanopi/muxpictl"
+	"github.com/SamsungSLAV/muxpi/sw/nanopi/sflasher"
 )
 
 var (
@@ -88,13 +89,13 @@ func main() {
 	}
 	defer dev.Close()
 
-	flasher := fota.NewFOTA(dev, sdcard, partMapping)
+	flasher := sflasher.NewSflasher(dev, sdcard, partMapping)
 	if !quiet {
 		flasher.SetVerbose()
 	}
-	verbose("FOTA initialized")
+	verbose("sflasher initialized")
 
-	checkErr("SDcard not found: ", fota.WaitForSDcard(dev, sdcard, 10))
+	checkErr("SDcard not found: ", sflasher.WaitForSDcard(dev, sdcard, 10))
 	verbose("SDcard detected")
 
 	args := flag.Args()
