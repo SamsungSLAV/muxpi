@@ -14,7 +14,7 @@
  *  limitations under the License
  */
 
-package stm
+package muxpictl
 
 import (
 	"log"

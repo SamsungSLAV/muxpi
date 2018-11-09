@@ -64,7 +64,7 @@ Building from source
 #. Build binaries::
 
       $ mkdir -p bin
-      $ GOARCH=arm GOOARM=7 GOOS=linux go build -o bin/stm ./cmd/stm/
+      $ GOARCH=arm GOOARM=7 GOOS=linux go build -o bin/muxpictl ./cmd/muxpictl/
       $ GOARCH=arm GOOARM=7 GOOS=linux go build -o bin/fota ./cmd/fota/
 
 
@@ -88,39 +88,39 @@ Install muxpi-power
    When you restart MuxPi board, you should see that after system boot, board
    comes alive - e.g. display lights up.
 
-Install stm
+Install muxpictl
 ===========
 
-#. Copy stm binary and systemd files to MuxPi device::
+#. Copy muxpictl binary and systemd files to MuxPi device::
 
-      $ scp bin/stm root@192.168.0.2:/usr/bin/
-      $ scp stm/systemd/stm.service root@192.168.0.2:/etc/systemd/system
-      $ scp stm/systemd/stm-user.socket root@192.168.0.2:/etc/systemd/system
-      $ scp stm/systemd/stm.socket root@192.168.0.2:/etc/systemd/system
-      $ scp stm/stm root@192.168.0.2:/usr/local/bin/stm
+      $ scp bin/muxpictl root@192.168.0.2:/usr/bin/
+      $ scp muxpictl/systemd/muxpictl.service root@192.168.0.2:/etc/systemd/system
+      $ scp muxpictl/systemd/muxpictl-user.socket root@192.168.0.2:/etc/systemd/system
+      $ scp muxpictl/systemd/muxpictl.socket root@192.168.0.2:/etc/systemd/system
+      $ scp muxpictl/muxpictl root@192.168.0.2:/usr/local/bin/muxpictl
 
-#. On your MuxPi device - create group stm and add your user (assumed to be
-   ``stm``::
+#. On your MuxPi device - create group muxpictl and add your user (assumed to be
+   ``muxpictl``::
 
-      # groupadd stm
-      # usermod -aG stm pi
+      # groupadd muxpictl
+      # usermod -aG muxpictl pi
 
-#. On your MuxPi device - enable stm sockets::
+#. On your MuxPi device - enable muxpictl sockets::
 
       # systemctl daemon-reload
-      # systemctl enable stm.socket stm-user.socket
-      # systemctl start stm.socket stm-user.socket
+      # systemctl enable muxpictl.socket muxpictl-user.socket
+      # systemctl start muxpictl.socket muxpictl-user.socket
 
    .. note::
 
-      Currently stm is not safe for concurrent use and requires root to operate
+      Currently muxpictl is not safe for concurrent use and requires root to operate
       (or whoever ``/dev/ttyS2`` permissions point to). It is recommended to
-      install stm as an auto starting service as described above.
+      install muxpictl as an auto starting service as described above.
 
    .. warning::
 
-      stm.service should NOT be started manually or enabled, because when
-      run through systemd, stm expects to be able to obtain the aforementioned
+      muxpictl.service should NOT be started manually or enabled, because when
+      run through systemd, muxpictl expects to be able to obtain the aforementioned
       socket paths from systemd, which is only possible when the service is
       launched by the sockets.
 
