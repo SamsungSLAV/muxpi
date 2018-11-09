@@ -56,7 +56,7 @@ Repository Directory structure
           └── fota - tools/libs for flashing devices (usually microSD card)
           │   with given images
           │
-          └── stm - tools/libs for communicating with STM32F030 microntroller
+          └── muxpictl - tools/libs for communicating with STM32F030 microntroller
           │
           └── power - tool for controling power supply for  MuxPi's main board
           │

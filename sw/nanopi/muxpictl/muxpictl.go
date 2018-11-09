@@ -14,11 +14,11 @@
  *  limitations under the License
  */
 
-// Package stm implements communication with STM32F030 found on MuxPi.
-package stm
+// Package muxpictl implements communication with STM32F030 found on MuxPi.
+package muxpictl
 
-//go:generate go-rpcgen --source=stm.go --type=UserInterface --service Interface --target=rpc_user.go
-//go:generate go-rpcgen --source=stm.go --type=Interface --target=rpc_admin.go
+//go:generate go-rpcgen --source=muxpictl.go --type=UserInterface --service Interface --target=rpc_user.go
+//go:generate go-rpcgen --source=muxpictl.go --type=Interface --target=rpc_admin.go
 
 import (
 	"bufio"

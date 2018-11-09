@@ -23,23 +23,23 @@ import (
 	"os"
 	"os/signal"
 
-	"github.com/SamsungSLAV/muxpi/sw/nanopi/stm"
+	"github.com/SamsungSLAV/muxpi/sw/nanopi/muxpictl"
 	"github.com/coreos/go-systemd/activation"
 )
 
-func registerUserServiceOnListener(impl stm.UserInterface, l net.Listener) {
+func registerUserServiceOnListener(impl muxpictl.UserInterface, l net.Listener) {
 	srv := rpc.NewServer()
-	checkErr("failed to register user service: ", stm.RegisterUserInterfaceService(srv, impl))
+	checkErr("failed to register user service: ", muxpictl.RegisterUserInterfaceService(srv, impl))
 	go srv.Accept(l)
 }
 
-func registerServiceOnListener(impl stm.Interface, l net.Listener) {
+func registerServiceOnListener(impl muxpictl.Interface, l net.Listener) {
 	srv := rpc.NewServer()
-	checkErr("failed to register admin service: ", stm.RegisterInterfaceService(srv, impl))
+	checkErr("failed to register admin service: ", muxpictl.RegisterInterfaceService(srv, impl))
 	go srv.Accept(l)
 }
 
-func registerUserService(i stm.UserInterface, path string) net.Listener {
+func registerUserService(i muxpictl.UserInterface, path string) net.Listener {
 	l, err := net.Listen("unix", path)
 	if err != nil {
 		log.Fatal("failed to bind a socket: ", err)
@@ -48,7 +48,7 @@ func registerUserService(i stm.UserInterface, path string) net.Listener {
 	return l
 }
 
-func registerService(i stm.Interface, path string) net.Listener {
+func registerService(i muxpictl.Interface, path string) net.Listener {
 	l, err := net.Listen("unix", path)
 	if err != nil {
 		log.Fatal("failed to bind a socket: ", err)
@@ -57,11 +57,11 @@ func registerService(i stm.Interface, path string) net.Listener {
 	return l
 }
 
-func serveRemoteSTM(dev stm.Interface) {
+func serveRemoteSTM(dev muxpictl.Interface) {
 	listeners, err := activation.Listeners()
 	if err != nil {
 		if userServiceSocket != "" {
-			l := registerUserService(dev.(stm.UserInterface), userServiceSocket)
+			l := registerUserService(dev.(muxpictl.UserInterface), userServiceSocket)
 			defer l.Close()
 		}
 		if serviceSocket != "" {
@@ -75,7 +75,7 @@ func serveRemoteSTM(dev stm.Interface) {
 			case serviceSocket != "" && name == serviceSocket:
 				registerServiceOnListener(dev, l)
 			case userServiceSocket != "" && name == userServiceSocket:
-				registerUserServiceOnListener(dev.(stm.UserInterface), l)
+				registerUserServiceOnListener(dev.(muxpictl.UserInterface), l)
 			default:
 				log.Fatal("unknown fd name: ", name)
 			}

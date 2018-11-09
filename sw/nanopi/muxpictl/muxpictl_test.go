@@ -14,18 +14,18 @@
  *  limitations under the License
  */
 
-package stm_test
+package muxpictl_test
 
 import (
 	"time"
 
-	. "github.com/SamsungSLAV/muxpi/sw/nanopi/stm"
+	. "github.com/SamsungSLAV/muxpi/sw/nanopi/muxpictl"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 )
 
-var _ = Describe("Stm", func() {
+var _ = Describe("Muxpictl", func() {
 	var dev InterfaceCloser
 
 	BeforeEach(func() {
