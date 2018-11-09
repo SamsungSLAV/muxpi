@@ -7,9 +7,9 @@ RUN go get -d "${PROJECT}/..."
 
 WORKDIR "${GOPATH}/src/${PROJECT}"
 
-# Build stm
-RUN GOOS=linux GOARCH=arm GOARM=7 go build -o /stm_armv7 ./cmd/stm/
-RUN GOOS=linux GOARCH=amd64 go build -o /stm_amd64 ./cmd/stm/
+# Build muxpictl
+RUN GOOS=linux GOARCH=arm GOARM=7 go build -o /muxpictl_armv7 ./cmd/muxpictl/
+RUN GOOS=linux GOARCH=amd64 go build -o /muxpictl_amd64 ./cmd/muxpictl/
 
 # Build fota
 RUN GOOS=linux GOARCH=arm GOARM=7 go build -o /fota_armv7 ./cmd/fota/
