@@ -1,0 +1,11 @@
+[Unit]
+Description=User socket activation for muxpictl daemon
+
+[Socket]
+SocketMode=0660
+SocketGroup=muxpictl
+ListenStream=/run/muxpictl-user.socket
+Service=muxpictl.service
+
+[Install]
+WantedBy=sockets.target

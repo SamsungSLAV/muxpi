@@ -1,9 +1,0 @@
-[Unit]
-Description=Admin socket activation for STM daemon
-
-[Socket]
-SocketMode=0660
-ListenStream=/run/stm.socket
-
-[Install]
-WantedBy=sockets.target

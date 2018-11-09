@@ -14,11 +14,12 @@
  *  limitations under the License
  */
 
-// Package stm implements communication with STM32F030 found on MuxPi.
-package stm
+// Package muxpictl implements communication with STM32F030 microcontroller found on MuxPi.
+// For brevity sake, MuxPi's microcontroller will be referred to as uC i rest of godoc of this pkg.
+package muxpictl
 
-//go:generate go-rpcgen --source=stm.go --type=UserInterface --service Interface --target=rpc_user.go
-//go:generate go-rpcgen --source=stm.go --type=Interface --target=rpc_admin.go
+//go:generate go-rpcgen --source=muxpictl.go --type=UserInterface --service Interface --target=rpc_user.go
+//go:generate go-rpcgen --source=muxpictl.go --type=Interface --target=rpc_admin.go
 
 import (
 	"bufio"
@@ -40,7 +41,7 @@ const (
 	samplePeriodLimit = 3 * time.Millisecond // 333 Hz (444 Hz is achievable)
 )
 
-// Color denotes a string representation of a color accepted by STM.
+// Color denotes a string representation of a color accepted by uC.
 //
 // MuxPi has only two colors available: orange (foreground), black (background).
 type Color string
@@ -52,7 +53,7 @@ const (
 	Background Color = "off"
 )
 
-// LED represents all LEDs available via STM.
+// LED represents all LEDs available via uC.
 type LED string
 
 const (
@@ -62,7 +63,7 @@ const (
 	LED2 LED = "2"
 )
 
-// Dyper represents all DYPERs available via STM.
+// Dyper represents all DYPERs available via uC.
 type Dyper string
 
 const (
@@ -72,10 +73,10 @@ const (
 	DYPER2 Dyper = "dyper 2"
 )
 
-// STM provides methods to execute commands via serial interface.
+// MuxPiCtl provides methods to execute commands via serial interface.
 //
 // It is safe for concurrent use.
-type STM struct {
+type MuxPiCtl struct {
 	config *serial.Config
 	port   *serial.Port
 	reader *bufio.Reader
@@ -88,8 +89,7 @@ type STM struct {
 	sampleMux    *sync.Mutex
 }
 
-// UserInterface contains methods of STM that are intended to
-// be used by a regular user and admin.
+// UserInterface contains methods  intended to be used by a regular user and admin.
 type UserInterface interface {
 	PowerTick(d time.Duration) (err error)
 	DUT() (err error)
@@ -102,15 +102,14 @@ type UserInterface interface {
 	SetDyper(dyper Dyper, on bool) (err error)
 }
 
-// AdminInterface contains methods of STM that are intended to
-// be used by administrators only.
+// AdminInterface contains methods intended to be used by administrators only.
 type AdminInterface interface {
 	SetLED(led LED, r, g, b uint8) (err error)
 	ClearDisplay() (err error)
 	PrintText(x, y uint, color Color, text string) (err error)
 }
 
-// Interface contains all methods of STM.
+// Interface contains all methods of muxpictl.
 type Interface interface {
 	UserInterface
 	AdminInterface
@@ -122,9 +121,9 @@ type InterfaceCloser interface {
 	Close() error
 }
 
-// NewSTM prepares STM structure with serial configuration.
-func NewSTM(ttyPath string, baudrate int) *STM {
-	return &STM{
+// NewMuxPiCtl prepares MuxPiCtl structure with serial configuration.
+func NewMuxPiCtl(ttyPath string, baudrate int) *MuxPiCtl {
+	return &MuxPiCtl{
 		config: &serial.Config{
 			Name:     ttyPath,
 			Baud:     baudrate,
@@ -137,43 +136,44 @@ func NewSTM(ttyPath string, baudrate int) *STM {
 	}
 }
 
-// GetDefaultSTM provides InterfaceCloser to STM with default values. The caller should call Close()
-// to free the underlying serial connection. The returned instance is different for each call. Care
-// should be taken to not use two such objects concurrently as they use the same device.
-func GetDefaultSTM() (InterfaceCloser, error) {
-	stm := NewSTM("/dev/ttyS2", 115200)
-	err := stm.Open()
+// GetDefaultMuxPiCtl provides InterfaceCloser to MuxPiCtl with default values. The caller should
+// call Close() to free the underlying serial connection. The returned instance is different for
+// each call. Care should be taken to not use two such objects concurrently as they use the same
+// device.
+func GetDefaultMuxPiCtl() (InterfaceCloser, error) {
+	mpc := NewMuxPiCtl("/dev/ttyS2", 115200)
+	err := mpc.Open()
 	if err != nil {
 		return nil, err
 	}
-	return stm, err
+	return mpc, err
 }
 
 // Open starts a serial connection.
 //
 // It should be called only once after structure creation
 // or in case the connection has been terminated with Close().
-func (stm *STM) Open() (err error) {
-	stm.port, err = serial.OpenPort(stm.config)
+func (mpc *MuxPiCtl) Open() (err error) {
+	mpc.port, err = serial.OpenPort(mpc.config)
 	if err != nil {
 		return err
 	}
-	stm.reader = bufio.NewReader(stm.port)
-	return stm.noEcho()
+	mpc.reader = bufio.NewReader(mpc.port)
+	return mpc.noEcho()
 }
 
 // Close terminates the serial connection.
 //
 // It should be called only once after the connection has been created with Open().
-func (stm *STM) Close() error {
-	return stm.port.Close()
+func (mpc *MuxPiCtl) Close() error {
+	return mpc.port.Close()
 }
 
 // readResponse reads a single line from the reader.
 //
 // It should not be used by public functions unless they are aware of the locking.
-func (stm *STM) readResponse() (string, error) {
-	response, _, err := stm.reader.ReadLine()
+func (mpc *MuxPiCtl) readResponse() (string, error) {
+	response, _, err := mpc.reader.ReadLine()
 	if err != nil {
 		return "", fmt.Errorf("failed to read a response: %s", err)
 	}
@@ -182,20 +182,20 @@ func (stm *STM) readResponse() (string, error) {
 
 // sendAndReceive writes cmd, optionally reads a response if withResponse is set to true,
 // and checks for confirmation of successful execution.
-func (stm *STM) sendAndReceive(cmd string, withResponse bool) (response string, err error) {
-	stm.mux.Lock()
-	defer stm.mux.Unlock()
-	_, err = io.WriteString(stm.port, cmd+"\n")
+func (mpc *MuxPiCtl) sendAndReceive(cmd string, withResponse bool) (response string, err error) {
+	mpc.mux.Lock()
+	defer mpc.mux.Unlock()
+	_, err = io.WriteString(mpc.port, cmd+"\n")
 	if err != nil {
 		return "", fmt.Errorf("failed to write a command: %s", err)
 	}
 	if withResponse {
-		response, err = stm.readResponse()
+		response, err = mpc.readResponse()
 		if err != nil {
 			return "", err
 		}
 	}
-	err = stm.checkOK()
+	err = mpc.checkOK()
 	if err != nil {
 		return "", err
 	}
@@ -206,8 +206,8 @@ func (stm *STM) sendAndReceive(cmd string, withResponse bool) (response string, 
 // if it is not an expected confirmation response.
 //
 // It should not be used by public functions unless they are aware of the locking.
-func (stm *STM) checkOK() error {
-	resp, err := stm.readResponse()
+func (mpc *MuxPiCtl) checkOK() error {
+	resp, err := mpc.readResponse()
 	if err != nil {
 		return err
 	}
@@ -218,21 +218,21 @@ func (stm *STM) checkOK() error {
 }
 
 // executeCommand sends a prepared cmd string and checks for OK response.
-func (stm *STM) executeCommand(cmd string) (err error) {
-	_, err = stm.sendAndReceive(cmd, false)
+func (mpc *MuxPiCtl) executeCommand(cmd string) (err error) {
+	_, err = mpc.sendAndReceive(cmd, false)
 	return
 }
 
 // noEcho requires special handling as there are more possible responses.
-func (stm *STM) noEcho() (err error) {
-	stm.mux.Lock()
-	defer stm.mux.Unlock()
-	_, err = io.WriteString(stm.port, "echo off\n")
+func (mpc *MuxPiCtl) noEcho() (err error) {
+	mpc.mux.Lock()
+	defer mpc.mux.Unlock()
+	_, err = io.WriteString(mpc.port, "echo off\n")
 	if err != nil {
 		return fmt.Errorf("failed to write a command: %s", err)
 	}
 	for i := 0; i < retryLimit; i++ {
-		resp, err := stm.readResponse()
+		resp, err := mpc.readResponse()
 		if err != nil {
 			return err
 		}
@@ -248,40 +248,40 @@ func (stm *STM) noEcho() (err error) {
 }
 
 // PowerTick cuts power off DUT, waits specified time and switches power back on.
-func (stm *STM) PowerTick(d time.Duration) error {
-	return stm.executeCommand(fmt.Sprintf("power tick %d", int(d/time.Millisecond)))
+func (mpc *MuxPiCtl) PowerTick(d time.Duration) error {
+	return mpc.executeCommand(fmt.Sprintf("power tick %d", int(d/time.Millisecond)))
 }
 
 // SetLED sets color of an RGB LED.
-func (stm *STM) SetLED(led LED, r, g, b uint8) error {
-	return stm.executeCommand(fmt.Sprintf("led %s %d %d %d", led, r, g, b))
+func (mpc *MuxPiCtl) SetLED(led LED, r, g, b uint8) error {
+	return mpc.executeCommand(fmt.Sprintf("led %s %d %d %d", led, r, g, b))
 }
 
 // ClearDisplay clears the OLED display.
-func (stm *STM) ClearDisplay() error {
-	return stm.executeCommand("clr")
+func (mpc *MuxPiCtl) ClearDisplay() error {
+	return mpc.executeCommand("clr")
 }
 
 // PrintText prints text at x,y position (from top-left corner) in color.
-func (stm *STM) PrintText(x, y uint, color Color, text string) error {
-	return stm.executeCommand(fmt.Sprintf("text %d %d %s %s", x, y, color, text))
+func (mpc *MuxPiCtl) PrintText(x, y uint, color Color, text string) error {
+	return mpc.executeCommand(fmt.Sprintf("text %d %d %s %s", x, y, color, text))
 }
 
-// DUT instructs STM to connect microSD card and power to a DUT (Device Under Test).
-func (stm *STM) DUT() error {
-	return stm.executeCommand("dut")
+// DUT instructs uC to connect microSD card and power to a DUT (Device Under Test).
+func (mpc *MuxPiCtl) DUT() error {
+	return mpc.executeCommand("dut")
 }
 
-// TS instructs STM to connect microSD card to TS (test server)
+// TS instructs uC to connect microSD card to TS (test server)
 // and disconnect power source from a DUT.
-func (stm *STM) TS() error {
-	return stm.executeCommand("ts")
+func (mpc *MuxPiCtl) TS() error {
+	return mpc.executeCommand("ts")
 }
 
 // GetCurrent reads value of current drawn by DUT.
 // The value is in milliamperes [mA].
-func (stm *STM) GetCurrent() (int, error) {
-	str, err := stm.sendAndReceive("current", true)
+func (mpc *MuxPiCtl) GetCurrent() (int, error) {
+	str, err := mpc.sendAndReceive("current", true)
 	if err != nil {
 		return 0, err
 	}
@@ -293,9 +293,9 @@ func (stm *STM) GetCurrent() (int, error) {
 }
 
 // sampleGetCurrent is a helper function of sampleGetCurrentLoop.
-func (stm *STM) sampleGetCurrent(stop <-chan struct{}) bool {
-	stm.sampleMux.Lock()
-	defer stm.sampleMux.Unlock()
+func (mpc *MuxPiCtl) sampleGetCurrent(stop <-chan struct{}) bool {
+	mpc.sampleMux.Lock()
+	defer mpc.sampleMux.Unlock()
 	select {
 	case <-stop:
 		// A tick from ticker has been read before entering
@@ -308,20 +308,20 @@ func (stm *STM) sampleGetCurrent(stop <-chan struct{}) bool {
 	default:
 	}
 
-	v, err := stm.GetCurrent()
+	v, err := mpc.GetCurrent()
 	if err != nil {
 		// replace failed reads with -1 so that successful reads will be spaced properly.
 		v = -1
 		// The error is ignored.
 	}
-	stm.sample = append(stm.sample, v)
-	return len(stm.sample) < cap(stm.sample)
+	mpc.sample = append(mpc.sample, v)
+	return len(mpc.sample) < cap(mpc.sample)
 }
 
 // sampleGetCurrentLoop reads from ticker and stop channels.
 // It is stopped by closing a stop channel.
-func (stm *STM) sampleGetCurrentLoop(stop <-chan struct{}, ticker *time.Ticker) {
-	for process := true; process; process = stm.sampleGetCurrent(stop) {
+func (mpc *MuxPiCtl) sampleGetCurrentLoop(stop <-chan struct{}, ticker *time.Ticker) {
+	for process := true; process; process = mpc.sampleGetCurrent(stop) {
 		select {
 		case <-stop:
 			// sampleTicker has been stopped (before a tick occurred)
@@ -334,18 +334,18 @@ func (stm *STM) sampleGetCurrentLoop(stop <-chan struct{}, ticker *time.Ticker) 
 
 // stopCurrentRecord stops the sampleGetCurrentLoop. The caller should own sampleMux.
 // It is a helper function of StartCurrentRecord and StopCurrentRecord.
-func (stm *STM) stopCurrentRecord() {
-	if stm.sampleTicker == nil {
+func (mpc *MuxPiCtl) stopCurrentRecord() {
+	if mpc.sampleTicker == nil {
 		return
 	}
-	stm.sampleTicker.Stop()
-	close(stm.sampleStop)
-	stm.sampleTicker = nil
+	mpc.sampleTicker.Stop()
+	close(mpc.sampleStop)
+	mpc.sampleTicker = nil
 }
 
 // StartCurrentRecord starts a goroutine that periodically calls GetCurrent and saves the returned
 // value. User who wants more samples should periodically call GetCurrent() instead.
-func (stm *STM) StartCurrentRecord(samples int, interval time.Duration) (err error) {
+func (mpc *MuxPiCtl) StartCurrentRecord(samples int, interval time.Duration) (err error) {
 	if samples > sampleSizeLimit {
 		return fmt.Errorf("requested sample size is too big")
 	}
@@ -354,40 +354,40 @@ func (stm *STM) StartCurrentRecord(samples int, interval time.Duration) (err err
 		return fmt.Errorf("requested period time is too small: %v", period)
 	}
 
-	stm.sampleMux.Lock()
-	defer stm.sampleMux.Unlock()
+	mpc.sampleMux.Lock()
+	defer mpc.sampleMux.Unlock()
 
 	// Check if there is already sample recording in progress.
-	stm.stopCurrentRecord()
+	mpc.stopCurrentRecord()
 
-	stm.sample = make([]int, 0, samples)
-	stm.sampleTicker = time.NewTicker(period)
-	stm.sampleStop = make(chan struct{}, 1)
+	mpc.sample = make([]int, 0, samples)
+	mpc.sampleTicker = time.NewTicker(period)
+	mpc.sampleStop = make(chan struct{}, 1)
 
-	go stm.sampleGetCurrentLoop(stm.sampleStop, stm.sampleTicker)
+	go mpc.sampleGetCurrentLoop(mpc.sampleStop, mpc.sampleTicker)
 
 	return nil
 }
 
 // StopCurrentRecord stops the goroutine that records the sample.
-func (stm *STM) StopCurrentRecord() (err error) {
-	stm.sampleMux.Lock()
-	defer stm.sampleMux.Unlock()
+func (mpc *MuxPiCtl) StopCurrentRecord() (err error) {
+	mpc.sampleMux.Lock()
+	defer mpc.sampleMux.Unlock()
 
-	stm.stopCurrentRecord()
+	mpc.stopCurrentRecord()
 	return nil
 }
 
 // GetCurrentRecord returns all samples of GetCurrent made.
 // It may be called before StopCurrentRecord.
-func (stm *STM) GetCurrentRecord() (samples []int, err error) {
-	stm.sampleMux.Lock()
-	defer stm.sampleMux.Unlock()
+func (mpc *MuxPiCtl) GetCurrentRecord() (samples []int, err error) {
+	mpc.sampleMux.Lock()
+	defer mpc.sampleMux.Unlock()
 
-	if stm.sample == nil {
+	if mpc.sample == nil {
 		return nil, fmt.Errorf("no sample was recorded")
 	}
-	return stm.sample, nil
+	return mpc.sample, nil
 }
 
 func appendSwitch(org string, on bool) string {
@@ -398,15 +398,15 @@ func appendSwitch(org string, on bool) string {
 }
 
 // HDMI sets (or unsets) HDMI HOTPLUG pin.
-func (stm *STM) HDMI(on bool) (err error) {
-	return stm.executeCommand(appendSwitch("hdmi", on))
+func (mpc *MuxPiCtl) HDMI(on bool) (err error) {
+	return mpc.executeCommand(appendSwitch("hdmi", on))
 }
 
 // SetDyper switches dyper, specified by 1st argument, on or off depending on 2nd argument.
-func (stm *STM) SetDyper(dyper Dyper, on bool) (err error) {
+func (mpc *MuxPiCtl) SetDyper(dyper Dyper, on bool) (err error) {
 	switch dyper {
 	case DYPER1, DYPER2:
-		return stm.executeCommand(appendSwitch(string(dyper), on))
+		return mpc.executeCommand(appendSwitch(string(dyper), on))
 	}
 	return fmt.Errorf("invalid dyper value: %v", dyper)
 }
