@@ -1,7 +1,7 @@
 BUILD_DIR = bin
 BUILD_DOCKER_IMAGE = muxpi-build-img
 BUILD_DOCKER_CONTAINER = muxpi-build
-BINARIES = muxpictl_armv7 muxpictl_amd64 fota_armv7 fota_amd64
+BINARIES = muxpictl_armv7 muxpictl_amd64 sflasher_armv7 sflasher_amd64
 BINARIES := $(addprefix ${BUILD_DIR}/, ${BINARIES})
 
 .PHONY: all
