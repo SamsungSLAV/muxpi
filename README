@@ -53,8 +53,7 @@ Repository Directory structure
           │
           └── config - ansible files for configuring NanoPi NEO
           │
-          └── fota - tools/libs for flashing devices (usually microSD card)
-          │   with given images
+          └── sflasher - tools/libs for flashing microSD card with given images.
           │
           └── muxpictl - tools/libs for communicating with STM32F030 microntroller
           │
