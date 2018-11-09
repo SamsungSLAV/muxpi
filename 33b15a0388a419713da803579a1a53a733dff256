@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "bd98f2f0_9d519864",
+        "filename": "doc/sphinx/source/hw-overview.txt",
+        "patchSetId": 6
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1015231
+      },
+      "writtenOn": "2018-11-09T15:17:10Z",
+      "side": 1,
+      "message": "I understand MuxPi as generic interface between DUT and user. I get why you take SD-MUX as fundamental functionality but MuxPi is so much more (power control and measurment, edid injection and myriad of interfaces (usb, eth, uart,i2c,spi), thus I had removed it",
+      "parentUuid": "b34ff96a_ad1464e2",
+      "revId": "33b15a0388a419713da803579a1a53a733dff256",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ee70915_690c5432",
         "filename": "doc/sphinx/source/hw-overview.txt",
         "patchSetId": 6
@@ -30,6 +48,30 @@
       "writtenOn": "2018-10-30T12:39:23Z",
       "side": 1,
       "message": "the",
+      "range": {
+        "startLine": 210,
+        "startChar": 1,
+        "endLine": 210,
+        "endChar": 2
+      },
+      "revId": "33b15a0388a419713da803579a1a53a733dff256",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83bbd12f_c7bd8534",
+        "filename": "doc/sphinx/source/hw-overview.txt",
+        "patchSetId": 6
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1015231
+      },
+      "writtenOn": "2018-11-09T15:17:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ee70915_690c5432",
       "range": {
         "startLine": 210,
         "startChar": 1,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "6e497281_f7aedda4",
+        "filename": "doc/sphinx/source/hw-overview.txt",
+        "patchSetId": 6
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1015231
+      },
+      "writtenOn": "2018-11-09T15:17:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a88c73f_fbb875cc",
+      "range": {
+        "startLine": 387,
+        "startChar": 30,
+        "endLine": 387,
+        "endChar": 38
+      },
+      "revId": "33b15a0388a419713da803579a1a53a733dff256",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b7c2229_36f163a1",
         "filename": "doc/sphinx/source/hw-overview.txt",
         "patchSetId": 6
@@ -76,6 +142,30 @@
       "writtenOn": "2018-10-30T12:39:23Z",
       "side": 1,
       "message": "Drop this sentence please.",
+      "range": {
+        "startLine": 503,
+        "startChar": 52,
+        "endLine": 505,
+        "endChar": 44
+      },
+      "revId": "33b15a0388a419713da803579a1a53a733dff256",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b2d7245_35c03fd6",
+        "filename": "doc/sphinx/source/hw-overview.txt",
+        "patchSetId": 6
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1015231
+      },
+      "writtenOn": "2018-11-09T15:17:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b7c2229_36f163a1",
       "range": {
         "startLine": 503,
         "startChar": 52,
