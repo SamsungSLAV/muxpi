@@ -14,8 +14,9 @@
  *  limitations under the License
  */
 
-// Package fota implements Flash Over The Air utilities.
-package fota
+// Package sflasher is a simple utility to flash SD cards.
+//
+package sflasher
 
 import (
 	"archive/tar"
@@ -34,8 +35,8 @@ import (
 	"github.com/SamsungSLAV/muxpi/sw/nanopi/muxpictl"
 )
 
-// FOTA provides methods to help in the process of flashing an image to sdcard.
-type FOTA struct {
+// Sflasher provides methods to help in the process of flashing an image to sdcard.
+type Sflasher struct {
 	checksums map[string]string
 	// SDcard is a path to block device images will be flashed to.
 	// Example: "/dev/sda".
@@ -49,9 +50,9 @@ type FOTA struct {
 	dev muxpictl.Interface
 }
 
-// NewFOTA returns new instance of FOTA. It also opens connection to MuxPiCtl.
-func NewFOTA(dev muxpictl.Interface, sdcard string, partMapping map[string]string) *FOTA {
-	return &FOTA{
+// NewSflasher returns new instance of Sflasher. It also opens connection to MuxPiCtl.
+func NewSflasher(dev muxpictl.Interface, sdcard string, partMapping map[string]string) *Sflasher {
+	return &Sflasher{
 		checksums:   make(map[string]string),
 		SDcard:      sdcard,
 		PartMapping: partMapping,
@@ -59,15 +60,15 @@ func NewFOTA(dev muxpictl.Interface, sdcard string, partMapping map[string]strin
 	}
 }
 
-// SetVerbose increases logging of FOTA actions.
-func (fota *FOTA) SetVerbose() {
-	fota.verbose = true
+// SetVerbose increases logging of sflasher actions.
+func (sf *Sflasher) SetVerbose() {
+	sf.verbose = true
 }
 
 // computeHash passes content of the reader to the PipeReader
 // and returns a MD5 checksum at the end.
 // Returned PipeReader must be closed by the caller.
-func (fota *FOTA) computeHash(reader io.Reader) (chan []byte, *io.PipeReader) {
+func (sf *Sflasher) computeHash(reader io.Reader) (chan []byte, *io.PipeReader) {
 	hash := md5.New()
 	pipeReader, pipeWriter := io.Pipe()
 	writer := io.MultiWriter(hash, pipeWriter)
@@ -86,7 +87,7 @@ func (fota *FOTA) computeHash(reader io.Reader) (chan []byte, *io.PipeReader) {
 }
 
 // flash copies content of reader to partition specified by path.
-func (fota *FOTA) flash(reader io.Reader, path string) (int64, error) {
+func (sf *Sflasher) flash(reader io.Reader, path string) (int64, error) {
 	f, err := os.OpenFile(path, os.O_WRONLY, 0660)
 	if err != nil {
 		return 0, err
@@ -99,7 +100,7 @@ func (fota *FOTA) flash(reader io.Reader, path string) (int64, error) {
 // uncompressAndFlash uncompresses the stream, unpacks resulting archive
 // and calls flash for each ".img" file mentioned in the PartMapping.
 // It closes reader after it finishes.
-func (fota *FOTA) uncompressAndFlash(reader io.ReadCloser) error {
+func (sf *Sflasher) uncompressAndFlash(reader io.ReadCloser) error {
 	defer reader.Close()
 	var start time.Time
 	gzipReader, err := gzip.NewReader(reader)
@@ -108,7 +109,7 @@ func (fota *FOTA) uncompressAndFlash(reader io.ReadCloser) error {
 	}
 	tarReader := tar.NewReader(gzipReader)
 	for {
-		if fota.verbose {
+		if sf.verbose {
 			start = time.Now()
 		}
 		header, err := tarReader.Next()
@@ -118,20 +119,20 @@ func (fota *FOTA) uncompressAndFlash(reader io.ReadCloser) error {
 		if err != nil {
 			return err
 		}
-		part, present := fota.PartMapping[header.Name]
+		part, present := sf.PartMapping[header.Name]
 		if !present {
 			// Image not in mapping, skipping.
-			fota.log("Image is not present in the mapping. Skipping...", header.Name)
+			sf.log("Image is not present in the mapping. Skipping...", header.Name)
 			continue
 		}
-		path := fota.SDcard + part
-		fota.log("Flashing", header.Name, "to", path)
-		written, err := fota.flash(tarReader, path)
+		path := sf.SDcard + part
+		sf.log("Flashing", header.Name, "to", path)
+		written, err := sf.flash(tarReader, path)
 		if err != nil {
 			return err
 		}
-		fota.log("Flashed", header.Name, "to", path)
-		if fota.verbose {
+		sf.log("Flashed", header.Name, "to", path)
+		if sf.verbose {
 			duration := time.Since(start)
 			log.Printf("Average speed: %.2f kB/s\n", float64(written)/(duration.Seconds()*1000))
 		}
@@ -139,13 +140,13 @@ func (fota *FOTA) uncompressAndFlash(reader io.ReadCloser) error {
 	return nil
 }
 
-func (fota *FOTA) log(str ...interface{}) {
-	if fota.verbose {
+func (sf *Sflasher) log(str ...interface{}) {
+	if sf.verbose {
 		log.Println(str...)
 	}
 }
 
-func (fota *FOTA) getMD5FromURL(url string) error {
+func (sf *Sflasher) getMD5FromURL(url string) error {
 	r, err := http.Get(url)
 	if err != nil {
 		return err
@@ -154,19 +155,19 @@ func (fota *FOTA) getMD5FromURL(url string) error {
 	if r.StatusCode != http.StatusOK {
 		return fmt.Errorf("unexpected HTTP status: %s", r.Status)
 	}
-	return fota.parseChecksum(r.Body)
+	return sf.parseChecksum(r.Body)
 }
 
-func (fota *FOTA) getMD5FromFile(path string) error {
+func (sf *Sflasher) getMD5FromFile(path string) error {
 	f, err := os.Open(path)
 	if err != nil {
 		return err
 	}
 	defer f.Close()
-	return fota.parseChecksum(f)
+	return sf.parseChecksum(f)
 }
 
-func (fota *FOTA) parseChecksum(r io.Reader) error {
+func (sf *Sflasher) parseChecksum(r io.Reader) error {
 	s := bufio.NewScanner(r)
 	for s.Scan() {
 		str := s.Text()
@@ -175,7 +176,7 @@ func (fota *FOTA) parseChecksum(r io.Reader) error {
 		if err != nil {
 			return err
 		}
-		fota.checksums[filename] = hash
+		sf.checksums[filename] = hash
 	}
 	return nil
 }
@@ -188,16 +189,16 @@ func (fota *FOTA) parseChecksum(r io.Reader) error {
 // MD5 checksum is calculated and error returned when mismatch occurs.
 // If MD5SUMS URL is not specified or downloaded file is not mentioned in it,
 // calculation results are ignored.
-func (fota *FOTA) DownloadAndFlash(md5sums string, urls ...string) (err error) {
+func (sf *Sflasher) DownloadAndFlash(md5sums string, urls ...string) (err error) {
 	if md5sums != "" {
-		err = fota.getMD5FromURL(md5sums)
+		err = sf.getMD5FromURL(md5sums)
 		if err != nil {
 			return
 		}
 	}
 
 	for _, u := range urls {
-		err = fota.downloadAndFlash(u)
+		err = sf.downloadAndFlash(u)
 		if err != nil {
 			return
 		}
@@ -205,7 +206,7 @@ func (fota *FOTA) DownloadAndFlash(md5sums string, urls ...string) (err error) {
 	return
 }
 
-func (fota *FOTA) downloadAndFlash(u string) error {
+func (sf *Sflasher) downloadAndFlash(u string) error {
 	parsedURL, err := url.Parse(u)
 	if err != nil {
 		return fmt.Errorf("parse URL (%v) failed: %s", u, err)
@@ -219,15 +220,15 @@ func (fota *FOTA) downloadAndFlash(u string) error {
 		response.Body.Close()
 		return fmt.Errorf("unexpected HTTP status code: %s", response.Status)
 	}
-	fota.log("Downloading images from:", u)
-	return fota.flashFromReader(response.Body, filename)
+	sf.log("Downloading images from:", u)
+	return sf.flashFromReader(response.Body, filename)
 }
 
 // Flash works in a similar way to DownloadAndFlash except that it takes paths to files instead of
 // HTTP addresses.
-func (fota *FOTA) Flash(md5sumsPath string, paths ...string) (err error) {
+func (sf *Sflasher) Flash(md5sumsPath string, paths ...string) (err error) {
 	if md5sumsPath != "" {
-		err = fota.getMD5FromFile(md5sumsPath)
+		err = sf.getMD5FromFile(md5sumsPath)
 		if err != nil {
 			return
 		}
@@ -239,7 +240,7 @@ func (fota *FOTA) Flash(md5sumsPath string, paths ...string) (err error) {
 		if err != nil {
 			return
 		}
-		err = fota.flashFromReader(f, f.Name())
+		err = sf.flashFromReader(f, f.Name())
 		if err != nil {
 			return
 		}
@@ -247,15 +248,15 @@ func (fota *FOTA) Flash(md5sumsPath string, paths ...string) (err error) {
 	return
 }
 
-func (fota *FOTA) flashFromReader(r io.ReadCloser, filename string) (err error) {
+func (sf *Sflasher) flashFromReader(r io.ReadCloser, filename string) (err error) {
 	defer r.Close()
-	hashChan, reader := fota.computeHash(r)
-	err = fota.uncompressAndFlash(reader)
+	hashChan, reader := sf.computeHash(r)
+	err = sf.uncompressAndFlash(reader)
 	if err != nil {
 		return fmt.Errorf("unpack or flash failed: %s", err)
 	}
 	hash := <-hashChan
-	refHash, ok := fota.checksums[filename]
+	refHash, ok := sf.checksums[filename]
 	if !ok {
 		return nil
 	}
