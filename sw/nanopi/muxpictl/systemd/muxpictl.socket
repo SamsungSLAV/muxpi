@@ -1,0 +1,9 @@
+[Unit]
+Description=Admin socket activation for muxpictl daemon
+
+[Socket]
+SocketMode=0660
+ListenStream=/run/muxpictl.socket
+
+[Install]
+WantedBy=sockets.target

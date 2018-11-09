@@ -14,7 +14,7 @@
  *  limitations under the License
  */
 
-package stm_test
+package muxpictl_test
 
 import (
 	. "github.com/onsi/ginkgo"
@@ -23,7 +23,7 @@ import (
 	"testing"
 )
 
-func TestStm(t *testing.T) {
+func TestMuxPiCtl(t *testing.T) {
 	RegisterFailHandler(Fail)
-	RunSpecs(t, "Stm Suite")
+	RunSpecs(t, "Muxpictl Suite")
 }

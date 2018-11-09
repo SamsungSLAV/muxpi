@@ -21,7 +21,7 @@ import (
 	"log"
 	"net/rpc"
 
-	"github.com/SamsungSLAV/muxpi/sw/nanopi/stm"
+	"github.com/SamsungSLAV/muxpi/sw/nanopi/muxpictl"
 )
 
 var (
@@ -33,8 +33,8 @@ var (
 )
 
 func setGlobalFlags() {
-	flag.StringVar(&userServiceSocket, "user-listen", "/run/stm-user.socket", "path to socket on which user RPC interface will be served")
-	flag.StringVar(&serviceSocket, "listen", "/run/stm.socket", "path to socket on which user and admin RPC interface will be served")
+	flag.StringVar(&userServiceSocket, "user-listen", "/run/muxpictl-user.socket", "path to socket on which user RPC interface will be served")
+	flag.StringVar(&serviceSocket, "listen", "/run/muxpictl.socket", "path to socket on which user and admin RPC interface will be served")
 	flag.BoolVar(&serve, "serve", false, "start RPC service")
 	flag.StringVar(&remote, "remote", "", "path to socket to use as a RPC service instead of local connection")
 	flag.BoolVar(&dummy, "dummy", false, "log actions instead of performing them")
@@ -69,23 +69,23 @@ func main() {
 		log.Fatal("conflicting flags: dummy and remote")
 	}
 
-	var dev stm.InterfaceCloser
+	var dev muxpictl.InterfaceCloser
 	if dummy {
-		dev = stm.NewDummy("stm")
+		dev = muxpictl.NewDummy("muxpictl")
 	} else if remote != "" {
 		cl, err := rpc.Dial("unix", remote)
 		checkErr("failed to connect to RPC service: ", err)
 
-		dev = stm.NewInterfaceClient(cl)
+		dev = muxpictl.NewInterfaceClient(cl)
 	} else {
 		var err error
-		dev, err = stm.GetDefaultSTM()
-		checkErr("failed to connect to STM: ", err)
+		dev, err = muxpictl.GetDefaultMuxPiCtl()
+		checkErr("failed to connect to MuxPi's microcontroller: ", err)
 	}
 	defer dev.Close()
 
 	if serve {
-		serveRemoteSTM(dev)
+		serveRemoteMuxpiCtl(dev)
 		return
 	}
 
