@@ -14,6 +14,7 @@
  *  limitations under the License
  */
 
+// Sflasher is a simple utility to flash SD cards.
 package main
 
 import (
@@ -23,8 +24,8 @@ import (
 	"net/rpc"
 	"os"
 
-	"github.com/SamsungSLAV/muxpi/sw/nanopi/fota"
-	"github.com/SamsungSLAV/muxpi/sw/nanopi/stm"
+	"github.com/SamsungSLAV/muxpi/sw/nanopi/muxpictl"
+	"github.com/SamsungSLAV/muxpi/sw/nanopi/sflasher"
 )
 
 var (
@@ -43,7 +44,7 @@ func setFlags() {
 	flag.StringVar(&md5sums, "md5", "", "URL or path to MD5SUMS file")
 	flag.BoolVar(&quiet, "q", false, "suppress logging")
 
-	flag.StringVar(&remote, "remote", "/run/stm-user.socket", "path to remote service socket")
+	flag.StringVar(&remote, "remote", "/run/muxpictl-user.socket", "path to remote service socket")
 }
 
 func checkErr(ctx string, err error) {
@@ -77,24 +78,24 @@ func main() {
 	decoder := json.NewDecoder(f)
 	checkErr("failed to decode the mapping: ", decoder.Decode(&partMapping))
 
-	var dev stm.InterfaceCloser
+	var dev muxpictl.InterfaceCloser
 	if remote != "" {
 		cl, err := rpc.Dial("unix", remote)
 		checkErr("failed to connect to RPC service: ", err)
-		dev = stm.NewInterfaceClient(cl)
+		dev = muxpictl.NewInterfaceClient(cl)
 	} else {
-		dev, err = stm.GetDefaultSTM()
-		checkErr("failed to connect to STM: ", err)
+		dev, err = muxpictl.GetDefaultMuxPiCtl()
+		checkErr("failed to connect to muxpictl: ", err)
 	}
 	defer dev.Close()
 
-	flasher := fota.NewFOTA(dev, sdcard, partMapping)
+	flasher := sflasher.NewSflasher(dev, sdcard, partMapping)
 	if !quiet {
 		flasher.SetVerbose()
 	}
-	verbose("FOTA initialized")
+	verbose("sflasher initialized")
 
-	checkErr("SDcard not found: ", fota.WaitForSDcard(dev, sdcard, 10))
+	checkErr("SDcard not found: ", sflasher.WaitForSDcard(dev, sdcard, 10))
 	verbose("SDcard detected")
 
 	args := flag.Args()

@@ -14,14 +14,14 @@
  *  limitations under the License
  */
 
-package fota
+package sflasher
 
 import (
 	"fmt"
 	"os"
 	"time"
 
-	"github.com/SamsungSLAV/muxpi/sw/nanopi/stm"
+	"github.com/SamsungSLAV/muxpi/sw/nanopi/muxpictl"
 	fsnotify "gopkg.in/fsnotify/fsnotify.v1"
 )
 
@@ -51,7 +51,7 @@ func checkFile(filename string) (bool, error) {
 // WaitForSDcard checks if an SDcard is present in the system and returns.
 // If card is not found it restarts it by DUT -> TS switch and tries again until
 // number of retryCount is exceeded (then it returns an error).
-func WaitForSDcard(dev stm.Interface, sdcard string, retryCount int) error {
+func WaitForSDcard(dev muxpictl.Interface, sdcard string, retryCount int) error {
 	watcher, err := fsnotify.NewWatcher()
 	if err != nil {
 		return fmt.Errorf("starting watcher failed: %s", err)
