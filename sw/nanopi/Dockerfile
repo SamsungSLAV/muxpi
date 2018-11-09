@@ -11,6 +11,6 @@ WORKDIR "${GOPATH}/src/${PROJECT}"
 RUN GOOS=linux GOARCH=arm GOARM=7 go build -o /muxpictl_armv7 ./cmd/muxpictl/
 RUN GOOS=linux GOARCH=amd64 go build -o /muxpictl_amd64 ./cmd/muxpictl/
 
-# Build fota
-RUN GOOS=linux GOARCH=arm GOARM=7 go build -o /fota_armv7 ./cmd/fota/
-RUN GOOS=linux GOARCH=amd64 go build -o /fota_amd64 ./cmd/fota/
+# Build sflasher
+RUN GOOS=linux GOARCH=arm GOARM=7 go build -o /sflasher_armv7 ./cmd/sflasher/
+RUN GOOS=linux GOARCH=amd64 go build -o /sflasher_amd64 ./cmd/sflasher/

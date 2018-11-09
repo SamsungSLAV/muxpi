@@ -65,7 +65,7 @@ Building from source
 
       $ mkdir -p bin
       $ GOARCH=arm GOOARM=7 GOOS=linux go build -o bin/muxpictl ./cmd/muxpictl/
-      $ GOARCH=arm GOOARM=7 GOOS=linux go build -o bin/fota ./cmd/fota/
+      $ GOARCH=arm GOOARM=7 GOOS=linux go build -o bin/sflasher ./cmd/sflasher/
 
 
 *****
@@ -124,19 +124,19 @@ Install muxpictl
       socket paths from systemd, which is only possible when the service is
       launched by the sockets.
 
-Install fota
+Install sflasher
 ============
 
-#. Copy fota binary to MuxPi device::
+#. Copy sflasher binary to MuxPi device::
 
-      $ scp bin/fota root@192.168.0.2:/usr/bin/
+      $ scp bin/sflasher root@192.168.0.2:/usr/bin/
 
-#. On your MuxPi device - create a symlink from ``/usr/local/bin/fota`` to
-   ``/usr/bin/fota/``. Only ``/usr/local/bin/fota/`` should be used by software
-   interfacing with MuxPi. This allows to swap fota implementation to your
+#. On your MuxPi device - create a symlink from ``/usr/local/bin/sflasher`` to
+   ``/usr/bin/sflasher/``. Only ``/usr/local/bin/sflasher/`` should be used by software
+   interfacing with MuxPi. This allows to swap sflasher implementation to your
    preferred tool::
 
-      # ln -s /usr/bin/fota /usr/local/bin/fota
+      # ln -s /usr/bin/sflasher /usr/local/bin/sflasher
 
 .. target-notes::
 
