@@ -210,6 +210,24 @@
       "revId": "db9c6490143cff3deaf979d0d18f87d93c9de8f4",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c03a68da_c96b9530",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1015231
+      },
+      "writtenOn": "2018-11-09T15:38:55Z",
+      "side": 1,
+      "message": "I have just checked- those references were added to my fork of MuxPi repo, not due to gerrithub.",
+      "parentUuid": "43e68cb1_b6341dbf",
+      "revId": "db9c6490143cff3deaf979d0d18f87d93c9de8f4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
     }
   ]
 }
