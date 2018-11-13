@@ -17,8 +17,9 @@
 package muxpictl
 
 import (
-	"log"
 	"time"
+
+	"github.com/SamsungSLAV/slav/logger"
 )
 
 // Dummy is a dummy implementation of Interface.
@@ -35,78 +36,79 @@ func NewDummy() InterfaceCloser {
 
 // Close prints "Close" to the standard logger.
 func (d *Dummy) Close() error {
-	log.Println(d.ctx, "Close")
+	logger.Info("Close")
 	return nil
 }
 
 // PowerTick prints "PowerTick" and duration argument to the standard logger.
 func (d *Dummy) PowerTick(duration time.Duration) error {
-	log.Println(d.ctx, "PowerTick", duration)
+	logger.Info("PowerTick", duration)
 	return nil
 }
 
 // SetLED prints "SetLED" and arguments to the standard logger.
 func (d *Dummy) SetLED(led LED, r, g, b uint8) error {
-	log.Println(d.ctx, "SetLED", led, r, g, b)
+	logger.Info("SetLED", led, r, g, b)
 	return nil
 }
 
 // ClearDisplay prints "ClearDisplay" to the standard logger.
 func (d *Dummy) ClearDisplay() error {
-	log.Println(d.ctx, "ClearDisplay")
+	logger.Info("ClearDisplay")
 	return nil
 }
 
 // PrintText prints "PrintText" and arguments to the standard logger.
 func (d *Dummy) PrintText(x, y uint, color Color, text string) error {
-	log.Println(d.ctx, "PrintText", x, y, color, text)
+	logger.Info("PrintText", x, y, color, text)
 	return nil
 }
 
 // DUT prints "DUT" to the standard logger.
 func (d *Dummy) DUT() error {
-	log.Println(d.ctx, "DUT")
+	logger.Info("DUT")
 	return nil
 }
 
 // TS prints "TS" to the standard logger.
 func (d *Dummy) TS() error {
-	log.Println(d.ctx, "TS")
+	logger.Info("TS")
 	return nil
 }
 
 // GetCurrent prints "GetCurrent" to the standard logger and returns 0.
 func (d *Dummy) GetCurrent() (int, error) {
-	log.Println(d.ctx, "GetCurrent")
+	logger.Info("GetCurrent")
 	return 0, nil
 }
 
 // StartCurrentRecord prints "StartCurrentRecord" and arguments to the standard logger.
 func (d *Dummy) StartCurrentRecord(samples int, interval time.Duration) error {
-	log.Println(d.ctx, "StartCurrentRecord", samples, interval)
+	logger.WithProperties(logger.Properties{"samples": samples, "interval": interval.String()}).
+		Info("StartCurrentRecord")
 	return nil
 }
 
 // StopCurrentRecord prints "StopCurrentRecord" to the standard logger.
 func (d *Dummy) StopCurrentRecord() error {
-	log.Println(d.ctx, "StopCurrentRecord")
+	logger.Info("StopCurrentRecord")
 	return nil
 }
 
 // GetCurrentRecord prints "GetCurrentRecord" to the standard logger and returns nil.
 func (d *Dummy) GetCurrentRecord() ([]int, error) {
-	log.Println(d.ctx, "GetCurrentRecord")
+	logger.Info("GetCurrentRecord")
 	return nil, nil
 }
 
 // HDMI prints "HDMI" and argument to the standard logger.
 func (d *Dummy) HDMI(on bool) (err error) {
-	log.Println(d.ctx, "HDMI", on)
+	logger.WithProperty("on", on).Info("HDMI")
 	return nil
 }
 
 // SetDyper prints "SetDyper" and arguments to the standard logger.
 func (d *Dummy) SetDyper(dyper Dyper, on bool) error {
-	log.Println(d.ctx, "SetDyper", dyper, on)
+	logger.WithProperties(logger.Properties{"dyper": dyper, "on": on}).Info("SetDyper", dyper, on)
 	return nil
 }
