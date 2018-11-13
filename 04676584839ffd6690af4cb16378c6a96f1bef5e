@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ecc97eac_d1e58ee7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1015220
+      },
+      "writtenOn": "2018-11-13T12:05:53Z",
+      "side": 1,
+      "message": "I thought we agreed on muxctl",
+      "revId": "04676584839ffd6690af4cb16378c6a96f1bef5e",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
