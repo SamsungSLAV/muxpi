@@ -40,9 +40,9 @@ func setGlobalFlags() {
 	flag.BoolVar(&dummy, "dummy", false, "log actions instead of performing them")
 }
 
-func checkErr(ctx string, err error) {
+func exitOnErr(msg string, err error) {
 	if err != nil {
-		log.Fatal(ctx, err)
+		log.Fatal(msg, err)
 	}
 }
 
@@ -74,13 +74,13 @@ func main() {
 		dev = muxpictl.NewDummy("muxpictl")
 	} else if remote != "" {
 		cl, err := rpc.Dial("unix", remote)
-		checkErr("failed to connect to RPC service: ", err)
+		exitOnErr("failed to connect to RPC service: ", err)
 
 		dev = muxpictl.NewInterfaceClient(cl)
 	} else {
 		var err error
 		dev, err = muxpictl.GetDefaultMuxPiCtl()
-		checkErr("failed to connect to MuxPi's microcontroller: ", err)
+		exitOnErr("failed to connect to Muxpi's microcontroller: ", err)
 	}
 	defer dev.Close()
 
