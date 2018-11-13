@@ -17,7 +17,6 @@
 package main
 
 import (
-	"log"
 	"net"
 	"net/rpc"
 	"os"
@@ -41,18 +40,14 @@ func registerServiceOnListener(impl muxpictl.Interface, l net.Listener) {
 
 func registerUserService(i muxpictl.UserInterface, path string) net.Listener {
 	l, err := net.Listen("unix", path)
-	if err != nil {
-		log.Fatal("failed to bind a socket: ", err)
-	}
+	exitOnErr("failed to bind a socket", err)
 	registerUserServiceOnListener(i, l)
 	return l
 }
 
 func registerService(i muxpictl.Interface, path string) net.Listener {
 	l, err := net.Listen("unix", path)
-	if err != nil {
-		log.Fatal("failed to bind a socket: ", err)
-	}
+	exitOnErr("failed to bind a socket", err)
 	registerServiceOnListener(i, l)
 	return l
 }
@@ -77,12 +72,12 @@ func serveRemoteMuxpiCtl(dev muxpictl.Interface) {
 			case userServiceSocket != "" && name == userServiceSocket:
 				registerUserServiceOnListener(dev.(muxpictl.UserInterface), l)
 			default:
-				log.Fatal("unknown fd name: ", name)
+				exitWithMsg("unknown fd name: ", name)
 			}
 			defer l.Close()
 		}
 	} else {
-		log.Fatal("unexpected number of file descriptors passed: ", len(listeners))
+		exitWithMsg("unexpected number of file descriptors passed: ", len(listeners))
 	}
 
 	// Wait for interrupt.
