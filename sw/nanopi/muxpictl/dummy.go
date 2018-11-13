@@ -29,8 +29,8 @@ type Dummy struct {
 
 // NewDummy return a dummy implementation of Interface.
 // Each message will be prefixed with context.
-func NewDummy(context string) InterfaceCloser {
-	return &Dummy{ctx: context}
+func NewDummy() InterfaceCloser {
+	return &Dummy{ctx: ""}
 }
 
 // Close prints "Close" to the standard logger.
