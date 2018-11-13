@@ -30,6 +30,7 @@ import (
 	"sync"
 	"time"
 
+	"github.com/SamsungSLAV/slav/logger"
 	"github.com/tarm/serial"
 )
 
@@ -144,6 +145,7 @@ func GetDefaultMuxPiCtl() (InterfaceCloser, error) {
 	mpc := NewMuxPiCtl("/dev/ttyS2", 115200)
 	err := mpc.Open()
 	if err != nil {
+		logger.WithError(err).Error("Failed to open connection to MuxPi uC.")
 		return nil, err
 	}
 	return mpc, err
@@ -156,6 +158,8 @@ func GetDefaultMuxPiCtl() (InterfaceCloser, error) {
 func (mpc *MuxPiCtl) Open() (err error) {
 	mpc.port, err = serial.OpenPort(mpc.config)
 	if err != nil {
+		logger.WithError(err).WithProperty("port", mpc.port).
+			Error("Failed to open serial connection.")
 		return err
 	}
 	mpc.reader = bufio.NewReader(mpc.port)
@@ -183,20 +187,24 @@ func (mpc *MuxPiCtl) readResponse() (string, error) {
 // sendAndReceive writes cmd, optionally reads a response if withResponse is set to true,
 // and checks for confirmation of successful execution.
 func (mpc *MuxPiCtl) sendAndReceive(cmd string, withResponse bool) (response string, err error) {
+	logger.WithProperty("command", cmd).Debug("Sending command to MuxPi's uC.")
 	mpc.mux.Lock()
 	defer mpc.mux.Unlock()
 	_, err = io.WriteString(mpc.port, cmd+"\n")
 	if err != nil {
+		logger.WithError(err).Error("Failed to write to MuxPi's uC.")
 		return "", fmt.Errorf("failed to write a command: %s", err)
 	}
 	if withResponse {
 		response, err = mpc.readResponse()
 		if err != nil {
+			logger.WithError(err).Error("Failed to read response from MuxPi's uC.")
 			return "", err
 		}
 	}
 	err = mpc.checkOK()
 	if err != nil {
+		logger.WithError(err).Error("Did not receive confirmation message from MuxPi's uC.")
 		return "", err
 	}
 	return response, nil
@@ -209,9 +217,11 @@ func (mpc *MuxPiCtl) sendAndReceive(cmd string, withResponse bool) (response str
 func (mpc *MuxPiCtl) checkOK() error {
 	resp, err := mpc.readResponse()
 	if err != nil {
+		logger.WithError(err).Error("Failed to read response from MuxPi's uC.")
 		return err
 	}
 	if resp != respOK {
+		logger.WithProperty("resp", resp).Error("Unexpected response from MuxPi's uC.")
 		return fmt.Errorf("unexpected response: %s", resp)
 	}
 	return nil
@@ -220,6 +230,9 @@ func (mpc *MuxPiCtl) checkOK() error {
 // executeCommand sends a prepared cmd string and checks for OK response.
 func (mpc *MuxPiCtl) executeCommand(cmd string) (err error) {
 	_, err = mpc.sendAndReceive(cmd, false)
+	if err != nil {
+		logger.WithError(err).WithProperty("command", cmd).Error("Failed to execute command.")
+	}
 	return
 }
 
@@ -229,11 +242,13 @@ func (mpc *MuxPiCtl) noEcho() (err error) {
 	defer mpc.mux.Unlock()
 	_, err = io.WriteString(mpc.port, "echo off\n")
 	if err != nil {
+		logger.WithError(err).Error("Failed to write command to MuxPi's uC.")
 		return fmt.Errorf("failed to write a command: %s", err)
 	}
 	for i := 0; i < retryLimit; i++ {
 		resp, err := mpc.readResponse()
 		if err != nil {
+			logger.WithError(err).Error("Failed to read response from MuxPi's uC.")
 			return err
 		}
 		if resp == "echo off" || strings.Contains(resp, "Echo is off now") {
@@ -242,8 +257,10 @@ func (mpc *MuxPiCtl) noEcho() (err error) {
 		if resp == respOK {
 			return nil
 		}
+		logger.WithProperty("response", resp).Error("Unexpected response.")
 		return fmt.Errorf("unexpected response: %s", resp)
 	}
+	logger.WithProperty("retry-limit", retryLimit).Error("Retry limit exceeded.")
 	return fmt.Errorf("retry limit exceeded")
 }
 
