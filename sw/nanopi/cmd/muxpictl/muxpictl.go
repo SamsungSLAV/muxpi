@@ -18,10 +18,11 @@ package main
 
 import (
 	"flag"
-	"log"
 	"net/rpc"
+	"os"
 
 	"github.com/SamsungSLAV/muxpi/sw/nanopi/muxpictl"
+	"github.com/SamsungSLAV/slav/logger"
 )
 
 var (
@@ -42,8 +43,14 @@ func setGlobalFlags() {
 
 func exitOnErr(msg string, err error) {
 	if err != nil {
-		log.Fatal(msg, err)
+		logger.IncDepth(1).WithError(err).Critical(msg)
+		os.Exit(1)
 	}
+}
+
+func exitWithMsg(format string, args ...interface{}) {
+	logger.IncDepth(1).Criticalf(format, args...)
+	os.Exit(1)
 }
 
 func main() {
@@ -62,11 +69,11 @@ func main() {
 	flag.Parse()
 
 	if (remote != "") && serve {
-		log.Fatal("conflicting flags: serve and remote")
+		exitWithMsg("conflicting flags: serve and remote")
 	}
 
 	if (remote != "") && dummy {
-		log.Fatal("conflicting flags: dummy and remote")
+		exitWithMsg("conflicting flags: dummy and remote")
 	}
 
 	var dev muxpictl.InterfaceCloser

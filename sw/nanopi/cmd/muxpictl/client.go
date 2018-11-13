@@ -19,11 +19,11 @@ package main
 import (
 	"flag"
 	"fmt"
-	"log"
 	"strings"
 	"time"
 
 	"github.com/SamsungSLAV/muxpi/sw/nanopi/muxpictl"
+	"github.com/SamsungSLAV/slav/logger"
 )
 
 type command interface {
@@ -44,7 +44,7 @@ func (m *multiplexer) run(dev muxpictl.Interface) {
 	switch {
 	// Only one is allowed at a time.
 	case m.ts && m.dut:
-		log.Fatal("conflicting flags: DUT and TS")
+		exitWithMsg("conflicting flags: DUT and TS")
 	case m.ts:
 		exitOnErr("failed to switch to TS: ", dev.TS())
 	case m.dut:
@@ -98,13 +98,13 @@ func (c *current) run(dev muxpictl.Interface) {
 	}
 	// Impose restriction: remote flag must be used.
 	if remote == "" {
-		log.Fatal("sample recording functions can be used only with \"-remote\" flag set")
+		exitWithMsg("sample recording functions can be used only with \"-remote\" flag set")
 	}
 
 	switch {
 	// Only one is allowed at a time.
 	case c.sampleStart && c.sampleStop:
-		log.Fatal("conflicting flags: cur-start and cur-stop")
+		exitWithMsg("conflicting flags: cur-start and cur-stop")
 	case c.sampleStart:
 		exitOnErr("failed to start sampling: ", dev.StartCurrentRecord(c.sampleSize, c.sampleDuration))
 	case c.sampleStop:
@@ -208,7 +208,8 @@ func (s *switches) setDyper(dev muxpictl.Interface, dyper muxpictl.Dyper, state 
 	}
 	b, err := getBoolState("dyper", state)
 	if err != nil {
-		log.Println(err)
+		logger.WithError(err).WithProperty("dyper", dyper).
+			Criticalf("Faile to translate an unforseen dyper state: %s", state)
 		return
 	}
 	dev.SetDyper(dyper, b)
@@ -220,7 +221,8 @@ func (s *switches) setHDMI(dev muxpictl.Interface, state string) {
 	}
 	b, err := getBoolState("hdmi", state)
 	if err != nil {
-		log.Println(err)
+		logger.WithError(err).
+			Criticalf("Failed to translate an unforseen HDMI state: %s", state)
 		return
 	}
 	dev.HDMI(b)
