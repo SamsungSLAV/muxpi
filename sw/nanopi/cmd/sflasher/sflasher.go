@@ -47,7 +47,7 @@ func setFlags() {
 	flag.StringVar(&remote, "remote", "/run/muxpictl-user.socket", "path to remote service socket")
 }
 
-func checkErr(ctx string, err error) {
+func checkErr(msg string, err error) {
 	if err != nil {
 		log.Fatal(ctx, err)
 	}
