@@ -40,7 +40,7 @@ func setFlags() {
 	flag.BoolVar(&quiet, "q", false, "suppress logging")
 }
 
-func checkErr(ctx string, err error) {
+func checkErr(msg string, err error) {
 	if err != nil {
 		log.Fatal(ctx, err)
 	}

@@ -29,13 +29,13 @@ import (
 
 func registerUserServiceOnListener(impl muxpictl.UserInterface, l net.Listener) {
 	srv := rpc.NewServer()
-	checkErr("failed to register user service: ", muxpictl.RegisterUserInterfaceService(srv, impl))
+	exitOnErr("failed to register user service: ", muxpictl.RegisterUserInterfaceService(srv, impl))
 	go srv.Accept(l)
 }
 
 func registerServiceOnListener(impl muxpictl.Interface, l net.Listener) {
 	srv := rpc.NewServer()
-	checkErr("failed to register admin service: ", muxpictl.RegisterInterfaceService(srv, impl))
+	exitOnErr("failed to register admin service: ", muxpictl.RegisterInterfaceService(srv, impl))
 	go srv.Accept(l)
 }
 
