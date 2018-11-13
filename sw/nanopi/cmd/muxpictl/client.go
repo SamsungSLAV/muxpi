@@ -46,9 +46,9 @@ func (m *multiplexer) run(dev muxpictl.Interface) {
 	case m.ts && m.dut:
 		log.Fatal("conflicting flags: DUT and TS")
 	case m.ts:
-		checkErr("failed to switch to TS: ", dev.TS())
+		exitOnErr("failed to switch to TS: ", dev.TS())
 	case m.dut:
-		checkErr("failed to switch to DUT: ", dev.DUT())
+		exitOnErr("failed to switch to DUT: ", dev.DUT())
 	}
 }
 
@@ -65,7 +65,7 @@ func (c *cutter) setFlags() {
 
 func (c *cutter) run(dev muxpictl.Interface) {
 	if c.tick {
-		checkErr("failed to tick the power supply: ", dev.PowerTick(c.tickDuration))
+		exitOnErr("failed to tick the power supply: ", dev.PowerTick(c.tickDuration))
 	}
 }
 
@@ -88,7 +88,7 @@ func (c *current) setFlags() {
 func (c *current) run(dev muxpictl.Interface) {
 	if c.cur {
 		i, err := dev.GetCurrent()
-		checkErr("failed to read the power consumption: ", err)
+		exitOnErr("failed to read the power consumption: ", err)
 		fmt.Println(i)
 	}
 
@@ -106,13 +106,13 @@ func (c *current) run(dev muxpictl.Interface) {
 	case c.sampleStart && c.sampleStop:
 		log.Fatal("conflicting flags: cur-start and cur-stop")
 	case c.sampleStart:
-		checkErr("failed to start sampling: ", dev.StartCurrentRecord(c.sampleSize, c.sampleDuration))
+		exitOnErr("failed to start sampling: ", dev.StartCurrentRecord(c.sampleSize, c.sampleDuration))
 	case c.sampleStop:
-		checkErr("failed to stop sampling: ", dev.StopCurrentRecord())
+		exitOnErr("failed to stop sampling: ", dev.StopCurrentRecord())
 	}
 	if c.sampleGet {
 		sample, err := dev.GetCurrentRecord()
-		checkErr("failed to get a sample: ", err)
+		exitOnErr("failed to get a sample: ", err)
 
 		switch len(sample) {
 		case 0:
@@ -146,10 +146,10 @@ func (d *display) setFlags() {
 
 func (d *display) run(dev muxpictl.Interface) {
 	if d.clr {
-		checkErr("failed to clear the display: ", dev.ClearDisplay())
+		exitOnErr("failed to clear the display: ", dev.ClearDisplay())
 	}
 	if d.text != "" {
-		checkErr("failed to print on the display: ", dev.PrintText(d.x, d.y, muxpictl.Foreground, d.text))
+		exitOnErr("failed to print on the display: ", dev.PrintText(d.x, d.y, muxpictl.Foreground, d.text))
 	}
 }
 
@@ -167,8 +167,8 @@ func (l *leds) setFlags() {
 func (l *leds) setLED(dev muxpictl.Interface, led string, muxpictlLED muxpictl.LED) {
 	var r, g, b uint8
 	_, err := fmt.Sscanf(led, "%d,%d,%d", &r, &g, &b)
-	checkErr("failed to parse the led argument: ", err)
-	checkErr("failed to update value for led: ", dev.SetLED(muxpictlLED, r, g, b))
+	exitOnErr("failed to parse the led argument: ", err)
+	exitOnErr("failed to update value for led: ", dev.SetLED(muxpictlLED, r, g, b))
 }
 
 func (l *leds) run(dev muxpictl.Interface) {
