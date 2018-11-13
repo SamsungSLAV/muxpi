@@ -78,7 +78,7 @@ func main() {
 
 	var dev muxpictl.InterfaceCloser
 	if dummy {
-		dev = muxpictl.NewDummy("muxpictl")
+		dev = muxpictl.NewDummy()
 	} else if remote != "" {
 		cl, err := rpc.Dial("unix", remote)
 		exitOnErr("failed to connect to RPC service: ", err)
