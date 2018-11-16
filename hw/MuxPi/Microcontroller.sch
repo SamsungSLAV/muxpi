@@ -1,13 +1,13 @@
 EESchema Schematic File Version 4
 LIBS:MuxPi-cache
-EELAYER 26 0
+EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 2 12
 Title "MuxPi"
-Date "2018-08-14"
-Rev "1.3"
+Date "2018-11-16"
+Rev "1.4"
 Comp "SRPOL"
 Comment1 "Author: Adam Malinowski <a.malinowsk2@partner.samsung.com>"
 Comment2 "Copyright (c) 2016 -2018 Samsung Electronics Co., Ltd All Rights Reserved"
@@ -407,18 +407,6 @@ F 4 "http://www.tme.eu/pl/details/cl21c200jbannnc/kondensatory-mlcc-smd-0805/sam
 	1    0    0    -1  
 $EndComp
 $Comp
-L MuxPi:R R2
-U 1 1 58469A6E
-P 3150 3200
-F 0 "R2" V 3200 3000 50  0000 C CNN
-F 1 "0R" V 3250 3200 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805" V 3080 3200 30  0001 C CNN
-F 3 "http://www.tme.eu/pl/Document/622e28308c06d160637f2b14751ba16b/Data%20Sheet%20CRCW_BCe3.pdf" H 3150 3200 30  0001 C CNN
-F 4 "http://www.tme.eu/pl/details/crcw08050000z0tabc/rezystory-smd-0805/vishay/" V 3150 3200 60  0001 C CNN "Shop link"
-	1    3150 3200
-	0    -1   -1   0   
-$EndComp
-$Comp
 L MuxPi:R R3
 U 1 1 58469A75
 P 3450 3300
@@ -562,8 +550,6 @@ Wire Wire Line
 Wire Wire Line
 	3050 7300 3050 7350
 Wire Wire Line
-	1150 3000 3750 3000
-Wire Wire Line
 	1150 1100 1150 1200
 Wire Wire Line
 	1150 1600 1150 1650
@@ -581,8 +567,6 @@ Wire Wire Line
 Wire Wire Line
 	2300 3200 2300 3500
 Wire Wire Line
-	2300 3200 3000 3200
-Wire Wire Line
 	2800 3300 2800 3500
 Wire Wire Line
 	2800 3300 3300 3300
@@ -592,8 +576,6 @@ Connection ~ 2300 3500
 Wire Wire Line
 	2700 3500 2800 3500
 Connection ~ 2800 3500
-Wire Wire Line
-	3300 3200 3750 3200
 Wire Wire Line
 	3600 3300 3750 3300
 Wire Wire Line
@@ -1236,40 +1218,8 @@ Wire Wire Line
 	9000 3500 9400 3500
 Wire Wire Line
 	9000 3100 9000 3150
-$Comp
-L MuxPi:GND #PWR0203
-U 1 1 5A64EB70
-P 1150 3350
-F 0 "#PWR0203" H 1150 3100 50  0001 C CNN
-F 1 "GND" H 1150 3200 50  0000 C CNN
-F 2 "" H 1150 3350 60  0000 C CNN
-F 3 "" H 1150 3350 60  0000 C CNN
-	1    1150 3350
-	-1   0    0    -1  
-$EndComp
-Wire Wire Line
-	1150 3300 1150 3350
 Text HLabel 1050 3000 0    60   Input ~ 0
 PI_GPIO_1
-Wire Wire Line
-	1050 3000 1150 3000
-Wire Wire Line
-	1150 3000 1150 3100
-Connection ~ 1150 3000
-$Comp
-L MuxPi:Jumper_NO_Small JP4
-U 1 1 5A8C7652
-P 1150 3200
-F 0 "JP4" V 1150 3248 50  0000 L CNN
-F 1 "Jumper_NO_Small" V 1195 3248 50  0001 L CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 1150 3200 50  0001 C CNN
-F 3 "https://www.tme.eu/pl/Document/cc301e58a5da78cb543a94b5a5b7f06a/DS1021.pdf" H 1150 3200 50  0001 C CNN
-F 4 "https://www.tme.eu/pl/details/zl201-02g/listwy-i-gniazda-kolkowe/connfly/ds1021-1_2sf1-1/" V 1150 3200 50  0001 C CNN "Shop link"
-F 5 "CONNFLY" V 1150 3200 50  0001 C CNN "Manufacturer"
-F 6 "DS1021-1*2SF1-1" V 1150 3200 50  0001 C CNN "Symbol"
-	1    1150 3200
-	0    1    1    0   
-$EndComp
 $Comp
 L MuxPi:CP C75
 U 1 1 5A8CFEF4
@@ -1313,81 +1263,6 @@ F 6 "DTSM-62N-V-B" V 9450 5700 50  0001 C CNN "Symbol"
 	0    -1   -1   0   
 $EndComp
 $Comp
-L MuxPi:R R26
-U 1 1 5A8AD04E
-P 7700 3150
-F 0 "R26" V 7600 3150 50  0000 C CNN
-F 1 "3.3K 1%" V 7800 3150 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805" V 7630 3150 30  0001 C CNN
-F 3 "https://www.tme.eu/pl/Document/7b8fed8c112f8a94930279c22c957f7f/rc0805yageo.pdf" H 7700 3150 30  0001 C CNN
-F 4 "https://www.tme.eu/pl/details/rc0805fr-073k3/rezystory-smd-0805/yageo/rc0805fr-073k3l/" V 7700 3150 60  0001 C CNN "Shop link"
-	1    7700 3150
-	1    0    0    -1  
-$EndComp
-$Comp
-L MuxPi:R R77
-U 1 1 5A8AD056
-P 7700 3550
-F 0 "R77" V 7600 3550 50  0000 C CNN
-F 1 "3.3K 1%" V 7800 3550 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805" V 7630 3550 30  0001 C CNN
-F 3 "https://www.tme.eu/pl/Document/7b8fed8c112f8a94930279c22c957f7f/rc0805yageo.pdf" H 7700 3550 30  0001 C CNN
-F 4 "https://www.tme.eu/pl/details/rc0805fr-073k3/rezystory-smd-0805/yageo/rc0805fr-073k3l/" V 7700 3550 60  0001 C CNN "Shop link"
-	1    7700 3550
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	7700 3300 7700 3350
-$Comp
-L MuxPi:Jumper_NO_Small JP5
-U 1 1 5A8B4A8C
-P 7400 3350
-F 0 "JP5" V 7400 3398 50  0000 L CNN
-F 1 "Jumper_NO_Small" V 7445 3398 50  0001 L CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 7400 3350 50  0001 C CNN
-F 3 "https://www.tme.eu/pl/Document/cc301e58a5da78cb543a94b5a5b7f06a/DS1021.pdf" H 7400 3350 50  0001 C CNN
-F 4 "https://www.tme.eu/pl/details/zl201-02g/listwy-i-gniazda-kolkowe/connfly/ds1021-1_2sf1-1/" V 7400 3350 50  0001 C CNN "Shop link"
-F 5 "CONNFLY" V 7400 3350 50  0001 C CNN "Manufacturer"
-F 6 "DS1021-1*2SF1-1" V 7400 3350 50  0001 C CNN "Symbol"
-	1    7400 3350
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	7500 3350 7700 3350
-Connection ~ 7700 3350
-Wire Wire Line
-	7700 3350 7700 3400
-$Comp
-L MuxPi:VDD #PWR086
-U 1 1 5A8BBDA8
-P 7700 2950
-F 0 "#PWR086" H 7700 2800 50  0001 C CNN
-F 1 "VDD" H 7700 3100 50  0000 C CNN
-F 2 "" H 7700 2950 60  0000 C CNN
-F 3 "" H 7700 2950 60  0000 C CNN
-	1    7700 2950
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	7700 2950 7700 3000
-$Comp
-L MuxPi:GND #PWR0197
-U 1 1 5A8C310E
-P 7700 3750
-F 0 "#PWR0197" H 7700 3500 50  0001 C CNN
-F 1 "GND" H 7700 3600 50  0000 C CNN
-F 2 "" H 7700 3750 60  0000 C CNN
-F 3 "" H 7700 3750 60  0000 C CNN
-	1    7700 3750
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	7700 3700 7700 3750
-Text HLabel 7100 3350 0    60   Input ~ 0
-ADC1
-Wire Wire Line
-	7100 3350 7300 3350
-$Comp
 L MuxPi:VDD #PWR0202
 U 1 1 5AE48E8E
 P 9000 3100
@@ -1398,4 +1273,88 @@ F 3 "" H 9000 3100 60  0000 C CNN
 	1    9000 3100
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	1050 3000 3750 3000
+Wire Wire Line
+	2300 3200 3750 3200
+$Comp
+L MuxPi:GND #PWR0194
+U 1 1 5C3ABA0A
+P 4750 7350
+F 0 "#PWR0194" H 4750 7100 50  0001 C CNN
+F 1 "GND" H 4750 7200 50  0000 C CNN
+F 2 "" H 4750 7350 60  0000 C CNN
+F 3 "" H 4750 7350 60  0000 C CNN
+	1    4750 7350
+	1    0    0    -1  
+$EndComp
+$Comp
+L MuxPi:+3V3 #PWR086
+U 1 1 5C3ABA14
+P 4750 6950
+F 0 "#PWR086" H 4750 6800 50  0001 C CNN
+F 1 "+3V3" H 4750 7090 50  0000 C CNN
+F 2 "" H 4750 6950 60  0000 C CNN
+F 3 "" H 4750 6950 60  0000 C CNN
+	1    4750 6950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4750 6950 4750 7000
+Wire Wire Line
+	4750 7300 4750 7350
+$Comp
+L MuxPi:C C80
+U 1 1 5C3ABA21
+P 4750 7150
+F 0 "C80" H 4600 7300 50  0000 L CNN
+F 1 "10nF/50V" V 4600 6800 50  0000 L CNN
+F 2 "MuxPi:C_0805" H 4788 7000 50  0001 C CNN
+F 3 "https://www.tme.eu/pl/Document/3d8d32d2b2532d751869808a982e3e31/AVX_FlexitermMLCC.pdf" H 4750 7150 50  0001 C CNN
+F 4 "https://www.tme.eu/pl/details/08051c103k4z2a/kondensatory-mlcc-smd-0805/avx/" H 4750 7150 60  0001 C CNN "Shop link"
+	1    4750 7150
+	1    0    0    -1  
+$EndComp
+$Comp
+L MuxPi:GND #PWR0220
+U 1 1 5C3B2C79
+P 5050 7350
+F 0 "#PWR0220" H 5050 7100 50  0001 C CNN
+F 1 "GND" H 5050 7200 50  0000 C CNN
+F 2 "" H 5050 7350 60  0000 C CNN
+F 3 "" H 5050 7350 60  0000 C CNN
+	1    5050 7350
+	1    0    0    -1  
+$EndComp
+$Comp
+L MuxPi:+3V3 #PWR0211
+U 1 1 5C3B2C83
+P 5050 6950
+F 0 "#PWR0211" H 5050 6800 50  0001 C CNN
+F 1 "+3V3" H 5050 7090 50  0000 C CNN
+F 2 "" H 5050 6950 60  0000 C CNN
+F 3 "" H 5050 6950 60  0000 C CNN
+	1    5050 6950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5050 6950 5050 7000
+Wire Wire Line
+	5050 7300 5050 7350
+$Comp
+L MuxPi:C C83
+U 1 1 5C3B2C90
+P 5050 7150
+F 0 "C83" H 4900 7300 50  0000 L CNN
+F 1 "1uF/50V" V 4900 6800 50  0000 L CNN
+F 2 "MuxPi:C_0805" H 5088 7000 50  0001 C CNN
+F 3 "https://www.tme.eu/pl/Document/6a5ad7ac81542ad65ce1ca82bcd21ffa/vjw1bcbascomseries.pdf" H 5050 7150 50  0001 C CNN
+F 4 "https://www.tme.eu/pl/details/vj0805y105kxxtw1bc/kondensatory-mlcc-smd-0805/vishay/" H 5050 7150 60  0001 C CNN "Shop link"
+	1    5050 7150
+	1    0    0    -1  
+$EndComp
+Text Notes 4800 6650 0    60   ~ 0
+VDDA
+Text Notes 750  2750 0    60   ~ 12
+DNP
 $EndSCHEMATC

@@ -1,13 +1,13 @@
 EESchema Schematic File Version 4
 LIBS:MuxPi-cache
-EELAYER 26 0
+EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 12
 Title "MuxPi"
-Date "2018-08-14"
-Rev "1.3"
+Date "2018-11-16"
+Rev "1.4"
 Comp "SRPOL"
 Comment1 "Author: Adam Malinowski <a.malinowsk2@partner.samsung.com>"
 Comment2 "Copyright (c) 2016 -2018 Samsung Electronics Co., Ltd All Rights Reserved"
@@ -139,6 +139,8 @@ F18 "USB_A+" I L 1500 3650 60
 F19 "USB_B+" I L 1500 3900 60 
 F20 "WD_RESET" I L 1500 2050 60 
 F21 "PI_GPIO_1" I R 3300 3150 60 
+F22 "USB_DUT-" I L 1500 3400 60 
+F23 "USB_DUT+" I L 1500 3300 60 
 $EndSheet
 $Sheet
 S 6300 4000 2500 1300
@@ -175,10 +177,6 @@ Wire Wire Line
 	3300 2450 6300 2450
 Wire Wire Line
 	3300 2550 6300 2550
-Wire Wire Line
-	3300 2700 3700 2700
-Wire Wire Line
-	3300 2800 3600 2800
 Wire Wire Line
 	3300 2950 6300 2950
 Wire Wire Line
@@ -337,8 +335,8 @@ F3 "DUT_RX_LS" I R 3300 5550 60
 F4 "LTHOR_VBUS" I L 1500 5750 60 
 F5 "LTHOR_ID" I L 1500 5850 60 
 F6 "LTHOR_SWITCH" I L 1500 5950 60 
-F7 "ADC2" I L 1500 5500 60 
-F8 "ADC1" I L 1500 5400 60 
+F7 "USB_LTHOR-" I L 1500 5550 60 
+F8 "USB_LTHOR+" I L 1500 5450 60 
 $EndSheet
 Wire Wire Line
 	3300 4200 3400 4200
@@ -413,28 +411,6 @@ Wire Wire Line
 Wire Wire Line
 	6000 3750 5700 3750
 Wire Wire Line
-	1500 5400 1400 5400
-Wire Wire Line
-	1400 5400 1400 4750
-Wire Wire Line
-	1400 4750 3700 4750
-Wire Wire Line
-	3700 4750 3700 2700
-Connection ~ 3700 2700
-Wire Wire Line
-	1500 5500 1300 5500
-Wire Wire Line
-	1300 5500 1300 4650
-Wire Wire Line
-	1300 4650 3600 4650
-Wire Wire Line
-	3600 4650 3600 2800
-Connection ~ 3600 2800
-Wire Wire Line
-	3700 2700 6300 2700
-Wire Wire Line
-	3600 2800 6300 2800
-Wire Wire Line
 	4650 4850 4650 5100
 $Comp
 L MuxPi:Jumper_NC_Dual JP2
@@ -450,4 +426,20 @@ F 6 "DS1021-1*3SF1-1" V 4650 5350 50  0001 C CNN "Symbol"
 	1    4650 5350
 	0    -1   1    0   
 $EndComp
+Wire Wire Line
+	3300 2700 6300 2700
+Wire Wire Line
+	3300 2800 6300 2800
+Wire Wire Line
+	1500 3400 700  3400
+Wire Wire Line
+	700  3400 700  5550
+Wire Wire Line
+	700  5550 1500 5550
+Wire Wire Line
+	1500 5450 800  5450
+Wire Wire Line
+	800  5450 800  3300
+Wire Wire Line
+	800  3300 1500 3300
 $EndSCHEMATC

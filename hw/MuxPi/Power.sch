@@ -1,13 +1,13 @@
 EESchema Schematic File Version 4
 LIBS:MuxPi-cache
-EELAYER 26 0
+EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 10 12
 Title "MuxPi"
-Date "2018-08-14"
-Rev "1.3"
+Date "2018-11-16"
+Rev "1.4"
 Comp "SRPOL"
 Comment1 "Author: Adam Malinowski <a.malinowsk2@partner.samsung.com>"
 Comment2 "Copyright (c) 2016 -2018 Samsung Electronics Co., Ltd All Rights Reserved"
@@ -377,12 +377,12 @@ L MuxPi:Polyfuse F1
 U 1 1 58D8D94F
 P 2500 3500
 F 0 "F1" V 2275 3500 50  0000 C CNN
-F 1 "30R300UU" V 2366 3500 50  0000 C CNN
-F 2 "Fuse_Holders_and_Fuses:Fuse_TE5_Littlefuse-395Series" H 2550 3300 50  0001 L CNN
-F 3 "http://www.tme.eu/pl/Document/fdd42053b89d1fd5c6b7e642c2aced3a/Littelfuse_Seria_30R.pdf" H 2500 3500 50  0001 C CNN
-F 4 "http://www.tme.eu/pl/details/30r300uu/bezpieczniki-polimerowe-tht/littelfuse/" H 2500 3500 60  0001 C CNN "Shop link"
-F 5 "LITTELFUSE" V 2500 3500 50  0001 C CNN "Manufacturer"
-F 6 "30R300UU" V 2500 3500 50  0001 C CNN "Symbol"
+F 1 "0ZCG0300FF2B" V 2366 3500 50  0000 C CNN
+F 2 "MuxPi:Fuse_1812_4532Metric" H 2550 3300 50  0001 L CNN
+F 3 "https://pl.mouser.com/datasheet/2/643/0ZCG_Nov2016-1132141.pdf" H 2500 3500 50  0001 C CNN
+F 4 "https://pl.mouser.com/ProductDetail/Bel-Fuse/0ZCG0300FF2B?qs=sGAEpiMZZMsgjL4JkW1EEcd%252bb5fzYQwTOL%252bTuYbNnH2xaTnv9I3X0Q%3d%3d" H 2500 3500 60  0001 C CNN "Shop link"
+F 5 "BEL FUSE" V 2500 3500 50  0001 C CNN "Manufacturer"
+F 6 "0ZCG0300FF2B" V 2500 3500 50  0001 C CNN "Symbol"
 	1    2500 3500
 	0    1    1    0   
 $EndComp

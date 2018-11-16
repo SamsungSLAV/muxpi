@@ -1,13 +1,13 @@
 EESchema Schematic File Version 4
 LIBS:MuxPi-cache
-EELAYER 26 0
+EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 9 12
 Title "MuxPi"
-Date "2018-08-14"
-Rev "1.3"
+Date "2018-11-16"
+Rev "1.4"
 Comp "SRPOL"
 Comment1 "Author: Adam Malinowski <a.malinowsk2@partner.samsung.com>"
 Comment2 "Copyright (c) 2016 -2018 Samsung Electronics Co., Ltd All Rights Reserved"
@@ -222,20 +222,6 @@ F 2 "" H 2100 5800 60  0000 C CNN
 F 3 "" H 2100 5800 60  0000 C CNN
 	1    2100 5800
 	-1   0    0    -1  
-$EndComp
-$Comp
-L MuxPi:Crystal Y2
-U 1 1 584578D0
-P 1750 5550
-F 0 "Y2" V 1600 5450 50  0000 C CNN
-F 1 "LF XTAL012504 - 24MHz" V 1350 5800 50  0000 C CNN
-F 2 "Crystals:Q_49U3HMS" H 1750 5550 50  0001 C CNN
-F 3 "http://www.tme.eu/pl/Document/fd32e3a1954dc23b6c626158f627af96/hc49_4hsmx.pdf" H 1750 5550 50  0001 C CNN
-F 4 "http://www.tme.eu/pl/details/24.00m-smdhc49r/rezonatory-kwarcowe-smd/iqd-frequency-products/lf-xtal012504/" V 1750 5550 60  0001 C CNN "Shop link"
-F 5 "IQD FREQUENCY PRODUCTS" V 1750 5550 50  0001 C CNN "Manufacturer"
-F 6 "LF XTAL012504" V 1750 5550 50  0001 C CNN "Symbol"
-	1    1750 5550
-	0    1    1    0   
 $EndComp
 $Comp
 L MuxPi:GND #PWR0121
@@ -525,15 +511,15 @@ Wire Wire Line
 Wire Wire Line
 	2150 5750 2100 5750
 Wire Wire Line
-	2100 5350 2100 5750
+	2100 5350 2100 5550
 Wire Wire Line
 	850  5800 950  5800
 Wire Wire Line
 	850  5300 950  5300
 Wire Wire Line
-	1250 5300 1450 5300
+	1250 5300 1350 5300
 Wire Wire Line
-	1250 5800 1450 5800
+	1250 5800 1350 5800
 Wire Wire Line
 	1750 5400 1750 5300
 Connection ~ 1750 5300
@@ -541,13 +527,13 @@ Wire Wire Line
 	1750 5700 1750 5800
 Connection ~ 1750 5800
 Wire Wire Line
-	2500 5500 1950 5500
+	2500 5500 2000 5500
 Wire Wire Line
-	1950 5500 1950 5300
+	2000 5500 2000 5300
 Wire Wire Line
-	2500 5600 1950 5600
+	2500 5600 2000 5600
 Wire Wire Line
-	1950 5600 1950 5800
+	2000 5600 2000 5800
 Wire Wire Line
 	850  4900 850  5300
 Connection ~ 850  5800
@@ -942,21 +928,21 @@ $EndComp
 $Comp
 L MuxPi:R R37
 U 1 1 58525399
-P 1450 5550
-F 0 "R37" H 1350 5600 50  0000 C CNN
-F 1 "1M" H 1350 5700 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805" V 1380 5550 30  0001 C CNN
-F 3 "http://www.tme.eu/pl/Document/393e95a6d9f61f4002588a56cd2a1091/rezystor-smd.pdf" H 1450 5550 30  0001 C CNN
-F 4 "http://www.tme.eu/pl/details/smd0805-1m/rezystory-smd-0805/royal-ohm/0805s8j0105t5e/" V 1450 5550 60  0001 C CNN "Shop link"
-	1    1450 5550
+P 1350 5550
+F 0 "R37" H 1250 5400 50  0000 C CNN
+F 1 "1M" H 1250 5500 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805" V 1280 5550 30  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/393e95a6d9f61f4002588a56cd2a1091/rezystor-smd.pdf" H 1350 5550 30  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/smd0805-1m/rezystory-smd-0805/royal-ohm/0805s8j0105t5e/" V 1350 5550 60  0001 C CNN "Shop link"
+	1    1350 5550
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	1450 5400 1450 5300
-Connection ~ 1450 5300
+	1350 5400 1350 5300
+Connection ~ 1350 5300
 Wire Wire Line
-	1450 5700 1450 5800
-Connection ~ 1450 5800
+	1350 5700 1350 5800
+Connection ~ 1350 5800
 Wire Wire Line
 	10050 1600 10100 1600
 Wire Wire Line
@@ -1030,9 +1016,9 @@ Wire Wire Line
 Wire Wire Line
 	1300 4900 1350 4900
 Wire Wire Line
-	1750 5300 1950 5300
+	1750 5300 2000 5300
 Wire Wire Line
-	1750 5800 1950 5800
+	1750 5800 2000 5800
 Wire Wire Line
 	850  5800 850  5900
 Wire Wire Line
@@ -1048,9 +1034,9 @@ Wire Wire Line
 Wire Wire Line
 	10000 1900 10000 1950
 Wire Wire Line
-	1450 5300 1750 5300
+	1350 5300 1750 5300
 Wire Wire Line
-	1450 5800 1750 5800
+	1350 5800 1750 5800
 $Comp
 L MuxPi:Ferrite_Bead_Small L2
 U 1 1 5A8DBC88
@@ -1065,4 +1051,38 @@ F 6 "BLM21PG221SN1D" V 5350 5900 50  0001 C CNN "Symbol"
 	1    5350 5900
 	1    0    0    -1  
 $EndComp
+$Comp
+L Device:Crystal_GND24 Y2
+U 1 1 5BF160EA
+P 1750 5550
+F 0 "Y2" V 1550 5600 50  0000 L CNN
+F 1 "LF XTAL012504 - 24MHz" V 1350 5200 50  0000 L CNN
+F 2 "Crystal:Crystal_SMD_2520-4Pin_2.5x2.0mm" H 1750 5550 50  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/43d4b8b2418f10b1847f5f6593a9a63f/cfpx-218.pdf" H 1750 5550 50  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/24.00m-cfpx218/rezonatory-kwarcowe-smd/iqd-frequency-products/lfxtal053106bulk/" H 1750 5550 50  0001 C CNN "Shop link"
+F 5 "IQD FREQUENCY PRODUCTS" H 1750 5550 50  0001 C CNN "Manufacturer"
+F 6 "LFXTAL053106BULK" H 1750 5550 50  0001 C CNN "Symbol"
+	1    1750 5550
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	1950 5550 2100 5550
+Connection ~ 2100 5550
+Wire Wire Line
+	2100 5550 2100 5750
+$Comp
+L MuxPi:GND #PWR0197
+U 1 1 5BF40C91
+P 1500 5850
+F 0 "#PWR0197" H 1500 5600 50  0001 C CNN
+F 1 "GND" H 1500 5700 50  0000 C CNN
+F 2 "" H 1500 5850 60  0000 C CNN
+F 3 "" H 1500 5850 60  0000 C CNN
+	1    1500 5850
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	1500 5850 1500 5550
+Wire Wire Line
+	1500 5550 1550 5550
 $EndSCHEMATC

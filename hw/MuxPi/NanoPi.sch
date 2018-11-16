@@ -1,13 +1,13 @@
 EESchema Schematic File Version 4
 LIBS:MuxPi-cache
-EELAYER 26 0
+EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 8 12
 Title "MuxPi"
-Date "2018-08-14"
-Rev "1.3"
+Date "2018-11-16"
+Rev "1.4"
 Comp "SRPOL"
 Comment1 "Author: Adam Malinowski <a.malinowsk2@partner.samsung.com>"
 Comment2 "Copyright (c) 2016 -2018 Samsung Electronics Co., Ltd All Rights Reserved"
@@ -23,15 +23,13 @@ L MuxPi:CONN_01X12 P11
 U 1 1 583C5F7B
 P 1550 1650
 F 0 "P11" H 1500 2300 50  0000 L CNN
-F 1 "ZL262-20SG" H 1628 1600 50  0000 L CNN
+F 1 "ESW-112-23-T-S" H 1400 950 50  0000 L CNN
 F 2 "mux-footprints:pin_strip_2.54_s_1x12" H 1550 1650 50  0001 C CNN
-F 3 "https://www.tme.eu/pl/Document/efd0203e2d3a140765df98191085ea88/DS1023.pdf" H 1550 1650 50  0001 C CNN
-F 4 "https://www.tme.eu/pl/details/zl262-20sg/listwy-i-gniazda-kolkowe/connfly/ds1023-1_20s21/" H 1550 1650 60  0001 C CNN "Shop link"
-F 5 "CONNFLY" H 1550 1650 50  0001 C CNN "Manufacturer"
-F 6 "DS1023-1*20S21" H 1550 1650 50  0001 C CNN "Symbol"
-F 7 "http://www.tme.eu/pl/details/zl2019-20/listwy-i-gniazda-kolkowe/ninigi/" H 1550 1650 60  0001 C CNN "Complementary device"
-F 8 " ZL2019-20" H 1550 1650 50  0001 C CNN "Complementary symbol"
-F 9 "NINIGI" H 1550 1650 50  0001 C CNN "Complementary manufacturer"
+F 3 "http://suddendocs.samtec.com/catalog_english/esw_th.pdf" H 1550 1650 50  0001 C CNN
+F 4 "https://pl.mouser.com/ProductDetail/Samtec/ESW-112-23-T-S?qs=%2fha2pyFadujkH5gGqptgBE3B8C68bs4qYAGFweWNg2%252bYy7TdFH99Tw==" H 1550 1650 60  0001 C CNN "Shop link"
+F 5 "SAMTEC" H 1550 1650 50  0001 C CNN "Manufacturer"
+F 6 "ESW-112-23-T-S" H 1550 1650 50  0001 C CNN "Symbol"
+F 7 "1.79" H 1550 1650 50  0001 C CNN "Price"
 	1    1550 1650
 	-1   0    0    -1  
 $EndComp
@@ -40,15 +38,13 @@ L MuxPi:CONN_02X12 P14
 U 1 1 583C5FD5
 P 4850 1650
 F 0 "P14" H 4850 2300 50  0000 C CNN
-F 1 "ZL262-26DG" H 4850 2324 50  0001 C CNN
+F 1 "ESW-112-23-T-D" H 4850 2324 50  0001 C CNN
 F 2 "mux-footprints:pin_strip_2.54_s_2x12" H 4850 450 50  0001 C CNN
-F 3 "http://www.tme.eu/pl/Document/fb0b27a6ecd737255724d32410c10738/zl262-dg.pdf" H 4850 450 50  0001 C CNN
-F 4 "https://www.tme.eu/pl/details/zl262-26dg/listwy-i-gniazda-kolkowe/connfly/ds1023-2_13s21/" H 4850 1650 60  0001 C CNN "Shop link"
-F 5 "CONNFLY" H 4850 1650 50  0001 C CNN "Manufacturer"
-F 6 "DS1023-2*13S21" H 4850 1650 50  0001 C CNN "Symbol"
-F 7 "http://www.tme.eu/pl/details/zl2019-2x20/listwy-i-gniazda-kolkowe/ninigi/zl2019-40/" H 4850 1650 60  0001 C CNN "Complementary device"
-F 8 "NINIGI" H 4850 1650 50  0001 C CNN "Complementary manufacturer"
-F 9 "ZL2019-40" H 4850 1650 50  0001 C CNN "Complememntary symbol"
+F 3 "http://suddendocs.samtec.com/catalog_english/esw_th.pdf" H 4850 450 50  0001 C CNN
+F 4 "https://pl.mouser.com/ProductDetail/Samtec/ESW-112-23-T-D?qs=%2fha2pyFadujkH5gGqptgBGcmgqz6LBeXmdHJ0f8jxz5dDtnoGOIUnw%3d%3d" H 4850 1650 60  0001 C CNN "Shop link"
+F 5 "SAMTEC" H 4850 1650 50  0001 C CNN "Manufacturer"
+F 6 "ESW-112-23-T-D" H 4850 1650 50  0001 C CNN "Symbol"
+F 7 "2.74" H 4850 1650 50  0001 C CNN "Price"
 	1    4850 1650
 	1    0    0    -1  
 $EndComp
@@ -356,15 +352,13 @@ L MuxPi:CONN_01X04 P12
 U 1 1 5842EF3E
 P 1550 2950
 F 0 "P12" H 1628 2991 50  0000 L CNN
-F 1 "ZL201-04G" H 1628 2900 50  0000 L CNN
+F 1 "ESW-104-23-T-S" H 1400 2650 50  0000 L CNN
 F 2 "mux-footprints:pin_strip_2.54_s_1x4" H 1550 2950 50  0001 C CNN
 F 3 "http://www.tme.eu/pl/Document/cc301e58a5da78cb543a94b5a5b7f06a/DS1021.pdf" H 1550 2950 50  0001 C CNN
-F 4 "https://www.tme.eu/pl/details/zl262-4sg/listwy-i-gniazda-kolkowe/connfly/ds1023-1_4s21/" H 1550 2950 50  0001 C CNN "Shop link"
-F 5 "CONNFLY" H 1550 2950 50  0001 C CNN "Manufacturer"
-F 6 "DS1023-1*4S21" H 1550 2950 50  0001 C CNN "Symbol"
-F 7 "http://www.tme.eu/pl/details/zl201-04g/listwy-i-gniazda-kolkowe/connfly/ds1021-1_4sf1-1/" H 1550 2950 60  0001 C CNN "Complementary shop link"
-F 8 "CONNFLY" H 1550 2950 50  0001 C CNN "Complementary manufacturer"
-F 9 "DS1021-1*4SF1-1" H 1550 2950 50  0001 C CNN "Complementary symbol"
+F 4 "https://pl.mouser.com/ProductDetail/Samtec/ESW-104-23-T-S?qs=sGAEpiMZZMud62t8luTOJjm7bz%252bTRujNNX%2fC4BDoEJLIDL5ArWh15w%3d%3d" H 1550 2950 50  0001 C CNN "Shop link"
+F 5 "SAMTEC" H 1550 2950 50  0001 C CNN "Manufacturer"
+F 6 "ESW-104-23-T-S" H 1550 2950 50  0001 C CNN "Symbol"
+F 7 "0.93" H 1550 2950 50  0001 C CNN "Price"
 	1    1550 2950
 	-1   0    0    -1  
 $EndComp
@@ -644,10 +638,6 @@ Text Label 6250 1050 0    60   ~ 0
 USB_DUT-
 Text Label 6250 1150 0    60   ~ 0
 USB_DUT+
-Text Label 2350 1200 2    60   ~ 0
-USB_DUT+
-Text Label 2350 1300 2    60   ~ 0
-USB_DUT-
 Text Notes 7600 950  0    60   ~ 0
 USBoIP
 $Comp
@@ -1031,22 +1021,6 @@ F 3 "" H 2850 6950 50  0000 C CNN
 	1    2850 6950
 	1    0    0    -1  
 $EndComp
-$Comp
-L MuxPi:R R21
-U 1 1 586666AA
-P 4300 6250
-F 0 "R21" V 4200 6250 50  0000 C CNN
-F 1 "0R" V 4300 6250 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805" V 4230 6250 30  0001 C CNN
-F 3 "" H 4300 6250 30  0000 C CNN
-F 4 "http://www.tme.eu/pl/details/smd0805-560r/rezystory-smd-0805/royal-ohm/0805s8j0561t5e/" V 4300 6250 60  0001 C CNN "Shop link"
-	1    4300 6250
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	3750 6250 4150 6250
-Wire Wire Line
-	4450 6250 4500 6250
 Wire Wire Line
 	3750 6150 3800 6150
 Wire Wire Line
@@ -1487,51 +1461,34 @@ Wire Wire Line
 	9550 4950 10000 4950
 Text Notes 950  2700 0    60   Italic 12
 NOTE!\nP12 is for NanoPi NEO v1.1 and v1.2
-NoConn ~ 3550 2900
+NoConn ~ 3800 2900
 $Comp
 L MuxPi:GND #PWR085
 U 1 1 5A7950F6
-P 3650 3200
-F 0 "#PWR085" H 3650 2950 50  0001 C CNN
-F 1 "GND" H 3650 3050 50  0000 C CNN
-F 2 "" H 3650 3200 60  0000 C CNN
-F 3 "" H 3650 3200 60  0000 C CNN
-	1    3650 3200
+P 3900 3200
+F 0 "#PWR085" H 3900 2950 50  0001 C CNN
+F 1 "GND" H 3900 3050 50  0000 C CNN
+F 2 "" H 3900 3200 60  0000 C CNN
+F 3 "" H 3900 3200 60  0000 C CNN
+	1    3900 3200
 	-1   0    0    -1  
 $EndComp
 Wire Wire Line
-	3550 2800 3650 2800
+	3800 2800 3900 2800
 Wire Wire Line
-	3650 2800 3650 3200
-Text Label 4350 3000 2    60   ~ 0
+	3900 2800 3900 3200
+Text Label 4600 3000 2    60   ~ 0
 PI_UART0_TX
 Wire Wire Line
-	4350 3000 3550 3000
-Text Label 4350 3100 2    60   ~ 0
+	4600 3000 3800 3000
+Text Label 4600 3100 2    60   ~ 0
 PI_UART0_RX
 Wire Wire Line
-	4350 3100 3550 3100
-Text Notes 2950 2700 0    60   Italic 12
+	4600 3100 3800 3100
+Text Notes 3200 2700 0    60   Italic 12
 NOTE!\nP19 is for NanoPi NEO v1.3
 Text Notes 1200 3500 0    60   Italic 12
 Populate both if you want to comply with versions 1.1 1.2 1.3
-$Comp
-L MuxPi:CONN_01X04 P19
-U 1 1 5A86D25E
-P 3350 2950
-F 0 "P19" H 3428 2991 50  0000 L CNN
-F 1 "ZL201-04G" H 3428 2900 50  0000 L CNN
-F 2 "mux-footprints:pin_strip_2.54_s_1x4" H 3350 2950 50  0001 C CNN
-F 3 "http://www.tme.eu/pl/Document/cc301e58a5da78cb543a94b5a5b7f06a/DS1021.pdf" H 3350 2950 50  0001 C CNN
-F 4 "https://www.tme.eu/pl/details/zl262-4sg/listwy-i-gniazda-kolkowe/connfly/ds1023-1_4s21/" H 3350 2950 50  0001 C CNN "Shop link"
-F 5 "CONNFLY" H 3350 2950 50  0001 C CNN "Manufacturer"
-F 6 "DS1023-1*4S21" H 3350 2950 50  0001 C CNN "Symbol"
-F 7 "http://www.tme.eu/pl/details/zl201-04g/listwy-i-gniazda-kolkowe/connfly/ds1021-1_4sf1-1/" H 3350 2950 60  0001 C CNN "Complementary shop link"
-F 8 "CONNFLY" H 3350 2950 50  0001 C CNN "Complementary manufacturer"
-F 9 "DS1021-1*4SF1-1" H 3350 2950 50  0001 C CNN "Complementary symbol"
-	1    3350 2950
-	-1   0    0    -1  
-$EndComp
 $Comp
 L MuxPi:2N7002 Q9
 U 1 1 5A871503
@@ -1672,4 +1629,31 @@ Wire Wire Line
 	7150 3960 7150 4030
 Wire Wire Line
 	7150 4030 7310 4030
+$Comp
+L MuxPi:CONN_01X04 P19
+U 1 1 5BE81750
+P 3600 2950
+F 0 "P19" H 3678 2991 50  0000 L CNN
+F 1 "ESW-104-23-T-S" H 3450 2650 50  0000 L CNN
+F 2 "MuxPi:pin_strip_2.54_s_1x4" H 3600 2950 50  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/cc301e58a5da78cb543a94b5a5b7f06a/DS1021.pdf" H 3600 2950 50  0001 C CNN
+F 4 "https://pl.mouser.com/ProductDetail/Samtec/ESW-104-23-T-S?qs=sGAEpiMZZMud62t8luTOJjm7bz%252bTRujNNX%2fC4BDoEJLIDL5ArWh15w%3d%3d" H 3600 2950 50  0001 C CNN "Shop link"
+F 5 "SAMTEC" H 3600 2950 50  0001 C CNN "Manufacturer"
+F 6 "ESW-104-23-T-S" H 3600 2950 50  0001 C CNN "Symbol"
+F 7 "0.93" H 3600 2950 50  0001 C CNN "Price"
+	1    3600 2950
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	3750 6250 4500 6250
+Text HLabel 2350 1300 2    60   Input ~ 0
+USB_DUT-
+Text HLabel 2350 1200 2    60   Input ~ 0
+USB_DUT+
+Text Label 1900 1300 0    60   ~ 0
+USB_DUT-
+Text Label 1900 1200 0    60   ~ 0
+USB_DUT+
+Text Notes 2400 7450 0    60   ~ 12
+DNP
 $EndSCHEMATC

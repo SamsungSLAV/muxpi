@@ -1,13 +1,13 @@
 EESchema Schematic File Version 4
 LIBS:MuxPi-cache
-EELAYER 26 0
+EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 3 12
 Title "MuxPi"
-Date "2018-08-14"
-Rev "1.3"
+Date "2018-11-16"
+Rev "1.4"
 Comp "SRPOL"
 Comment1 "Author: Adam Malinowski <a.malinowsk2@partner.samsung.com>"
 Comment2 "Copyright (c) 2016 -2018 Samsung Electronics Co., Ltd All Rights Reserved"
@@ -128,50 +128,6 @@ F 3 "" H 4150 2500 60  0000 C CNN
 	1    4150 2500
 	-1   0    0    -1  
 $EndComp
-$Comp
-L MuxPi:GND #PWR040
-U 1 1 5849B401
-P 700 7350
-F 0 "#PWR040" H 700 7100 50  0001 C CNN
-F 1 "GND" H 700 7200 50  0000 C CNN
-F 2 "" H 700 7350 60  0000 C CNN
-F 3 "" H 700 7350 60  0000 C CNN
-	1    700  7350
-	1    0    0    -1  
-$EndComp
-$Comp
-L MuxPi:VDD #PWR039
-U 1 1 5849B40E
-P 700 6900
-F 0 "#PWR039" H 700 6750 50  0001 C CNN
-F 1 "VDD" H 700 7050 50  0000 C CNN
-F 2 "" H 700 6900 60  0000 C CNN
-F 3 "" H 700 6900 60  0000 C CNN
-	1    700  6900
-	1    0    0    -1  
-$EndComp
-$Comp
-L MuxPi:GND #PWR042
-U 1 1 5849B414
-P 1150 7350
-F 0 "#PWR042" H 1150 7100 50  0001 C CNN
-F 1 "GND" H 1150 7200 50  0000 C CNN
-F 2 "" H 1150 7350 60  0000 C CNN
-F 3 "" H 1150 7350 60  0000 C CNN
-	1    1150 7350
-	1    0    0    -1  
-$EndComp
-$Comp
-L MuxPi:VDD #PWR041
-U 1 1 5849B421
-P 1150 6900
-F 0 "#PWR041" H 1150 6750 50  0001 C CNN
-F 1 "VDD" H 1150 7050 50  0000 C CNN
-F 2 "" H 1150 6900 60  0000 C CNN
-F 3 "" H 1150 6900 60  0000 C CNN
-	1    1150 6900
-	1    0    0    -1  
-$EndComp
 Text Notes 650  750  0    60   ~ 0
 DUT PWR CTRL
 Text Notes 3950 3750 0    60   Italic 12
@@ -244,15 +200,7 @@ Wire Wire Line
 Connection ~ 3850 2350
 Wire Wire Line
 	4100 4300 3700 4300
-Wire Wire Line
-	700  6900 700  7000
-Wire Wire Line
-	700  7300 700  7350
-Wire Wire Line
-	1150 6900 1150 7000
-Wire Wire Line
-	1150 7300 1150 7350
-Text HLabel 10190 2040 2    60   Input ~ 0
+Text HLabel 10200 2400 2    60   Input ~ 0
 DUT_PWR_CURRENT
 Text HLabel 2350 5450 0    60   Input ~ 0
 POWER_SW_ON
@@ -282,30 +230,6 @@ Wire Notes Line
 	3000 4050 3000 3400
 Text Notes 3050 3550 0    60   Italic 12
 *
-$Comp
-L MuxPi:C C16
-U 1 1 584EE8D8
-P 700 7150
-F 0 "C16" H 750 7250 50  0000 L CNN
-F 1 "100nF/50V" V 550 6950 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805" H 738 7000 50  0001 C CNN
-F 3 "" H 700 7150 50  0000 C CNN
-F 4 "http://www.tme.eu/pl/details/cc0805jrx7r9104/kondensatory-mlcc-smd-0805/yageo/cc0805jrx7r9bb104/" H 700 7150 60  0001 C CNN "Shop link"
-	1    700  7150
-	1    0    0    -1  
-$EndComp
-$Comp
-L MuxPi:C C17
-U 1 1 584EE9B5
-P 1150 7150
-F 0 "C17" H 1200 7250 50  0000 L CNN
-F 1 "100nF/50V" V 1000 6950 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805" H 1188 7000 50  0001 C CNN
-F 3 "" H 1150 7150 50  0000 C CNN
-F 4 "http://www.tme.eu/pl/details/cc0805jrx7r9104/kondensatory-mlcc-smd-0805/yageo/cc0805jrx7r9bb104/" H 1150 7150 60  0001 C CNN "Shop link"
-	1    1150 7150
-	1    0    0    -1  
-$EndComp
 $Comp
 L MuxPi:C C18
 U 1 1 584EEDA8
@@ -434,8 +358,6 @@ Wire Wire Line
 	6900 3100 7000 3100
 Wire Wire Line
 	7750 3150 7750 3000
-Wire Wire Line
-	8860 2740 8860 2790
 $Comp
 L MuxPi:R R71
 U 1 1 5AA00267
@@ -460,22 +382,15 @@ F 4 "https://www.tme.eu/pl/details/crcw08058k20fktabc/rezystory-smd-0805/vishay/
 	1    6600 3100
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	6600 2850 6600 2900
-Wire Wire Line
-	6600 2900 7000 2900
-Connection ~ 6600 2900
-Wire Wire Line
-	6600 2900 6600 2950
 $Comp
 L MuxPi:GND #PWR0213
 U 1 1 5AA04F80
-P 6600 3770
-F 0 "#PWR0213" H 6600 3520 50  0001 C CNN
-F 1 "GND" H 6600 3620 50  0000 C CNN
-F 2 "" H 6600 3770 60  0000 C CNN
-F 3 "" H 6600 3770 60  0000 C CNN
-	1    6600 3770
+P 6600 3800
+F 0 "#PWR0213" H 6600 3550 50  0001 C CNN
+F 1 "GND" H 6600 3650 50  0000 C CNN
+F 2 "" H 6600 3800 60  0000 C CNN
+F 3 "" H 6600 3800 60  0000 C CNN
+	1    6600 3800
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -556,85 +471,62 @@ $EndComp
 $Comp
 L MuxPi:VDD #PWR0214
 U 1 1 5AE46727
-P 8860 2740
-F 0 "#PWR0214" H 8860 2590 50  0001 C CNN
-F 1 "VDD" H 8860 2890 50  0000 C CNN
-F 2 "" H 8860 2740 60  0000 C CNN
-F 3 "" H 8860 2740 60  0000 C CNN
-	1    8860 2740
+P 8850 2750
+F 0 "#PWR0214" H 8850 2600 50  0001 C CNN
+F 1 "VDD" H 8850 2900 50  0000 C CNN
+F 2 "" H 8850 2750 60  0000 C CNN
+F 3 "" H 8850 2750 60  0000 C CNN
+	1    8850 2750
 	1    0    0    -1  
-$EndComp
-$Comp
-L MuxPi:R R79
-U 1 1 5AE808D4
-P 8860 2340
-F 0 "R79" V 8760 2340 50  0000 C CNN
-F 1 "3.3K 1%" V 8960 2340 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805" V 8790 2340 30  0001 C CNN
-F 3 "https://www.tme.eu/pl/Document/cd08025e8728292bb79d3f4577300b82/rezystor-smd.pdf" H 8860 2340 30  0001 C CNN
-F 4 "https://www.tme.eu/pl/details/smd0805-1k-1%25/rezystory-smd-0805/royal-ohm/0805s8f1001t5e/" V 8860 2340 60  0001 C CNN "Shop link"
-	1    8860 2340
-	0    1    1    0   
 $EndComp
 $Comp
 L MuxPi:R R78
 U 1 1 5AE828B8
-P 8310 3190
-F 0 "R78" V 8210 3190 50  0000 C CNN
-F 1 "1K 1%" V 8410 3190 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805" V 8240 3190 30  0001 C CNN
-F 3 "https://www.tme.eu/pl/Document/cd08025e8728292bb79d3f4577300b82/rezystor-smd.pdf" H 8310 3190 30  0001 C CNN
-F 4 "https://www.tme.eu/pl/details/smd0805-1k-1%25/rezystory-smd-0805/royal-ohm/0805s8f1001t5e/" V 8310 3190 60  0001 C CNN "Shop link"
-	1    8310 3190
+P 8300 3200
+F 0 "R78" V 8200 3200 50  0000 C CNN
+F 1 "1K 1%" V 8400 3200 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805" V 8230 3200 30  0001 C CNN
+F 3 "https://www.tme.eu/pl/Document/cd08025e8728292bb79d3f4577300b82/rezystor-smd.pdf" H 8300 3200 30  0001 C CNN
+F 4 "https://www.tme.eu/pl/details/smd0805-1k-1%25/rezystory-smd-0805/royal-ohm/0805s8f1001t5e/" V 8300 3200 60  0001 C CNN "Shop link"
+	1    8300 3200
 	0    -1   -1   0   
 $EndComp
 $Comp
 L MuxPi:GND #PWR0216
 U 1 1 5AE9BB47
-P 8600 3680
-F 0 "#PWR0216" H 8600 3430 50  0001 C CNN
-F 1 "GND" H 8600 3530 50  0000 C CNN
-F 2 "" H 8600 3680 60  0000 C CNN
-F 3 "" H 8600 3680 60  0000 C CNN
-	1    8600 3680
+P 8600 3700
+F 0 "#PWR0216" H 8600 3450 50  0001 C CNN
+F 1 "GND" H 8600 3550 50  0000 C CNN
+F 2 "" H 8600 3700 60  0000 C CNN
+F 3 "" H 8600 3700 60  0000 C CNN
+	1    8600 3700
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	9510 3090 9510 2340
-Wire Wire Line
-	9510 2040 9880 2040
 $Comp
 L MuxPi:D D13
 U 1 1 5AEA63A0
-P 9880 2430
-F 0 "D13" H 9880 2530 50  0000 C CNN
-F 1 "STPS1L30A" H 9880 2330 50  0000 C CNN
-F 2 "mux-footprints:Sub_SMA" H 9880 2430 60  0001 C CNN
-F 3 "https://www.tme.eu/pl/Document/db6e659bbdb403bb0467e7bdd05bc1d0/STPS1L30A.pdf" H 9880 2430 60  0001 C CNN
-F 4 "https://www.tme.eu/pl/details/stps1l30a/diody-schottky-smd/st-microelectronics/" H 9880 2430 60  0001 C CNN "Shop link"
-F 5 "TAIWAN SEMICONDUCTOR" H 9880 2430 50  0001 C CNN "Manufacturer"
-F 6 "STPS1L30A" H 9880 2430 50  0001 C CNN "Symbol"
-	1    9880 2430
+P 9650 2650
+F 0 "D13" H 9650 2750 50  0000 C CNN
+F 1 "STPS1L30A" H 9650 2550 50  0000 C CNN
+F 2 "Diode_SMD:D_SMA" H 9650 2650 60  0001 C CNN
+F 3 "https://www.tme.eu/pl/Document/db6e659bbdb403bb0467e7bdd05bc1d0/STPS1L30A.pdf" H 9650 2650 60  0001 C CNN
+F 4 "https://www.tme.eu/pl/details/stps1l30a/diody-schottky-smd/st-microelectronics/" H 9650 2650 60  0001 C CNN "Shop link"
+F 5 "TAIWAN SEMICONDUCTOR" H 9650 2650 50  0001 C CNN "Manufacturer"
+F 6 "STPS1L30A" H 9650 2650 50  0001 C CNN "Symbol"
+	1    9650 2650
 	0    1    1    0   
 $EndComp
 $Comp
 L MuxPi:GND #PWR0218
 U 1 1 5AEA854F
-P 9880 2650
-F 0 "#PWR0218" H 9880 2400 50  0001 C CNN
-F 1 "GND" H 9880 2500 50  0000 C CNN
-F 2 "" H 9880 2650 60  0000 C CNN
-F 3 "" H 9880 2650 60  0000 C CNN
-	1    9880 2650
+P 9650 2900
+F 0 "#PWR0218" H 9650 2650 50  0001 C CNN
+F 1 "GND" H 9650 2750 50  0000 C CNN
+F 2 "" H 9650 2900 60  0000 C CNN
+F 3 "" H 9650 2900 60  0000 C CNN
+	1    9650 2900
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	9880 2580 9880 2650
-Wire Wire Line
-	9880 2280 9880 2040
-Connection ~ 9880 2040
-Wire Wire Line
-	9880 2040 10190 2040
 $Comp
 L MuxPi:ICL7660 U16
 U 1 1 5AEB2061
@@ -741,79 +633,30 @@ Text Label 7580 3600 2    60   ~ 0
 -VDD
 Wire Wire Line
 	3350 2050 5900 2050
-Wire Wire Line
-	8500 2340 8710 2340
-Wire Wire Line
-	9010 2340 9510 2340
-Wire Wire Line
-	9510 2340 9510 2040
-Connection ~ 9510 2340
 $Comp
 L MuxPi:MCP6002 U15
 U 2 1 5A8BF6A4
-P 8960 3090
-F 0 "U15" H 8960 3290 50  0000 L CNN
-F 1 "MCP6002-E/SN" H 8610 2790 50  0000 L CNN
-F 2 "mux-footprints:SOIC-8" H 8860 3140 50  0001 C CNN
-F 3 "http://www.tme.eu/pl/Document/c98656c49a036767b89c9bb93e3dda4a/mcp6001_2_4.pdf" H 8960 3240 50  0001 C CNN
-F 4 "http://www.tme.eu/pl/details/mcp6002-e_sn/wzmacniacze-operacyjne-smd/microchip-technology/" H 8960 3090 60  0001 C CNN "Shop link"
-F 5 "MICROCHIP TECHNOLOGY" H 8960 3090 50  0001 C CNN "Manufacturer"
-F 6 "MCP6002-E/SN" H 8960 3090 50  0001 C CNN "Symbol"
-	2    8960 3090
+P 8950 3100
+F 0 "U15" H 8950 3300 50  0000 L CNN
+F 1 "MCP6002-E/SN" H 8600 2800 50  0000 L CNN
+F 2 "mux-footprints:SOIC-8" H 8850 3150 50  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/c98656c49a036767b89c9bb93e3dda4a/mcp6001_2_4.pdf" H 8950 3250 50  0001 C CNN
+F 4 "http://www.tme.eu/pl/details/mcp6002-e_sn/wzmacniacze-operacyjne-smd/microchip-technology/" H 8950 3100 60  0001 C CNN "Shop link"
+F 5 "MICROCHIP TECHNOLOGY" H 8950 3100 50  0001 C CNN "Manufacturer"
+F 6 "MCP6002-E/SN" H 8950 3100 50  0001 C CNN "Symbol"
+	2    8950 3100
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	9260 3090 9510 3090
-Wire Wire Line
-	8500 2340 8500 3190
-Wire Wire Line
-	8500 3190 8460 3190
-Wire Wire Line
-	8500 3190 8660 3190
-Connection ~ 8500 3190
-Wire Wire Line
-	8860 3390 8860 3600
-Wire Wire Line
 	7750 3000 8050 3000
-Wire Wire Line
-	8050 3000 8050 3190
-Wire Wire Line
-	8050 3190 8160 3190
 Connection ~ 7750 3000
 Wire Wire Line
-	8600 3680 8600 2990
-Wire Wire Line
-	8600 2990 8660 2990
-Wire Wire Line
 	7200 3300 7200 3600
-Wire Wire Line
-	7200 3600 8860 3600
 Wire Wire Line
 	7750 3450 7750 3700
 Wire Wire Line
 	7750 3700 6900 3700
 Connection ~ 6900 3700
-$Comp
-L MuxPi:POT RV2
-U 1 1 5B764616
-P 6600 3490
-F 0 "RV2" H 6530 3536 50  0000 R CNN
-F 1 "POT" H 6530 3445 50  0000 R CNN
-F 2 "Potentiometers:Potentiometer_Trimmer_Bourns_3214J" H 6600 3490 50  0001 C CNN
-F 3 "" H 6600 3490 50  0001 C CNN
-	1    6600 3490
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6600 3640 6600 3770
-Wire Wire Line
-	6750 3490 6810 3490
-Wire Wire Line
-	6810 3490 6810 3290
-Wire Wire Line
-	6810 3290 6600 3290
-Wire Wire Line
-	6600 3290 6600 3250
 NoConn ~ 6600 3340
 Wire Notes Line
 	10100 1800 10100 5850
@@ -845,12 +688,95 @@ Text Notes 650  1450 0    60   ~ 0
 Also it will make possible to measure current as CMC measures current flowing only in one direction.
 Text Notes 7000 1000 0    60   Italic 12
 NOTE:
-Text Notes 7000 1150 0    60   ~ 0
-U4 can be changed to ACS723* to increase acuracy
 Text Notes 7000 1250 0    60   ~ 0
 of small value current measurement.
-Text Notes 7000 1350 0    60   ~ 0
-If ACS723 is used then value of R78 and R79 
-Text Notes 7000 1450 0    60   ~ 0
-should be changed according to desired gain.
+$Comp
+L MuxPi:POT RV2
+U 1 1 5B764616
+P 6600 3500
+F 0 "RV2" H 6530 3546 50  0000 R CNN
+F 1 "5k" H 6530 3455 50  0000 R CNN
+F 2 "MuxPi:Potentiometer_Trimmer_Bourns_3224W" H 6600 3500 50  0001 C CNN
+F 3 "https://www.maritex.com.pl/product/attachment/36537/pot-53w.pdf" H 6600 3500 50  0001 C CNN
+F 4 "https://www.maritex.com.pl/elementy_pasywne/potencjometry/wieloobrotowe/wieloobrotowe_smd/potencjometry_precyzyjne_wieloobrotowe_smd/pot53w502.html" H 6600 3500 50  0001 C CNN "Shop link"
+F 5 "3224W-502-1LF" H 6600 3500 50  0001 C CNN "Symbol"
+F 6 "ALLCONNE" H 6600 3500 50  0001 C CNN "Manufacturer"
+	1    6600 3500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6600 3650 6600 3800
+Wire Wire Line
+	6600 2850 6600 2900
+Wire Wire Line
+	7000 2900 6600 2900
+Connection ~ 6600 2900
+Wire Wire Line
+	6600 2900 6600 2950
+Wire Wire Line
+	6600 3250 6600 3300
+Wire Wire Line
+	6600 3300 6800 3300
+Wire Wire Line
+	6800 3300 6800 3500
+Wire Wire Line
+	6800 3500 6750 3500
+Wire Wire Line
+	8600 3000 8650 3000
+Wire Wire Line
+	8450 3200 8550 3200
+Wire Wire Line
+	8050 3000 8050 3200
+Wire Wire Line
+	8050 3200 8150 3200
+Connection ~ 8550 3200
+Wire Wire Line
+	8550 3200 8650 3200
+Wire Wire Line
+	9250 2400 9400 2400
+Wire Wire Line
+	9400 2400 9400 3100
+Wire Wire Line
+	9400 3100 9250 3100
+Wire Wire Line
+	9650 2800 9650 2900
+Wire Wire Line
+	9400 2400 9650 2400
+Connection ~ 9400 2400
+Wire Wire Line
+	9650 2500 9650 2400
+Connection ~ 9650 2400
+Wire Wire Line
+	9650 2400 10200 2400
+Wire Wire Line
+	8550 2200 9100 2200
+Wire Wire Line
+	9100 2200 9100 2250
+Wire Wire Line
+	8550 2200 8550 3200
+NoConn ~ 8950 2400
+$Comp
+L MuxPi:POT RV3
+U 1 1 5C397750
+P 9100 2400
+F 0 "RV3" H 9030 2446 50  0000 R CNN
+F 1 "5k" H 9030 2355 50  0000 R CNN
+F 2 "MuxPi:Potentiometer_Trimmer_Bourns_3224W" H 9100 2400 50  0001 C CNN
+F 3 "https://www.maritex.com.pl/product/attachment/36537/pot-53w.pdf" H 9100 2400 50  0001 C CNN
+F 4 "https://www.maritex.com.pl/elementy_pasywne/potencjometry/wieloobrotowe/wieloobrotowe_smd/potencjometry_precyzyjne_wieloobrotowe_smd/pot53w502.html" H 9100 2400 50  0001 C CNN "Shop link"
+F 5 "3224W-502-1LF" H 9100 2400 50  0001 C CNN "Symbol"
+F 6 "ALLCONNE" H 9100 2400 50  0001 C CNN "Manufacturer"
+	1    9100 2400
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	8850 2750 8850 2800
+Wire Wire Line
+	7200 3600 8850 3600
+Wire Wire Line
+	8850 3600 8850 3400
+Wire Wire Line
+	8600 3000 8600 3700
+Text Notes 7000 1150 0    60   ~ 0
+U4 can be changed to ACS723* to increase acuracy
 $EndSCHEMATC

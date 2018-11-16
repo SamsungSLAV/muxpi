@@ -1,33 +1,19 @@
 EESchema Schematic File Version 4
 LIBS:MuxPi-cache
-EELAYER 26 0
+EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 12 12
 Title "MuxPi"
-Date "2018-08-14"
-Rev "1.3"
+Date "2018-11-16"
+Rev "1.4"
 Comp "SRPOL"
 Comment1 "Author: Adam Malinowski <a.malinowsk2@partner.samsung.com>"
 Comment2 "Copyright (c) 2016 -2018 Samsung Electronics Co., Ltd All Rights Reserved"
 Comment3 ""
 Comment4 ""
 $EndDescr
-$Comp
-L MuxPi:CONN_01X04 J4
-U 1 1 58DA650C
-P 4300 2550
-F 0 "J4" H 4378 2591 50  0000 L CNN
-F 1 "CONN_01X04" H 4378 2500 50  0000 L CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x04_Pitch1.27mm" H 4300 2550 50  0001 C CNN
-F 3 "http://www.tme.eu/pl/Document/cb34e048abb83f790f0df461315a2ac0/DS1065-01.pdf" H 4300 2550 50  0001 C CNN
-F 4 "http://www.tme.eu/pl/details/ds1065-01-1x4s8bv/listwy-i-gniazda-kolkowe/connfly/ds1065-01-1_4s8bv/" H 4300 2550 60  0001 C CNN "Shop link"
-F 5 "CONNFLY" H 4300 2550 50  0001 C CNN "Manufacturer"
-F 6 "DS1065-01-1*4S8BV" H 4300 2550 50  0001 C CNN "Symbol"
-	1    4300 2550
-	-1   0    0    -1  
-$EndComp
 $Comp
 L MuxPi:GND #PWR0196
 U 1 1 58DA8D55
@@ -39,22 +25,6 @@ F 3 "" H 5300 3400 60  0000 C CNN
 	1    5300 3400
 	-1   0    0    -1  
 $EndComp
-$Comp
-L MuxPi:GND #PWR0194
-U 1 1 58DA8D5B
-P 4550 2750
-F 0 "#PWR0194" H 4550 2500 50  0001 C CNN
-F 1 "GND" H 4550 2600 50  0000 C CNN
-F 2 "" H 4550 2750 60  0000 C CNN
-F 3 "" H 4550 2750 60  0000 C CNN
-	1    4550 2750
-	-1   0    0    -1  
-$EndComp
-Text Label 5150 2500 2    60   ~ 0
-USB_LTHOR-
-Text Label 5150 2600 2    60   ~ 0
-USB_LTHOR+
-NoConn ~ 4500 2400
 $Comp
 L MuxPi:TS3USB30EDGSR U13
 U 1 1 58DA9533
@@ -125,31 +95,20 @@ F 3 "" H 6500 3400 60  0000 C CNN
 	1    6500 3400
 	-1   0    0    -1  
 $EndComp
-Text Label 7750 2700 0    60   ~ 0
+Text Label 7750 2900 0    60   ~ 0
 USB_ID
 $Comp
 L MuxPi:GND #PWR0201
 U 1 1 58DAB56F
-P 8100 2950
-F 0 "#PWR0201" H 8100 2700 50  0001 C CNN
-F 1 "GND" H 8100 2800 50  0000 C CNN
-F 2 "" H 8100 2950 60  0000 C CNN
-F 3 "" H 8100 2950 60  0000 C CNN
-	1    8100 2950
+P 8450 3150
+F 0 "#PWR0201" H 8450 2900 50  0001 C CNN
+F 1 "GND" H 8450 3000 50  0000 C CNN
+F 2 "" H 8450 3150 60  0000 C CNN
+F 3 "" H 8450 3150 60  0000 C CNN
+	1    8450 3150
 	-1   0    0    -1  
 $EndComp
-$Comp
-L MuxPi:CONN_01X05 J5
-U 1 1 58DAB6A7
-P 8350 2700
-F 0 "J5" H 8428 2741 50  0000 L CNN
-F 1 "CONN_01X05" H 8428 2650 50  0000 L CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x05_Pitch1.27mm" H 8350 2700 50  0001 C CNN
-F 3 "" H 8350 2700 50  0001 C CNN
-	1    8350 2700
-	1    0    0    -1  
-$EndComp
-Text Label 7750 2800 0    60   ~ 0
+Text Label 7750 2500 0    60   ~ 0
 VBUS
 $Comp
 L MuxPi:GND #PWR0200
@@ -227,12 +186,12 @@ $EndComp
 $Comp
 L MuxPi:+5V #PWR0193
 U 1 1 58DB0303
-P 4100 4500
-F 0 "#PWR0193" H 4100 4350 50  0001 C CNN
-F 1 "+5V" H 4115 4673 50  0000 C CNN
-F 2 "" H 4100 4500 50  0000 C CNN
-F 3 "" H 4100 4500 50  0000 C CNN
-	1    4100 4500
+P 4500 4500
+F 0 "#PWR0193" H 4500 4350 50  0001 C CNN
+F 1 "+5V" H 4515 4673 50  0000 C CNN
+F 2 "" H 4500 4500 50  0000 C CNN
+F 3 "" H 4500 4500 50  0000 C CNN
+	1    4500 4500
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -246,14 +205,10 @@ F 3 "" H 3850 4500 50  0000 C CNN
 	1    3850 4500
 	1    0    0    -1  
 $EndComp
-Text Label 5400 4600 2    60   ~ 0
+Text Label 5000 5350 2    60   ~ 0
 VBUS
 Wire Wire Line
 	4500 2500 5350 2500
-Wire Wire Line
-	4500 2700 4550 2700
-Wire Wire Line
-	4550 2700 4550 2750
 Wire Wire Line
 	5350 3350 5300 3350
 Wire Wire Line
@@ -273,21 +228,11 @@ Wire Wire Line
 Wire Wire Line
 	6450 3250 7050 3250
 Wire Wire Line
-	6450 2500 8150 2500
+	6450 2500 6600 2500
 Wire Wire Line
-	6450 2800 6500 2800
+	8150 2900 7750 2900
 Wire Wire Line
-	6500 2800 6500 2600
-Wire Wire Line
-	6500 2600 8150 2600
-Wire Wire Line
-	8150 2700 7750 2700
-Wire Wire Line
-	8150 2900 8100 2900
-Wire Wire Line
-	8100 2900 8100 2950
-Wire Wire Line
-	8150 2800 7750 2800
+	8150 2500 7750 2500
 Wire Wire Line
 	6800 5400 6800 5450
 Wire Wire Line
@@ -297,24 +242,7 @@ Wire Wire Line
 Wire Wire Line
 	6950 4800 7500 4800
 Wire Wire Line
-	4800 4600 4900 4600
-Wire Wire Line
-	4800 4700 4900 4700
-Connection ~ 4900 4700
-Wire Wire Line
-	4900 4800 4800 4800
-Connection ~ 4900 4800
-Wire Wire Line
-	4900 4900 4800 4900
-Wire Wire Line
 	3300 5250 3300 5300
-Wire Wire Line
-	4100 4800 4200 4800
-Wire Wire Line
-	4100 4500 4100 4600
-Wire Wire Line
-	4200 4700 4100 4700
-Connection ~ 4100 4700
 Connection ~ 3300 5250
 Wire Wire Line
 	3850 4950 4200 4950
@@ -323,16 +251,10 @@ Wire Wire Line
 Connection ~ 3850 4950
 Wire Wire Line
 	2750 5250 3300 5250
-Connection ~ 4100 4600
-Wire Wire Line
-	4900 4600 4900 4700
-Connection ~ 4900 4600
 Wire Wire Line
 	3300 5600 3300 5650
 Wire Wire Line
 	3850 5400 3850 5650
-Wire Wire Line
-	4100 4600 4200 4600
 Wire Wire Line
 	3850 4500 3850 4550
 Wire Wire Line
@@ -370,19 +292,11 @@ LTHOR_SWITCH
 Wire Wire Line
 	6800 4600 6800 4650
 Wire Wire Line
-	4900 4700 4900 4800
-Wire Wire Line
-	4900 4800 4900 4900
-Wire Wire Line
-	4100 4700 4100 4800
-Wire Wire Line
 	3300 5250 3550 5250
 Wire Wire Line
 	3850 4950 3850 5000
 Wire Wire Line
-	4100 4600 4100 4700
-Wire Wire Line
-	4900 4600 5400 4600
+	4500 5350 5000 5350
 $Comp
 L MuxPi:2N7002 Q13
 U 1 1 5A88C1DF
@@ -411,19 +325,56 @@ F 6 "2N7002" H 6700 5200 50  0001 C CNN "Symbol"
 	1    6700 5200
 	1    0    0    -1  
 $EndComp
-$Comp
-L MuxPi:BSO130P03S Q15
-U 1 1 5A88DDE3
-P 4500 4800
-F 0 "Q15" H 4500 5307 50  0000 C CNN
-F 1 "BSO130P03S" H 4500 5216 50  0000 C CNN
-F 2 "mux-footprints:SOIC-8" H 4500 5125 50  0001 C CIN
-F 3 "http://www.tme.eu/pl/Document/fde90035d9a6021d44d09086b0d9119c/BSO130P03SHXUMA1-DTE.pdf" V 4500 4800 50  0001 L CNN
-F 4 "http://www.tme.eu/pl/details/bso130p03shxuma1/tranzystory-z-kanalem-p-smd/infineon-technologies/" H 4500 4800 60  0001 C CNN "Shop link"
-F 5 "INFINEON TECHNOLOGIES" H 4500 4800 50  0001 C CNN "Manufacturer"
-F 6 "BSO130P03SHXUMA1" H 4500 4800 50  0001 C CNN "Symbol"
-	1    4500 4800
-	1    0    0    -1  
-$EndComp
 NoConn ~ 6800 4600
+$Comp
+L MuxPi:Q_PMOS_GSD Q6
+U 1 1 5C2D9E97
+P 4400 4950
+F 0 "Q6" H 4606 4996 50  0000 L CNN
+F 1 "DMP2035U-7" H 4606 4905 50  0000 L CNN
+F 2 "MuxPi:SOT-23" H 4600 5050 50  0001 C CNN
+F 3 "https://www.tme.eu/pl/Document/c0089df8c5de3ea3a074034d05f63960/DMP2035U.pdf" H 4400 4950 50  0001 C CNN
+F 4 "DMP2035U-7" H 4400 4950 50  0001 C CNN "Symbol"
+F 5 "DIODES INCORPORATED" H 4400 4950 50  0001 C CNN "Manufacturer"
+	1    4400 4950
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	4500 4500 4500 4750
+Wire Wire Line
+	4500 5350 4500 5150
+$Comp
+L Connector:USB_B_Mini J5
+U 1 1 5C2DF76E
+P 8450 2700
+F 0 "J5" H 8220 2689 50  0000 R CNN
+F 1 "UJ2-MBH-1-SMT-TR " H 8220 2598 50  0000 R CNN
+F 2 "MuxPi:USB_Mini-B_Lumberg_2486_01_Horizontal" H 8600 2650 50  0001 C CNN
+F 3 "https://pl.mouser.com/datasheet/2/670/uj2-mbh-smt-1313286.pdf" H 8600 2650 50  0001 C CNN
+F 4 "https://pl.mouser.com/ProductDetail/CUI/UJ2-MBH-1-SMT-TR?qs=sGAEpiMZZMulM8LPOQ%252byk%252br6FietFiXBYOK8b9%2fsuNIy0pbKqeLWLA%3d%3d" H 8450 2700 50  0001 C CNN "Shop link"
+F 5 "0.492" H 8450 2700 50  0001 C CNN "Price"
+F 6 "UJ2-MBH-1-SMT-TR " H 8450 2700 50  0001 C CNN "Symbol"
+	1    8450 2700
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	8450 3100 8450 3150
+Wire Wire Line
+	7100 2800 8150 2800
+Wire Wire Line
+	6600 2500 6600 2700
+Wire Wire Line
+	6600 2700 6950 2700
+Wire Wire Line
+	6450 2800 6950 2800
+Wire Wire Line
+	6950 2800 7100 2700
+Wire Wire Line
+	6950 2700 7100 2800
+Wire Wire Line
+	7100 2700 8150 2700
+Text HLabel 4500 2500 0    60   Input ~ 0
+USB_LTHOR-
+Text HLabel 4500 2600 0    60   Input ~ 0
+USB_LTHOR+
 $EndSCHEMATC

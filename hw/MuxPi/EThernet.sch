@@ -1,13 +1,13 @@
 EESchema Schematic File Version 4
 LIBS:MuxPi-cache
-EELAYER 26 0
+EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 11 12
 Title "MuxPi"
-Date "2018-08-14"
-Rev "1.3"
+Date "2018-11-16"
+Rev "1.4"
 Comp "SRPOL"
 Comment1 "Author: Adam Malinowski <a.malinowsk2@partner.samsung.com>"
 Comment2 "Copyright (c) 2016 -2018 Samsung Electronics Co., Ltd All Rights Reserved"
@@ -267,20 +267,6 @@ F 3 "" H 2950 5050 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L MuxPi:Crystal Y3
-U 1 1 585EE4AB
-P 1900 6100
-F 0 "Y3" V 1750 6000 50  0000 C CNN
-F 1 "25.00M-SMDHC49S" V 1600 6100 50  0000 C CNN
-F 2 "Crystals:Q_49U3HMS" H 1900 6100 50  0001 C CNN
-F 3 "http://www.tme.eu/pl/Document/6527d4ac6cd20f858e4312ccc80ef7ce/YIC-49US_49SMT-quartz_crystal.pdf" H 1900 6100 50  0001 C CNN
-F 4 "http://www.tme.eu/pl/details/25.00m-smdhc49s/rezonatory-kwarcowe-smd/yic/" V 1900 6100 60  0001 C CNN "Shop link"
-F 5 "YIC" V 1900 6100 50  0001 C CNN "Manufacturer"
-F 6 "25.00M-SMDHC49S" V 1900 6100 50  0001 C CNN "Symbol"
-	1    1900 6100
-	0    1    1    0   
-$EndComp
-$Comp
 L MuxPi:GND #PWR0156
 U 1 1 585EE4B2
 P 1200 6450
@@ -296,10 +282,10 @@ L MuxPi:C C54
 U 1 1 585EE4BF
 P 1450 5850
 F 0 "C54" V 1300 5800 50  0000 L CNN
-F 1 "30pF/50V" V 1600 5700 50  0000 L CNN
+F 1 "33pF/50V" V 1600 5700 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0805" H 1488 5700 30  0001 C CNN
-F 3 "http://www.tme.eu/pl/Document/4a42202b32dab16128fe107dd69598cc/samsung-chip-cap.pdf" H 1450 5850 60  0001 C CNN
-F 4 "http://www.tme.eu/pl/details/cl21c330jbannnd/kondensatory-mlcc-smd-0805/samsung/" V 1450 5850 60  0001 C CNN "Shop link"
+F 3 "http://www.farnell.com/datasheets/2340522.pdf" H 1450 5850 60  0001 C CNN
+F 4 "https://pl.farnell.com/walsin/0805n330j500ct/cap-33pf-50v-5-c0g-np0-0805-reel/dp/2495530" V 1450 5850 60  0001 C CNN "Shop link"
 	1    1450 5850
 	0    1    1    0   
 $EndComp
@@ -366,6 +352,7 @@ F 3 "http://www.farnell.com/datasheets/1669363.pdf?_ga=1.23852537.291132730.1474
 F 4 "http://pl.farnell.com/microchip/93aa56at-i-ot/serial-eeprom-2kbit-2mhz-sot-23/dp/1331419" H 2450 2600 60  0001 C CNN "Shop link"
 F 5 "MICROCHIP" H 2450 2600 50  0001 C CNN "Manufacturer"
 F 6 "93AA56AT-I/OT" H 2450 2600 50  0001 C CNN "Symbol"
+F 7 "DNP" H 2450 2300 50  0000 C CIB "Assembly"
 	1    2450 2600
 	-1   0    0    -1  
 $EndComp
@@ -652,7 +639,7 @@ Wire Wire Line
 Wire Wire Line
 	2200 6150 2200 6350
 Wire Wire Line
-	1200 5850 1200 6350
+	1200 5850 1200 6100
 Connection ~ 1200 6350
 Wire Wire Line
 	4750 5050 4750 5200
@@ -1097,10 +1084,10 @@ L MuxPi:R R53
 U 1 1 585344B5
 P 7100 2100
 F 0 "R53" V 7000 2050 50  0000 L CNN
-F 1 "330R" V 7050 2250 50  0000 L CNN
+F 1 "560R" V 7050 2250 50  0000 L CNN
 F 2 "Resistors_SMD:R_0805" V 7030 2100 50  0001 C CNN
 F 3 "http://www.tme.eu/pl/Document/7b8fed8c112f8a94930279c22c957f7f/rc0805yageo.pdf" H 7100 2100 50  0001 C CNN
-F 4 "http://www.tme.eu/pl/details/rc0805jr-07330r/rezystory-smd-0805/yageo/rc0805jr-07330rl/" V 7100 2100 60  0001 C CNN "Shop link"
+F 4 "https://www.tme.eu/pl/details/rc0805jr-07560r/rezystory-smd-0805/yageo/rc0805jr-07560rl/" V 7100 2100 60  0001 C CNN "Shop link"
 	1    7100 2100
 	0    1    1    0   
 $EndComp
@@ -1109,10 +1096,10 @@ L MuxPi:R R54
 U 1 1 58534829
 P 7100 2300
 F 0 "R54" V 7250 2250 50  0000 L CNN
-F 1 "330R" V 7050 2450 50  0000 L CNN
+F 1 "560R" V 7050 2450 50  0000 L CNN
 F 2 "Resistors_SMD:R_0805" V 7030 2300 50  0001 C CNN
 F 3 "http://www.tme.eu/pl/Document/7b8fed8c112f8a94930279c22c957f7f/rc0805yageo.pdf" H 7100 2300 50  0001 C CNN
-F 4 "http://www.tme.eu/pl/details/rc0805jr-07330r/rezystory-smd-0805/yageo/rc0805jr-07330rl/" V 7100 2300 60  0001 C CNN "Shop link"
+F 4 "https://www.tme.eu/pl/details/rc0805jr-07560r/rezystory-smd-0805/yageo/rc0805jr-07560rl/" V 7100 2300 60  0001 C CNN "Shop link"
 	1    7100 2300
 	0    1    1    0   
 $EndComp
@@ -1151,18 +1138,6 @@ F 3 "http://www.tme.eu/pl/Document/7b8fed8c112f8a94930279c22c957f7f/rc0805yageo.
 F 4 "http://www.tme.eu/pl/details/rc0805fr-0749r9/rezystory-smd-0805/yageo/rc0805fr-0749r9l/" H 7150 1150 60  0001 C CNN "Shop link"
 	1    7150 1150
 	1    0    0    -1  
-$EndComp
-$Comp
-L MuxPi:C C55
-U 1 1 5853EA53
-P 1450 6350
-F 0 "C55" V 1300 6300 50  0000 L CNN
-F 1 "30pF/50V" V 1600 6200 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805" H 1488 6200 30  0001 C CNN
-F 3 "http://www.tme.eu/pl/Document/4a42202b32dab16128fe107dd69598cc/samsung-chip-cap.pdf" H 1450 6350 60  0001 C CNN
-F 4 "http://www.tme.eu/pl/details/cl21c330jbannnd/kondensatory-mlcc-smd-0805/samsung/" V 1450 6350 60  0001 C CNN "Shop link"
-	1    1450 6350
-	0    1    1    0   
 $EndComp
 Text Label 5550 1450 0    60   ~ 0
 TX+
@@ -1291,4 +1266,52 @@ F 6 "BLM21PG121SN1D" V 6250 6450 50  0001 C CNN "Symbol"
 	1    6250 6450
 	0    1    1    0   
 $EndComp
+$Comp
+L MuxPi:C C55
+U 1 1 5BEDDA2A
+P 1450 6350
+F 0 "C55" V 1300 6300 50  0000 L CNN
+F 1 "33pF/50V" V 1600 6200 50  0000 L CNN
+F 2 "MuxPi:C_0805" H 1488 6200 30  0001 C CNN
+F 3 "http://www.farnell.com/datasheets/2340522.pdf" H 1450 6350 60  0001 C CNN
+F 4 "https://pl.farnell.com/walsin/0805n330j500ct/cap-33pf-50v-5-c0g-np0-0805-reel/dp/2495530" V 1450 6350 60  0001 C CNN "Shop link"
+	1    1450 6350
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:Crystal_GND24 Y?
+U 1 1 5BF5EFA3
+P 1900 6100
+AR Path="/584D6534/5BF5EFA3" Ref="Y?"  Part="1" 
+AR Path="/584BEF7D/5BF5EFA3" Ref="Y3"  Part="1" 
+F 0 "Y3" V 1700 6150 50  0000 L CNN
+F 1 "25.00M-CFPX218" V 1300 5600 50  0000 L CNN
+F 2 "Crystal:Crystal_SMD_2520-4Pin_2.5x2.0mm" H 1900 6100 50  0001 C CNN
+F 3 "http://www.tme.eu/pl/Document/43d4b8b2418f10b1847f5f6593a9a63f/cfpx-218.pdf" H 1900 6100 50  0001 C CNN
+F 4 "https://www.tme.eu/pl/details/25.00m-cfpx218/rezonatory-kwarcowe-smd/iqd-frequency-products/lfxtal053108bulk/" H 1900 6100 50  0001 C CNN "Shop link"
+F 5 "IQD FREQUENCY PRODUCTS" H 1900 6100 50  0001 C CNN "Manufacturer"
+F 6 "LFXTAL053108BULK" H 1900 6100 50  0001 C CNN "Symbol"
+	1    1900 6100
+	0    1    1    0   
+$EndComp
+$Comp
+L MuxPi:GND #PWR0203
+U 1 1 5BF680BA
+P 2350 6250
+F 0 "#PWR0203" H 2350 6000 50  0001 C CNN
+F 1 "GND" H 2355 6077 50  0001 C CNN
+F 2 "" H 2350 6250 50  0000 C CNN
+F 3 "" H 2350 6250 50  0000 C CNN
+	1    2350 6250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2350 6250 2350 6100
+Wire Wire Line
+	2350 6100 2100 6100
+Wire Wire Line
+	1700 6100 1200 6100
+Wire Wire Line
+	1200 6100 1200 6350
+Connection ~ 1200 6100
 $EndSCHEMATC

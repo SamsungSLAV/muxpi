@@ -1,13 +1,13 @@
 EESchema Schematic File Version 4
 LIBS:MuxPi-cache
-EELAYER 26 0
+EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 7 12
 Title "MuxPi"
-Date "2018-08-14"
-Rev "1.3"
+Date "2018-11-16"
+Rev "1.4"
 Comp "SRPOL"
 Comment1 "Author: Adam Malinowski <a.malinowsk2@partner.samsung.com>"
 Comment2 "Copyright (c) 2016 -2018 Samsung Electronics Co., Ltd All Rights Reserved"
@@ -284,7 +284,7 @@ U 1 1 584E8E80
 P 8850 1900
 F 0 "P9" H 8850 2150 50  0000 C CNN
 F 1 "T821108A1S100CEU" H 8850 2250 50  0000 C CNN
-F 2 "w_conn_strip:vasch_strip_4x2" H 8850 700 60  0001 C CNN
+F 2 "MuxPi:vasch_strip_4x2" H 8850 700 60  0001 C CNN
 F 3 "http://www.tme.eu/pl/Document/cda30bae7de800ca9be388e3f3476120/T821-1-08-S1.pdf" H 8850 700 60  0001 C CNN
 F 4 "http://www.tme.eu/pl/details/t821-1-08-s1/zlacza-idc/amphenol/t821108a1s100ceu/" H 8850 1900 60  0001 C CNN "Shop link"
 F 5 "AMPHENOL" H 8850 1900 50  0001 C CNN "Manufacturer"

@@ -1532,7 +1532,7 @@ $FPLIST
  *QFN*48*
 $ENDFPLIST
 DRAW
-T 0 150 400 60 0 1 0 Card~reader Normal 0 C C
+T 0 150 400 60 0 1 0 "Card reader" Normal 0 C C
 T 0 -250 -1100 60 0 1 0 EEPROM Normal 0 C C
 T 0 150 1200 60 0 1 0 USB Normal 0 C C
 T 0 0 900 60 0 2 0 Misc. Normal 0 C C
