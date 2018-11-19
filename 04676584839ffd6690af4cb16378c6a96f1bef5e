@@ -16,6 +16,24 @@
       "revId": "04676584839ffd6690af4cb16378c6a96f1bef5e",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "763df000_c9ee2feb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1015231
+      },
+      "writtenOn": "2018-11-19T12:45:29Z",
+      "side": 1,
+      "message": "we did! As the projects name is muxpi and this software is to control all muxpi features (probably including power and leds accessible from nanopi- thus it will not only communicate with muxpi firmware) i thought it will be more appropriate to use full name. It will be easy to change now (as it is unique name in scope of this repository, unlike \u0027stm\u0027) so lmk and i\u0027ll sed it.",
+      "parentUuid": "ecc97eac_d1e58ee7",
+      "revId": "04676584839ffd6690af4cb16378c6a96f1bef5e",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
     }
   ]
 }
