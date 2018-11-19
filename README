@@ -79,3 +79,31 @@ License
 MuxPi is distributed under `Apache 2.0 License`_
 
 .. _`Apache 2.0 License`: LICENSE
+
+
+
+*************
+Serial number
+*************
+
+Basically, the serial numbers consists of three parts and 15 characters:
+
+::
+
+[MuxPi hash ID] - [Batch number] - [Production Date]
+example:
+
+where:
+
+1. **MuxPi hash ID**\ (8 alphanumeric characters) - CRC32 hash code of joint
+fields:
+
+  * manufacturer ID (a country where pcb boards are manufactured)
+  * assembly company ID (a country code where the device is assembled)
+  * MuxPi revision number
+  * PCB order number
+
+    `CHPL130H41914G9SG91  --->  (CRC32) 58C8F93D`
+
+2. **Batch number**\ (3 numeric characters) - increments from `000` to `999`
+3. **Production date** \ (4 numeric characters) - format `YYMM`
