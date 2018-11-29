@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "af4ece3c_6a18d8e7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1015240
+      },
+      "writtenOn": "2018-11-29T10:41:09Z",
+      "side": 1,
+      "message": "not anymore",
+      "range": {
+        "startLine": 7,
+        "startChar": 29,
+        "endLine": 7,
+        "endChar": 35
+      },
+      "revId": "09e57cf6a30de21ab5acdd5461cc3f3753cdfb3d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1d7181c_14ea3ba2",
+        "filename": "sw/nanopi/cmd/sflasher/sflasher.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1015240
+      },
+      "writtenOn": "2018-11-29T10:41:09Z",
+      "side": 1,
+      "message": "Finally :) Thanks.",
+      "range": {
+        "startLine": 50,
+        "startChar": 5,
+        "endLine": 50,
+        "endChar": 14
+      },
+      "revId": "09e57cf6a30de21ab5acdd5461cc3f3753cdfb3d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7179d643_7652de48",
+        "filename": "sw/nanopi/cmd/sflasher/sflasher.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1015240
+      },
+      "writtenOn": "2018-11-29T10:41:09Z",
+      "side": 1,
+      "message": "This is not related to commit message.",
+      "range": {
+        "startLine": 88,
+        "startChar": 1,
+        "endLine": 91,
+        "endChar": 2
+      },
+      "revId": "09e57cf6a30de21ab5acdd5461cc3f3753cdfb3d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
