@@ -58,6 +58,30 @@
       "revId": "afd11db4a1352d1a24a132cd4c31db66172d226f",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "723f158a_d8a0221c",
+        "filename": "sw/nanopi/debian/control",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1015237
+      },
+      "writtenOn": "2018-11-29T12:31:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c4f4a65_4a744819",
+      "range": {
+        "startLine": 19,
+        "startChar": 10,
+        "endLine": 19,
+        "endChar": 17
+      },
+      "revId": "afd11db4a1352d1a24a132cd4c31db66172d226f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
