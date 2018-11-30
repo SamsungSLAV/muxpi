@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f35db81_0fc33159",
+        "filename": "sw/MuxPi-addons/IR_addon/NanoPi/demo/demo_deep_sleep.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1015240
+      },
+      "writtenOn": "2018-11-30T20:22:08Z",
+      "side": 1,
+      "message": "What is this for?",
+      "revId": "7789d698050352bad554926d455ea71e1a725959",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c836e802_5991d09d",
+        "filename": "sw/MuxPi-addons/IR_addon/NanoPi/demo/demo_factory_reset.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1015240
+      },
+      "writtenOn": "2018-11-30T20:22:08Z",
+      "side": 1,
+      "message": "Description in other files are a bit more explaining.",
+      "revId": "7789d698050352bad554926d455ea71e1a725959",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9e0f876_db425021",
+        "filename": "sw/MuxPi-addons/IR_addon/NanoPi/demo/demo_hdmi.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1015240
+      },
+      "writtenOn": "2018-11-30T20:22:08Z",
+      "side": 1,
+      "message": "Description in other files are a bit more explaining.",
+      "revId": "7789d698050352bad554926d455ea71e1a725959",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
