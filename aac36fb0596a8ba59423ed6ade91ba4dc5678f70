@@ -16,6 +16,24 @@
       "revId": "aac36fb0596a8ba59423ed6ade91ba4dc5678f70",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afe95a9c_a3c4e3c7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1015222
+      },
+      "writtenOn": "2018-12-06T10:04:19Z",
+      "side": 1,
+      "message": "Binaries are copied to Nanopi and flashed to MIR\u0027s atmega from there.\nIf you think other localisation is more suitable I am open to suggestions",
+      "parentUuid": "9701e3cc_5f77eda0",
+      "revId": "aac36fb0596a8ba59423ed6ade91ba4dc5678f70",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
     }
   ]
 }
