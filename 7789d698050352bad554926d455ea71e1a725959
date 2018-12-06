@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "02b77165_82578358",
+        "filename": "sw/MuxPi-addons/IR_addon/NanoPi/demo/demo_deep_sleep.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1015222
+      },
+      "writtenOn": "2018-12-06T16:23:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f35db81_0fc33159",
+      "revId": "7789d698050352bad554926d455ea71e1a725959",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c836e802_5991d09d",
         "filename": "sw/MuxPi-addons/IR_addon/NanoPi/demo/demo_factory_reset.sh",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "91a62e5a_0dbecd01",
+        "filename": "sw/MuxPi-addons/IR_addon/NanoPi/demo/demo_factory_reset.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1015222
+      },
+      "writtenOn": "2018-12-06T16:23:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c836e802_5991d09d",
+      "revId": "7789d698050352bad554926d455ea71e1a725959",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9e0f876_db425021",
         "filename": "sw/MuxPi-addons/IR_addon/NanoPi/demo/demo_hdmi.sh",
         "patchSetId": 1
@@ -50,6 +86,24 @@
       "revId": "7789d698050352bad554926d455ea71e1a725959",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef644484_fb894d41",
+        "filename": "sw/MuxPi-addons/IR_addon/NanoPi/demo/demo_hdmi.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1015222
+      },
+      "writtenOn": "2018-12-06T16:23:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9e0f876_db425021",
+      "revId": "7789d698050352bad554926d455ea71e1a725959",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
