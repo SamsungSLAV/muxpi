@@ -22,6 +22,30 @@
       "revId": "06eec950293ca93e231c13527361f6e7b59f0058",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07ecff81_880816d4",
+        "filename": "sw/nanopi/cmd/sflasher/sflasher.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1015231
+      },
+      "writtenOn": "2018-12-09T17:42:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5fa08897_51bcdd54",
+      "range": {
+        "startLine": 17,
+        "startChar": 3,
+        "endLine": 17,
+        "endChar": 4
+      },
+      "revId": "06eec950293ca93e231c13527361f6e7b59f0058",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
