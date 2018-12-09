@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "51d3eb4a_67ef07d3",
+        "filename": "README",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1015231
+      },
+      "writtenOn": "2018-12-09T17:36:30Z",
+      "side": 1,
+      "message": "what about \u0027power\u0027 and \u0027gpio\u0027 directories? I don\u0027t see any gain from fixing it before it is actually implemented. I guess info that there will be such efforts might be included here (but i\u0027d rather see it in github).\n\nwe could prepare commits to include the power script and led scripts with the muxpictl (even as they are now - scripts called via os.exec? and fix it in that commit? this would be low-effort hotfix) \n\nAdditionally, we might need to consider some way of allowing user to control gpio in a way that will not interfere with normal muxpi operation.",
+      "parentUuid": "610a8beb_44243ccf",
+      "revId": "b9ec344b1583c97baf15cf1d026e6d6f1aa15db5",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9cb91b61_b3164bef",
         "filename": "sw/nanopi/cmd/muxpictl/muxpictl.go",
         "patchSetId": 4
@@ -39,6 +57,30 @@
       "revId": "b9ec344b1583c97baf15cf1d026e6d6f1aa15db5",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6965bdde_88ac492b",
+        "filename": "sw/nanopi/cmd/muxpictl/muxpictl.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1015231
+      },
+      "writtenOn": "2018-12-09T17:36:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9cb91b61_b3164bef",
+      "range": {
+        "startLine": 83,
+        "startChar": 33,
+        "endLine": 83,
+        "endChar": 36
+      },
+      "revId": "b9ec344b1583c97baf15cf1d026e6d6f1aa15db5",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "33b80a8e_9ef85681",
+        "filename": "sw/nanopi/cmd/muxpictl/muxpictl.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1015231
+      },
+      "writtenOn": "2018-12-09T17:36:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21ec9017_cdb4f241",
+      "range": {
+        "startLine": 88,
+        "startChar": 2,
+        "endLine": 88,
+        "endChar": 16
+      },
+      "revId": "b9ec344b1583c97baf15cf1d026e6d6f1aa15db5",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b6a9cbf_c4382dea",
         "filename": "sw/nanopi/cmd/muxpictl/server.go",
         "patchSetId": 4
@@ -85,6 +151,30 @@
       "revId": "b9ec344b1583c97baf15cf1d026e6d6f1aa15db5",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9ad3bc7_ad04e8de",
+        "filename": "sw/nanopi/cmd/muxpictl/server.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1015231
+      },
+      "writtenOn": "2018-12-09T17:36:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b6a9cbf_c4382dea",
+      "range": {
+        "startLine": 60,
+        "startChar": 5,
+        "endLine": 60,
+        "endChar": 19
+      },
+      "revId": "b9ec344b1583c97baf15cf1d026e6d6f1aa15db5",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     },
     {
       "key": {
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "518fb8a0_2015dbd9",
+        "filename": "sw/nanopi/fota/fota.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1015231
+      },
+      "writtenOn": "2018-12-09T17:36:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4356212_188b32ba",
+      "range": {
+        "startLine": 48,
+        "startChar": 24,
+        "endLine": 48,
+        "endChar": 27
+      },
+      "revId": "b9ec344b1583c97baf15cf1d026e6d6f1aa15db5",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f210332_305c2bc8",
         "filename": "sw/nanopi/fota/fota.go",
         "patchSetId": 4
@@ -134,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "dfd5bd9b_e0073d48",
+        "filename": "sw/nanopi/fota/fota.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1015231
+      },
+      "writtenOn": "2018-12-09T17:36:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f210332_305c2bc8",
+      "range": {
+        "startLine": 52,
+        "startChar": 69,
+        "endLine": 52,
+        "endChar": 72
+      },
+      "revId": "b9ec344b1583c97baf15cf1d026e6d6f1aa15db5",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a2c24eb_8565852c",
         "filename": "sw/nanopi/muxpictl/muxpictl_suite_test.go",
         "patchSetId": 4
@@ -154,6 +292,30 @@
       "revId": "b9ec344b1583c97baf15cf1d026e6d6f1aa15db5",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6315683e_bf272d7d",
+        "filename": "sw/nanopi/muxpictl/muxpictl_suite_test.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1015231
+      },
+      "writtenOn": "2018-12-09T17:36:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a2c24eb_8565852c",
+      "range": {
+        "startLine": 26,
+        "startChar": 5,
+        "endLine": 26,
+        "endChar": 12
+      },
+      "revId": "b9ec344b1583c97baf15cf1d026e6d6f1aa15db5",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
