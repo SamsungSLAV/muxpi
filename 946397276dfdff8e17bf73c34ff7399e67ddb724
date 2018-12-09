@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "741f8ff1_586bde72",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1015231
+      },
+      "writtenOn": "2018-12-09T22:40:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a24c87e_ce622c6c",
+      "range": {
+        "startLine": 7,
+        "startChar": 12,
+        "endLine": 7,
+        "endChar": 16
+      },
+      "revId": "946397276dfdff8e17bf73c34ff7399e67ddb724",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c797c51_4437d380",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -39,6 +63,24 @@
       "revId": "946397276dfdff8e17bf73c34ff7399e67ddb724",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26b4709a_b31a5713",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1015231
+      },
+      "writtenOn": "2018-12-09T22:40:35Z",
+      "side": 1,
+      "message": "ok, maybe in the future we will add a flag to set log-output to: std{out,err}, file, syslog (it will be useful to gather all logs from Weles job execution) but thats in the future.",
+      "parentUuid": "9c797c51_4437d380",
+      "revId": "946397276dfdff8e17bf73c34ff7399e67ddb724",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     },
     {
       "key": {
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "dcae8172_86bb28ad",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1015231
+      },
+      "writtenOn": "2018-12-09T22:40:35Z",
+      "side": 1,
+      "message": "OK, I extended previous commit with preparations (add log-level flag) and cleaned-up current solution to use logger more extensively.",
+      "parentUuid": "150595aa_1e3129a4",
+      "revId": "946397276dfdff8e17bf73c34ff7399e67ddb724",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2e78746_62e373b5",
         "filename": "sw/nanopi/sflasher/sdcard.go",
         "patchSetId": 2
@@ -70,6 +130,24 @@
       "writtenOn": "2018-11-29T11:02:49Z",
       "side": 1,
       "message": "This doesn\u0027t seem to be that easy.\nIf you leave the very next line as is then it will be printed in exitOnErr function and we will have the same error printed twice.",
+      "revId": "946397276dfdff8e17bf73c34ff7399e67ddb724",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3398c54f_b2456f30",
+        "filename": "sw/nanopi/sflasher/sdcard.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1015231
+      },
+      "writtenOn": "2018-12-09T22:40:35Z",
+      "side": 1,
+      "message": "I have changed it in cmd and added more logs in this funciton. Now error msg will not be printed twice (which imho isn\u0027t such a bad thing as it helps to track how it propagates) LMK if its Ok",
+      "parentUuid": "e2e78746_62e373b5",
       "revId": "946397276dfdff8e17bf73c34ff7399e67ddb724",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
