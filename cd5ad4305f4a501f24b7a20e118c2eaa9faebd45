@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "11feaf49_95e640d5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1015231
+      },
+      "writtenOn": "2018-12-09T23:08:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2862901d_bdaa490a",
+      "revId": "cd5ad4305f4a501f24b7a20e118c2eaa9faebd45",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1da8eddf_32549cbc",
         "filename": "sw/nanopi/muxpictl/muxpictl.go",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "cd5ad4305f4a501f24b7a20e118c2eaa9faebd45",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5989a1e7_16b8c3c7",
+        "filename": "sw/nanopi/muxpictl/muxpictl.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1015231
+      },
+      "writtenOn": "2018-12-09T23:08:18Z",
+      "side": 1,
+      "message": "removed (again- its might not be such a bad thing that error is logged twice- it shows how it propagates)",
+      "parentUuid": "1da8eddf_32549cbc",
+      "revId": "cd5ad4305f4a501f24b7a20e118c2eaa9faebd45",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
