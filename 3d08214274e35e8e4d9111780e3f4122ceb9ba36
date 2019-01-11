@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e28b1dfb_2770d21f",
+        "filename": "sw/MuxPi-addons/IR_addon/NanoPi/demo/demo_deep_sleep.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1015240
+      },
+      "writtenOn": "2019-01-11T11:34:17Z",
+      "side": 1,
+      "message": "Add -hupcl to stty.\nEvery script has to be changed this way.",
+      "revId": "3d08214274e35e8e4d9111780e3f4122ceb9ba36",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
