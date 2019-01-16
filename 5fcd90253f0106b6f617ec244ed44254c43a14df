@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a25408f5_76b95d82",
+        "filename": "sw/MuxPi-addons/IR_addon/NanoPi/flash.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1015240
+      },
+      "writtenOn": "2019-01-16T17:34:15Z",
+      "side": 1,
+      "message": "it has to be 115200",
+      "range": {
+        "startLine": 3,
+        "startChar": 71,
+        "endLine": 3,
+        "endChar": 76
+      },
+      "revId": "5fcd90253f0106b6f617ec244ed44254c43a14df",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
