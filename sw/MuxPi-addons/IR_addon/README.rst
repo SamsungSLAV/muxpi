@@ -1,0 +1,30 @@
+########
+IR addon
+########
+
+This is a simple addon for controling various devices through an infra red link.
+It is based on ATmega328p microcontroller and `IRRemote`_ library for
+Arduino. Check its documentation for details.
+NanoPi's OS communicates with this addon through serial (UART)
+connection available usually at /dev/ttyUSB0. If another USB<->serial
+converter is connected to MuxPi then IR addon might be available at
+different device.
+
+In muxpi/sw/MuxPi-addons/IR_addon/NanoPi/demo folder you can find
+sample codes and scripts for sending IR codes to Samsung TV.
+
+The general idea is as follows
+- read the codes: . exp_codes  (in demo folder)
+- setup the serial port: stty -F /de/ttyUSB0 57600 -hupcl
+- send code to the addon: cat $key_power > /dev/ttyUSB0
+
+NOTE: after setting -hupcl in stty command, first attempt to
+send anything to the addon will reset it. Just resend the key
+again. It happens only after first call to 'stty -hupcl' switch after
+MuxPi boot. Every next transmition will work properly.
+
+.. _`IRRemote`: IRRemote
+
+Hardware documentation of this addon is avaialable at
+muxpi/hw/MIR folder.
+
