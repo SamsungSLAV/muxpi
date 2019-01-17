@@ -7,7 +7,7 @@ It is based on ATmega328p microcontroller and IRRemote library for
 Arduino. Check its documentation for details.
 NanoPi's OS communicates with this addon through serial (UART)
 connection available usually at /dev/ttyUSB0. If another USB<->serial
-converter is connected to MuxPi then MIR addon might be available at
+converter is connected to MuxPi then IR addon might be available at
 different device.
 
 In muxpi/sw/MuxPi-addons/MIR_addon/NanoPi/demo folder you can find
