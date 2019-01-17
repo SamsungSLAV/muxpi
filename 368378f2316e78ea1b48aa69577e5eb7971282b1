@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9eb20f94_8e2d27b9",
+        "filename": "sw/MuxPi-addons/IR_addon/README.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1015240
+      },
+      "writtenOn": "2019-01-17T13:10:21Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 5,
+        "startChar": 27,
+        "endLine": 5,
+        "endChar": 37
+      },
+      "revId": "368378f2316e78ea1b48aa69577e5eb7971282b1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64383f8c_34741c22",
+        "filename": "sw/MuxPi-addons/IR_addon/README.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1015240
+      },
+      "writtenOn": "2019-01-17T13:10:21Z",
+      "side": 1,
+      "message": "dev",
+      "range": {
+        "startLine": 18,
+        "startChar": 34,
+        "endLine": 18,
+        "endChar": 36
+      },
+      "revId": "368378f2316e78ea1b48aa69577e5eb7971282b1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af204bbd_8bb20fe4",
+        "filename": "sw/MuxPi-addons/IR_addon/README.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1015240
+      },
+      "writtenOn": "2019-01-17T13:10:21Z",
+      "side": 1,
+      "message": "a",
+      "range": {
+        "startLine": 19,
+        "startChar": 6,
+        "endLine": 19,
+        "endChar": 7
+      },
+      "revId": "368378f2316e78ea1b48aa69577e5eb7971282b1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea3ba6be_f8648ea7",
+        "filename": "sw/MuxPi-addons/IR_addon/README.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1015240
+      },
+      "writtenOn": "2019-01-17T13:10:21Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 28,
+        "startChar": 40,
+        "endLine": 28,
+        "endChar": 50
+      },
+      "revId": "368378f2316e78ea1b48aa69577e5eb7971282b1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
