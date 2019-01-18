@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "bdd87b63_44c30023",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1015222
+      },
+      "writtenOn": "2019-01-18T10:19:04Z",
+      "side": 1,
+      "message": "Maybe we should stick to MIR name, since I removed all occurances of \u0027IR addon\u0027 (at least I think so)",
+      "range": {
+        "startLine": 7,
+        "startChar": 27,
+        "endLine": 7,
+        "endChar": 35
+      },
+      "revId": "368378f2316e78ea1b48aa69577e5eb7971282b1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c25e8cbd_a8aab2c8",
         "filename": "sw/MuxPi-addons/IR_addon/README.rst",
         "patchSetId": 1
