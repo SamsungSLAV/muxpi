@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e761075_137a683b",
+        "filename": "sw/MuxPi-addons/IR_addon/README.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1015222
+      },
+      "writtenOn": "2019-01-18T12:34:42Z",
+      "side": 1,
+      "message": "IR_addon directory can be renamed to MIR for consistency, but otherwise OK",
+      "revId": "42adfc6f71bd4ddb6f86bd974b5ff69751da4647",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
