@@ -35,7 +35,6 @@ var (
 
 func setFlags() {
 	flag.StringVar(&sdcard, "card", "", "path to SDcard")
-	// TODO: if map is not present it can generate an example.
 	flag.StringVar(&mapping, "map", "", "path to JSON formatted mapping")
 	flag.StringVar(&md5sums, "md5", "", "URL or path to MD5SUMS file")
 	flag.BoolVar(&quiet, "q", false, "suppress logging")
@@ -58,7 +57,7 @@ func main() {
 	flag.Parse()
 
 	if mapping == "" {
-		log.Fatal("missing mapping argument")
+		log.Fatal("missing mapping argument. Example: " + exampleMap)
 	}
 	if sdcard == "" {
 		log.Fatal("missing sdcard argument")
@@ -91,3 +90,15 @@ func main() {
 	checkErr("failed to flash images: ", err)
 
 }
+
+const exampleMap = `
+{
+	"boot.img": "1",
+	"rootfs.img": "2",
+	"system-data.img": "3",
+	"user.img": "5",
+	"modules.img": "6",
+	"ramdisk.img": "7",
+	"ramdisk-recovery.img": "8",
+	"inform.img": "9",
+}`
