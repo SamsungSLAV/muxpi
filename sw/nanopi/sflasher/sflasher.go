@@ -31,8 +31,6 @@ import (
 	"os"
 	"path"
 	"time"
-
-	"github.com/SamsungSLAV/muxpi/sw/nanopi/muxpictl"
 )
 
 // Sflasher provides methods to help in the process of flashing an image to sdcard.
@@ -46,17 +44,14 @@ type Sflasher struct {
 	PartMapping map[string]string
 	// verbose allows logging to default log.Logger instance or prevents it if false.
 	verbose bool
-	// dev is interface to MuxPiCtl.
-	dev muxpictl.Interface
 }
 
-// NewSflasher returns new instance of Sflasher. It also opens connection to MuxPiCtl.
-func NewSflasher(dev muxpictl.Interface, sdcard string, partMapping map[string]string) *Sflasher {
+// NewSflasher returns new instance of Sflasher.
+func NewSflasher(sdcard string, partMapping map[string]string) *Sflasher {
 	return &Sflasher{
 		checksums:   make(map[string]string),
 		SDcard:      sdcard,
 		PartMapping: partMapping,
-		dev:         dev,
 	}
 }
 
