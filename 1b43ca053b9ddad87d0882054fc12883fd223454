@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2a073a4c_531cfee7",
+        "filename": "sw/nanopi/cmd/muxpictl/muxpictl.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1015240
+      },
+      "writtenOn": "2019-01-24T11:12:29Z",
+      "side": 1,
+      "message": "You changed it to msg in flasher. It\u0027d be nice to do it here as well.",
+      "range": {
+        "startLine": 43,
+        "startChar": 15,
+        "endLine": 43,
+        "endChar": 18
+      },
+      "revId": "1b43ca053b9ddad87d0882054fc12883fd223454",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a58582a2_fd10f701",
+        "filename": "sw/nanopi/cmd/sflasher/sflasher.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1015240
+      },
+      "writtenOn": "2019-01-24T11:12:29Z",
+      "side": 1,
+      "message": "Shouldn\u0027t it be exitOnErr?",
+      "range": {
+        "startLine": 43,
+        "startChar": 5,
+        "endLine": 43,
+        "endChar": 13
+      },
+      "revId": "1b43ca053b9ddad87d0882054fc12883fd223454",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a98f7f94_9be26888",
+        "filename": "sw/nanopi/cmd/sflasher/sflasher.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1015240
+      },
+      "writtenOn": "2019-01-24T11:12:29Z",
+      "side": 1,
+      "message": "Still ctx.",
+      "range": {
+        "startLine": 45,
+        "startChar": 12,
+        "endLine": 45,
+        "endChar": 15
+      },
+      "revId": "1b43ca053b9ddad87d0882054fc12883fd223454",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
