@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1d751250_6ca8a1e8",
+        "filename": "sw/nanopi/cmd/sflasher/sflasher.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1015231
+      },
+      "writtenOn": "2019-01-24T14:47:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e59e24ec_208d7617",
+      "revId": "abc3d954633483b9bb6f678336435b68c4b47690",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df5415c2_bf8fc463",
         "filename": "sw/nanopi/sflasher/sflasher.go",
         "patchSetId": 6
@@ -30,6 +48,24 @@
       "writtenOn": "2019-01-24T12:33:27Z",
       "side": 1,
       "message": "Shouldn\u0027t it use logger?",
+      "revId": "abc3d954633483b9bb6f678336435b68c4b47690",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "006369eb_81c4b996",
+        "filename": "sw/nanopi/sflasher/sflasher.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1015231
+      },
+      "writtenOn": "2019-01-24T14:47:51Z",
+      "side": 1,
+      "message": "This commit changes logger in cmd, not in the sflasher package. this is consistent with the commit message and was intentional",
+      "parentUuid": "df5415c2_bf8fc463",
       "revId": "abc3d954633483b9bb6f678336435b68c4b47690",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": false
