@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c0eed173_379ebc7a",
+        "filename": "sw/nanopi/cmd/muxpictl/client.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1015240
+      },
+      "writtenOn": "2019-01-24T15:22:11Z",
+      "side": 1,
+      "message": "Hmmm... not italiano, but can\u0027t think of any better ;)",
+      "range": {
+        "startLine": 212,
+        "startChar": 14,
+        "endLine": 212,
+        "endChar": 19
+      },
+      "revId": "6c1b51443a932ebcb1c7314d8a308b82a7a4222a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4916bf85_095235aa",
+        "filename": "sw/nanopi/cmd/muxpictl/client.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1015240
+      },
+      "writtenOn": "2019-01-24T15:22:11Z",
+      "side": 1,
+      "message": "What about sth simpler? \"Invalid dyper/HDMI state\" maybe?",
+      "revId": "6c1b51443a932ebcb1c7314d8a308b82a7a4222a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
