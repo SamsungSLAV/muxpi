@@ -1,0 +1,124 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dda4352f_427cbdf8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1015240
+      },
+      "writtenOn": "2019-01-24T12:54:15Z",
+      "side": 1,
+      "message": "Italiano?",
+      "range": {
+        "startLine": 11,
+        "startChar": 26,
+        "endLine": 11,
+        "endChar": 33
+      },
+      "revId": "da941b1bf7f2c21cdfc7c4fa8fbec42502e00f05",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3773de5e_52bea2c8",
+        "filename": "sw/nanopi/sflasher/sflasher.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1015240
+      },
+      "writtenOn": "2019-01-24T12:54:15Z",
+      "side": 1,
+      "message": "Nope.",
+      "range": {
+        "startLine": 50,
+        "startChar": 49,
+        "endLine": 50,
+        "endChar": 86
+      },
+      "revId": "da941b1bf7f2c21cdfc7c4fa8fbec42502e00f05",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea0d1df4_3eb36875",
+        "filename": "sw/nanopi/sflasher/sflasher.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1015240
+      },
+      "writtenOn": "2019-01-24T12:54:15Z",
+      "side": 1,
+      "message": "data from",
+      "range": {
+        "startLine": 78,
+        "startChar": 46,
+        "endLine": 78,
+        "endChar": 47
+      },
+      "revId": "da941b1bf7f2c21cdfc7c4fa8fbec42502e00f05",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33734168_05df69a0",
+        "filename": "sw/nanopi/sflasher/sflasher.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1015240
+      },
+      "writtenOn": "2019-01-24T12:54:15Z",
+      "side": 1,
+      "message": "Would be nice if URL were given in this message.",
+      "revId": "da941b1bf7f2c21cdfc7c4fa8fbec42502e00f05",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9fc2edfc_531391bd",
+        "filename": "sw/nanopi/sflasher/sflasher.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1015240
+      },
+      "writtenOn": "2019-01-24T12:54:15Z",
+      "side": 1,
+      "message": "Which file.",
+      "revId": "da941b1bf7f2c21cdfc7c4fa8fbec42502e00f05",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6967dfb0_05500122",
+        "filename": "sw/nanopi/sflasher/sflasher.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1015240
+      },
+      "writtenOn": "2019-01-24T12:54:15Z",
+      "side": 1,
+      "message": "ibid",
+      "revId": "da941b1bf7f2c21cdfc7c4fa8fbec42502e00f05",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
