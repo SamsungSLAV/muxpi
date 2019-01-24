@@ -22,6 +22,30 @@
       "revId": "f614c0228ec2dd8a7ed7c15d7bd44b85ae4bb473",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb6a54b9_e4d23f3a",
+        "filename": "sw/nanopi/cmd/muxpictl/muxpictl.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1015231
+      },
+      "writtenOn": "2019-01-24T10:07:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78e9d8cb_0ed28963",
+      "range": {
+        "startLine": 83,
+        "startChar": 36,
+        "endLine": 83,
+        "endChar": 37
+      },
+      "revId": "f614c0228ec2dd8a7ed7c15d7bd44b85ae4bb473",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
