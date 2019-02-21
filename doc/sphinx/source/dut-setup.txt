@@ -11,6 +11,9 @@ First of all, you need to connect to the MuxPi::
 
    $ ssh root@192.168.0.2
 
+.. note::
+   The ip address varies on your network, an easy solution would be to create a local network 
+   with an extra router and running nmap on it.  
 
 **************************
 Set up DHCP server on eth1
@@ -82,14 +85,14 @@ Connect using UART
    .. note::
 
       You need to adjust setting in the command above to fit your UART
-      connection
-
+      connection. That can be the device file or the baud rate.
+   
    .. warning:: This setting is temporary.
 
 #. Connect to the device using your tool of choice::
 
       # screen /dev/ttyS1 115200
-      # minicom -b 115200 -D /dev/ttyUSB0
+      # minicom -b 115200 -D /dev/ttyS1
 
    .. note:: Adjust the baud rate accordingly.
 
