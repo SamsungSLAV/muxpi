@@ -1,0 +1,44 @@
+######################
+FOTA software of MuxPi
+######################
+
+This manual presents the main functionalities of fota.
+
+The SD-mux together with NanoPi Neo have two microSD card slots. The slot on
+the NanoPi Neo is used to boot MuxPi up and install software such as fota or
+stm. When using FOTA, the card slot on the SD-mux must be used.
+
+Find the correct device by running ``lsblk``
+
+**********
+Fota usage
+**********
+
+Overall, the idea of FOTA is to flash images to drives. Fota requires three
+arguments. The device to flash (e.g /dev/sda), a json file, and the path to the
+image compressed in ``tar.gz``. Optionally, you could also add the md5sum of
+the tarball.
+
+Example:
+
+fota -card /dev/sda -map map.json image.tar.gz
+=========
+JSON file
+=========
+
+The json file requires the name of the image, and the partition of the device::
+	{"boot.img": "1", "rootfs.img": "2"}
+
+This will write boot.img to /dev/sdX1 and the rootfs.img to /dev/sdX2. This is
+useful when you don't need to flash both partitions.
+
+.. Note ::
+	Depending on the image, it might require some modification in order to be flashed. 
+
+====================
+microSD-card adapter
+====================
+
+It is important to note that the length of the microSD-card adapter can play a
+big role. For raspberrypi3, the length of the cable is recommended to be from 1
+to 5cm. 

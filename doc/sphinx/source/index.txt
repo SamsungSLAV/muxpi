@@ -20,8 +20,9 @@ whole platform for specific target devices.
    armbian
    install-sw
    dut-setup
+   fota.txt
 
-Indices and tables
+   Indices and tables
 ==================
 
 * :ref:`genindex`
