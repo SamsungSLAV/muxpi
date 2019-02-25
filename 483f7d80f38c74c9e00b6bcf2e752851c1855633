@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ecb7e580_ef2bd0d1",
+        "filename": "sw/nanopi/cmd/sflasher/sflasher.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1015210
+      },
+      "writtenOn": "2019-02-25T13:40:07Z",
+      "side": 1,
+      "message": "Please move that to the top. In the whole codebase we put vars and const on the top.",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 2
+      },
+      "revId": "483f7d80f38c74c9e00b6bcf2e752851c1855633",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
