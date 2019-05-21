@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3197baa2_2d650725",
+        "filename": "sw/nanopi/sflasher/sflasher.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1015240
+      },
+      "writtenOn": "2019-05-21T09:02:55Z",
+      "side": 1,
+      "message": "Is it still being used?",
+      "revId": "c836785199c5d0b7cd75503713cdfe035fc10bf1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
