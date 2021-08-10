@@ -54,6 +54,7 @@ func main() {
 		new(display),
 		new(leds),
 		new(switches),
+		new(lthor),
 	}
 	for _, cmd := range allCommands {
 		cmd.setFlags()

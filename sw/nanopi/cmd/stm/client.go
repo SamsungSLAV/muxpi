@@ -232,3 +232,67 @@ func (s *switches) run(dev stm.Interface) {
 
 	s.setHDMI(dev, s.hdmiState)
 }
+
+func getUartUsbState(name, state string) (string, error) {
+	switch state {
+	case "uart":
+		return state, nil
+	case "usb":
+		return state, nil
+	}
+	return "", fmt.Errorf("unexpected value provided to %s: %s", name, state)
+}
+
+type lthor struct {
+	idState     string
+	switchState string
+	vbusState   string
+}
+
+func (l *lthor) setFlags() {
+	flag.StringVar(&l.idState, "lthor-id", "", "change id to the given state (usb|uart)")
+	flag.StringVar(&l.switchState, "lthor-switch", "", "change usb/uart switch to the given state (usb|uart)")
+	flag.StringVar(&l.vbusState, "lthor-vbus", "", "enable/disable vbus voltage (on|off)")
+}
+
+func (l *lthor) setLthorId(dev stm.Interface, state string) {
+	if state == "" {
+		return
+	}
+	b, err := getUartUsbState("lthor-id", state)
+	if err != nil {
+		log.Println(err)
+		return
+	}
+	dev.SetLthorId(b)
+}
+
+func (l *lthor) setLthorSwitch(dev stm.Interface, state string) {
+	if state == "" {
+		return
+	}
+	b, err := getUartUsbState("lthor-switch", state)
+	if err != nil {
+		log.Println(err)
+		return
+	}
+	dev.SetLthorSwitch(b)
+}
+
+func (l *lthor) setLthorVbus(dev stm.Interface, state string) {
+	if state == "" {
+		return
+	}
+	b, err := getBoolState("lthor-vbus", state)
+	if err != nil {
+		log.Println(err)
+		return
+	}
+	dev.SetLthorVbus(b)
+}
+
+func (l *lthor) run(dev stm.Interface) {
+	l.setLthorId(dev, l.idState)
+	l.setLthorSwitch(dev, l.switchState)
+	l.setLthorVbus(dev, l.vbusState)
+}

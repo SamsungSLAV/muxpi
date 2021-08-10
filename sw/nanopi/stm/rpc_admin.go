@@ -156,6 +156,51 @@ func (s *InterfaceService) SetDyper(request *InterfaceSetDyperRequest, response 
 	return
 }
 
+// InterfaceSetLthorIdRequest is a helper structure for SetLthorId method.
+type InterfaceSetLthorIdRequest struct {
+	State string
+}
+
+// InterfaceSetLthorIdResponse is a helper structure for SetLthorId method.
+type InterfaceSetLthorIdResponse struct {
+}
+
+// SetLthorId is RPC implementation of SetLthorId calling it.
+func (s *InterfaceService) SetLthorId(request *InterfaceSetLthorIdRequest, response *InterfaceSetLthorIdResponse) (err error) {
+	err = s.impl.SetLthorId(request.State)
+	return
+}
+
+// InterfaceSetLthorSwitchRequest is a helper structure for SetLthorSwitch method.
+type InterfaceSetLthorSwitchRequest struct {
+	State string
+}
+
+// InterfaceSetLthorSwitchResponse is a helper structure for SetLthorSwitch method.
+type InterfaceSetLthorSwitchResponse struct {
+}
+
+// SetLthorSwitch is RPC implementation of SetLthorSwitch calling it.
+func (s *InterfaceService) SetLthorSwitch(request *InterfaceSetLthorSwitchRequest, response *InterfaceSetLthorSwitchResponse) (err error) {
+	err = s.impl.SetLthorSwitch(request.State)
+	return
+}
+
+// InterfaceSetLthorVbusRequest is a helper structure for SetLthorVbus method.
+type InterfaceSetLthorVbusRequest struct {
+	On bool
+}
+
+// InterfaceSetLthorVbusResponse is a helper structure for SetLthorVbus method.
+type InterfaceSetLthorVbusResponse struct {
+}
+
+// SetLthorVbus is RPC implementation of SetLthorVbus calling it.
+func (s *InterfaceService) SetLthorVbus(request *InterfaceSetLthorVbusRequest, response *InterfaceSetLthorVbusResponse) (err error) {
+	err = s.impl.SetLthorVbus(request.On)
+	return
+}
+
 // InterfaceSetLEDRequest is a helper structure for SetLED method.
 type InterfaceSetLEDRequest struct {
 	Led     LED
@@ -293,6 +338,30 @@ func (_c *InterfaceClient) SetDyper(dyper Dyper, on bool) (err error) {
 	_request := &InterfaceSetDyperRequest{dyper, on}
 	_response := &InterfaceSetDyperResponse{}
 	err = _c.client.Call("Interface.SetDyper", _request, _response)
+	return err
+}
+
+// SetLthorId is part of implementation of Interface calling corresponding method on RPC server.
+func (_c *InterfaceClient) SetLthorId(state string) (err error) {
+	_request := &InterfaceSetLthorIdRequest{state}
+	_response := &InterfaceSetLthorIdResponse{}
+	err = _c.client.Call("Interface.SetLthorId", _request, _response)
+	return err
+}
+
+// SetLthorSwitch is part of implementation of Interface calling corresponding method on RPC server.
+func (_c *InterfaceClient) SetLthorSwitch(state string) (err error) {
+	_request := &InterfaceSetLthorSwitchRequest{state}
+	_response := &InterfaceSetLthorSwitchResponse{}
+	err = _c.client.Call("Interface.SetLthorSwitch", _request, _response)
+	return err
+}
+
+// SetLthorVbus is part of implementation of Interface calling corresponding method on RPC server.
+func (_c *InterfaceClient) SetLthorVbus(on bool) (err error) {
+	_request := &InterfaceSetLthorVbusRequest{on}
+	_response := &InterfaceSetLthorVbusResponse{}
+	err = _c.client.Call("Interface.SetLthorVbus", _request, _response)
 	return err
 }
 
