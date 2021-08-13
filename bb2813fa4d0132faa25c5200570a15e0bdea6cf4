@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40f0ea59_1372fa9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1015220
+      },
+      "writtenOn": "2021-08-13T11:42:10Z",
+      "side": 1,
+      "message": "Should the modules be declared in \"sw/nanopi\"? This might require updating import paths across whole SLAV (again) - point for discussion",
+      "revId": "bb2813fa4d0132faa25c5200570a15e0bdea6cf4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
