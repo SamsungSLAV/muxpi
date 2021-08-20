@@ -34,6 +34,24 @@
       "parentUuid": "40f0ea59_1372fa9d",
       "revId": "bb2813fa4d0132faa25c5200570a15e0bdea6cf4",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6da4efbb_6fd85138",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1015220
+      },
+      "writtenOn": "2021-08-20T12:57:18Z",
+      "side": 1,
+      "message": "I meant global module or the one in \"sw/nanopi\" by that but I will happily accept perfect solution if you have this up your sleeves ;)",
+      "parentUuid": "da772b4f_d5cf0e9f",
+      "revId": "bb2813fa4d0132faa25c5200570a15e0bdea6cf4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
