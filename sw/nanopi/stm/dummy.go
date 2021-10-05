@@ -110,3 +110,21 @@ func (d *Dummy) SetDyper(dyper Dyper, on bool) error {
 	log.Println(d.ctx, "SetDyper", dyper, on)
 	return nil
 }
+
+// SetLthorId prints "SetLthorId" and arguments to the standard logger.
+func (d *Dummy) SetLthorId(state string) (err error) {
+	log.Println(d.ctx, "SetLthorId", state)
+	return nil
+}
+
+// SetLthorSwitch prints "SetLthorSwitch" and arguments to the standard logger.
+func (d *Dummy) SetLthorSwitch(state string) (err error) {
+	log.Println(d.ctx, "SetLthorSwitch", state)
+	return nil
+}
+
+// SetLthorVbus prints "SetLthorVbus" and arguments to the standard logger.
+func (d *Dummy) SetLthorVbus(on bool) (err error) {
+	log.Println(d.ctx, "SetLthorVbus", on)
+	return nil
+}

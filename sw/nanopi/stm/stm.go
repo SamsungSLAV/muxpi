@@ -100,6 +100,9 @@ type UserInterface interface {
 	GetCurrentRecord() (samples []int, err error)
 	HDMI(on bool) (err error)
 	SetDyper(dyper Dyper, on bool) (err error)
+	SetLthorId(state string) (err error)
+	SetLthorSwitch(state string) (err error)
+	SetLthorVbus(on bool) (err error)
 }
 
 // AdminInterface contains methods of STM that are intended to
@@ -409,4 +412,19 @@ func (stm *STM) SetDyper(dyper Dyper, on bool) (err error) {
 		return stm.executeCommand(appendSwitch(string(dyper), on))
 	}
 	return fmt.Errorf("invalid dyper value: %v", dyper)
+}
+
+// SetLthorId switches ID to USB or UART.
+func (stm *STM) SetLthorId(state string) (err error) {
+	return stm.executeCommand("lthor id " + state)
+}
+
+// SetLthorSwitch changes switch to USB or UART.
+func (stm *STM) SetLthorSwitch(state string) (err error) {
+	return stm.executeCommand("lthor switch " + state)
+}
+
+// SetLthorSwitch enabled (or disables) VBUS.
+func (stm *STM) SetLthorVbus(on bool) (err error) {
+	return stm.executeCommand(appendSwitch("lthor vbus", on))
 }
